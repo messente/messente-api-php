@@ -1770,7 +1770,7 @@ class ContactsApi
      *
      * Returns all contacts.
      *
-     * @param  string[] $groupIds Group id string in uuid format. (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1787,7 +1787,7 @@ class ContactsApi
      *
      * Returns all contacts.
      *
-     * @param  string[] $groupIds Group id string in uuid format. (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1915,7 +1915,7 @@ class ContactsApi
      *
      * Returns all contacts.
      *
-     * @param  string[] $groupIds Group id string in uuid format. (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1935,7 +1935,7 @@ class ContactsApi
      *
      * Returns all contacts.
      *
-     * @param  string[] $groupIds Group id string in uuid format. (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1982,7 +1982,7 @@ class ContactsApi
     /**
      * Create request for operation 'fetchContacts'
      *
-     * @param  string[] $groupIds Group id string in uuid format. (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -307,7 +307,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupIds = array('groupIds_example'); // string[] | Group id string in uuid format.
+$groupIds = array('groupIds_example'); // string[] | Optional one or many group id strings in uuid format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\"
 
 try {
     $result = $apiInstance->fetchContacts($groupIds);
@@ -322,7 +322,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupIds** | [**string[]**](../Model/string.md)| Group id string in uuid format. | [optional]
+ **groupIds** | [**string[]**](../Model/string.md)| Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; | [optional]
 
 ### Return type
 
