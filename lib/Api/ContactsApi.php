@@ -1774,7 +1774,7 @@ class ContactsApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Messente\Api\Model\ContactListEnvelope|\Messente\Api\Model\ErrorPhonebook|\Messente\Api\Model\ErrorPhonebook
+     * @return \Messente\Api\Model\ContactListEnvelope|\Messente\Api\Model\ErrorPhonebook|\Messente\Api\Model\ErrorPhonebook|\Messente\Api\Model\ErrorPhonebook
      */
     public function fetchContacts($groupIds = null)
     {
@@ -1791,7 +1791,7 @@ class ContactsApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Messente\Api\Model\ContactListEnvelope|\Messente\Api\Model\ErrorPhonebook|\Messente\Api\Model\ErrorPhonebook, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Messente\Api\Model\ContactListEnvelope|\Messente\Api\Model\ErrorPhonebook|\Messente\Api\Model\ErrorPhonebook|\Messente\Api\Model\ErrorPhonebook, HTTP status code, HTTP response headers (array of strings)
      */
     public function fetchContactsWithHttpInfo($groupIds = null)
     {
@@ -1836,6 +1836,18 @@ class ContactsApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\Messente\Api\Model\ContactListEnvelope', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Messente\Api\Model\ErrorPhonebook' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorPhonebook', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1885,6 +1897,14 @@ class ContactsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Messente\Api\Model\ContactListEnvelope',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorPhonebook',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
