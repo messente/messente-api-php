@@ -75,7 +75,7 @@ class DeliveryReportApiTest extends TestCase
     /**
      * Test case for retrieveDeliveryReport
      *
-     * Retrieves the delivery report for the Omnimessage.
+     * Retrieves the delivery report for the Omnimessage..
      *
      */
     public function testRetrieveDeliveryReport()

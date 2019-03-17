@@ -135,7 +135,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for removeContactFromGroup
      *
-     * Remove a contact from a group..
+     * Removes a contact from a group..
      *
      */
     public function testRemoveContactFromGroup()

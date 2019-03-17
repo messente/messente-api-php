@@ -90,7 +90,7 @@ class DeliveryReportApi
     /**
      * Operation retrieveDeliveryReport
      *
-     * Retrieves the delivery report for the Omnimessage
+     * Retrieves the delivery report for the Omnimessage.
      *
      * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
      *
@@ -107,7 +107,7 @@ class DeliveryReportApi
     /**
      * Operation retrieveDeliveryReportWithHttpInfo
      *
-     * Retrieves the delivery report for the Omnimessage
+     * Retrieves the delivery report for the Omnimessage.
      *
      * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
      *
@@ -215,7 +215,7 @@ class DeliveryReportApi
     /**
      * Operation retrieveDeliveryReportAsync
      *
-     * Retrieves the delivery report for the Omnimessage
+     * Retrieves the delivery report for the Omnimessage.
      *
      * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
      *
@@ -235,7 +235,7 @@ class DeliveryReportApi
     /**
      * Operation retrieveDeliveryReportAsyncWithHttpInfo
      *
-     * Retrieves the delivery report for the Omnimessage
+     * Retrieves the delivery report for the Omnimessage.
      *
      * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
      *

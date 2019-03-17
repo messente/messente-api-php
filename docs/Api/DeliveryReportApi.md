@@ -4,13 +4,13 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage
+[**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage.
 
 
 # **retrieveDeliveryReport**
 > \Messente\Api\Model\DeliveryReportResponse retrieveDeliveryReport($omnimessageId)
 
-Retrieves the delivery report for the Omnimessage
+Retrieves the delivery report for the Omnimessage.
 
 ### Example
 ```php

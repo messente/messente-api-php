@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**fetchContact**](ContactsApi.md#fetchContact) | **GET** /contacts/{phone} | Lists a contact.
 [**fetchContactGroups**](ContactsApi.md#fetchContactGroups) | **GET** /contacts/{phone}/groups | Lists groups of a contact.
 [**fetchContacts**](ContactsApi.md#fetchContacts) | **GET** /contacts | Returns all contacts.
-[**removeContactFromGroup**](ContactsApi.md#removeContactFromGroup) | **DELETE** /groups/{groupId}/contacts/{phone} | Remove a contact from a group.
+[**removeContactFromGroup**](ContactsApi.md#removeContactFromGroup) | **DELETE** /groups/{groupId}/contacts/{phone} | Removes a contact from a group.
 [**updateContact**](ContactsApi.md#updateContact) | **PATCH** /contacts/{phone} | Updates a contact.
 
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 # **removeContactFromGroup**
 > removeContactFromGroup($groupId, $phone)
 
-Remove a contact from a group.
+Removes a contact from a group.
 
 ### Example
 ```php

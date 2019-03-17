@@ -2097,7 +2097,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroup
      *
-     * Remove a contact from a group.
+     * Removes a contact from a group.
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -2114,7 +2114,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroupWithHttpInfo
      *
-     * Remove a contact from a group.
+     * Removes a contact from a group.
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -2199,7 +2199,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroupAsync
      *
-     * Remove a contact from a group.
+     * Removes a contact from a group.
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -2220,7 +2220,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroupAsyncWithHttpInfo
      *
-     * Remove a contact from a group.
+     * Removes a contact from a group.
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
