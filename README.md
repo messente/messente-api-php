@@ -7,7 +7,7 @@
 
 ## Installation
 
-Install Messente API library with `TODO`.
+Install Messente API library with `composer require messente/messente-api-php`.
 
 ## Features
 
