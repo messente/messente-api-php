@@ -13,8 +13,8 @@ Install Messente API library with `composer require messente/messente-api-php`.
 
 Messente API has the following features:
 
-- Omnichannel ([external docs](https://messente.com/omnichannel-api)),
-- Phonebook ([external docs](https://messente.com/phonebook-api)).
+- Omnichannel ([external docs](https://messente.com/documentation/omnichannel-api)),
+- Phonebook ([external docs](https://messente.com/documentation/phonebook-api)).
 
 Messente API Library provides the operations described below to access the features.
 
