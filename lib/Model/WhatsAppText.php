@@ -250,7 +250,7 @@ class WhatsAppText implements ModelInterface, ArrayAccess
     /**
      * Sets body
      *
-     * @param string $body Plaintext content for WhatsApp, can contains URLs, emojis and formatting
+     * @param string $body Plaintext content for WhatsApp, can contain URLs, emojis and formatting
      *
      * @return $this
      */
