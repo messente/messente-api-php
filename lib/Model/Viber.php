@@ -350,7 +350,7 @@ class Viber implements ModelInterface, ArrayAccess
     /**
      * Sets buttonUrl
      *
-     * @param string|null $buttonUrl URL of the button, must be specified along with ''text'', ''button_text''  and ''image_url'' (optional)
+     * @param string|null $buttonUrl URL of the button, must be specified along with ''text'', ''button_text'' and ''image_url'' (optional)
      *
      * @return $this
      */
