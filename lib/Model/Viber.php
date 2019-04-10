@@ -239,9 +239,6 @@ class Viber implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['channel'] === null) {
-            $invalidProperties[] = "'channel' can't be null";
-        }
         $allowedValues = $this->getChannelAllowableValues();
         if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -412,7 +409,7 @@ class Viber implements ModelInterface, ArrayAccess
     /**
      * Gets channel
      *
-     * @return string
+     * @return string|null
      */
     public function getChannel()
     {
@@ -422,14 +419,14 @@ class Viber implements ModelInterface, ArrayAccess
     /**
      * Sets channel
      *
-     * @param string $channel channel
+     * @param string|null $channel channel
      *
      * @return $this
      */
     public function setChannel($channel)
     {
         $allowedValues = $this->getChannelAllowableValues();
-        if (!in_array($channel, $allowedValues, true)) {
+        if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'channel', must be one of '%s'",
