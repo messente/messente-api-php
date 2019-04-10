@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **image** | [**\Messente\Api\Model\WhatsAppImage**](WhatsAppImage.md) |  | [optional] 
 **document** | [**\Messente\Api\Model\WhatsAppDocument**](WhatsAppDocument.md) |  | [optional] 
 **audio** | [**\Messente\Api\Model\WhatsAppAudio**](WhatsAppAudio.md) |  | [optional] 
-**channel** | **string** |  | [optional] [default to 'whatsapp']
+**channel** | **string** |  | [default to 'whatsapp']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

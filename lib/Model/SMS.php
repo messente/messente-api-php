@@ -261,6 +261,9 @@ class SMS implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['channel'] === null) {
+            $invalidProperties[] = "'channel' can't be null";
+        }
         $allowedValues = $this->getChannelAllowableValues();
         if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -416,7 +419,7 @@ class SMS implements ModelInterface, ArrayAccess
     /**
      * Gets channel
      *
-     * @return string|null
+     * @return string
      */
     public function getChannel()
     {
@@ -426,14 +429,14 @@ class SMS implements ModelInterface, ArrayAccess
     /**
      * Sets channel
      *
-     * @param string|null $channel channel
+     * @param string $channel channel
      *
      * @return $this
      */
     public function setChannel($channel)
     {
         $allowedValues = $this->getChannelAllowableValues();
-        if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
+        if (!in_array($channel, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value for 'channel', must be one of '%s'",
