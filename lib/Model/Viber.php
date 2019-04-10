@@ -227,7 +227,7 @@ class Viber implements ModelInterface, ArrayAccess
         $this->container['imageUrl'] = isset($data['imageUrl']) ? $data['imageUrl'] : null;
         $this->container['buttonUrl'] = isset($data['buttonUrl']) ? $data['buttonUrl'] : null;
         $this->container['buttonText'] = isset($data['buttonText']) ? $data['buttonText'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : 'viber';
     }
 
     /**

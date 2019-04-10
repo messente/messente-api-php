@@ -227,7 +227,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['document'] = isset($data['document']) ? $data['document'] : null;
         $this->container['audio'] = isset($data['audio']) ? $data['audio'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : 'whatsapp';
     }
 
     /**

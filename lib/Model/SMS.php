@@ -238,7 +238,7 @@ class SMS implements ModelInterface, ArrayAccess
         $this->container['validity'] = isset($data['validity']) ? $data['validity'] : null;
         $this->container['autoconvert'] = isset($data['autoconvert']) ? $data['autoconvert'] : null;
         $this->container['udh'] = isset($data['udh']) ? $data['udh'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : 'sms';
     }
 
     /**
