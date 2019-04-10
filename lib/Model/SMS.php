@@ -187,6 +187,7 @@ class SMS implements ModelInterface, ArrayAccess
     const AUTOCONVERT_FULL = 'full';
     const AUTOCONVERT_ON = 'on';
     const AUTOCONVERT_OFF = 'off';
+    const CHANNEL_SMS = 'sms';
     
 
     
@@ -201,6 +202,18 @@ class SMS implements ModelInterface, ArrayAccess
             self::AUTOCONVERT_FULL,
             self::AUTOCONVERT_ON,
             self::AUTOCONVERT_OFF,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_SMS,
         ];
     }
     
@@ -225,7 +238,7 @@ class SMS implements ModelInterface, ArrayAccess
         $this->container['validity'] = isset($data['validity']) ? $data['validity'] : null;
         $this->container['autoconvert'] = isset($data['autoconvert']) ? $data['autoconvert'] : null;
         $this->container['udh'] = isset($data['udh']) ? $data['udh'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : 'sms';
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
     }
 
     /**
@@ -244,6 +257,14 @@ class SMS implements ModelInterface, ArrayAccess
         if (!is_null($this->container['autoconvert']) && !in_array($this->container['autoconvert'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'autoconvert', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'channel', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -411,6 +432,15 @@ class SMS implements ModelInterface, ArrayAccess
      */
     public function setChannel($channel)
     {
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'channel', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['channel'] = $channel;
 
         return $this;

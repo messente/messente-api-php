@@ -189,8 +189,21 @@ class WhatsApp implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CHANNEL_WHATSAPP = 'whatsapp';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_WHATSAPP,
+        ];
+    }
     
 
     /**
@@ -214,7 +227,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['document'] = isset($data['document']) ? $data['document'] : null;
         $this->container['audio'] = isset($data['audio']) ? $data['audio'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : 'whatsapp';
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
     }
 
     /**
@@ -225,6 +238,14 @@ class WhatsApp implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'channel', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -404,6 +425,15 @@ class WhatsApp implements ModelInterface, ArrayAccess
      */
     public function setChannel($channel)
     {
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'channel', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['channel'] = $channel;
 
         return $this;

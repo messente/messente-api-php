@@ -189,8 +189,21 @@ class Viber implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CHANNEL_VIBER = 'viber';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_VIBER,
+        ];
+    }
     
 
     /**
@@ -214,7 +227,7 @@ class Viber implements ModelInterface, ArrayAccess
         $this->container['imageUrl'] = isset($data['imageUrl']) ? $data['imageUrl'] : null;
         $this->container['buttonUrl'] = isset($data['buttonUrl']) ? $data['buttonUrl'] : null;
         $this->container['buttonText'] = isset($data['buttonText']) ? $data['buttonText'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : 'viber';
+        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
     }
 
     /**
@@ -225,6 +238,14 @@ class Viber implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'channel', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -404,6 +425,15 @@ class Viber implements ModelInterface, ArrayAccess
      */
     public function setChannel($channel)
     {
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'channel', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['channel'] = $channel;
 
         return $this;
