@@ -2018,7 +2018,12 @@ class ContactsApi
         $multipart = false;
 
         // query params
-        $queryParams['groupIds'] = $groupIds;
+        if (is_array($groupIds)) {
+            $groupIds = ObjectSerializer::serializeCollection($groupIds, 'multi', true);
+        }
+        if ($groupIds !== null) {
+            $queryParams['groupIds'] = ObjectSerializer::toQueryValue($groupIds);
+        }
 
 
         // body params

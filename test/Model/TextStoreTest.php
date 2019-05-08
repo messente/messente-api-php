@@ -1,6 +1,6 @@
 <?php
 /**
- * OmnimessageTest
+ * TextStoreTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace Messente\Api;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OmnimessageTest Class Doc Comment
+ * TextStoreTest Class Doc Comment
  *
  * @category    Class
- * @description Omnimessage
+ * @description Whether to store message content as is (plaintext), as a hashed value (sha256) or not at all (nostore).
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class OmnimessageTest extends TestCase
+class TextStoreTest extends TestCase
 {
 
     /**
@@ -72,44 +72,9 @@ class OmnimessageTest extends TestCase
     }
 
     /**
-     * Test "Omnimessage"
+     * Test "TextStore"
      */
-    public function testOmnimessage()
-    {
-    }
-
-    /**
-     * Test attribute "to"
-     */
-    public function testPropertyTo()
-    {
-    }
-
-    /**
-     * Test attribute "messages"
-     */
-    public function testPropertyMessages()
-    {
-    }
-
-    /**
-     * Test attribute "dlrUrl"
-     */
-    public function testPropertyDlrUrl()
-    {
-    }
-
-    /**
-     * Test attribute "textStore"
-     */
-    public function testPropertyTextStore()
-    {
-    }
-
-    /**
-     * Test attribute "timeToSend"
-     */
-    public function testPropertyTimeToSend()
+    public function testTextStore()
     {
     }
 }

@@ -60,6 +60,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
         'to' => 'string',
         'messages' => 'OneOfViberSMSWhatsApp[]',
         'dlrUrl' => 'string',
+        'textStore' => '\Messente\Api\Model\TextStore',
         'timeToSend' => '\DateTime'
     ];
 
@@ -72,6 +73,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
         'to' => null,
         'messages' => null,
         'dlrUrl' => 'url',
+        'textStore' => null,
         'timeToSend' => 'date-time'
     ];
 
@@ -105,6 +107,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
         'to' => 'to',
         'messages' => 'messages',
         'dlrUrl' => 'dlr_url',
+        'textStore' => 'text_store',
         'timeToSend' => 'time_to_send'
     ];
 
@@ -117,6 +120,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
         'to' => 'setTo',
         'messages' => 'setMessages',
         'dlrUrl' => 'setDlrUrl',
+        'textStore' => 'setTextStore',
         'timeToSend' => 'setTimeToSend'
     ];
 
@@ -129,6 +133,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
         'to' => 'getTo',
         'messages' => 'getMessages',
         'dlrUrl' => 'getDlrUrl',
+        'textStore' => 'getTextStore',
         'timeToSend' => 'getTimeToSend'
     ];
 
@@ -195,6 +200,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
         $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
         $this->container['dlrUrl'] = isset($data['dlrUrl']) ? $data['dlrUrl'] : null;
+        $this->container['textStore'] = isset($data['textStore']) ? $data['textStore'] : null;
         $this->container['timeToSend'] = isset($data['timeToSend']) ? $data['timeToSend'] : null;
     }
 
@@ -301,6 +307,30 @@ class Omnimessage implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets textStore
+     *
+     * @return \Messente\Api\Model\TextStore|null
+     */
+    public function getTextStore()
+    {
+        return $this->container['textStore'];
+    }
+
+    /**
+     * Sets textStore
+     *
+     * @param \Messente\Api\Model\TextStore|null $textStore textStore
+     *
+     * @return $this
+     */
+    public function setTextStore($textStore)
+    {
+        $this->container['textStore'] = $textStore;
+
+        return $this;
+    }
+
+    /**
      * Gets timeToSend
      *
      * @return \DateTime|null
@@ -313,7 +343,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Sets timeToSend
      *
-     * @param \DateTime|null $timeToSend Optional parameter for sending messages at some specific time in the future.   Time must be specified in the 8601 format.   If no timezone is specified, then the timezone is assumed to be UTC.    Examples:    * Time specified with timezone: 2018-06-22T09:05:07+00:00 Time specified in UTC: 2018-06-22T09:05:07Z   * Time specified without timezone: 2018-06-22T09:05 (equivalent to 2018-06-22T09:05+00:00)
+     * @param \DateTime|null $timeToSend Optional parameter for sending messages at some specific time in the future.   Time must be specified in the ISO-8601 format.   If no timezone is specified, then the timezone is assumed to be UTC.    Examples:    * Time specified with timezone: 2018-06-22T09:05:07+00:00 Time specified in UTC: 2018-06-22T09:05:07Z   * Time specified without timezone: 2018-06-22T09:05 (equivalent to 2018-06-22T09:05+00:00)
      *
      * @return $this
      */
