@@ -1,6 +1,7 @@
-# SMS
+# # SMS
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **text** | **string** | Text content of the SMS | 
@@ -10,6 +11,6 @@ Name | Type | Description | Notes
 **udh** | **string** | hex-encoded string containing SMS UDH | [optional] 
 **channel** | **string** |  | [optional] [default to 'sms']
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

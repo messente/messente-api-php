@@ -1,6 +1,7 @@
-# ContactUpdateFields
+# # ContactUpdateFields
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **email** | **string** |  | [optional] 
@@ -13,6 +14,6 @@ Name | Type | Description | Notes
 **custom3** | **string** |  | [optional] 
 **custom4** | **string** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

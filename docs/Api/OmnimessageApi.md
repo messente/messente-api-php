@@ -8,15 +8,19 @@ Method | HTTP request | Description
 [**sendOmnimessage**](OmnimessageApi.md#sendOmnimessage) | **POST** /omnimessage | Sends an Omnimessage.
 
 
-# **cancelScheduledMessage**
+
+## cancelScheduledMessage
+
 > cancelScheduledMessage($omnimessageId)
 
 Cancels a scheduled Omnimessage.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Api\Configuration::getDefaultConfiguration()
@@ -42,6 +46,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **omnimessageId** | [**string**](../Model/.md)| UUID of the scheduled Omnimessage to be cancelled |
@@ -56,20 +61,26 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **sendOmnimessage**
+
+## sendOmnimessage
+
 > \Messente\Api\Model\OmniMessageCreateSuccessResponse sendOmnimessage($omnimessage)
 
 Sends an Omnimessage.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Api\Configuration::getDefaultConfiguration()
@@ -96,6 +107,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **omnimessage** | [**\Messente\Api\Model\Omnimessage**](../Model/Omnimessage.md)| Omnimessage to be sent |
@@ -110,8 +122,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

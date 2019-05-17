@@ -10,15 +10,19 @@ Method | HTTP request | Description
 [**isBlacklisted**](BlacklistApi.md#isBlacklisted) | **GET** /blacklist/{phone} | Checks if a phone number is blacklisted.
 
 
-# **addToBlacklist**
+
+## addToBlacklist
+
 > addToBlacklist($numberToBlacklist)
 
 Adds a phone number to the blacklist.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Api\Configuration::getDefaultConfiguration()
@@ -44,6 +48,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **numberToBlacklist** | [**\Messente\Api\Model\NumberToBlacklist**](../Model/NumberToBlacklist.md)| Phone number to be blacklisted |
@@ -58,20 +63,26 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **deleteFromBlacklist**
+
+## deleteFromBlacklist
+
 > deleteFromBlacklist($phone)
 
 Deletes a phone number from the blacklist.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Api\Configuration::getDefaultConfiguration()
@@ -97,6 +108,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **string**| A phone number |
@@ -111,20 +123,26 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **fetchBlacklist**
+
+## fetchBlacklist
+
 > \Messente\Api\Model\FetchBlacklistSuccess fetchBlacklist()
 
 Returns all blacklisted phone numbers.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Api\Configuration::getDefaultConfiguration()
@@ -149,6 +167,7 @@ try {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -161,20 +180,26 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **isBlacklisted**
+
+## isBlacklisted
+
 > isBlacklisted($phone)
 
 Checks if a phone number is blacklisted.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Api\Configuration::getDefaultConfiguration()
@@ -200,6 +225,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone** | **string**| A phone number |
@@ -214,8 +240,10 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
