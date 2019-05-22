@@ -1,6 +1,6 @@
 <?php
 /**
- * ViberTest
+ * TextStoreTest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ namespace Messente\Api;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ViberTest Class Doc Comment
+ * TextStoreTest Class Doc Comment
  *
  * @category    Class
- * @description Viber message content
+ * @description Whether to store message content as is (plaintext), as a hashed value (sha256) or not at all (nostore).
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ViberTest extends TestCase
+class TextStoreTest extends TestCase
 {
 
     /**
@@ -72,58 +72,9 @@ class ViberTest extends TestCase
     }
 
     /**
-     * Test "Viber"
+     * Test "TextStore"
      */
-    public function testViber()
-    {
-    }
-
-    /**
-     * Test attribute "sender"
-     */
-    public function testPropertySender()
-    {
-    }
-
-    /**
-     * Test attribute "validity"
-     */
-    public function testPropertyValidity()
-    {
-    }
-
-    /**
-     * Test attribute "text"
-     */
-    public function testPropertyText()
-    {
-    }
-
-    /**
-     * Test attribute "imageUrl"
-     */
-    public function testPropertyImageUrl()
-    {
-    }
-
-    /**
-     * Test attribute "buttonUrl"
-     */
-    public function testPropertyButtonUrl()
-    {
-    }
-
-    /**
-     * Test attribute "buttonText"
-     */
-    public function testPropertyButtonText()
-    {
-    }
-
-    /**
-     * Test attribute "channel"
-     */
-    public function testPropertyChannel()
+    public function testTextStore()
     {
     }
 }

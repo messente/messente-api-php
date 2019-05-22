@@ -7,15 +7,19 @@ Method | HTTP request | Description
 [**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage.
 
 
-# **retrieveDeliveryReport**
+
+## retrieveDeliveryReport
+
 > \Messente\Api\Model\DeliveryReportResponse retrieveDeliveryReport($omnimessageId)
 
 Retrieves the delivery report for the Omnimessage.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure HTTP basic authorization: basicAuth
 $config = Messente\Api\Configuration::getDefaultConfiguration()
@@ -42,6 +46,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **omnimessageId** | [**string**](../Model/.md)| UUID of the Omnimessage to for which the delivery report is to be retrieved |
@@ -56,8 +61,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: */*
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

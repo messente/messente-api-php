@@ -1,6 +1,7 @@
-# WhatsApp
+# # WhatsApp
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sender** | **string** | Phone number or alphanumeric sender name | [optional] 
@@ -11,6 +12,6 @@ Name | Type | Description | Notes
 **audio** | [**\Messente\Api\Model\WhatsAppAudio**](WhatsAppAudio.md) |  | [optional] 
 **channel** | **string** |  | [optional] [default to 'whatsapp']
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 
