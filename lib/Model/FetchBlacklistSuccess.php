@@ -217,7 +217,7 @@ class FetchBlacklistSuccess implements ModelInterface, ArrayAccess
     /**
      * Sets phoneNumbers
      *
-     * @param string[]|null $phoneNumbers phoneNumbers
+     * @param string[]|null $phoneNumbers Array of unique phone numbers
      *
      * @return $this
      */
