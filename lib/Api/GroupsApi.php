@@ -451,7 +451,7 @@ class GroupsApi
      *
      * Deletes a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -467,7 +467,7 @@ class GroupsApi
      *
      * Deletes a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -543,7 +543,7 @@ class GroupsApi
      *
      * Deletes a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -563,7 +563,7 @@ class GroupsApi
      *
      * Deletes a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -599,7 +599,7 @@ class GroupsApi
     /**
      * Create request for operation 'deleteGroup'
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -703,7 +703,7 @@ class GroupsApi
      *
      * Lists a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -720,7 +720,7 @@ class GroupsApi
      *
      * Lists a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -848,7 +848,7 @@ class GroupsApi
      *
      * Lists a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -868,7 +868,7 @@ class GroupsApi
      *
      * Lists a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -915,7 +915,7 @@ class GroupsApi
     /**
      * Create request for operation 'fetchGroup'
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1316,7 +1316,7 @@ class GroupsApi
      *
      * Updates a group with the provided name
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName groupName (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -1334,7 +1334,7 @@ class GroupsApi
      *
      * Updates a group with the provided name
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -1503,7 +1503,7 @@ class GroupsApi
      *
      * Updates a group with the provided name
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName (required)
      *
      * @throws \InvalidArgumentException
@@ -1524,7 +1524,7 @@ class GroupsApi
      *
      * Updates a group with the provided name
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName (required)
      *
      * @throws \InvalidArgumentException
@@ -1572,7 +1572,7 @@ class GroupsApi
     /**
      * Create request for operation 'updateGroup'
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName (required)
      *
      * @throws \InvalidArgumentException

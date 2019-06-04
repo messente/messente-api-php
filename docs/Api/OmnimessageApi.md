@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | [**string**](../Model/.md)| UUID of the scheduled Omnimessage to be cancelled |
+ **omnimessageId** | **string**| UUID of the scheduled Omnimessage to be cancelled |
 
 ### Return type
 

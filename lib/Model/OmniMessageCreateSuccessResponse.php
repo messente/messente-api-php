@@ -70,7 +70,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'messages' => null,
         'to' => null,
-        'omnimessageId' => 'uuid'
+        'omnimessageId' => 'UUID'
     ];
 
     /**

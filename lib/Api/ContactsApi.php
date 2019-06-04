@@ -120,7 +120,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -138,7 +138,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -327,7 +327,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -348,7 +348,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -396,7 +396,7 @@ class ContactsApi
     /**
      * Create request for operation 'addContactToGroup'
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -1798,7 +1798,7 @@ class ContactsApi
      *
      * Returns all contacts
      *
-     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1815,7 +1815,7 @@ class ContactsApi
      *
      * Returns all contacts
      *
-     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1963,7 +1963,7 @@ class ContactsApi
      *
      * Returns all contacts
      *
-     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1983,7 +1983,7 @@ class ContactsApi
      *
      * Returns all contacts
      *
-     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2030,7 +2030,7 @@ class ContactsApi
     /**
      * Create request for operation 'fetchContacts'
      *
-     * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
+     * @param  string[] $groupIds Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2127,7 +2127,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -2144,7 +2144,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -2229,7 +2229,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -2250,7 +2250,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -2287,7 +2287,7 @@ class ContactsApi
     /**
      * Create request for operation 'removeContactFromGroup'
      *
-     * @param  string $groupId String in uuid format. (required)
+     * @param  string $groupId String in UUID format. (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException

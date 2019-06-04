@@ -73,7 +73,7 @@ class DeliveryResult implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'status' => null,
         'channel' => null,
-        'messageId' => 'uuid',
+        'messageId' => 'UUID',
         'error' => null,
         'err' => null,
         'timestamp' => 'date-time'

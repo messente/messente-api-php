@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Id string in uuid format | 
+**id** | **string** | Id string in UUID format | 
 **name** | **string** |  | 
 **createdOn** | **string** | format %Y-%m-%dT%H:%M:%S.%fZ | [optional] 
 **contactsCount** | **int** |  | 

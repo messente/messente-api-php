@@ -40,7 +40,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in uuid format.
+$groupId = 'groupId_example'; // string | String in UUID format.
 $phone = 'phone_example'; // string | A phone number
 
 try {
@@ -57,7 +57,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in uuid format. |
+ **groupId** | **string**| String in UUID format. |
  **phone** | **string**| A phone number |
 
 ### Return type
@@ -346,7 +346,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupIds = array('groupIds_example'); // string[] | Optional one or many group id strings in uuid format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\"
+$groupIds = array('groupIds_example'); // string[] | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\"
 
 try {
     $result = $apiInstance->fetchContacts($groupIds);
@@ -362,7 +362,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupIds** | [**string[]**](../Model/string.md)| Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; | [optional]
+ **groupIds** | [**string[]**](../Model/string.md)| Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; | [optional]
 
 ### Return type
 
@@ -407,7 +407,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in uuid format.
+$groupId = 'groupId_example'; // string | String in UUID format.
 $phone = 'phone_example'; // string | A phone number
 
 try {
@@ -423,7 +423,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in uuid format. |
+ **groupId** | **string**| String in UUID format. |
  **phone** | **string**| A phone number |
 
 ### Return type

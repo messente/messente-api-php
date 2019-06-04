@@ -70,7 +70,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'statuses' => null,
         'to' => null,
-        'omnimessageId' => 'uuid'
+        'omnimessageId' => 'UUID'
     ];
 
     /**

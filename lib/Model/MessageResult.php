@@ -68,7 +68,7 @@ class MessageResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'messageId' => 'uuid',
+        'messageId' => 'UUID',
         'channel' => null,
         'sender' => null
     ];

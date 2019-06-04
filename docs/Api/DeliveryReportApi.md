@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | [**string**](../Model/.md)| UUID of the Omnimessage to for which the delivery report is to be retrieved |
+ **omnimessageId** | **string**| UUID of the Omnimessage to for which the delivery report is to be retrieved |
 
 ### Return type
 

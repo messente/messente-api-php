@@ -244,7 +244,7 @@ class GroupResponseFields implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string $id Id string in uuid format
+     * @param string $id Id string in UUID format
      *
      * @return $this
      */
