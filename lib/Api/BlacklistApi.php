@@ -118,7 +118,7 @@ class BlacklistApi
     /**
      * Operation addToBlacklist
      *
-     * Adds a phone number to the blacklist.
+     * Adds a phone number to the blacklist
      *
      * @param  \Messente\Api\Model\NumberToBlacklist $numberToBlacklist Phone number to be blacklisted (required)
      *
@@ -134,7 +134,7 @@ class BlacklistApi
     /**
      * Operation addToBlacklistWithHttpInfo
      *
-     * Adds a phone number to the blacklist.
+     * Adds a phone number to the blacklist
      *
      * @param  \Messente\Api\Model\NumberToBlacklist $numberToBlacklist Phone number to be blacklisted (required)
      *
@@ -218,7 +218,7 @@ class BlacklistApi
     /**
      * Operation addToBlacklistAsync
      *
-     * Adds a phone number to the blacklist.
+     * Adds a phone number to the blacklist
      *
      * @param  \Messente\Api\Model\NumberToBlacklist $numberToBlacklist Phone number to be blacklisted (required)
      *
@@ -238,7 +238,7 @@ class BlacklistApi
     /**
      * Operation addToBlacklistAsyncWithHttpInfo
      *
-     * Adds a phone number to the blacklist.
+     * Adds a phone number to the blacklist
      *
      * @param  \Messente\Api\Model\NumberToBlacklist $numberToBlacklist Phone number to be blacklisted (required)
      *
@@ -373,7 +373,7 @@ class BlacklistApi
     /**
      * Operation deleteFromBlacklist
      *
-     * Deletes a phone number from the blacklist.
+     * Deletes a phone number from the blacklist
      *
      * @param  string $phone A phone number (required)
      *
@@ -389,7 +389,7 @@ class BlacklistApi
     /**
      * Operation deleteFromBlacklistWithHttpInfo
      *
-     * Deletes a phone number from the blacklist.
+     * Deletes a phone number from the blacklist
      *
      * @param  string $phone A phone number (required)
      *
@@ -473,7 +473,7 @@ class BlacklistApi
     /**
      * Operation deleteFromBlacklistAsync
      *
-     * Deletes a phone number from the blacklist.
+     * Deletes a phone number from the blacklist
      *
      * @param  string $phone A phone number (required)
      *
@@ -493,7 +493,7 @@ class BlacklistApi
     /**
      * Operation deleteFromBlacklistAsyncWithHttpInfo
      *
-     * Deletes a phone number from the blacklist.
+     * Deletes a phone number from the blacklist
      *
      * @param  string $phone A phone number (required)
      *
@@ -633,7 +633,7 @@ class BlacklistApi
     /**
      * Operation fetchBlacklist
      *
-     * Returns all blacklisted phone numbers.
+     * Returns all blacklisted phone numbers
      *
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -649,7 +649,7 @@ class BlacklistApi
     /**
      * Operation fetchBlacklistWithHttpInfo
      *
-     * Returns all blacklisted phone numbers.
+     * Returns all blacklisted phone numbers
      *
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -776,7 +776,7 @@ class BlacklistApi
     /**
      * Operation fetchBlacklistAsync
      *
-     * Returns all blacklisted phone numbers.
+     * Returns all blacklisted phone numbers
      *
      *
      * @throws \InvalidArgumentException
@@ -795,7 +795,7 @@ class BlacklistApi
     /**
      * Operation fetchBlacklistAsyncWithHttpInfo
      *
-     * Returns all blacklisted phone numbers.
+     * Returns all blacklisted phone numbers
      *
      *
      * @throws \InvalidArgumentException
@@ -930,7 +930,7 @@ class BlacklistApi
     /**
      * Operation isBlacklisted
      *
-     * Checks if a phone number is blacklisted.
+     * Checks if a phone number is blacklisted
      *
      * @param  string $phone A phone number (required)
      *
@@ -946,7 +946,7 @@ class BlacklistApi
     /**
      * Operation isBlacklistedWithHttpInfo
      *
-     * Checks if a phone number is blacklisted.
+     * Checks if a phone number is blacklisted
      *
      * @param  string $phone A phone number (required)
      *
@@ -1022,7 +1022,7 @@ class BlacklistApi
     /**
      * Operation isBlacklistedAsync
      *
-     * Checks if a phone number is blacklisted.
+     * Checks if a phone number is blacklisted
      *
      * @param  string $phone A phone number (required)
      *
@@ -1042,7 +1042,7 @@ class BlacklistApi
     /**
      * Operation isBlacklistedAsyncWithHttpInfo
      *
-     * Checks if a phone number is blacklisted.
+     * Checks if a phone number is blacklisted
      *
      * @param  string $phone A phone number (required)
      *

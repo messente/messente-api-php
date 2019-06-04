@@ -75,7 +75,7 @@ class OmnimessageApiTest extends TestCase
     /**
      * Test case for cancelScheduledMessage
      *
-     * Cancels a scheduled Omnimessage..
+     * Cancels a scheduled Omnimessage.
      *
      */
     public function testCancelScheduledMessage()
@@ -85,7 +85,7 @@ class OmnimessageApiTest extends TestCase
     /**
      * Test case for sendOmnimessage
      *
-     * Sends an Omnimessage..
+     * Sends an Omnimessage.
      *
      */
     public function testSendOmnimessage()

@@ -75,7 +75,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for addContactToGroup
      *
-     * Adds a contact to a group..
+     * Adds a contact to a group.
      *
      */
     public function testAddContactToGroup()
@@ -85,7 +85,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for createContact
      *
-     * Creates a new contact..
+     * Creates a new contact.
      *
      */
     public function testCreateContact()
@@ -95,7 +95,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for deleteContact
      *
-     * Deletes a contact..
+     * Deletes a contact.
      *
      */
     public function testDeleteContact()
@@ -105,7 +105,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for fetchContact
      *
-     * Lists a contact..
+     * Lists a contact.
      *
      */
     public function testFetchContact()
@@ -115,7 +115,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for fetchContactGroups
      *
-     * Lists groups of a contact..
+     * Lists groups of a contact.
      *
      */
     public function testFetchContactGroups()
@@ -125,7 +125,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for fetchContacts
      *
-     * Returns all contacts..
+     * Returns all contacts.
      *
      */
     public function testFetchContacts()
@@ -135,7 +135,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for removeContactFromGroup
      *
-     * Removes a contact from a group..
+     * Removes a contact from a group.
      *
      */
     public function testRemoveContactFromGroup()
@@ -145,7 +145,7 @@ class ContactsApiTest extends TestCase
     /**
      * Test case for updateContact
      *
-     * Updates a contact..
+     * Updates a contact.
      *
      */
     public function testUpdateContact()

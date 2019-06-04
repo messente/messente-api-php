@@ -118,7 +118,7 @@ class OmnimessageApi
     /**
      * Operation cancelScheduledMessage
      *
-     * Cancels a scheduled Omnimessage.
+     * Cancels a scheduled Omnimessage
      *
      * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
      *
@@ -134,7 +134,7 @@ class OmnimessageApi
     /**
      * Operation cancelScheduledMessageWithHttpInfo
      *
-     * Cancels a scheduled Omnimessage.
+     * Cancels a scheduled Omnimessage
      *
      * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
      *
@@ -194,7 +194,7 @@ class OmnimessageApi
     /**
      * Operation cancelScheduledMessageAsync
      *
-     * Cancels a scheduled Omnimessage.
+     * Cancels a scheduled Omnimessage
      *
      * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
      *
@@ -214,7 +214,7 @@ class OmnimessageApi
     /**
      * Operation cancelScheduledMessageAsyncWithHttpInfo
      *
-     * Cancels a scheduled Omnimessage.
+     * Cancels a scheduled Omnimessage
      *
      * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
      *
@@ -354,7 +354,7 @@ class OmnimessageApi
     /**
      * Operation sendOmnimessage
      *
-     * Sends an Omnimessage.
+     * Sends an Omnimessage
      *
      * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
      *
@@ -371,7 +371,7 @@ class OmnimessageApi
     /**
      * Operation sendOmnimessageWithHttpInfo
      *
-     * Sends an Omnimessage.
+     * Sends an Omnimessage
      *
      * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
      *
@@ -479,7 +479,7 @@ class OmnimessageApi
     /**
      * Operation sendOmnimessageAsync
      *
-     * Sends an Omnimessage.
+     * Sends an Omnimessage
      *
      * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
      *
@@ -499,7 +499,7 @@ class OmnimessageApi
     /**
      * Operation sendOmnimessageAsyncWithHttpInfo
      *
-     * Sends an Omnimessage.
+     * Sends an Omnimessage
      *
      * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
      *

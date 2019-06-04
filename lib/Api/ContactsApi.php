@@ -118,7 +118,7 @@ class ContactsApi
     /**
      * Operation addContactToGroup
      *
-     * Adds a contact to a group.
+     * Adds a contact to a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -136,7 +136,7 @@ class ContactsApi
     /**
      * Operation addContactToGroupWithHttpInfo
      *
-     * Adds a contact to a group.
+     * Adds a contact to a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -325,7 +325,7 @@ class ContactsApi
     /**
      * Operation addContactToGroupAsync
      *
-     * Adds a contact to a group.
+     * Adds a contact to a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -346,7 +346,7 @@ class ContactsApi
     /**
      * Operation addContactToGroupAsyncWithHttpInfo
      *
-     * Adds a contact to a group.
+     * Adds a contact to a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -513,7 +513,7 @@ class ContactsApi
     /**
      * Operation createContact
      *
-     * Creates a new contact.
+     * Creates a new contact
      *
      * @param  \Messente\Api\Model\ContactFields $contactFields contactFields (required)
      *
@@ -530,7 +530,7 @@ class ContactsApi
     /**
      * Operation createContactWithHttpInfo
      *
-     * Creates a new contact.
+     * Creates a new contact
      *
      * @param  \Messente\Api\Model\ContactFields $contactFields (required)
      *
@@ -698,7 +698,7 @@ class ContactsApi
     /**
      * Operation createContactAsync
      *
-     * Creates a new contact.
+     * Creates a new contact
      *
      * @param  \Messente\Api\Model\ContactFields $contactFields (required)
      *
@@ -718,7 +718,7 @@ class ContactsApi
     /**
      * Operation createContactAsyncWithHttpInfo
      *
-     * Creates a new contact.
+     * Creates a new contact
      *
      * @param  \Messente\Api\Model\ContactFields $contactFields (required)
      *
@@ -864,7 +864,7 @@ class ContactsApi
     /**
      * Operation deleteContact
      *
-     * Deletes a contact.
+     * Deletes a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -880,7 +880,7 @@ class ContactsApi
     /**
      * Operation deleteContactWithHttpInfo
      *
-     * Deletes a contact.
+     * Deletes a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -964,7 +964,7 @@ class ContactsApi
     /**
      * Operation deleteContactAsync
      *
-     * Deletes a contact.
+     * Deletes a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -984,7 +984,7 @@ class ContactsApi
     /**
      * Operation deleteContactAsyncWithHttpInfo
      *
-     * Deletes a contact.
+     * Deletes a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1124,7 +1124,7 @@ class ContactsApi
     /**
      * Operation fetchContact
      *
-     * Lists a contact.
+     * Lists a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1141,7 +1141,7 @@ class ContactsApi
     /**
      * Operation fetchContactWithHttpInfo
      *
-     * Lists a contact.
+     * Lists a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1289,7 +1289,7 @@ class ContactsApi
     /**
      * Operation fetchContactAsync
      *
-     * Lists a contact.
+     * Lists a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1309,7 +1309,7 @@ class ContactsApi
     /**
      * Operation fetchContactAsyncWithHttpInfo
      *
-     * Lists a contact.
+     * Lists a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1460,7 +1460,7 @@ class ContactsApi
     /**
      * Operation fetchContactGroups
      *
-     * Lists groups of a contact.
+     * Lists groups of a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1477,7 +1477,7 @@ class ContactsApi
     /**
      * Operation fetchContactGroupsWithHttpInfo
      *
-     * Lists groups of a contact.
+     * Lists groups of a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1625,7 +1625,7 @@ class ContactsApi
     /**
      * Operation fetchContactGroupsAsync
      *
-     * Lists groups of a contact.
+     * Lists groups of a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1645,7 +1645,7 @@ class ContactsApi
     /**
      * Operation fetchContactGroupsAsyncWithHttpInfo
      *
-     * Lists groups of a contact.
+     * Lists groups of a contact
      *
      * @param  string $phone A phone number (required)
      *
@@ -1796,7 +1796,7 @@ class ContactsApi
     /**
      * Operation fetchContacts
      *
-     * Returns all contacts.
+     * Returns all contacts
      *
      * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
@@ -1813,7 +1813,7 @@ class ContactsApi
     /**
      * Operation fetchContactsWithHttpInfo
      *
-     * Returns all contacts.
+     * Returns all contacts
      *
      * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
@@ -1961,7 +1961,7 @@ class ContactsApi
     /**
      * Operation fetchContactsAsync
      *
-     * Returns all contacts.
+     * Returns all contacts
      *
      * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
@@ -1981,7 +1981,7 @@ class ContactsApi
     /**
      * Operation fetchContactsAsyncWithHttpInfo
      *
-     * Returns all contacts.
+     * Returns all contacts
      *
      * @param  string[] $groupIds Optional one or many group id strings in uuid format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; (optional)
      *
@@ -2125,7 +2125,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroup
      *
-     * Removes a contact from a group.
+     * Removes a contact from a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -2142,7 +2142,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroupWithHttpInfo
      *
-     * Removes a contact from a group.
+     * Removes a contact from a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -2227,7 +2227,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroupAsync
      *
-     * Removes a contact from a group.
+     * Removes a contact from a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -2248,7 +2248,7 @@ class ContactsApi
     /**
      * Operation removeContactFromGroupAsyncWithHttpInfo
      *
-     * Removes a contact from a group.
+     * Removes a contact from a group
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  string $phone A phone number (required)
@@ -2404,7 +2404,7 @@ class ContactsApi
     /**
      * Operation updateContact
      *
-     * Updates a contact.
+     * Updates a contact
      *
      * @param  string $phone A phone number (required)
      * @param  \Messente\Api\Model\ContactUpdateFields $contactUpdateFields contactUpdateFields (required)
@@ -2422,7 +2422,7 @@ class ContactsApi
     /**
      * Operation updateContactWithHttpInfo
      *
-     * Updates a contact.
+     * Updates a contact
      *
      * @param  string $phone A phone number (required)
      * @param  \Messente\Api\Model\ContactUpdateFields $contactUpdateFields (required)
@@ -2591,7 +2591,7 @@ class ContactsApi
     /**
      * Operation updateContactAsync
      *
-     * Updates a contact.
+     * Updates a contact
      *
      * @param  string $phone A phone number (required)
      * @param  \Messente\Api\Model\ContactUpdateFields $contactUpdateFields (required)
@@ -2612,7 +2612,7 @@ class ContactsApi
     /**
      * Operation updateContactAsyncWithHttpInfo
      *
-     * Updates a contact.
+     * Updates a contact
      *
      * @param  string $phone A phone number (required)
      * @param  \Messente\Api\Model\ContactUpdateFields $contactUpdateFields (required)

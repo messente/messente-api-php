@@ -75,7 +75,7 @@ class GroupsApiTest extends TestCase
     /**
      * Test case for createGroup
      *
-     * Creates a new group with the provided name..
+     * Creates a new group with the provided name.
      *
      */
     public function testCreateGroup()
@@ -85,7 +85,7 @@ class GroupsApiTest extends TestCase
     /**
      * Test case for deleteGroup
      *
-     * Deletes a group..
+     * Deletes a group.
      *
      */
     public function testDeleteGroup()
@@ -95,7 +95,7 @@ class GroupsApiTest extends TestCase
     /**
      * Test case for fetchGroup
      *
-     * Lists a group..
+     * Lists a group.
      *
      */
     public function testFetchGroup()
@@ -105,7 +105,7 @@ class GroupsApiTest extends TestCase
     /**
      * Test case for fetchGroups
      *
-     * Returns all groups..
+     * Returns all groups.
      *
      */
     public function testFetchGroups()
@@ -115,7 +115,7 @@ class GroupsApiTest extends TestCase
     /**
      * Test case for updateGroup
      *
-     * Updates a group with the provided name..
+     * Updates a group with the provided name.
      *
      */
     public function testUpdateGroup()

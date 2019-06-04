@@ -4,8 +4,8 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelScheduledMessage**](OmnimessageApi.md#cancelScheduledMessage) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage.
-[**sendOmnimessage**](OmnimessageApi.md#sendOmnimessage) | **POST** /omnimessage | Sends an Omnimessage.
+[**cancelScheduledMessage**](OmnimessageApi.md#cancelScheduledMessage) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage
+[**sendOmnimessage**](OmnimessageApi.md#sendOmnimessage) | **POST** /omnimessage | Sends an Omnimessage
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > cancelScheduledMessage($omnimessageId)
 
-Cancels a scheduled Omnimessage.
+Cancels a scheduled Omnimessage
 
 ### Example
 
@@ -73,7 +73,7 @@ void (empty response body)
 
 > \Messente\Api\Model\OmniMessageCreateSuccessResponse sendOmnimessage($omnimessage)
 
-Sends an Omnimessage.
+Sends an Omnimessage
 
 ### Example
 

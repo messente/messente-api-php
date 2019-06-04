@@ -75,7 +75,7 @@ class BlacklistApiTest extends TestCase
     /**
      * Test case for addToBlacklist
      *
-     * Adds a phone number to the blacklist..
+     * Adds a phone number to the blacklist.
      *
      */
     public function testAddToBlacklist()
@@ -85,7 +85,7 @@ class BlacklistApiTest extends TestCase
     /**
      * Test case for deleteFromBlacklist
      *
-     * Deletes a phone number from the blacklist..
+     * Deletes a phone number from the blacklist.
      *
      */
     public function testDeleteFromBlacklist()
@@ -95,7 +95,7 @@ class BlacklistApiTest extends TestCase
     /**
      * Test case for fetchBlacklist
      *
-     * Returns all blacklisted phone numbers..
+     * Returns all blacklisted phone numbers.
      *
      */
     public function testFetchBlacklist()
@@ -105,7 +105,7 @@ class BlacklistApiTest extends TestCase
     /**
      * Test case for isBlacklisted
      *
-     * Checks if a phone number is blacklisted..
+     * Checks if a phone number is blacklisted.
      *
      */
     public function testIsBlacklisted()

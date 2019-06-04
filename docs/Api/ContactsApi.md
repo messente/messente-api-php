@@ -4,14 +4,14 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addContactToGroup**](ContactsApi.md#addContactToGroup) | **POST** /groups/{groupId}/contacts/{phone} | Adds a contact to a group.
-[**createContact**](ContactsApi.md#createContact) | **POST** /contacts | Creates a new contact.
-[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{phone} | Deletes a contact.
-[**fetchContact**](ContactsApi.md#fetchContact) | **GET** /contacts/{phone} | Lists a contact.
-[**fetchContactGroups**](ContactsApi.md#fetchContactGroups) | **GET** /contacts/{phone}/groups | Lists groups of a contact.
-[**fetchContacts**](ContactsApi.md#fetchContacts) | **GET** /contacts | Returns all contacts.
-[**removeContactFromGroup**](ContactsApi.md#removeContactFromGroup) | **DELETE** /groups/{groupId}/contacts/{phone} | Removes a contact from a group.
-[**updateContact**](ContactsApi.md#updateContact) | **PATCH** /contacts/{phone} | Updates a contact.
+[**addContactToGroup**](ContactsApi.md#addContactToGroup) | **POST** /groups/{groupId}/contacts/{phone} | Adds a contact to a group
+[**createContact**](ContactsApi.md#createContact) | **POST** /contacts | Creates a new contact
+[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /contacts/{phone} | Deletes a contact
+[**fetchContact**](ContactsApi.md#fetchContact) | **GET** /contacts/{phone} | Lists a contact
+[**fetchContactGroups**](ContactsApi.md#fetchContactGroups) | **GET** /contacts/{phone}/groups | Lists groups of a contact
+[**fetchContacts**](ContactsApi.md#fetchContacts) | **GET** /contacts | Returns all contacts
+[**removeContactFromGroup**](ContactsApi.md#removeContactFromGroup) | **DELETE** /groups/{groupId}/contacts/{phone} | Removes a contact from a group
+[**updateContact**](ContactsApi.md#updateContact) | **PATCH** /contacts/{phone} | Updates a contact
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > object addContactToGroup($groupId, $phone)
 
-Adds a contact to a group.
+Adds a contact to a group
 
 ### Example
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 > \Messente\Api\Model\ContactEnvelope createContact($contactFields)
 
-Creates a new contact.
+Creates a new contact
 
 ### Example
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 > deleteContact($phone)
 
-Deletes a contact.
+Deletes a contact
 
 ### Example
 
@@ -203,7 +203,7 @@ void (empty response body)
 
 > \Messente\Api\Model\ContactEnvelope fetchContact($phone)
 
-Lists a contact.
+Lists a contact
 
 ### Example
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 > \Messente\Api\Model\GroupListEnvelope fetchContactGroups($phone)
 
-Lists groups of a contact.
+Lists groups of a contact
 
 ### Example
 
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 > \Messente\Api\Model\ContactListEnvelope fetchContacts($groupIds)
 
-Returns all contacts.
+Returns all contacts
 
 ### Example
 
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 > removeContactFromGroup($groupId, $phone)
 
-Removes a contact from a group.
+Removes a contact from a group
 
 ### Example
 
@@ -448,7 +448,7 @@ void (empty response body)
 
 > \Messente\Api\Model\ContactEnvelope updateContact($phone, $contactUpdateFields)
 
-Updates a contact.
+Updates a contact
 
 ### Example
 

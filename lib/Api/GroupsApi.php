@@ -118,7 +118,7 @@ class GroupsApi
     /**
      * Operation createGroup
      *
-     * Creates a new group with the provided name.
+     * Creates a new group with the provided name
      *
      * @param  \Messente\Api\Model\GroupName $groupName groupName (required)
      *
@@ -135,7 +135,7 @@ class GroupsApi
     /**
      * Operation createGroupWithHttpInfo
      *
-     * Creates a new group with the provided name.
+     * Creates a new group with the provided name
      *
      * @param  \Messente\Api\Model\GroupName $groupName (required)
      *
@@ -283,7 +283,7 @@ class GroupsApi
     /**
      * Operation createGroupAsync
      *
-     * Creates a new group with the provided name.
+     * Creates a new group with the provided name
      *
      * @param  \Messente\Api\Model\GroupName $groupName (required)
      *
@@ -303,7 +303,7 @@ class GroupsApi
     /**
      * Operation createGroupAsyncWithHttpInfo
      *
-     * Creates a new group with the provided name.
+     * Creates a new group with the provided name
      *
      * @param  \Messente\Api\Model\GroupName $groupName (required)
      *
@@ -449,7 +449,7 @@ class GroupsApi
     /**
      * Operation deleteGroup
      *
-     * Deletes a group.
+     * Deletes a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -465,7 +465,7 @@ class GroupsApi
     /**
      * Operation deleteGroupWithHttpInfo
      *
-     * Deletes a group.
+     * Deletes a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -541,7 +541,7 @@ class GroupsApi
     /**
      * Operation deleteGroupAsync
      *
-     * Deletes a group.
+     * Deletes a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -561,7 +561,7 @@ class GroupsApi
     /**
      * Operation deleteGroupAsyncWithHttpInfo
      *
-     * Deletes a group.
+     * Deletes a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -701,7 +701,7 @@ class GroupsApi
     /**
      * Operation fetchGroup
      *
-     * Lists a group.
+     * Lists a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -718,7 +718,7 @@ class GroupsApi
     /**
      * Operation fetchGroupWithHttpInfo
      *
-     * Lists a group.
+     * Lists a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -846,7 +846,7 @@ class GroupsApi
     /**
      * Operation fetchGroupAsync
      *
-     * Lists a group.
+     * Lists a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -866,7 +866,7 @@ class GroupsApi
     /**
      * Operation fetchGroupAsyncWithHttpInfo
      *
-     * Lists a group.
+     * Lists a group
      *
      * @param  string $groupId String in uuid format. (required)
      *
@@ -1017,7 +1017,7 @@ class GroupsApi
     /**
      * Operation fetchGroups
      *
-     * Returns all groups.
+     * Returns all groups
      *
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -1033,7 +1033,7 @@ class GroupsApi
     /**
      * Operation fetchGroupsWithHttpInfo
      *
-     * Returns all groups.
+     * Returns all groups
      *
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -1160,7 +1160,7 @@ class GroupsApi
     /**
      * Operation fetchGroupsAsync
      *
-     * Returns all groups.
+     * Returns all groups
      *
      *
      * @throws \InvalidArgumentException
@@ -1179,7 +1179,7 @@ class GroupsApi
     /**
      * Operation fetchGroupsAsyncWithHttpInfo
      *
-     * Returns all groups.
+     * Returns all groups
      *
      *
      * @throws \InvalidArgumentException
@@ -1314,7 +1314,7 @@ class GroupsApi
     /**
      * Operation updateGroup
      *
-     * Updates a group with the provided name.
+     * Updates a group with the provided name
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName groupName (required)
@@ -1332,7 +1332,7 @@ class GroupsApi
     /**
      * Operation updateGroupWithHttpInfo
      *
-     * Updates a group with the provided name.
+     * Updates a group with the provided name
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName (required)
@@ -1501,7 +1501,7 @@ class GroupsApi
     /**
      * Operation updateGroupAsync
      *
-     * Updates a group with the provided name.
+     * Updates a group with the provided name
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName (required)
@@ -1522,7 +1522,7 @@ class GroupsApi
     /**
      * Operation updateGroupAsyncWithHttpInfo
      *
-     * Updates a group with the provided name.
+     * Updates a group with the provided name
      *
      * @param  string $groupId String in uuid format. (required)
      * @param  \Messente\Api\Model\GroupName $groupName (required)

@@ -20,38 +20,38 @@ Messente API Library provides the operations described below to access the featu
 
 ### BlacklistApi
 
-1. Adds a phone number to the blacklist. [`addToBlacklist`](docs/Api/BlacklistApi.md#addtoblacklist)
-1. Deletes a phone number from the blacklist. [`deleteFromBlacklist`](docs/Api/BlacklistApi.md#deletefromblacklist)
-1. Returns all blacklisted phone numbers. [`fetchBlacklist`](docs/Api/BlacklistApi.md#fetchblacklist)
-1. Checks if a phone number is blacklisted. [`isBlacklisted`](docs/Api/BlacklistApi.md#isblacklisted)
+1. Adds a phone number to the blacklist [`addToBlacklist`](docs/Api/BlacklistApi.md#addtoblacklist)
+1. Deletes a phone number from the blacklist [`deleteFromBlacklist`](docs/Api/BlacklistApi.md#deletefromblacklist)
+1. Returns all blacklisted phone numbers [`fetchBlacklist`](docs/Api/BlacklistApi.md#fetchblacklist)
+1. Checks if a phone number is blacklisted [`isBlacklisted`](docs/Api/BlacklistApi.md#isblacklisted)
 
 ### ContactsApi
 
-1. Adds a contact to a group. [`addContactToGroup`](docs/Api/ContactsApi.md#addcontacttogroup)
-1. Creates a new contact. [`createContact`](docs/Api/ContactsApi.md#createcontact)
-1. Deletes a contact. [`deleteContact`](docs/Api/ContactsApi.md#deletecontact)
-1. Lists a contact. [`fetchContact`](docs/Api/ContactsApi.md#fetchcontact)
-1. Lists groups of a contact. [`fetchContactGroups`](docs/Api/ContactsApi.md#fetchcontactgroups)
-1. Returns all contacts. [`fetchContacts`](docs/Api/ContactsApi.md#fetchcontacts)
-1. Removes a contact from a group. [`removeContactFromGroup`](docs/Api/ContactsApi.md#removecontactfromgroup)
-1. Updates a contact. [`updateContact`](docs/Api/ContactsApi.md#updatecontact)
+1. Adds a contact to a group [`addContactToGroup`](docs/Api/ContactsApi.md#addcontacttogroup)
+1. Creates a new contact [`createContact`](docs/Api/ContactsApi.md#createcontact)
+1. Deletes a contact [`deleteContact`](docs/Api/ContactsApi.md#deletecontact)
+1. Lists a contact [`fetchContact`](docs/Api/ContactsApi.md#fetchcontact)
+1. Lists groups of a contact [`fetchContactGroups`](docs/Api/ContactsApi.md#fetchcontactgroups)
+1. Returns all contacts [`fetchContacts`](docs/Api/ContactsApi.md#fetchcontacts)
+1. Removes a contact from a group [`removeContactFromGroup`](docs/Api/ContactsApi.md#removecontactfromgroup)
+1. Updates a contact [`updateContact`](docs/Api/ContactsApi.md#updatecontact)
 
 ### DeliveryReportApi
 
-1. Retrieves the delivery report for the Omnimessage. [`retrieveDeliveryReport`](docs/Api/DeliveryReportApi.md#retrievedeliveryreport)
+1. Retrieves the delivery report for the Omnimessage [`retrieveDeliveryReport`](docs/Api/DeliveryReportApi.md#retrievedeliveryreport)
 
 ### GroupsApi
 
-1. Creates a new group with the provided name. [`createGroup`](docs/Api/GroupsApi.md#creategroup)
-1. Deletes a group. [`deleteGroup`](docs/Api/GroupsApi.md#deletegroup)
-1. Lists a group. [`fetchGroup`](docs/Api/GroupsApi.md#fetchgroup)
-1. Returns all groups. [`fetchGroups`](docs/Api/GroupsApi.md#fetchgroups)
-1. Updates a group with the provided name. [`updateGroup`](docs/Api/GroupsApi.md#updategroup)
+1. Creates a new group with the provided name [`createGroup`](docs/Api/GroupsApi.md#creategroup)
+1. Deletes a group [`deleteGroup`](docs/Api/GroupsApi.md#deletegroup)
+1. Lists a group [`fetchGroup`](docs/Api/GroupsApi.md#fetchgroup)
+1. Returns all groups [`fetchGroups`](docs/Api/GroupsApi.md#fetchgroups)
+1. Updates a group with the provided name [`updateGroup`](docs/Api/GroupsApi.md#updategroup)
 
 ### OmnimessageApi
 
-1. Cancels a scheduled Omnimessage. [`cancelScheduledMessage`](docs/Api/OmnimessageApi.md#cancelscheduledmessage)
-1. Sends an Omnimessage. [`sendOmnimessage`](docs/Api/OmnimessageApi.md#sendomnimessage)
+1. Cancels a scheduled Omnimessage [`cancelScheduledMessage`](docs/Api/OmnimessageApi.md#cancelscheduledmessage)
+1. Sends an Omnimessage [`sendOmnimessage`](docs/Api/OmnimessageApi.md#sendomnimessage)
 
 ## Auth
 

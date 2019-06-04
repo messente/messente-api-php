@@ -4,11 +4,11 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGroup**](GroupsApi.md#createGroup) | **POST** /groups | Creates a new group with the provided name.
-[**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /groups/{groupId} | Deletes a group.
-[**fetchGroup**](GroupsApi.md#fetchGroup) | **GET** /groups/{groupId} | Lists a group.
-[**fetchGroups**](GroupsApi.md#fetchGroups) | **GET** /groups | Returns all groups.
-[**updateGroup**](GroupsApi.md#updateGroup) | **PUT** /groups/{groupId} | Updates a group with the provided name.
+[**createGroup**](GroupsApi.md#createGroup) | **POST** /groups | Creates a new group with the provided name
+[**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /groups/{groupId} | Deletes a group
+[**fetchGroup**](GroupsApi.md#fetchGroup) | **GET** /groups/{groupId} | Lists a group
+[**fetchGroups**](GroupsApi.md#fetchGroups) | **GET** /groups | Returns all groups
+[**updateGroup**](GroupsApi.md#updateGroup) | **PUT** /groups/{groupId} | Updates a group with the provided name
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > \Messente\Api\Model\GroupEnvelope createGroup($groupName)
 
-Creates a new group with the provided name.
+Creates a new group with the provided name
 
 ### Example
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 > deleteGroup($groupId)
 
-Deletes a group.
+Deletes a group
 
 ### Example
 
@@ -137,7 +137,7 @@ void (empty response body)
 
 > \Messente\Api\Model\GroupEnvelope fetchGroup($groupId)
 
-Lists a group.
+Lists a group
 
 ### Example
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 > \Messente\Api\Model\GroupListEnvelope fetchGroups()
 
-Returns all groups.
+Returns all groups
 
 ### Example
 
@@ -255,7 +255,7 @@ This endpoint does not need any parameter.
 
 > \Messente\Api\Model\GroupEnvelope updateGroup($groupId, $groupName)
 
-Updates a group with the provided name.
+Updates a group with the provided name
 
 ### Example
 
