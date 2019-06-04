@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ErrorCodeOmnichannelMachineTest Class Doc Comment
  *
  * @category    Class
- * @description Machine-readable error code, &#39;null&#39; when the message has not been processed yet    * 0 - No error   * 1 - Delivery failure   * 2 - Sending message expired   * 3 - Invalid number   * 4 - Error crediting account   * 5 - Invalid number format   * 6 - Too many identical messages   * 7 - Sender name not allowed   * 8 - Operator blacklisted   * 9 - Unroutable   * 10 - Seen   * 999 - General temporary error
+ * @description Machine-readable error code, &#39;null&#39; when the message has not been processed yet.  Matches the following meanings.    * 0 - No error   * 1 - Delivery failure   * 2 - Sending message expired   * 3 - Invalid number   * 4 - Error crediting account   * 5 - Invalid number format   * 6 - Too many identical messages   * 7 - Sender name not allowed   * 8 - Operator blacklisted   * 9 - Unroutable   * 10 - Seen   * 999 - General temporary error
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
