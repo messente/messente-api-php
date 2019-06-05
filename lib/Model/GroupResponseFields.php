@@ -292,7 +292,7 @@ class GroupResponseFields implements ModelInterface, ArrayAccess
     /**
      * Sets createdOn
      *
-     * @param string|null $createdOn format %Y-%m-%dT%H:%M:%S.%fZ
+     * @param string|null $createdOn Format %Y-%m-%dT%H:%M:%S.%fZ
      *
      * @return $this
      */

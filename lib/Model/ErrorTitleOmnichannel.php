@@ -34,7 +34,7 @@ use \Messente\Api\ObjectSerializer;
  * ErrorTitleOmnichannel Class Doc Comment
  *
  * @category Class
- * @description Textual value which corresponds to ErrorCodeOmnichannel
+ * @description Textual value which corresponds to an error code
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

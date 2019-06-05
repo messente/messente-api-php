@@ -286,7 +286,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets omnimessageId
      *
-     * @param string $omnimessageId Unique identifier for the Omnimessage
+     * @param string $omnimessageId Unique identifier for the omnimessage
      *
      * @return $this
      */

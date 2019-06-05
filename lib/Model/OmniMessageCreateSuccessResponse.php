@@ -238,7 +238,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param \Messente\Api\Model\MessageResult[] $messages List of messages that compose the Omnimessage
+     * @param \Messente\Api\Model\MessageResult[] $messages List of messages that compose the omnimessage
      *
      * @return $this
      */
@@ -286,7 +286,7 @@ class OmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess
     /**
      * Sets omnimessageId
      *
-     * @param string $omnimessageId Unique identifier for the Omnimessage
+     * @param string $omnimessageId Unique identifier for the omnimessage
      *
      * @return $this
      */

@@ -33,7 +33,7 @@ $apiInstance = new Messente\Api\Api\DeliveryReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$omnimessageId = 'omnimessageId_example'; // string | UUID of the Omnimessage to for which the delivery report is to be retrieved
+$omnimessageId = 'omnimessageId_example'; // string | UUID of the omnimessage to for which the delivery report is to be retrieved
 
 try {
     $result = $apiInstance->retrieveDeliveryReport($omnimessageId);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | **string**| UUID of the Omnimessage to for which the delivery report is to be retrieved |
+ **omnimessageId** | **string**| UUID of the omnimessage to for which the delivery report is to be retrieved |
 
 ### Return type
 

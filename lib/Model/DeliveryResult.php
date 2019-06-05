@@ -319,7 +319,7 @@ class DeliveryResult implements ModelInterface, ArrayAccess
     /**
      * Sets error
      *
-     * @param string|null $error Human-readable description of what went wrong, *null* in case of success or if the messages has not been processed yet
+     * @param string|null $error Human-readable description of what went wrong, *null* in case of success or if the message has not been processed yet
      *
      * @return $this
      */

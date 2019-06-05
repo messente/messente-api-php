@@ -120,7 +120,7 @@ class OmnimessageApi
      *
      * Cancels a scheduled Omnimessage
      *
-     * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
+     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -136,7 +136,7 @@ class OmnimessageApi
      *
      * Cancels a scheduled Omnimessage
      *
-     * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
+     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -196,7 +196,7 @@ class OmnimessageApi
      *
      * Cancels a scheduled Omnimessage
      *
-     * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
+     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -216,7 +216,7 @@ class OmnimessageApi
      *
      * Cancels a scheduled Omnimessage
      *
-     * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
+     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -252,7 +252,7 @@ class OmnimessageApi
     /**
      * Create request for operation 'cancelScheduledMessage'
      *
-     * @param  string $omnimessageId UUID of the scheduled Omnimessage to be cancelled (required)
+     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

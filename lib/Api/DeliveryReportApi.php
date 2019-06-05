@@ -120,7 +120,7 @@ class DeliveryReportApi
      *
      * Retrieves the delivery report for the Omnimessage
      *
-     * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
+     * @param  string $omnimessageId UUID of the omnimessage to for which the delivery report is to be retrieved (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ class DeliveryReportApi
      *
      * Retrieves the delivery report for the Omnimessage
      *
-     * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
+     * @param  string $omnimessageId UUID of the omnimessage to for which the delivery report is to be retrieved (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -245,7 +245,7 @@ class DeliveryReportApi
      *
      * Retrieves the delivery report for the Omnimessage
      *
-     * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
+     * @param  string $omnimessageId UUID of the omnimessage to for which the delivery report is to be retrieved (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -265,7 +265,7 @@ class DeliveryReportApi
      *
      * Retrieves the delivery report for the Omnimessage
      *
-     * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
+     * @param  string $omnimessageId UUID of the omnimessage to for which the delivery report is to be retrieved (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -312,7 +312,7 @@ class DeliveryReportApi
     /**
      * Create request for operation 'retrieveDeliveryReport'
      *
-     * @param  string $omnimessageId UUID of the Omnimessage to for which the delivery report is to be retrieved (required)
+     * @param  string $omnimessageId UUID of the omnimessage to for which the delivery report is to be retrieved (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -34,7 +34,7 @@ $apiInstance = new Messente\Api\Api\OmnimessageApi(
     new GuzzleHttp\Client(),
     $config
 );
-$omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled Omnimessage to be cancelled
+$omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled omnimessage to be cancelled
 
 try {
     $apiInstance->cancelScheduledMessage($omnimessageId);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | **string**| UUID of the scheduled Omnimessage to be cancelled |
+ **omnimessageId** | **string**| UUID of the scheduled omnimessage to be cancelled |
 
 ### Return type
 
