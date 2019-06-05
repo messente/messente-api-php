@@ -263,7 +263,7 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
     /**
      * Sets detail
      *
-     * @param string $detail Free form more detailed description of the error.
+     * @param string $detail Free form more detailed description of the error
      *
      * @return $this
      */

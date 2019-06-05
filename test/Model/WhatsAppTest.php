@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * WhatsAppTest Class Doc Comment
  *
  * @category    Class
- * @description WhatsApp message content.   Only one of \&quot;text\&quot;, \&quot;image\&quot;, \&quot;document\&quot; or \&quot;audio\&quot; can be provided.
+ * @description WhatsApp message content.   Only one of \&quot;text\&quot;, \&quot;image\&quot;, \&quot;document\&quot; or \&quot;audio\&quot; can be provided
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

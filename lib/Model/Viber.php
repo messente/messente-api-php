@@ -347,7 +347,7 @@ class Viber implements ModelInterface, ArrayAccess
     /**
      * Sets imageUrl
      *
-     * @param string|null $imageUrl URL for the embedded image.    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
+     * @param string|null $imageUrl URL for the embedded image    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
      *
      * @return $this
      */

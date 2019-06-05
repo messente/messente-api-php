@@ -34,7 +34,7 @@ use \Messente\Api\ObjectSerializer;
  * ErrorCodePhonebook Class Doc Comment
  *
  * @category Class
- * @description Matches the following error title.   This field is a constant.    * 201 - Invalid data   * 202 - Unauthorized   * 203 - Missing resource   * 204 - Conflict   * 244 - Client error   * 205 - General error
+ * @description Matches the following error title.   This field is a constant    * 201 - Invalid data   * 202 - Unauthorized   * 203 - Missing resource   * 204 - Conflict   * 244 - Client error   * 205 - General error
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

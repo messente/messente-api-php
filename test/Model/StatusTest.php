@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * StatusTest Class Doc Comment
  *
  * @category    Class
- * @description The human-readable equivalent for this field is contained in \&quot;error\&quot;.   This value is *null* if the message is still being processed.
+ * @description The human-readable equivalent for this field is contained in \&quot;error\&quot;.   This value is *null* if the message is still being processed
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

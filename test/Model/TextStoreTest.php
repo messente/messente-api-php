@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * TextStoreTest Class Doc Comment
  *
  * @category    Class
- * @description Whether to store message content as is (plaintext), as a hashed value (sha256) or not at all (nostore).
+ * @description Whether to store message content as is (plaintext), as a hashed value (sha256) or not at all (nostore)
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

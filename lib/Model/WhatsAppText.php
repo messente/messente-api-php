@@ -227,7 +227,7 @@ class WhatsAppText implements ModelInterface, ArrayAccess
     /**
      * Sets previewUrl
      *
-     * @param bool|null $previewUrl Whether to display link preview if the message contains a hyperlink.
+     * @param bool|null $previewUrl Whether to display link preview if the message contains a hyperlink
      *
      * @return $this
      */

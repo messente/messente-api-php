@@ -120,7 +120,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -138,7 +138,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -327,7 +327,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -348,7 +348,7 @@ class ContactsApi
      *
      * Adds a contact to a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -396,7 +396,7 @@ class ContactsApi
     /**
      * Create request for operation 'addContactToGroup'
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -2127,7 +2127,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -2144,7 +2144,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
@@ -2229,7 +2229,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -2250,7 +2250,7 @@ class ContactsApi
      *
      * Removes a contact from a group
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException
@@ -2287,7 +2287,7 @@ class ContactsApi
     /**
      * Create request for operation 'removeContactFromGroup'
      *
-     * @param  string $groupId String in UUID format. (required)
+     * @param  string $groupId String in UUID format (required)
      * @param  string $phone A phone number (required)
      *
      * @throws \InvalidArgumentException

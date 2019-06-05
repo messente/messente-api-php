@@ -40,7 +40,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in UUID format.
+$groupId = 'groupId_example'; // string | String in UUID format
 $phone = 'phone_example'; // string | A phone number
 
 try {
@@ -57,7 +57,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in UUID format. |
+ **groupId** | **string**| String in UUID format |
  **phone** | **string**| A phone number |
 
 ### Return type
@@ -407,7 +407,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in UUID format.
+$groupId = 'groupId_example'; // string | String in UUID format
 $phone = 'phone_example'; // string | A phone number
 
 try {
@@ -423,7 +423,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in UUID format. |
+ **groupId** | **string**| String in UUID format |
  **phone** | **string**| A phone number |
 
 ### Return type
