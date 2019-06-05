@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * WhatsAppAudioTest Class Doc Comment
  *
  * @category    Class
- * @description WhatsAppAudio
+ * @description A sound
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

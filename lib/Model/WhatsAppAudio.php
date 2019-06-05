@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * WhatsAppAudio Class Doc Comment
  *
  * @category Class
+ * @description A sound
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

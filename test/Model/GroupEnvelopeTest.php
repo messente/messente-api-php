@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * GroupEnvelopeTest Class Doc Comment
  *
  * @category    Class
- * @description GroupEnvelope
+ * @description A container for a group
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

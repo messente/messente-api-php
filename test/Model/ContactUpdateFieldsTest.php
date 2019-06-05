@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ContactUpdateFieldsTest Class Doc Comment
  *
  * @category    Class
- * @description ContactUpdateFields
+ * @description A container for fields of a contact
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

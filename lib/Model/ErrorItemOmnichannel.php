@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * ErrorItemOmnichannel Class Doc Comment
  *
  * @category Class
+ * @description A container for Omnichannel API error
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

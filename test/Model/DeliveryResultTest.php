@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * DeliveryResultTest Class Doc Comment
  *
  * @category    Class
- * @description DeliveryResult
+ * @description A delivery report
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

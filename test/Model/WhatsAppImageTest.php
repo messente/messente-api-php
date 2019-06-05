@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * WhatsAppImageTest Class Doc Comment
  *
  * @category    Class
- * @description WhatsAppImage
+ * @description An image
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

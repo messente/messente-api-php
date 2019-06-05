@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * GroupEnvelope Class Doc Comment
  *
  * @category Class
+ * @description A container for a group
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

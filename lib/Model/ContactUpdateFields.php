@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * ContactUpdateFields Class Doc Comment
  *
  * @category Class
+ * @description A container for fields of a contact
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -265,7 +266,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string|null $email email
+     * @param string|null $email The contact's email
      *
      * @return $this
      */
@@ -289,7 +290,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string|null $firstName firstName
+     * @param string|null $firstName The contact's first name
      *
      * @return $this
      */
@@ -313,7 +314,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string|null $lastName lastName
+     * @param string|null $lastName The contact's last name
      *
      * @return $this
      */
@@ -337,7 +338,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets company
      *
-     * @param string|null $company company
+     * @param string|null $company The contact's company
      *
      * @return $this
      */
@@ -361,7 +362,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string|null $title The contact's title
      *
      * @return $this
      */
@@ -385,7 +386,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets custom
      *
-     * @param string|null $custom custom
+     * @param string|null $custom The first custom field
      *
      * @return $this
      */
@@ -409,7 +410,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets custom2
      *
-     * @param string|null $custom2 custom2
+     * @param string|null $custom2 The second custom field
      *
      * @return $this
      */
@@ -433,7 +434,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets custom3
      *
-     * @param string|null $custom3 custom3
+     * @param string|null $custom3 The third custom field
      *
      * @return $this
      */
@@ -457,7 +458,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
     /**
      * Sets custom4
      *
-     * @param string|null $custom4 custom4
+     * @param string|null $custom4 The fourth custom field
      *
      * @return $this
      */

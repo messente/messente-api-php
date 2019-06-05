@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * MessageResult Class Doc Comment
  *
  * @category Class
+ * @description A message part of an omnimessage
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * DeliveryResult Class Doc Comment
  *
  * @category Class
+ * @description A delivery report
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

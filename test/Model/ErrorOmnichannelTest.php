@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ErrorOmnichannelTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorOmnichannel
+ * @description A container for errors
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * GroupResponseFieldsTest Class Doc Comment
  *
  * @category    Class
- * @description GroupResponseFields
+ * @description A container for fields of a group
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

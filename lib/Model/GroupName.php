@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * GroupName Class Doc Comment
  *
  * @category Class
+ * @description A group name container
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -224,7 +225,7 @@ class GroupName implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The name of the group
      *
      * @return $this
      */

@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * ErrorItemPhonebook Class Doc Comment
  *
  * @category Class
+ * @description A container for Phonebook API error
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

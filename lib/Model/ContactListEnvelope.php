@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * ContactListEnvelope Class Doc Comment
  *
  * @category Class
+ * @description A container for contacts
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -217,7 +218,7 @@ class ContactListEnvelope implements ModelInterface, ArrayAccess
     /**
      * Sets contacts
      *
-     * @param \Messente\Api\Model\ContactFields[]|null $contacts contacts
+     * @param \Messente\Api\Model\ContactFields[]|null $contacts An array of contacts
      *
      * @return $this
      */

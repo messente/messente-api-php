@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * GroupListEnvelope Class Doc Comment
  *
  * @category Class
+ * @description A container for groups
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -217,7 +218,7 @@ class GroupListEnvelope implements ModelInterface, ArrayAccess
     /**
      * Sets groups
      *
-     * @param \Messente\Api\Model\GroupResponseFields[]|null $groups groups
+     * @param \Messente\Api\Model\GroupResponseFields[]|null $groups An array of groups
      *
      * @return $this
      */

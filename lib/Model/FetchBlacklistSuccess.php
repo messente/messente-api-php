@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * FetchBlacklistSuccess Class Doc Comment
  *
  * @category Class
+ * @description A container for blacklisted numbers
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NumberToBlacklistTest Class Doc Comment
  *
  * @category    Class
- * @description NumberToBlacklist
+ * @description A container for a soon-to-be blacklisted number
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

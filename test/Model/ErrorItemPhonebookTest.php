@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ErrorItemPhonebookTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorItemPhonebook
+ * @description A container for Phonebook API error
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

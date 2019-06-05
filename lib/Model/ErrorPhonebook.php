@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * ErrorPhonebook Class Doc Comment
  *
  * @category Class
+ * @description A container for errors
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -220,7 +221,7 @@ class ErrorPhonebook implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Messente\Api\Model\ErrorItemPhonebook[] $errors errors
+     * @param \Messente\Api\Model\ErrorItemPhonebook[] $errors An array of errors
      *
      * @return $this
      */

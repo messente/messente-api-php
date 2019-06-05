@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * WhatsAppDocument Class Doc Comment
  *
  * @category Class
+ * @description A document
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

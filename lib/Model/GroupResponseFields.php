@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * GroupResponseFields Class Doc Comment
  *
  * @category Class
+ * @description A container for fields of a group
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -71,7 +72,7 @@ class GroupResponseFields implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
-        'createdOn' => null,
+        'createdOn' => '%Y-%m-%dT%H:%M:%S.%fZ',
         'contactsCount' => null
     ];
 
@@ -268,7 +269,7 @@ class GroupResponseFields implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The name of the group
      *
      * @return $this
      */
@@ -292,7 +293,7 @@ class GroupResponseFields implements ModelInterface, ArrayAccess
     /**
      * Sets createdOn
      *
-     * @param string|null $createdOn Format %Y-%m-%dT%H:%M:%S.%fZ
+     * @param string|null $createdOn When the group was created
      *
      * @return $this
      */
@@ -316,7 +317,7 @@ class GroupResponseFields implements ModelInterface, ArrayAccess
     /**
      * Sets contactsCount
      *
-     * @param int $contactsCount contactsCount
+     * @param int $contactsCount The count of contacts in the group
      *
      * @return $this
      */

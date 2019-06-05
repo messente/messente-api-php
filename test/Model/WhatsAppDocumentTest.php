@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * WhatsAppDocumentTest Class Doc Comment
  *
  * @category    Class
- * @description WhatsAppDocument
+ * @description A document
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

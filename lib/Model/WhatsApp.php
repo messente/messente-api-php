@@ -419,7 +419,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
     /**
      * Sets channel
      *
-     * @param string|null $channel channel
+     * @param string|null $channel The channel used to deliver the message
      *
      * @return $this
      */

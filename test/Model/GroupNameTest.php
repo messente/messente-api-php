@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * GroupNameTest Class Doc Comment
  *
  * @category    Class
- * @description GroupName
+ * @description A group name container
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

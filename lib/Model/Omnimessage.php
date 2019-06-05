@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * Omnimessage Class Doc Comment
  *
  * @category Class
+ * @description An omnimessage
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -271,7 +272,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param OneOfViberSMSWhatsApp[] $messages messages
+     * @param OneOfViberSMSWhatsApp[] $messages An array of messages
      *
      * @return $this
      */

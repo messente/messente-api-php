@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ContactEnvelopeTest Class Doc Comment
  *
  * @category    Class
- * @description ContactEnvelope
+ * @description A container for a contact
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

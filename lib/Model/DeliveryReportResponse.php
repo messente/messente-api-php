@@ -36,6 +36,7 @@ use \Messente\Api\ObjectSerializer;
  * DeliveryReportResponse Class Doc Comment
  *
  * @category Class
+ * @description A container for successful delivery report response
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -238,7 +239,7 @@ class DeliveryReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets statuses
      *
-     * @param \Messente\Api\Model\DeliveryResult[] $statuses Contains the delivery reports for each channnel, ordered by send order
+     * @param \Messente\Api\Model\DeliveryResult[] $statuses Contains the delivery reports for each channel, ordered by send order
      *
      * @return $this
      */

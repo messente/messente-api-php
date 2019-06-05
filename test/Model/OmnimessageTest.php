@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * OmnimessageTest Class Doc Comment
  *
  * @category    Class
- * @description Omnimessage
+ * @description An omnimessage
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
