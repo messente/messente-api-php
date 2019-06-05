@@ -63,7 +63,6 @@ class ContactFields implements ModelInterface, ArrayAccess
         'firstName' => 'string',
         'lastName' => 'string',
         'company' => 'string',
-        'title' => 'string',
         'custom' => 'string',
         'custom2' => 'string',
         'custom3' => 'string',
@@ -81,7 +80,6 @@ class ContactFields implements ModelInterface, ArrayAccess
         'firstName' => null,
         'lastName' => null,
         'company' => null,
-        'title' => null,
         'custom' => null,
         'custom2' => null,
         'custom3' => null,
@@ -120,7 +118,6 @@ class ContactFields implements ModelInterface, ArrayAccess
         'firstName' => 'firstName',
         'lastName' => 'lastName',
         'company' => 'company',
-        'title' => 'title',
         'custom' => 'custom',
         'custom2' => 'custom2',
         'custom3' => 'custom3',
@@ -138,7 +135,6 @@ class ContactFields implements ModelInterface, ArrayAccess
         'firstName' => 'setFirstName',
         'lastName' => 'setLastName',
         'company' => 'setCompany',
-        'title' => 'setTitle',
         'custom' => 'setCustom',
         'custom2' => 'setCustom2',
         'custom3' => 'setCustom3',
@@ -156,7 +152,6 @@ class ContactFields implements ModelInterface, ArrayAccess
         'firstName' => 'getFirstName',
         'lastName' => 'getLastName',
         'company' => 'getCompany',
-        'title' => 'getTitle',
         'custom' => 'getCustom',
         'custom2' => 'getCustom2',
         'custom3' => 'getCustom3',
@@ -228,7 +223,6 @@ class ContactFields implements ModelInterface, ArrayAccess
         $this->container['firstName'] = isset($data['firstName']) ? $data['firstName'] : null;
         $this->container['lastName'] = isset($data['lastName']) ? $data['lastName'] : null;
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['custom'] = isset($data['custom']) ? $data['custom'] : null;
         $this->container['custom2'] = isset($data['custom2']) ? $data['custom2'] : null;
         $this->container['custom3'] = isset($data['custom3']) ? $data['custom3'] : null;
@@ -299,7 +293,7 @@ class ContactFields implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string|null $email The contact's email
+     * @param string|null $email The email of the contact
      *
      * @return $this
      */
@@ -323,7 +317,7 @@ class ContactFields implements ModelInterface, ArrayAccess
     /**
      * Sets firstName
      *
-     * @param string|null $firstName The contact's first name
+     * @param string|null $firstName The first name of the contact
      *
      * @return $this
      */
@@ -347,7 +341,7 @@ class ContactFields implements ModelInterface, ArrayAccess
     /**
      * Sets lastName
      *
-     * @param string|null $lastName The contact's last name
+     * @param string|null $lastName The last name of the contact
      *
      * @return $this
      */
@@ -371,37 +365,13 @@ class ContactFields implements ModelInterface, ArrayAccess
     /**
      * Sets company
      *
-     * @param string|null $company The contact's company
+     * @param string|null $company The company of the contact
      *
      * @return $this
      */
     public function setCompany($company)
     {
         $this->container['company'] = $company;
-
-        return $this;
-    }
-
-    /**
-     * Gets title
-     *
-     * @return string|null
-     */
-    public function getTitle()
-    {
-        return $this->container['title'];
-    }
-
-    /**
-     * Sets title
-     *
-     * @param string|null $title The contact's title
-     *
-     * @return $this
-     */
-    public function setTitle($title)
-    {
-        $this->container['title'] = $title;
 
         return $this;
     }
