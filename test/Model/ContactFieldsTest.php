@@ -114,6 +114,13 @@ class ContactFieldsTest extends TestCase
     }
 
     /**
+     * Test attribute "title"
+     */
+    public function testPropertyTitle()
+    {
+    }
+
+    /**
      * Test attribute "custom"
      */
     public function testPropertyCustom()
