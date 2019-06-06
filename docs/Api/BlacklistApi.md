@@ -5,9 +5,9 @@ All URIs are relative to *https://api.messente.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addToBlacklist**](BlacklistApi.md#addToBlacklist) | **POST** /phonebook/blacklist | Adds a phone number to the blacklist
-[**deleteFromBlacklist**](BlacklistApi.md#deleteFromBlacklist) | **DELETE** /blacklist/{phone} | Deletes a phone number from the blacklist
+[**deleteFromBlacklist**](BlacklistApi.md#deleteFromBlacklist) | **DELETE** /phonebook/blacklist/{phone} | Deletes a phone number from the blacklist
 [**fetchBlacklist**](BlacklistApi.md#fetchBlacklist) | **GET** /phonebook/blacklist | Returns all blacklisted phone numbers
-[**isBlacklisted**](BlacklistApi.md#isBlacklisted) | **GET** /blacklist/{phone} | Checks if a phone number is blacklisted
+[**isBlacklisted**](BlacklistApi.md#isBlacklisted) | **GET** /phonebook/blacklist/{phone} | Checks if a phone number is blacklisted
 
 
 

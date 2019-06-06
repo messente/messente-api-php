@@ -417,7 +417,7 @@ class ContactsApi
             );
         }
 
-        $resourcePath = '/groups/{groupId}/contacts/{phone}';
+        $resourcePath = '/phonebook/groups/{groupId}/contacts/{phone}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -781,7 +781,7 @@ class ContactsApi
             );
         }
 
-        $resourcePath = '/contacts';
+        $resourcePath = '/phonebook/contacts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1036,7 +1036,7 @@ class ContactsApi
             );
         }
 
-        $resourcePath = '/contacts/{phone}';
+        $resourcePath = '/phonebook/contacts/{phone}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1372,7 +1372,7 @@ class ContactsApi
             );
         }
 
-        $resourcePath = '/contacts/{phone}';
+        $resourcePath = '/phonebook/contacts/{phone}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1708,7 +1708,7 @@ class ContactsApi
             );
         }
 
-        $resourcePath = '/contacts/{phone}/groups';
+        $resourcePath = '/phonebook/contacts/{phone}/groups';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2038,7 +2038,7 @@ class ContactsApi
     protected function fetchContactsRequest($groupIds = null)
     {
 
-        $resourcePath = '/contacts';
+        $resourcePath = '/phonebook/contacts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2308,7 +2308,7 @@ class ContactsApi
             );
         }
 
-        $resourcePath = '/groups/{groupId}/contacts/{phone}';
+        $resourcePath = '/phonebook/groups/{groupId}/contacts/{phone}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2683,7 +2683,7 @@ class ContactsApi
             );
         }
 
-        $resourcePath = '/contacts/{phone}';
+        $resourcePath = '/phonebook/contacts/{phone}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -545,7 +545,7 @@ class BlacklistApi
             );
         }
 
-        $resourcePath = '/blacklist/{phone}';
+        $resourcePath = '/phonebook/blacklist/{phone}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1094,7 +1094,7 @@ class BlacklistApi
             );
         }
 
-        $resourcePath = '/blacklist/{phone}';
+        $resourcePath = '/phonebook/blacklist/{phone}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

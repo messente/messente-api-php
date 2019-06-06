@@ -366,7 +366,7 @@ class GroupsApi
             );
         }
 
-        $resourcePath = '/groups';
+        $resourcePath = '/phonebook/groups';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -613,7 +613,7 @@ class GroupsApi
             );
         }
 
-        $resourcePath = '/groups/{groupId}';
+        $resourcePath = '/phonebook/groups/{groupId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -929,7 +929,7 @@ class GroupsApi
             );
         }
 
-        $resourcePath = '/groups/{groupId}';
+        $resourcePath = '/phonebook/groups/{groupId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1234,7 +1234,7 @@ class GroupsApi
     protected function fetchGroupsRequest()
     {
 
-        $resourcePath = '/groups';
+        $resourcePath = '/phonebook/groups';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1593,7 +1593,7 @@ class GroupsApi
             );
         }
 
-        $resourcePath = '/groups/{groupId}';
+        $resourcePath = '/phonebook/groups/{groupId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
