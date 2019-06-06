@@ -4,11 +4,11 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGroup**](GroupsApi.md#createGroup) | **POST** /groups | Creates a new group with the provided name.
-[**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /groups/{groupId} | Deletes a group.
-[**fetchGroup**](GroupsApi.md#fetchGroup) | **GET** /groups/{groupId} | Lists a group.
-[**fetchGroups**](GroupsApi.md#fetchGroups) | **GET** /groups | Returns all groups.
-[**updateGroup**](GroupsApi.md#updateGroup) | **PUT** /groups/{groupId} | Updates a group with the provided name.
+[**createGroup**](GroupsApi.md#createGroup) | **POST** /phonebook/groups | Creates a new group with the provided name
+[**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /phonebook/groups/{groupId} | Deletes a group
+[**fetchGroup**](GroupsApi.md#fetchGroup) | **GET** /phonebook/groups/{groupId} | Lists a group
+[**fetchGroups**](GroupsApi.md#fetchGroups) | **GET** /phonebook/groups | Returns all groups
+[**updateGroup**](GroupsApi.md#updateGroup) | **PUT** /phonebook/groups/{groupId} | Updates a group with the provided name
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 > \Messente\Api\Model\GroupEnvelope createGroup($groupName)
 
-Creates a new group with the provided name.
+Creates a new group with the provided name
 
 ### Example
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 > deleteGroup($groupId)
 
-Deletes a group.
+Deletes a group
 
 ### Example
 
@@ -98,7 +98,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in uuid format.
+$groupId = 'groupId_example'; // string | String in UUID format
 
 try {
     $apiInstance->deleteGroup($groupId);
@@ -113,7 +113,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in uuid format. |
+ **groupId** | **string**| String in UUID format |
 
 ### Return type
 
@@ -137,7 +137,7 @@ void (empty response body)
 
 > \Messente\Api\Model\GroupEnvelope fetchGroup($groupId)
 
-Lists a group.
+Lists a group
 
 ### Example
 
@@ -158,7 +158,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in uuid format.
+$groupId = 'groupId_example'; // string | String in UUID format
 
 try {
     $result = $apiInstance->fetchGroup($groupId);
@@ -174,7 +174,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in uuid format. |
+ **groupId** | **string**| String in UUID format |
 
 ### Return type
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 > \Messente\Api\Model\GroupListEnvelope fetchGroups()
 
-Returns all groups.
+Returns all groups
 
 ### Example
 
@@ -255,7 +255,7 @@ This endpoint does not need any parameter.
 
 > \Messente\Api\Model\GroupEnvelope updateGroup($groupId, $groupName)
 
-Updates a group with the provided name.
+Updates a group with the provided name
 
 ### Example
 
@@ -276,7 +276,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in uuid format.
+$groupId = 'groupId_example'; // string | String in UUID format
 $groupName = new \Messente\Api\Model\GroupName(); // \Messente\Api\Model\GroupName | 
 
 try {
@@ -293,7 +293,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in uuid format. |
+ **groupId** | **string**| String in UUID format |
  **groupName** | [**\Messente\Api\Model\GroupName**](../Model/GroupName.md)|  |
 
 ### Return type

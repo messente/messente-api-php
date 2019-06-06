@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | [**\Messente\Api\Model\ErrorTitleOmnichannel**](ErrorTitleOmnichannel.md) |  | 
-**detail** | **string** | Free form more detailed description of the error. | 
+**detail** | **string** | Free form more detailed description of the error | 
 **code** | [**\Messente\Api\Model\ErrorCodeOmnichannel**](ErrorCodeOmnichannel.md) |  | 
 **source** | **string** | Describes which field is causing the issue in the payload, null for non 400 status code responses | 
 

@@ -4,8 +4,8 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelScheduledMessage**](OmnimessageApi.md#cancelScheduledMessage) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage.
-[**sendOmnimessage**](OmnimessageApi.md#sendOmnimessage) | **POST** /omnimessage | Sends an Omnimessage.
+[**cancelScheduledMessage**](OmnimessageApi.md#cancelScheduledMessage) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage
+[**sendOmnimessage**](OmnimessageApi.md#sendOmnimessage) | **POST** /omnimessage | Sends an Omnimessage
 
 
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 > cancelScheduledMessage($omnimessageId)
 
-Cancels a scheduled Omnimessage.
+Cancels a scheduled Omnimessage
 
 ### Example
 
@@ -34,7 +34,7 @@ $apiInstance = new Messente\Api\Api\OmnimessageApi(
     new GuzzleHttp\Client(),
     $config
 );
-$omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled Omnimessage to be cancelled
+$omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled omnimessage to be cancelled
 
 try {
     $apiInstance->cancelScheduledMessage($omnimessageId);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | [**string**](../Model/.md)| UUID of the scheduled Omnimessage to be cancelled |
+ **omnimessageId** | **string**| UUID of the scheduled omnimessage to be cancelled |
 
 ### Return type
 
@@ -73,7 +73,7 @@ void (empty response body)
 
 > \Messente\Api\Model\OmniMessageCreateSuccessResponse sendOmnimessage($omnimessage)
 
-Sends an Omnimessage.
+Sends an Omnimessage
 
 ### Example
 

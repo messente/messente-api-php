@@ -4,7 +4,7 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage.
+[**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > \Messente\Api\Model\DeliveryReportResponse retrieveDeliveryReport($omnimessageId)
 
-Retrieves the delivery report for the Omnimessage.
+Retrieves the delivery report for the Omnimessage
 
 ### Example
 
@@ -33,7 +33,7 @@ $apiInstance = new Messente\Api\Api\DeliveryReportApi(
     new GuzzleHttp\Client(),
     $config
 );
-$omnimessageId = 'omnimessageId_example'; // string | UUID of the Omnimessage to for which the delivery report is to be retrieved
+$omnimessageId = 'omnimessageId_example'; // string | UUID of the omnimessage to for which the delivery report is to be retrieved
 
 try {
     $result = $apiInstance->retrieveDeliveryReport($omnimessageId);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **omnimessageId** | [**string**](../Model/.md)| UUID of the Omnimessage to for which the delivery report is to be retrieved |
+ **omnimessageId** | **string**| UUID of the omnimessage to for which the delivery report is to be retrieved |
 
 ### Return type
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
