@@ -40,8 +40,8 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in UUID format
-$phone = 'phone_example'; // string | A phone number
+$groupId = 5792a02a-e5c2-422b-a0a0-0ae65d814663; // string | String in UUID format
+$phone = +37251000000; // string | A phone number
 
 try {
     $result = $apiInstance->addContactToGroup($groupId, $phone);
@@ -164,7 +164,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone = 'phone_example'; // string | A phone number
+$phone = +37251000000; // string | A phone number
 
 try {
     $apiInstance->deleteContact($phone);
@@ -224,7 +224,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone = 'phone_example'; // string | A phone number
+$phone = +37251000000; // string | A phone number
 
 try {
     $result = $apiInstance->fetchContact($phone);
@@ -285,7 +285,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone = 'phone_example'; // string | A phone number
+$phone = +37251000000; // string | A phone number
 
 try {
     $result = $apiInstance->fetchContactGroups($phone);
@@ -346,7 +346,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupIds = array('groupIds_example'); // string[] | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\"
+$groupIds = ["5792a02a-e5c2-422b-a0a0-0ae65d814663","4792a02a-e5c2-422b-a0a0-0ae65d814662"]; // string[] | Optional one or many group id strings in UUID format. For example: \"/contacts?groupIds=group_id_one&groupIds=group_id_two\"
 
 try {
     $result = $apiInstance->fetchContacts($groupIds);
@@ -407,8 +407,8 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in UUID format
-$phone = 'phone_example'; // string | A phone number
+$groupId = 5792a02a-e5c2-422b-a0a0-0ae65d814663; // string | String in UUID format
+$phone = +37251000000; // string | A phone number
 
 try {
     $apiInstance->removeContactFromGroup($groupId, $phone);
@@ -469,7 +469,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone = 'phone_example'; // string | A phone number
+$phone = +37251000000; // string | A phone number
 $contactUpdateFields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactUpdateFields | 
 
 try {

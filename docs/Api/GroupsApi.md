@@ -98,7 +98,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in UUID format
+$groupId = 5792a02a-e5c2-422b-a0a0-0ae65d814663; // string | String in UUID format
 
 try {
     $apiInstance->deleteGroup($groupId);
@@ -158,7 +158,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in UUID format
+$groupId = 5792a02a-e5c2-422b-a0a0-0ae65d814663; // string | String in UUID format
 
 try {
     $result = $apiInstance->fetchGroup($groupId);
@@ -276,7 +276,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupId = 'groupId_example'; // string | String in UUID format
+$groupId = 5792a02a-e5c2-422b-a0a0-0ae65d814663; // string | String in UUID format
 $groupName = {"name":"Any group name"}; // \Messente\Api\Model\GroupName | 
 
 try {
