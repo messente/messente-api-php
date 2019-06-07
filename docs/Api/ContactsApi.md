@@ -470,7 +470,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     $config
 );
 $phone = 'phone_example'; // string | A phone number
-$contactUpdateFields = new \Messente\Api\Model\ContactUpdateFields(); // \Messente\Api\Model\ContactUpdateFields | 
+$contactUpdateFields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactUpdateFields | 
 
 try {
     $result = $apiInstance->updateContact($phone, $contactUpdateFields);

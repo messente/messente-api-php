@@ -37,7 +37,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupName = {"name":"Any name"}; // \Messente\Api\Model\GroupName | 
+$groupName = {"name":"Any group name"}; // \Messente\Api\Model\GroupName | 
 
 try {
     $result = $apiInstance->createGroup($groupName);
@@ -277,7 +277,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     $config
 );
 $groupId = 'groupId_example'; // string | String in UUID format
-$groupName = {"name":"Any name"}; // \Messente\Api\Model\GroupName | 
+$groupName = {"name":"Any group name"}; // \Messente\Api\Model\GroupName | 
 
 try {
     $result = $apiInstance->updateGroup($groupId, $groupName);
