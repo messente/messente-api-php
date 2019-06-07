@@ -103,7 +103,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contactFields = new \Messente\Api\Model\ContactFields(); // \Messente\Api\Model\ContactFields | 
+$contactFields = {"phoneNumber":"+37251000000","email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactFields | 
 
 try {
     $result = $apiInstance->createContact($contactFields);
