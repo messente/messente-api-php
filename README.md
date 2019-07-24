@@ -1,7 +1,7 @@
 # Messente API Library
 
 - Messente API version: 1.0.2
-- PHP artifact version: 1.0.2
+- PHP artifact version: 1.0.3
 
 [Messente](https://messente.com) is a global provider of messaging and user verification services. Use Messente API library to send and receive SMS, Viber and WhatsApp messages, blacklist phone numbers to make sure you&#39;re not sending any unwanted messages, manage contacts and groups.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
 
@@ -118,7 +118,7 @@ try {
 
 ## License
 
-[Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+[Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ## Terms
 

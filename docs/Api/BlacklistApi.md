@@ -36,7 +36,7 @@ $apiInstance = new Messente\Api\Api\BlacklistApi(
     new GuzzleHttp\Client(),
     $config
 );
-$numberToBlacklist = new \Messente\Api\Model\NumberToBlacklist(); // \Messente\Api\Model\NumberToBlacklist | Phone number to be blacklisted
+$numberToBlacklist = {"phoneNumber":"+37251000000"}; // \Messente\Api\Model\NumberToBlacklist | Phone number to be blacklisted
 
 try {
     $apiInstance->addToBlacklist($numberToBlacklist);
@@ -96,7 +96,7 @@ $apiInstance = new Messente\Api\Api\BlacklistApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone = 'phone_example'; // string | A phone number
+$phone = +37251000000; // string | A phone number
 
 try {
     $apiInstance->deleteFromBlacklist($phone);
@@ -213,7 +213,7 @@ $apiInstance = new Messente\Api\Api\BlacklistApi(
     new GuzzleHttp\Client(),
     $config
 );
-$phone = 'phone_example'; // string | A phone number
+$phone = +37251000000; // string | A phone number
 
 try {
     $apiInstance->isBlacklisted($phone);
