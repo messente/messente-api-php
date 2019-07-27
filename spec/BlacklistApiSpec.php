@@ -42,8 +42,8 @@ class BlacklistApiSpec extends ObjectBehavior
         $stream->getContents()->willReturn(json_encode($data));
 
         // when
-        $response = $this->fetchBlacklist();
-        $phoneNumbers = $response->getPhoneNumbers();
+        $result = $this->fetchBlacklist();
+        $phoneNumbers = $result->getPhoneNumbers();
 
         // then
         $phoneNumbers->shouldEqual($data['phoneNumbers']);
