@@ -1,0 +1,6 @@
+suites:
+    test_suite:
+        namespace: Messente\Api
+        psr4_prefix:  Messente\Api
+        src_path: lib
+formatter.name: pretty
