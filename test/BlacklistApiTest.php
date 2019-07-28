@@ -12,9 +12,7 @@ require_once __DIR__.'/ResponseMock.php';
 
 class BlacklistApiTest extends TestCase
 {
-    const ANY_STATUS = 'ANY_STATUS';
-    const ANY_MESSAGE_ID = 'ANY_MESSAGE_ID';
-    const RESPONSE_ONE_UNIT_STORED = 1;
+    const AUTH_HEADER_VALUE = 'Basic YW55X3VzZXJuYW1lOmFueV9wYXNzd29yZA==';
 
     protected function setUp(): void
     {
@@ -37,7 +35,7 @@ class BlacklistApiTest extends TestCase
             ->withConsecutive(
                 [
                     $this->factory->createRequest('GET', $uri)
-                    ->withHeader(Configuration::AUTH_HEADER_KEY, 'Basic YW55X3VzZXJuYW1lOmFueV9wYXNzd29yZA==')
+                    ->withHeader(Configuration::AUTH_HEADER_KEY, self::AUTH_HEADER_VALUE)
                     ->withProtocolVersion(Configuration::PROTOCOL_VERSION),
                 ]
             )
