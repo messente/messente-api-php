@@ -35,8 +35,8 @@ class BlacklistApiTest extends TestCase
             ->withConsecutive(
                 [
                     $this->factory->createRequest('GET', $uri)
-                    ->withHeader(Configuration::AUTH_HEADER_KEY, self::AUTH_HEADER_VALUE)
-                    ->withProtocolVersion(Configuration::PROTOCOL_VERSION),
+                        ->withHeader(Configuration::AUTH_HEADER_KEY, self::AUTH_HEADER_VALUE)
+                        ->withProtocolVersion(Configuration::PROTOCOL_VERSION),
                 ]
             )
             ->willReturn($response);

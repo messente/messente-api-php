@@ -2,28 +2,29 @@
 
 namespace Messente\Api\Model;
 
-class FetchBlacklistSuccess
+class ContactEnvelope
 {
-    public $phoneNumbers;
+    public $contact;
 
     public function __construct(string $jsonData)
     {
         $result = json_decode($jsonData, true);
-        $this->setPhoneNumbers($result['phoneNumbers']);
+        $contact = new Contact($result['contact']);
+        $this->setContact($contact);
 
         return $this;
     }
 
-    public function setPhoneNumbers(array $phoneNumbers)
+    public function setContact(Contact $contact): ContactEnvelope
     {
-        $this->phoneNumbers = $phoneNumbers;
+        $this->contact = $contact;
 
         return $this;
     }
 
-    public function getPhoneNumbers()
+    public function getContact(): Contact
     {
-        return $this->phoneNumbers;
+        return $this->contact;
     }
 
     public function __toString()

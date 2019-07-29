@@ -7,6 +7,8 @@ class Configuration
     const PHONEBOOK = 'phonebook';
     const HOST = 'https://api.messente.com/v1';
     const AUTH_HEADER_KEY = 'Authorization';
+    const JSON_CONTENT_TYPE_KEY = 'Content-Type';
+    const JSON_CONTENT_TYPE_VALUE = 'application/json';
     const PROTOCOL_VERSION = '1.1';
 
     protected $host;
