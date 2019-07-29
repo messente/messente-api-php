@@ -79,6 +79,26 @@ class Omnimessage implements ModelInterface, ArrayAccess
     ];
 
     /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static $openAPINullables = [
+        'to' => false,
+        'messages' => false,
+        'dlrUrl' => false,
+        'textStore' => false,
+        'timeToSend' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected $openAPINullablesSetToNull = [];
+
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -96,6 +116,60 @@ class Omnimessage implements ModelInterface, ArrayAccess
     public static function openAPIFormats()
     {
         return self::$openAPIFormats;
+    }
+
+    /**
+     * Array of property to nullable mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function openAPINullables()
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return array
+     */
+    public function getOpenAPINullablesSetToNull()
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    public function setOpenAPINullablesSetToNull($nullablesSetToNull)
+    {
+        $this->openAPINullablesSetToNull=$nullablesSetToNull;
+
+        return $this;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        if (isset(self::$openAPINullables[$property])) {
+            return self::$openAPINullables[$property];
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        if (in_array($property, $this->getOpenAPINullablesSetToNull())) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -198,11 +272,22 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
-        $this->container['messages'] = isset($data['messages']) ? $data['messages'] : null;
-        $this->container['dlrUrl'] = isset($data['dlrUrl']) ? $data['dlrUrl'] : null;
-        $this->container['textStore'] = isset($data['textStore']) ? $data['textStore'] : null;
-        $this->container['timeToSend'] = isset($data['timeToSend']) ? $data['timeToSend'] : null;
+        $this->setIfExists('to', $data, null);
+        $this->setIfExists('messages', $data, null);
+        $this->setIfExists('dlrUrl', $data, null);
+        $this->setIfExists('textStore', $data, null);
+        $this->setIfExists('timeToSend', $data, null);
+    }
+
+    public function setIfExists(string $variableName, $fields, $defaultValue)
+    {
+        if (is_array($fields) && array_key_exists($variableName, $fields) && is_null($fields[$variableName]) && self::isNullable($variableName)) {
+            array_push($this->openAPINullablesSetToNull, $variableName);
+        }
+
+        $this->container[$variableName] = isset($fields[$variableName]) ? $fields[$variableName] : $defaultValue;
+
+        return $this;
     }
 
     /**
@@ -254,6 +339,12 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     public function setTo($to)
     {
+
+
+        if (is_null($to)) {
+            throw new \InvalidArgumentException('non-nullable to cannot be null');
+        }
+
         $this->container['to'] = $to;
 
         return $this;
@@ -278,6 +369,12 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     public function setMessages($messages)
     {
+
+
+        if (is_null($messages)) {
+            throw new \InvalidArgumentException('non-nullable messages cannot be null');
+        }
+
         $this->container['messages'] = $messages;
 
         return $this;
@@ -302,6 +399,12 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     public function setDlrUrl($dlrUrl)
     {
+
+
+        if (is_null($dlrUrl)) {
+            throw new \InvalidArgumentException('non-nullable dlrUrl cannot be null');
+        }
+
         $this->container['dlrUrl'] = $dlrUrl;
 
         return $this;
@@ -326,6 +429,12 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     public function setTextStore($textStore)
     {
+
+
+        if (is_null($textStore)) {
+            throw new \InvalidArgumentException('non-nullable textStore cannot be null');
+        }
+
         $this->container['textStore'] = $textStore;
 
         return $this;
@@ -350,6 +459,12 @@ class Omnimessage implements ModelInterface, ArrayAccess
      */
     public function setTimeToSend($timeToSend)
     {
+
+
+        if (is_null($timeToSend)) {
+            throw new \InvalidArgumentException('non-nullable timeToSend cannot be null');
+        }
+
         $this->container['timeToSend'] = $timeToSend;
 
         return $this;

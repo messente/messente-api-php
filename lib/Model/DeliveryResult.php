@@ -81,6 +81,27 @@ class DeliveryResult implements ModelInterface, ArrayAccess
     ];
 
     /**
+      * Array of nullable properties. Used for (de)serialization
+      *
+      * @var boolean[]
+      */
+    protected static $openAPINullables = [
+        'status' => false,
+        'channel' => false,
+        'messageId' => false,
+        'error' => false,
+        'err' => false,
+        'timestamp' => false
+    ];
+
+    /**
+      * If a nullable field gets set to null, insert it here
+      *
+      * @var boolean[]
+      */
+    protected $openAPINullablesSetToNull = [];
+
+    /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
@@ -98,6 +119,60 @@ class DeliveryResult implements ModelInterface, ArrayAccess
     public static function openAPIFormats()
     {
         return self::$openAPIFormats;
+    }
+
+    /**
+     * Array of property to nullable mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function openAPINullables()
+    {
+        return self::$openAPINullables;
+    }
+
+    /**
+     * Array of nullable field names deliberately set to null
+     *
+     * @return array
+     */
+    public function getOpenAPINullablesSetToNull()
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    public function setOpenAPINullablesSetToNull($nullablesSetToNull)
+    {
+        $this->openAPINullablesSetToNull=$nullablesSetToNull;
+
+        return $this;
+    }
+
+    /**
+     * Checks if a property is nullable
+     *
+     * @return bool
+     */
+    public static function isNullable(string $property): bool
+    {
+        if (isset(self::$openAPINullables[$property])) {
+            return self::$openAPINullables[$property];
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks if a nullable property is set to null.
+     *
+     * @return bool
+     */
+    public function isNullableSetToNull(string $property): bool
+    {
+        if (in_array($property, $this->getOpenAPINullablesSetToNull())) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -203,12 +278,23 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
-        $this->container['messageId'] = isset($data['messageId']) ? $data['messageId'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['err'] = isset($data['err']) ? $data['err'] : null;
-        $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
+        $this->setIfExists('status', $data, null);
+        $this->setIfExists('channel', $data, null);
+        $this->setIfExists('messageId', $data, null);
+        $this->setIfExists('error', $data, null);
+        $this->setIfExists('err', $data, null);
+        $this->setIfExists('timestamp', $data, null);
+    }
+
+    public function setIfExists(string $variableName, $fields, $defaultValue)
+    {
+        if (is_array($fields) && array_key_exists($variableName, $fields) && is_null($fields[$variableName]) && self::isNullable($variableName)) {
+            array_push($this->openAPINullablesSetToNull, $variableName);
+        }
+
+        $this->container[$variableName] = isset($fields[$variableName]) ? $fields[$variableName] : $defaultValue;
+
+        return $this;
     }
 
     /**
@@ -254,6 +340,12 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function setStatus($status)
     {
+
+
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+
         $this->container['status'] = $status;
 
         return $this;
@@ -278,6 +370,12 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function setChannel($channel)
     {
+
+
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+
         $this->container['channel'] = $channel;
 
         return $this;
@@ -302,6 +400,12 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function setMessageId($messageId)
     {
+
+
+        if (is_null($messageId)) {
+            throw new \InvalidArgumentException('non-nullable messageId cannot be null');
+        }
+
         $this->container['messageId'] = $messageId;
 
         return $this;
@@ -326,6 +430,12 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function setError($error)
     {
+
+
+        if (is_null($error)) {
+            throw new \InvalidArgumentException('non-nullable error cannot be null');
+        }
+
         $this->container['error'] = $error;
 
         return $this;
@@ -350,6 +460,12 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function setErr($err)
     {
+
+
+        if (is_null($err)) {
+            throw new \InvalidArgumentException('non-nullable err cannot be null');
+        }
+
         $this->container['err'] = $err;
 
         return $this;
@@ -374,6 +490,12 @@ class DeliveryResult implements ModelInterface, ArrayAccess
      */
     public function setTimestamp($timestamp)
     {
+
+
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+
         $this->container['timestamp'] = $timestamp;
 
         return $this;
