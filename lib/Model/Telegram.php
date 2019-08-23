@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorItemPhonebook
+ * Telegram
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * ErrorItemPhonebook Class Doc Comment
+ * Telegram Class Doc Comment
  *
  * @category Class
- * @description A container for Phonebook API error
+ * @description Telegram message content
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ErrorItemPhonebook implements ModelInterface, ArrayAccess
+class Telegram implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorItemPhonebook';
+    protected static $openAPIModelName = 'Telegram';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,13 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'title' => '\Messente\Api\Model\ErrorTitlePhonebook',
-        'detail' => 'string',
-        'code' => '\Messente\Api\Model\ErrorCodePhonebook'
+        'sender' => 'string',
+        'validity' => 'int',
+        'text' => 'string',
+        'imageUrl' => 'string',
+        'documentUrl' => 'string',
+        'audioUrl' => 'string',
+        'channel' => 'string'
     ];
 
     /**
@@ -69,9 +73,13 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'title' => null,
-        'detail' => null,
-        'code' => null
+        'sender' => null,
+        'validity' => null,
+        'text' => null,
+        'imageUrl' => null,
+        'documentUrl' => null,
+        'audioUrl' => null,
+        'channel' => null
     ];
 
     /**
@@ -80,9 +88,13 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'title' => false,
-        'detail' => false,
-        'code' => false
+        'sender' => false,
+        'validity' => false,
+        'text' => false,
+        'imageUrl' => false,
+        'documentUrl' => false,
+        'audioUrl' => false,
+        'channel' => false
     ];
 
     /**
@@ -173,9 +185,13 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-        'detail' => 'detail',
-        'code' => 'code'
+        'sender' => 'sender',
+        'validity' => 'validity',
+        'text' => 'text',
+        'imageUrl' => 'image_url',
+        'documentUrl' => 'document_url',
+        'audioUrl' => 'audio_url',
+        'channel' => 'channel'
     ];
 
     /**
@@ -184,9 +200,13 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-        'detail' => 'setDetail',
-        'code' => 'setCode'
+        'sender' => 'setSender',
+        'validity' => 'setValidity',
+        'text' => 'setText',
+        'imageUrl' => 'setImageUrl',
+        'documentUrl' => 'setDocumentUrl',
+        'audioUrl' => 'setAudioUrl',
+        'channel' => 'setChannel'
     ];
 
     /**
@@ -195,9 +215,13 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-        'detail' => 'getDetail',
-        'code' => 'getCode'
+        'sender' => 'getSender',
+        'validity' => 'getValidity',
+        'text' => 'getText',
+        'imageUrl' => 'getImageUrl',
+        'documentUrl' => 'getDocumentUrl',
+        'audioUrl' => 'getAudioUrl',
+        'channel' => 'getChannel'
     ];
 
     /**
@@ -241,8 +265,21 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CHANNEL_TELEGRAM = 'telegram';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_TELEGRAM,
+        ];
+    }
     
 
     /**
@@ -260,9 +297,13 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('title', $data, null);
-        $this->setIfExists('detail', $data, null);
-        $this->setIfExists('code', $data, null);
+        $this->setIfExists('sender', $data, null);
+        $this->setIfExists('validity', $data, null);
+        $this->setIfExists('text', $data, null);
+        $this->setIfExists('imageUrl', $data, null);
+        $this->setIfExists('documentUrl', $data, null);
+        $this->setIfExists('audioUrl', $data, null);
+        $this->setIfExists('channel', $data, 'telegram');
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)
@@ -285,15 +326,14 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'channel', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['detail'] === null) {
-            $invalidProperties[] = "'detail' can't be null";
-        }
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -310,91 +350,220 @@ class ErrorItemPhonebook implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets title
+     * Gets sender
      *
-     * @return \Messente\Api\Model\ErrorTitlePhonebook
+     * @return string|null
      */
-    public function getTitle()
+    public function getSender()
     {
-        return $this->container['title'];
+        return $this->container['sender'];
     }
 
     /**
-     * Sets title
+     * Sets sender
      *
-     * @param \Messente\Api\Model\ErrorTitlePhonebook $title title
+     * @param string|null $sender Phone number or alphanumeric sender name
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setSender($sender)
     {
 
 
-        if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($sender)) {
+            throw new \InvalidArgumentException('non-nullable sender cannot be null');
         }
 
-        $this->container['title'] = $title;
+        $this->container['sender'] = $sender;
 
         return $this;
     }
 
     /**
-     * Gets detail
+     * Gets validity
      *
-     * @return string
+     * @return int|null
      */
-    public function getDetail()
+    public function getValidity()
     {
-        return $this->container['detail'];
+        return $this->container['validity'];
     }
 
     /**
-     * Sets detail
+     * Sets validity
      *
-     * @param string $detail Free form more detailed description of the error
+     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted
      *
      * @return $this
      */
-    public function setDetail($detail)
+    public function setValidity($validity)
     {
 
 
-        if (is_null($detail)) {
-            throw new \InvalidArgumentException('non-nullable detail cannot be null');
+        if (is_null($validity)) {
+            throw new \InvalidArgumentException('non-nullable validity cannot be null');
         }
 
-        $this->container['detail'] = $detail;
+        $this->container['validity'] = $validity;
 
         return $this;
     }
 
     /**
-     * Gets code
+     * Gets text
      *
-     * @return \Messente\Api\Model\ErrorCodePhonebook
+     * @return string|null
      */
-    public function getCode()
+    public function getText()
     {
-        return $this->container['code'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets code
+     * Sets text
      *
-     * @param \Messente\Api\Model\ErrorCodePhonebook $code code
+     * @param string|null $text Plaintext content for Telegram
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setText($text)
     {
 
 
-        if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
         }
 
-        $this->container['code'] = $code;
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets imageUrl
+     *
+     * @return string|null
+     */
+    public function getImageUrl()
+    {
+        return $this->container['imageUrl'];
+    }
+
+    /**
+     * Sets imageUrl
+     *
+     * @param string|null $imageUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"audio_url\"
+     *
+     * @return $this
+     */
+    public function setImageUrl($imageUrl)
+    {
+
+
+        if (is_null($imageUrl)) {
+            throw new \InvalidArgumentException('non-nullable imageUrl cannot be null');
+        }
+
+        $this->container['imageUrl'] = $imageUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets documentUrl
+     *
+     * @return string|null
+     */
+    public function getDocumentUrl()
+    {
+        return $this->container['documentUrl'];
+    }
+
+    /**
+     * Sets documentUrl
+     *
+     * @param string|null $documentUrl URL for the embedded image. Mutually exclusive with \"audio_url\" and \"image_url\"
+     *
+     * @return $this
+     */
+    public function setDocumentUrl($documentUrl)
+    {
+
+
+        if (is_null($documentUrl)) {
+            throw new \InvalidArgumentException('non-nullable documentUrl cannot be null');
+        }
+
+        $this->container['documentUrl'] = $documentUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets audioUrl
+     *
+     * @return string|null
+     */
+    public function getAudioUrl()
+    {
+        return $this->container['audioUrl'];
+    }
+
+    /**
+     * Sets audioUrl
+     *
+     * @param string|null $audioUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"image_url\"
+     *
+     * @return $this
+     */
+    public function setAudioUrl($audioUrl)
+    {
+
+
+        if (is_null($audioUrl)) {
+            throw new \InvalidArgumentException('non-nullable audioUrl cannot be null');
+        }
+
+        $this->container['audioUrl'] = $audioUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return string|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param string|null $channel The channel used to deliver the message
+     *
+     * @return $this
+     */
+    public function setChannel($channel)
+    {
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!is_null($channel) && !in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'channel', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+
+
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+
+        $this->container['channel'] = $channel;
 
         return $this;
     }
