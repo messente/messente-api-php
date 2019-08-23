@@ -13,7 +13,7 @@
 /**
  * Messente API
  *
- * [Messente](https://messente.com) is a global provider of messaging and user verification services. Use Messente API library to send and receive SMS, Viber and WhatsApp messages, blacklist phone numbers to make sure you're not sending any unwanted messages, manage contacts and groups.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
+ * [Messente](https://messente.com) is a global provider of messaging and user verification services. Use Messente API library to send and receive SMS, Viber, WhatsApp and Telegram messages, blacklist phone numbers to make sure you're not sending any unwanted messages, manage contacts and groups.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
  *
  * The version of the OpenAPI document: 1.0.2
  * Contact: messente@messente.com
@@ -59,7 +59,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'to' => 'string',
-        'messages' => 'OneOfViberSMSWhatsApp[]',
+        'messages' => 'OneOfViberSMSWhatsAppTelegram[]',
         'dlrUrl' => 'string',
         'textStore' => '\Messente\Api\Model\TextStore',
         'timeToSend' => '\DateTime'
@@ -353,7 +353,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Gets messages
      *
-     * @return OneOfViberSMSWhatsApp[]
+     * @return OneOfViberSMSWhatsAppTelegram[]
      */
     public function getMessages()
     {
@@ -363,7 +363,7 @@ class Omnimessage implements ModelInterface, ArrayAccess
     /**
      * Sets messages
      *
-     * @param OneOfViberSMSWhatsApp[] $messages An array of messages
+     * @param OneOfViberSMSWhatsAppTelegram[] $messages An array of messages
      *
      * @return $this
      */

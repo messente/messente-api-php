@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsApp
+ * Telegram
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsApp Class Doc Comment
+ * Telegram Class Doc Comment
  *
  * @category Class
- * @description WhatsApp message content.   Only one of \&quot;text\&quot;, \&quot;image\&quot;, \&quot;document\&quot; or \&quot;audio\&quot; can be provided
+ * @description Telegram message content
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class WhatsApp implements ModelInterface, ArrayAccess
+class Telegram implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsApp';
+    protected static $openAPIModelName = 'Telegram';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,10 +60,10 @@ class WhatsApp implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'sender' => 'string',
         'validity' => 'int',
-        'text' => '\Messente\Api\Model\WhatsAppText',
-        'image' => '\Messente\Api\Model\WhatsAppImage',
-        'document' => '\Messente\Api\Model\WhatsAppDocument',
-        'audio' => '\Messente\Api\Model\WhatsAppAudio',
+        'text' => 'string',
+        'imageUrl' => 'string',
+        'documentUrl' => 'string',
+        'audioUrl' => 'string',
         'channel' => 'string'
     ];
 
@@ -76,9 +76,9 @@ class WhatsApp implements ModelInterface, ArrayAccess
         'sender' => null,
         'validity' => null,
         'text' => null,
-        'image' => null,
-        'document' => null,
-        'audio' => null,
+        'imageUrl' => null,
+        'documentUrl' => null,
+        'audioUrl' => null,
         'channel' => null
     ];
 
@@ -91,9 +91,9 @@ class WhatsApp implements ModelInterface, ArrayAccess
         'sender' => false,
         'validity' => false,
         'text' => false,
-        'image' => false,
-        'document' => false,
-        'audio' => false,
+        'imageUrl' => false,
+        'documentUrl' => false,
+        'audioUrl' => false,
         'channel' => false
     ];
 
@@ -188,9 +188,9 @@ class WhatsApp implements ModelInterface, ArrayAccess
         'sender' => 'sender',
         'validity' => 'validity',
         'text' => 'text',
-        'image' => 'image',
-        'document' => 'document',
-        'audio' => 'audio',
+        'imageUrl' => 'image_url',
+        'documentUrl' => 'document_url',
+        'audioUrl' => 'audio_url',
         'channel' => 'channel'
     ];
 
@@ -203,9 +203,9 @@ class WhatsApp implements ModelInterface, ArrayAccess
         'sender' => 'setSender',
         'validity' => 'setValidity',
         'text' => 'setText',
-        'image' => 'setImage',
-        'document' => 'setDocument',
-        'audio' => 'setAudio',
+        'imageUrl' => 'setImageUrl',
+        'documentUrl' => 'setDocumentUrl',
+        'audioUrl' => 'setAudioUrl',
         'channel' => 'setChannel'
     ];
 
@@ -218,9 +218,9 @@ class WhatsApp implements ModelInterface, ArrayAccess
         'sender' => 'getSender',
         'validity' => 'getValidity',
         'text' => 'getText',
-        'image' => 'getImage',
-        'document' => 'getDocument',
-        'audio' => 'getAudio',
+        'imageUrl' => 'getImageUrl',
+        'documentUrl' => 'getDocumentUrl',
+        'audioUrl' => 'getAudioUrl',
         'channel' => 'getChannel'
     ];
 
@@ -265,7 +265,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const CHANNEL_WHATSAPP = 'whatsapp';
+    const CHANNEL_TELEGRAM = 'telegram';
     
 
     
@@ -277,7 +277,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
     public function getChannelAllowableValues()
     {
         return [
-            self::CHANNEL_WHATSAPP,
+            self::CHANNEL_TELEGRAM,
         ];
     }
     
@@ -300,10 +300,10 @@ class WhatsApp implements ModelInterface, ArrayAccess
         $this->setIfExists('sender', $data, null);
         $this->setIfExists('validity', $data, null);
         $this->setIfExists('text', $data, null);
-        $this->setIfExists('image', $data, null);
-        $this->setIfExists('document', $data, null);
-        $this->setIfExists('audio', $data, null);
-        $this->setIfExists('channel', $data, 'whatsapp');
+        $this->setIfExists('imageUrl', $data, null);
+        $this->setIfExists('documentUrl', $data, null);
+        $this->setIfExists('audioUrl', $data, null);
+        $this->setIfExists('channel', $data, 'telegram');
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)
@@ -392,7 +392,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
     /**
      * Sets validity
      *
-     * @param int|null $validity After how many minutes this channel is   considered as failed and the next channel is attempted
+     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted
      *
      * @return $this
      */
@@ -412,7 +412,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
     /**
      * Gets text
      *
-     * @return \Messente\Api\Model\WhatsAppText|null
+     * @return string|null
      */
     public function getText()
     {
@@ -422,7 +422,7 @@ class WhatsApp implements ModelInterface, ArrayAccess
     /**
      * Sets text
      *
-     * @param \Messente\Api\Model\WhatsAppText|null $text text
+     * @param string|null $text Plaintext content for Telegram
      *
      * @return $this
      */
@@ -440,91 +440,91 @@ class WhatsApp implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets image
+     * Gets imageUrl
      *
-     * @return \Messente\Api\Model\WhatsAppImage|null
+     * @return string|null
      */
-    public function getImage()
+    public function getImageUrl()
     {
-        return $this->container['image'];
+        return $this->container['imageUrl'];
     }
 
     /**
-     * Sets image
+     * Sets imageUrl
      *
-     * @param \Messente\Api\Model\WhatsAppImage|null $image image
+     * @param string|null $imageUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"audio_url\"
      *
      * @return $this
      */
-    public function setImage($image)
+    public function setImageUrl($imageUrl)
     {
 
 
-        if (is_null($image)) {
-            throw new \InvalidArgumentException('non-nullable image cannot be null');
+        if (is_null($imageUrl)) {
+            throw new \InvalidArgumentException('non-nullable imageUrl cannot be null');
         }
 
-        $this->container['image'] = $image;
+        $this->container['imageUrl'] = $imageUrl;
 
         return $this;
     }
 
     /**
-     * Gets document
+     * Gets documentUrl
      *
-     * @return \Messente\Api\Model\WhatsAppDocument|null
+     * @return string|null
      */
-    public function getDocument()
+    public function getDocumentUrl()
     {
-        return $this->container['document'];
+        return $this->container['documentUrl'];
     }
 
     /**
-     * Sets document
+     * Sets documentUrl
      *
-     * @param \Messente\Api\Model\WhatsAppDocument|null $document document
+     * @param string|null $documentUrl URL for the embedded image. Mutually exclusive with \"audio_url\" and \"image_url\"
      *
      * @return $this
      */
-    public function setDocument($document)
+    public function setDocumentUrl($documentUrl)
     {
 
 
-        if (is_null($document)) {
-            throw new \InvalidArgumentException('non-nullable document cannot be null');
+        if (is_null($documentUrl)) {
+            throw new \InvalidArgumentException('non-nullable documentUrl cannot be null');
         }
 
-        $this->container['document'] = $document;
+        $this->container['documentUrl'] = $documentUrl;
 
         return $this;
     }
 
     /**
-     * Gets audio
+     * Gets audioUrl
      *
-     * @return \Messente\Api\Model\WhatsAppAudio|null
+     * @return string|null
      */
-    public function getAudio()
+    public function getAudioUrl()
     {
-        return $this->container['audio'];
+        return $this->container['audioUrl'];
     }
 
     /**
-     * Sets audio
+     * Sets audioUrl
      *
-     * @param \Messente\Api\Model\WhatsAppAudio|null $audio audio
+     * @param string|null $audioUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"image_url\"
      *
      * @return $this
      */
-    public function setAudio($audio)
+    public function setAudioUrl($audioUrl)
     {
 
 
-        if (is_null($audio)) {
-            throw new \InvalidArgumentException('non-nullable audio cannot be null');
+        if (is_null($audioUrl)) {
+            throw new \InvalidArgumentException('non-nullable audioUrl cannot be null');
         }
 
-        $this->container['audio'] = $audio;
+        $this->container['audioUrl'] = $audioUrl;
 
         return $this;
     }
