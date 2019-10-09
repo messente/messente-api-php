@@ -34,7 +34,7 @@ use \Messente\Api\ObjectSerializer;
  * ErrorCodeOmnichannel Class Doc Comment
  *
  * @category Class
- * @description Matches the following error title.   This field is a constant    * 101 - Not found   * 102 - Forbidden   * 103 - Unauthorized   * 104 - Invalid data   * 105 - Internal Server Error   * 106 - Missing data   * 107 - Method not allowed
+ * @description Matches the following error title.   This field is a constant    * 101 - Not found   * 102 - Forbidden   * 103 - Unauthorized   * 104 - Internal Server Error   * 105 - Invalid data   * 106 - Missing data   * 107 - Method not allowed
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
