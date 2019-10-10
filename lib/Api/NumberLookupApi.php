@@ -118,9 +118,9 @@ class NumberLookupApi
     /**
      * Operation syncNumberLookup
      *
-     * Requests info about a phone number
+     * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -135,9 +135,9 @@ class NumberLookupApi
     /**
      * Operation syncNumberLookupWithHttpInfo
      *
-     * Requests info about a phone number
+     * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -283,9 +283,9 @@ class NumberLookupApi
     /**
      * Operation syncNumberLookupAsync
      *
-     * Requests info about a phone number
+     * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -303,9 +303,9 @@ class NumberLookupApi
     /**
      * Operation syncNumberLookupAsyncWithHttpInfo
      *
-     * Requests info about a phone number
+     * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -352,7 +352,7 @@ class NumberLookupApi
     /**
      * Create request for operation 'syncNumberLookup'
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -50,7 +50,7 @@ Messente API Library provides the operations described below to access the featu
 
 ### NumberLookupApi
 
-1. Requests info about a phone number [`syncNumberLookup`](docs/Api/NumberLookupApi.md#syncnumberlookup)
+1. Requests info about phone numbers [`syncNumberLookup`](docs/Api/NumberLookupApi.md#syncnumberlookup)
 
 ### OmnimessageApi
 

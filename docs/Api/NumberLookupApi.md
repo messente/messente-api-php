@@ -4,7 +4,7 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**syncNumberLookup**](NumberLookupApi.md#syncNumberLookup) | **POST** /hlr/sync | Requests info about a phone number
+[**syncNumberLookup**](NumberLookupApi.md#syncNumberLookup) | **POST** /hlr/sync | Requests info about phone numbers
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > \Messente\Api\Model\SyncNumberLookupSuccess syncNumberLookup($syncNumberLookup)
 
-Requests info about a phone number
+Requests info about phone numbers
 
 ### Example
 
@@ -33,7 +33,7 @@ $apiInstance = new Messente\Api\Api\NumberLookupApi(
     new GuzzleHttp\Client(),
     $config
 );
-$syncNumberLookup = {"numbers":["+37251000000","+37251000001"]}; // \Messente\Api\Model\SyncNumberLookup | Numbers to lookup
+$syncNumberLookup = {"numbers":["+37251000000","+37251000001"]}; // \Messente\Api\Model\SyncNumberLookup | Numbers for lookup
 
 try {
     $result = $apiInstance->syncNumberLookup($syncNumberLookup);
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncNumberLookup** | [**\Messente\Api\Model\SyncNumberLookup**](../Model/SyncNumberLookup.md)| Numbers to lookup |
+ **syncNumberLookup** | [**\Messente\Api\Model\SyncNumberLookup**](../Model/SyncNumberLookup.md)| Numbers for lookup |
 
 ### Return type
 
