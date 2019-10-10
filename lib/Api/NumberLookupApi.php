@@ -1,6 +1,6 @@
 <?php
 /**
- * OmnimessageApi
+ * NumberLookupApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Messente\Api\HeaderSelector;
 use Messente\Api\ObjectSerializer;
 
 /**
- * OmnimessageApi Class Doc Comment
+ * NumberLookupApi Class Doc Comment
  *
  * @category Class
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class OmnimessageApi
+class NumberLookupApi
 {
     /**
      * @var ClientInterface
@@ -116,272 +116,36 @@ class OmnimessageApi
     }
 
     /**
-     * Operation cancelScheduledMessage
+     * Operation syncNumberLookup
      *
-     * Cancels a scheduled Omnimessage
+     * Requests info about a phone number
      *
-     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
-     *
-     * @throws \Messente\Api\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function cancelScheduledMessage($omnimessageId)
-    {
-        $this->cancelScheduledMessageWithHttpInfo($omnimessageId);
-    }
-
-    /**
-     * Operation cancelScheduledMessageWithHttpInfo
-     *
-     * Cancels a scheduled Omnimessage
-     *
-     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return \Messente\Api\Model\SyncNumberLookupSuccess|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup
      */
-    public function cancelScheduledMessageWithHttpInfo($omnimessageId)
+    public function syncNumberLookup($syncNumberLookup)
     {
-        $request = $this->cancelScheduledMessageRequest($omnimessageId);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Messente\Api\Model\ErrorOmnichannel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation cancelScheduledMessageAsync
-     *
-     * Cancels a scheduled Omnimessage
-     *
-     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function cancelScheduledMessageAsync($omnimessageId)
-    {
-        return $this->cancelScheduledMessageAsyncWithHttpInfo($omnimessageId)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation cancelScheduledMessageAsyncWithHttpInfo
-     *
-     * Cancels a scheduled Omnimessage
-     *
-     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function cancelScheduledMessageAsyncWithHttpInfo($omnimessageId)
-    {
-        $returnType = '';
-        $request = $this->cancelScheduledMessageRequest($omnimessageId);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'cancelScheduledMessage'
-     *
-     * @param  string $omnimessageId UUID of the scheduled omnimessage to be cancelled (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function cancelScheduledMessageRequest($omnimessageId)
-    {
-        // verify the required parameter 'omnimessageId' is set
-        if ($omnimessageId === null || (is_array($omnimessageId) && count($omnimessageId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $omnimessageId when calling cancelScheduledMessage'
-            );
-        }
-
-        $resourcePath = '/omnimessage/{omnimessageId}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($omnimessageId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'omnimessageId' . '}',
-                ObjectSerializer::toPathValue($omnimessageId),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation sendOmnimessage
-     *
-     * Sends an Omnimessage
-     *
-     * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
-     *
-     * @throws \Messente\Api\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Messente\Api\Model\OmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel
-     */
-    public function sendOmnimessage($omnimessage)
-    {
-        list($response) = $this->sendOmnimessageWithHttpInfo($omnimessage);
+        list($response) = $this->syncNumberLookupWithHttpInfo($syncNumberLookup);
         return $response;
     }
 
     /**
-     * Operation sendOmnimessageWithHttpInfo
+     * Operation syncNumberLookupWithHttpInfo
      *
-     * Sends an Omnimessage
+     * Requests info about a phone number
      *
-     * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Messente\Api\Model\OmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Messente\Api\Model\SyncNumberLookupSuccess|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendOmnimessageWithHttpInfo($omnimessage)
+    public function syncNumberLookupWithHttpInfo($syncNumberLookup)
     {
-        $request = $this->sendOmnimessageRequest($omnimessage);
+        $request = $this->syncNumberLookupRequest($syncNumberLookup);
 
         try {
             $options = $this->createHttpClientOption();
@@ -413,33 +177,57 @@ class OmnimessageApi
 
             $responseBody = $response->getBody();
             switch($statusCode) {
-                case 201:
-                    if ('\Messente\Api\Model\OmniMessageCreateSuccessResponse' === '\SplFileObject') {
+                case 200:
+                    if ('\Messente\Api\Model\SyncNumberLookupSuccess' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\OmniMessageCreateSuccessResponse', []),
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\SyncNumberLookupSuccess', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
+                    if ('\Messente\Api\Model\ErrorNumberLookup' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorOmnichannel', []),
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorNumberLookup', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Messente\Api\Model\ErrorNumberLookup' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorNumberLookup', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 402:
+                    if ('\Messente\Api\Model\ErrorNumberLookup' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorNumberLookup', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Messente\Api\Model\OmniMessageCreateSuccessResponse';
+            $returnType = '\Messente\Api\Model\SyncNumberLookupSuccess';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -455,10 +243,10 @@ class OmnimessageApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Messente\Api\Model\OmniMessageCreateSuccessResponse',
+                        '\Messente\Api\Model\SyncNumberLookupSuccess',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -466,7 +254,23 @@ class OmnimessageApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Messente\Api\Model\ErrorOmnichannel',
+                        '\Messente\Api\Model\ErrorNumberLookup',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorNumberLookup',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 402:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorNumberLookup',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -477,18 +281,18 @@ class OmnimessageApi
     }
 
     /**
-     * Operation sendOmnimessageAsync
+     * Operation syncNumberLookupAsync
      *
-     * Sends an Omnimessage
+     * Requests info about a phone number
      *
-     * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendOmnimessageAsync($omnimessage)
+    public function syncNumberLookupAsync($syncNumberLookup)
     {
-        return $this->sendOmnimessageAsyncWithHttpInfo($omnimessage)
+        return $this->syncNumberLookupAsyncWithHttpInfo($syncNumberLookup)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -497,19 +301,19 @@ class OmnimessageApi
     }
 
     /**
-     * Operation sendOmnimessageAsyncWithHttpInfo
+     * Operation syncNumberLookupAsyncWithHttpInfo
      *
-     * Sends an Omnimessage
+     * Requests info about a phone number
      *
-     * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendOmnimessageAsyncWithHttpInfo($omnimessage)
+    public function syncNumberLookupAsyncWithHttpInfo($syncNumberLookup)
     {
-        $returnType = '\Messente\Api\Model\OmniMessageCreateSuccessResponse';
-        $request = $this->sendOmnimessageRequest($omnimessage);
+        $returnType = '\Messente\Api\Model\SyncNumberLookupSuccess';
+        $request = $this->syncNumberLookupRequest($syncNumberLookup);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -546,23 +350,23 @@ class OmnimessageApi
     }
 
     /**
-     * Create request for operation 'sendOmnimessage'
+     * Create request for operation 'syncNumberLookup'
      *
-     * @param  \Messente\Api\Model\Omnimessage $omnimessage Omnimessage to be sent (required)
+     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers to lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sendOmnimessageRequest($omnimessage)
+    protected function syncNumberLookupRequest($syncNumberLookup)
     {
-        // verify the required parameter 'omnimessage' is set
-        if ($omnimessage === null || (is_array($omnimessage) && count($omnimessage) === 0)) {
+        // verify the required parameter 'syncNumberLookup' is set
+        if ($syncNumberLookup === null || (is_array($syncNumberLookup) && count($syncNumberLookup) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $omnimessage when calling sendOmnimessage'
+                'Missing the required parameter $syncNumberLookup when calling syncNumberLookup'
             );
         }
 
-        $resourcePath = '/omnimessage';
+        $resourcePath = '/hlr/sync';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -573,8 +377,8 @@ class OmnimessageApi
 
         // body params
         $_tempBody = null;
-        if (isset($omnimessage)) {
-            $_tempBody = $omnimessage;
+        if (isset($syncNumberLookup)) {
+            $_tempBody = $syncNumberLookup;
         }
 
         if ($multipart) {

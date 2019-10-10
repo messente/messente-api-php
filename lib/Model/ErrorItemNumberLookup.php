@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorItemOmnichannel
+ * ErrorItemNumberLookup
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * ErrorItemOmnichannel Class Doc Comment
+ * ErrorItemNumberLookup Class Doc Comment
  *
  * @category Class
- * @description A container for Omnichannel API error
+ * @description A container for Number Lookup API error
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
+class ErrorItemNumberLookup implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorItemOmnichannel';
+    protected static $openAPIModelName = 'ErrorItemNumberLookup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'title' => '\Messente\Api\Model\ErrorTitleOmnichannel',
-        'detail' => 'string',
-        'code' => '\Messente\Api\Model\ErrorCodeOmnichannel',
-        'source' => 'string'
+        'error' => '\Messente\Api\Model\ErrorItemNumberLookupError'
     ];
 
     /**
@@ -70,10 +67,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'title' => null,
-        'detail' => null,
-        'code' => null,
-        'source' => null
+        'error' => null
     ];
 
     /**
@@ -82,10 +76,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'title' => false,
-        'detail' => false,
-        'code' => false,
-        'source' => false
+        'error' => false
     ];
 
     /**
@@ -176,10 +167,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-        'detail' => 'detail',
-        'code' => 'code',
-        'source' => 'source'
+        'error' => 'error'
     ];
 
     /**
@@ -188,10 +176,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-        'detail' => 'setDetail',
-        'code' => 'setCode',
-        'source' => 'setSource'
+        'error' => 'setError'
     ];
 
     /**
@@ -200,10 +185,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-        'detail' => 'getDetail',
-        'code' => 'getCode',
-        'source' => 'getSource'
+        'error' => 'getError'
     ];
 
     /**
@@ -266,10 +248,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('title', $data, null);
-        $this->setIfExists('detail', $data, null);
-        $this->setIfExists('code', $data, null);
-        $this->setIfExists('source', $data, null);
+        $this->setIfExists('error', $data, null);
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)
@@ -292,17 +271,8 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if ($this->container['detail'] === null) {
-            $invalidProperties[] = "'detail' can't be null";
-        }
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['source'] === null) {
-            $invalidProperties[] = "'source' can't be null";
+        if ($this->container['error'] === null) {
+            $invalidProperties[] = "'error' can't be null";
         }
         return $invalidProperties;
     }
@@ -320,121 +290,31 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets title
+     * Gets error
      *
-     * @return \Messente\Api\Model\ErrorTitleOmnichannel
+     * @return \Messente\Api\Model\ErrorItemNumberLookupError
      */
-    public function getTitle()
+    public function getError()
     {
-        return $this->container['title'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets title
+     * Sets error
      *
-     * @param \Messente\Api\Model\ErrorTitleOmnichannel $title title
+     * @param \Messente\Api\Model\ErrorItemNumberLookupError $error error
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setError($error)
     {
 
 
-        if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($error)) {
+            throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
 
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets detail
-     *
-     * @return string
-     */
-    public function getDetail()
-    {
-        return $this->container['detail'];
-    }
-
-    /**
-     * Sets detail
-     *
-     * @param string $detail Free form more detailed description of the error
-     *
-     * @return $this
-     */
-    public function setDetail($detail)
-    {
-
-
-        if (is_null($detail)) {
-            throw new \InvalidArgumentException('non-nullable detail cannot be null');
-        }
-
-        $this->container['detail'] = $detail;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return \Messente\Api\Model\ErrorCodeOmnichannel
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param \Messente\Api\Model\ErrorCodeOmnichannel $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-
-
-        if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
-        }
-
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string $source Describes which field is causing the issue in the payload, null for non 400 status code responses
-     *
-     * @return $this
-     */
-    public function setSource($source)
-    {
-
-
-        if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
-        }
-
-        $this->container['source'] = $source;
+        $this->container['error'] = $error;
 
         return $this;
     }

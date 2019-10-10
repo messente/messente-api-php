@@ -1,6 +1,6 @@
 <?php
 /**
- * ContactFields
+ * SyncNumberLookupResult
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * ContactFields Class Doc Comment
+ * SyncNumberLookupResult Class Doc Comment
  *
  * @category Class
- * @description A container for fields of a contact
+ * @description Info about a phone number
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ContactFields implements ModelInterface, ArrayAccess
+class SyncNumberLookupResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ContactFields implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ContactFields';
+    protected static $openAPIModelName = 'SyncNumberLookupResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,16 +58,15 @@ class ContactFields implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'phoneNumber' => 'string',
-        'email' => 'string',
-        'firstName' => 'string',
-        'lastName' => 'string',
-        'company' => 'string',
-        'title' => 'string',
-        'custom' => 'string',
-        'custom2' => 'string',
-        'custom3' => 'string',
-        'custom4' => 'string'
+        'number' => 'string',
+        'roaming' => 'bool',
+        'ported' => 'bool',
+        'roamingNetwork' => '\Messente\Api\Model\MobileNetwork',
+        'currentNetwork' => '\Messente\Api\Model\MobileNetwork',
+        'originalNetwork' => '\Messente\Api\Model\MobileNetwork',
+        'portedNetwork' => '\Messente\Api\Model\MobileNetwork',
+        'status' => 'string',
+        'error' => 'object'
     ];
 
     /**
@@ -76,16 +75,15 @@ class ContactFields implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'phoneNumber' => null,
-        'email' => null,
-        'firstName' => null,
-        'lastName' => null,
-        'company' => null,
-        'title' => null,
-        'custom' => null,
-        'custom2' => null,
-        'custom3' => null,
-        'custom4' => null
+        'number' => null,
+        'roaming' => null,
+        'ported' => null,
+        'roamingNetwork' => null,
+        'currentNetwork' => null,
+        'originalNetwork' => null,
+        'portedNetwork' => null,
+        'status' => null,
+        'error' => null
     ];
 
     /**
@@ -94,16 +92,15 @@ class ContactFields implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'phoneNumber' => false,
-        'email' => true,
-        'firstName' => true,
-        'lastName' => true,
-        'company' => true,
-        'title' => true,
-        'custom' => true,
-        'custom2' => true,
-        'custom3' => true,
-        'custom4' => true
+        'number' => false,
+        'roaming' => true,
+        'ported' => true,
+        'roamingNetwork' => true,
+        'currentNetwork' => true,
+        'originalNetwork' => true,
+        'portedNetwork' => true,
+        'status' => false,
+        'error' => false
     ];
 
     /**
@@ -194,16 +191,15 @@ class ContactFields implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'phoneNumber' => 'phoneNumber',
-        'email' => 'email',
-        'firstName' => 'firstName',
-        'lastName' => 'lastName',
-        'company' => 'company',
-        'title' => 'title',
-        'custom' => 'custom',
-        'custom2' => 'custom2',
-        'custom3' => 'custom3',
-        'custom4' => 'custom4'
+        'number' => 'number',
+        'roaming' => 'roaming',
+        'ported' => 'ported',
+        'roamingNetwork' => 'roamingNetwork',
+        'currentNetwork' => 'currentNetwork',
+        'originalNetwork' => 'originalNetwork',
+        'portedNetwork' => 'portedNetwork',
+        'status' => 'status',
+        'error' => 'error'
     ];
 
     /**
@@ -212,16 +208,15 @@ class ContactFields implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'phoneNumber' => 'setPhoneNumber',
-        'email' => 'setEmail',
-        'firstName' => 'setFirstName',
-        'lastName' => 'setLastName',
-        'company' => 'setCompany',
-        'title' => 'setTitle',
-        'custom' => 'setCustom',
-        'custom2' => 'setCustom2',
-        'custom3' => 'setCustom3',
-        'custom4' => 'setCustom4'
+        'number' => 'setNumber',
+        'roaming' => 'setRoaming',
+        'ported' => 'setPorted',
+        'roamingNetwork' => 'setRoamingNetwork',
+        'currentNetwork' => 'setCurrentNetwork',
+        'originalNetwork' => 'setOriginalNetwork',
+        'portedNetwork' => 'setPortedNetwork',
+        'status' => 'setStatus',
+        'error' => 'setError'
     ];
 
     /**
@@ -230,16 +225,15 @@ class ContactFields implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'phoneNumber' => 'getPhoneNumber',
-        'email' => 'getEmail',
-        'firstName' => 'getFirstName',
-        'lastName' => 'getLastName',
-        'company' => 'getCompany',
-        'title' => 'getTitle',
-        'custom' => 'getCustom',
-        'custom2' => 'getCustom2',
-        'custom3' => 'getCustom3',
-        'custom4' => 'getCustom4'
+        'number' => 'getNumber',
+        'roaming' => 'getRoaming',
+        'ported' => 'getPorted',
+        'roamingNetwork' => 'getRoamingNetwork',
+        'currentNetwork' => 'getCurrentNetwork',
+        'originalNetwork' => 'getOriginalNetwork',
+        'portedNetwork' => 'getPortedNetwork',
+        'status' => 'getStatus',
+        'error' => 'getError'
     ];
 
     /**
@@ -283,8 +277,27 @@ class ContactFields implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATUS_ON = 'ON';
+    const STATUS_OFF = 'OFF';
+    const STATUS_INVALID = 'INVALID';
+    const STATUS_UNKNOWN = 'UNKNOWN';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStatusAllowableValues()
+    {
+        return [
+            self::STATUS_ON,
+            self::STATUS_OFF,
+            self::STATUS_INVALID,
+            self::STATUS_UNKNOWN,
+        ];
+    }
     
 
     /**
@@ -302,16 +315,15 @@ class ContactFields implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('phoneNumber', $data, null);
-        $this->setIfExists('email', $data, null);
-        $this->setIfExists('firstName', $data, null);
-        $this->setIfExists('lastName', $data, null);
-        $this->setIfExists('company', $data, null);
-        $this->setIfExists('title', $data, null);
-        $this->setIfExists('custom', $data, null);
-        $this->setIfExists('custom2', $data, null);
-        $this->setIfExists('custom3', $data, null);
-        $this->setIfExists('custom4', $data, null);
+        $this->setIfExists('number', $data, null);
+        $this->setIfExists('roaming', $data, null);
+        $this->setIfExists('ported', $data, null);
+        $this->setIfExists('roamingNetwork', $data, null);
+        $this->setIfExists('currentNetwork', $data, null);
+        $this->setIfExists('originalNetwork', $data, null);
+        $this->setIfExists('portedNetwork', $data, null);
+        $this->setIfExists('status', $data, null);
+        $this->setIfExists('error', $data, null);
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)
@@ -334,9 +346,17 @@ class ContactFields implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['phoneNumber'] === null) {
-            $invalidProperties[] = "'phoneNumber' can't be null";
+        if ($this->container['number'] === null) {
+            $invalidProperties[] = "'number' can't be null";
         }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'status', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -353,60 +373,60 @@ class ContactFields implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets phoneNumber
+     * Gets number
      *
      * @return string
      */
-    public function getPhoneNumber()
+    public function getNumber()
     {
-        return $this->container['phoneNumber'];
+        return $this->container['number'];
     }
 
     /**
-     * Sets phoneNumber
+     * Sets number
      *
-     * @param string $phoneNumber Phone number in e.164 format
+     * @param string $number Phone number in e.164 format
      *
      * @return $this
      */
-    public function setPhoneNumber($phoneNumber)
+    public function setNumber($number)
     {
 
 
-        if (is_null($phoneNumber)) {
-            throw new \InvalidArgumentException('non-nullable phoneNumber cannot be null');
+        if (is_null($number)) {
+            throw new \InvalidArgumentException('non-nullable number cannot be null');
         }
 
-        $this->container['phoneNumber'] = $phoneNumber;
+        $this->container['number'] = $number;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets roaming
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getEmail()
+    public function getRoaming()
     {
-        return $this->container['email'];
+        return $this->container['roaming'];
     }
 
     /**
-     * Sets email
+     * Sets roaming
      *
-     * @param string|null $email The email of the contact
+     * @param bool|null $roaming Indicates if a number is roaming
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setRoaming($roaming)
     {
 
-        if (is_null($email)) {
-            array_push($this->openAPINullablesSetToNull, 'email');
+        if (is_null($roaming)) {
+            array_push($this->openAPINullablesSetToNull, 'roaming');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('email', $nullablesSetToNull);
+            $index = array_search('roaming', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -414,36 +434,36 @@ class ContactFields implements ModelInterface, ArrayAccess
         }
 
 
-        $this->container['email'] = $email;
+        $this->container['roaming'] = $roaming;
 
         return $this;
     }
 
     /**
-     * Gets firstName
+     * Gets ported
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getFirstName()
+    public function getPorted()
     {
-        return $this->container['firstName'];
+        return $this->container['ported'];
     }
 
     /**
-     * Sets firstName
+     * Sets ported
      *
-     * @param string|null $firstName The first name of the contact
+     * @param bool|null $ported Indicates if a number is ported
      *
      * @return $this
      */
-    public function setFirstName($firstName)
+    public function setPorted($ported)
     {
 
-        if (is_null($firstName)) {
-            array_push($this->openAPINullablesSetToNull, 'firstName');
+        if (is_null($ported)) {
+            array_push($this->openAPINullablesSetToNull, 'ported');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('firstName', $nullablesSetToNull);
+            $index = array_search('ported', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -451,36 +471,36 @@ class ContactFields implements ModelInterface, ArrayAccess
         }
 
 
-        $this->container['firstName'] = $firstName;
+        $this->container['ported'] = $ported;
 
         return $this;
     }
 
     /**
-     * Gets lastName
+     * Gets roamingNetwork
      *
-     * @return string|null
+     * @return \Messente\Api\Model\MobileNetwork|null
      */
-    public function getLastName()
+    public function getRoamingNetwork()
     {
-        return $this->container['lastName'];
+        return $this->container['roamingNetwork'];
     }
 
     /**
-     * Sets lastName
+     * Sets roamingNetwork
      *
-     * @param string|null $lastName The last name of the contact
+     * @param \Messente\Api\Model\MobileNetwork|null $roamingNetwork roamingNetwork
      *
      * @return $this
      */
-    public function setLastName($lastName)
+    public function setRoamingNetwork($roamingNetwork)
     {
 
-        if (is_null($lastName)) {
-            array_push($this->openAPINullablesSetToNull, 'lastName');
+        if (is_null($roamingNetwork)) {
+            array_push($this->openAPINullablesSetToNull, 'roamingNetwork');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lastName', $nullablesSetToNull);
+            $index = array_search('roamingNetwork', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -488,36 +508,36 @@ class ContactFields implements ModelInterface, ArrayAccess
         }
 
 
-        $this->container['lastName'] = $lastName;
+        $this->container['roamingNetwork'] = $roamingNetwork;
 
         return $this;
     }
 
     /**
-     * Gets company
+     * Gets currentNetwork
      *
-     * @return string|null
+     * @return \Messente\Api\Model\MobileNetwork|null
      */
-    public function getCompany()
+    public function getCurrentNetwork()
     {
-        return $this->container['company'];
+        return $this->container['currentNetwork'];
     }
 
     /**
-     * Sets company
+     * Sets currentNetwork
      *
-     * @param string|null $company The company of the contact
+     * @param \Messente\Api\Model\MobileNetwork|null $currentNetwork currentNetwork
      *
      * @return $this
      */
-    public function setCompany($company)
+    public function setCurrentNetwork($currentNetwork)
     {
 
-        if (is_null($company)) {
-            array_push($this->openAPINullablesSetToNull, 'company');
+        if (is_null($currentNetwork)) {
+            array_push($this->openAPINullablesSetToNull, 'currentNetwork');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('company', $nullablesSetToNull);
+            $index = array_search('currentNetwork', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -525,36 +545,36 @@ class ContactFields implements ModelInterface, ArrayAccess
         }
 
 
-        $this->container['company'] = $company;
+        $this->container['currentNetwork'] = $currentNetwork;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets originalNetwork
      *
-     * @return string|null
+     * @return \Messente\Api\Model\MobileNetwork|null
      */
-    public function getTitle()
+    public function getOriginalNetwork()
     {
-        return $this->container['title'];
+        return $this->container['originalNetwork'];
     }
 
     /**
-     * Sets title
+     * Sets originalNetwork
      *
-     * @param string|null $title The title of the contact
+     * @param \Messente\Api\Model\MobileNetwork|null $originalNetwork originalNetwork
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setOriginalNetwork($originalNetwork)
     {
 
-        if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
+        if (is_null($originalNetwork)) {
+            array_push($this->openAPINullablesSetToNull, 'originalNetwork');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
+            $index = array_search('originalNetwork', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -562,36 +582,36 @@ class ContactFields implements ModelInterface, ArrayAccess
         }
 
 
-        $this->container['title'] = $title;
+        $this->container['originalNetwork'] = $originalNetwork;
 
         return $this;
     }
 
     /**
-     * Gets custom
+     * Gets portedNetwork
      *
-     * @return string|null
+     * @return \Messente\Api\Model\MobileNetwork|null
      */
-    public function getCustom()
+    public function getPortedNetwork()
     {
-        return $this->container['custom'];
+        return $this->container['portedNetwork'];
     }
 
     /**
-     * Sets custom
+     * Sets portedNetwork
      *
-     * @param string|null $custom The first custom field
+     * @param \Messente\Api\Model\MobileNetwork|null $portedNetwork portedNetwork
      *
      * @return $this
      */
-    public function setCustom($custom)
+    public function setPortedNetwork($portedNetwork)
     {
 
-        if (is_null($custom)) {
-            array_push($this->openAPINullablesSetToNull, 'custom');
+        if (is_null($portedNetwork)) {
+            array_push($this->openAPINullablesSetToNull, 'portedNetwork');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom', $nullablesSetToNull);
+            $index = array_search('portedNetwork', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
@@ -599,118 +619,76 @@ class ContactFields implements ModelInterface, ArrayAccess
         }
 
 
-        $this->container['custom'] = $custom;
+        $this->container['portedNetwork'] = $portedNetwork;
 
         return $this;
     }
 
     /**
-     * Gets custom2
+     * Gets status
      *
      * @return string|null
      */
-    public function getCustom2()
+    public function getStatus()
     {
-        return $this->container['custom2'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets custom2
+     * Sets status
      *
-     * @param string|null $custom2 The second custom field
+     * @param string|null $status Status of the phone number
      *
      * @return $this
      */
-    public function setCustom2($custom2)
+    public function setStatus($status)
     {
-
-        if (is_null($custom2)) {
-            array_push($this->openAPINullablesSetToNull, 'custom2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'status', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
         }
 
 
-        $this->container['custom2'] = $custom2;
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets custom3
+     * Gets error
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getCustom3()
+    public function getError()
     {
-        return $this->container['custom3'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets custom3
+     * Sets error
      *
-     * @param string|null $custom3 The third custom field
+     * @param object|null $error Indicates if any error occurred while handling the request
      *
      * @return $this
      */
-    public function setCustom3($custom3)
+    public function setError($error)
     {
 
-        if (is_null($custom3)) {
-            array_push($this->openAPINullablesSetToNull, 'custom3');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom3', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+
+        if (is_null($error)) {
+            throw new \InvalidArgumentException('non-nullable error cannot be null');
         }
 
-
-        $this->container['custom3'] = $custom3;
-
-        return $this;
-    }
-
-    /**
-     * Gets custom4
-     *
-     * @return string|null
-     */
-    public function getCustom4()
-    {
-        return $this->container['custom4'];
-    }
-
-    /**
-     * Sets custom4
-     *
-     * @param string|null $custom4 The fourth custom field
-     *
-     * @return $this
-     */
-    public function setCustom4($custom4)
-    {
-
-        if (is_null($custom4)) {
-            array_push($this->openAPINullablesSetToNull, 'custom4');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('custom4', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-
-
-        $this->container['custom4'] = $custom4;
+        $this->container['error'] = $error;
 
         return $this;
     }

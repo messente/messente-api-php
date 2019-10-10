@@ -1,6 +1,6 @@
 <?php
 /**
- * ErrorItemOmnichannel
+ * MobileNetwork
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * ErrorItemOmnichannel Class Doc Comment
+ * MobileNetwork Class Doc Comment
  *
  * @category Class
- * @description A container for Omnichannel API error
+ * @description Info about the network related to the phone number
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
+class MobileNetwork implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorItemOmnichannel';
+    protected static $openAPIModelName = 'MobileNetwork';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,11 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'title' => '\Messente\Api\Model\ErrorTitleOmnichannel',
-        'detail' => 'string',
-        'code' => '\Messente\Api\Model\ErrorCodeOmnichannel',
-        'source' => 'string'
+        'mccmnc' => 'string',
+        'networkName' => 'string',
+        'countryName' => 'string',
+        'countryPrefix' => 'string',
+        'countryCode' => 'string'
     ];
 
     /**
@@ -70,10 +71,11 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'title' => null,
-        'detail' => null,
-        'code' => null,
-        'source' => null
+        'mccmnc' => null,
+        'networkName' => null,
+        'countryName' => null,
+        'countryPrefix' => null,
+        'countryCode' => null
     ];
 
     /**
@@ -82,10 +84,11 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static $openAPINullables = [
-        'title' => false,
-        'detail' => false,
-        'code' => false,
-        'source' => false
+        'mccmnc' => false,
+        'networkName' => false,
+        'countryName' => false,
+        'countryPrefix' => false,
+        'countryCode' => false
     ];
 
     /**
@@ -176,10 +179,11 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-        'detail' => 'detail',
-        'code' => 'code',
-        'source' => 'source'
+        'mccmnc' => 'mccmnc',
+        'networkName' => 'networkName',
+        'countryName' => 'countryName',
+        'countryPrefix' => 'countryPrefix',
+        'countryCode' => 'countryCode'
     ];
 
     /**
@@ -188,10 +192,11 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-        'detail' => 'setDetail',
-        'code' => 'setCode',
-        'source' => 'setSource'
+        'mccmnc' => 'setMccmnc',
+        'networkName' => 'setNetworkName',
+        'countryName' => 'setCountryName',
+        'countryPrefix' => 'setCountryPrefix',
+        'countryCode' => 'setCountryCode'
     ];
 
     /**
@@ -200,10 +205,11 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-        'detail' => 'getDetail',
-        'code' => 'getCode',
-        'source' => 'getSource'
+        'mccmnc' => 'getMccmnc',
+        'networkName' => 'getNetworkName',
+        'countryName' => 'getCountryName',
+        'countryPrefix' => 'getCountryPrefix',
+        'countryCode' => 'getCountryCode'
     ];
 
     /**
@@ -266,10 +272,11 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('title', $data, null);
-        $this->setIfExists('detail', $data, null);
-        $this->setIfExists('code', $data, null);
-        $this->setIfExists('source', $data, null);
+        $this->setIfExists('mccmnc', $data, null);
+        $this->setIfExists('networkName', $data, null);
+        $this->setIfExists('countryName', $data, null);
+        $this->setIfExists('countryPrefix', $data, null);
+        $this->setIfExists('countryCode', $data, null);
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)
@@ -292,18 +299,6 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['title'] === null) {
-            $invalidProperties[] = "'title' can't be null";
-        }
-        if ($this->container['detail'] === null) {
-            $invalidProperties[] = "'detail' can't be null";
-        }
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['source'] === null) {
-            $invalidProperties[] = "'source' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -320,121 +315,151 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets title
+     * Gets mccmnc
      *
-     * @return \Messente\Api\Model\ErrorTitleOmnichannel
+     * @return string|null
      */
-    public function getTitle()
+    public function getMccmnc()
     {
-        return $this->container['title'];
+        return $this->container['mccmnc'];
     }
 
     /**
-     * Sets title
+     * Sets mccmnc
      *
-     * @param \Messente\Api\Model\ErrorTitleOmnichannel $title title
+     * @param string|null $mccmnc Mobile country and mobile network code
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setMccmnc($mccmnc)
     {
 
 
-        if (is_null($title)) {
-            throw new \InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($mccmnc)) {
+            throw new \InvalidArgumentException('non-nullable mccmnc cannot be null');
         }
 
-        $this->container['title'] = $title;
+        $this->container['mccmnc'] = $mccmnc;
 
         return $this;
     }
 
     /**
-     * Gets detail
+     * Gets networkName
      *
-     * @return string
+     * @return string|null
      */
-    public function getDetail()
+    public function getNetworkName()
     {
-        return $this->container['detail'];
+        return $this->container['networkName'];
     }
 
     /**
-     * Sets detail
+     * Sets networkName
      *
-     * @param string $detail Free form more detailed description of the error
+     * @param string|null $networkName Mobile network name
      *
      * @return $this
      */
-    public function setDetail($detail)
+    public function setNetworkName($networkName)
     {
 
 
-        if (is_null($detail)) {
-            throw new \InvalidArgumentException('non-nullable detail cannot be null');
+        if (is_null($networkName)) {
+            throw new \InvalidArgumentException('non-nullable networkName cannot be null');
         }
 
-        $this->container['detail'] = $detail;
+        $this->container['networkName'] = $networkName;
 
         return $this;
     }
 
     /**
-     * Gets code
+     * Gets countryName
      *
-     * @return \Messente\Api\Model\ErrorCodeOmnichannel
+     * @return string|null
      */
-    public function getCode()
+    public function getCountryName()
     {
-        return $this->container['code'];
+        return $this->container['countryName'];
     }
 
     /**
-     * Sets code
+     * Sets countryName
      *
-     * @param \Messente\Api\Model\ErrorCodeOmnichannel $code code
+     * @param string|null $countryName Country name
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setCountryName($countryName)
     {
 
 
-        if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+        if (is_null($countryName)) {
+            throw new \InvalidArgumentException('non-nullable countryName cannot be null');
         }
 
-        $this->container['code'] = $code;
+        $this->container['countryName'] = $countryName;
 
         return $this;
     }
 
     /**
-     * Gets source
+     * Gets countryPrefix
      *
-     * @return string
+     * @return string|null
      */
-    public function getSource()
+    public function getCountryPrefix()
     {
-        return $this->container['source'];
+        return $this->container['countryPrefix'];
     }
 
     /**
-     * Sets source
+     * Sets countryPrefix
      *
-     * @param string $source Describes which field is causing the issue in the payload, null for non 400 status code responses
+     * @param string|null $countryPrefix Country prefix
      *
      * @return $this
      */
-    public function setSource($source)
+    public function setCountryPrefix($countryPrefix)
     {
 
 
-        if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
+        if (is_null($countryPrefix)) {
+            throw new \InvalidArgumentException('non-nullable countryPrefix cannot be null');
         }
 
-        $this->container['source'] = $source;
+        $this->container['countryPrefix'] = $countryPrefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets countryCode
+     *
+     * @return string|null
+     */
+    public function getCountryCode()
+    {
+        return $this->container['countryCode'];
+    }
+
+    /**
+     * Sets countryCode
+     *
+     * @param string|null $countryCode Country code
+     *
+     * @return $this
+     */
+    public function setCountryCode($countryCode)
+    {
+
+
+        if (is_null($countryCode)) {
+            throw new \InvalidArgumentException('non-nullable countryCode cannot be null');
+        }
+
+        $this->container['countryCode'] = $countryCode;
 
         return $this;
     }
