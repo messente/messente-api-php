@@ -57,6 +57,10 @@ Messente API Library provides the operations described below to access the featu
 1. Cancels a scheduled Omnimessage [`cancelScheduledMessage`](docs/Api/OmnimessageApi.md#cancelscheduledmessage)
 1. Sends an Omnimessage [`sendOmnimessage`](docs/Api/OmnimessageApi.md#sendomnimessage)
 
+### StatisticsApi
+
+1. Requests statistcs reports for each country [`createStatisticsReport`](docs/Api/StatisticsApi.md#createstatisticsreport)
+
 ## Auth
 
 **Type**: HTTP basic authentication
