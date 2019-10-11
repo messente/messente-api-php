@@ -118,7 +118,7 @@ class StatisticsApi
     /**
      * Operation createStatisticsReport
      *
-     * Requests statistcs reports for each country
+     * Requests statistics reports for each country
      *
      * @param  \Messente\Api\Model\StatisticsReportSettings $statisticsReportSettings Settings for statistics report (required)
      *
@@ -135,7 +135,7 @@ class StatisticsApi
     /**
      * Operation createStatisticsReportWithHttpInfo
      *
-     * Requests statistcs reports for each country
+     * Requests statistics reports for each country
      *
      * @param  \Messente\Api\Model\StatisticsReportSettings $statisticsReportSettings Settings for statistics report (required)
      *
@@ -303,7 +303,7 @@ class StatisticsApi
     /**
      * Operation createStatisticsReportAsync
      *
-     * Requests statistcs reports for each country
+     * Requests statistics reports for each country
      *
      * @param  \Messente\Api\Model\StatisticsReportSettings $statisticsReportSettings Settings for statistics report (required)
      *
@@ -323,7 +323,7 @@ class StatisticsApi
     /**
      * Operation createStatisticsReportAsyncWithHttpInfo
      *
-     * Requests statistcs reports for each country
+     * Requests statistics reports for each country
      *
      * @param  \Messente\Api\Model\StatisticsReportSettings $statisticsReportSettings Settings for statistics report (required)
      *

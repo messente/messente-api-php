@@ -59,7 +59,7 @@ Messente API Library provides the operations described below to access the featu
 
 ### StatisticsApi
 
-1. Requests statistcs reports for each country [`createStatisticsReport`](docs/Api/StatisticsApi.md#createstatisticsreport)
+1. Requests statistics reports for each country [`createStatisticsReport`](docs/Api/StatisticsApi.md#createstatisticsreport)
 
 ## Auth
 

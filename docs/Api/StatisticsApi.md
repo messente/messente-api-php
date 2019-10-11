@@ -4,7 +4,7 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createStatisticsReport**](StatisticsApi.md#createStatisticsReport) | **POST** /statistics/reports | Requests statistcs reports for each country
+[**createStatisticsReport**](StatisticsApi.md#createStatisticsReport) | **POST** /statistics/reports | Requests statistics reports for each country
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > \Messente\Api\Model\StatisticsReportSuccess createStatisticsReport($statisticsReportSettings)
 
-Requests statistcs reports for each country
+Requests statistics reports for each country
 
 ### Example
 
