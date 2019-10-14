@@ -116,36 +116,36 @@ class NumberLookupApi
     }
 
     /**
-     * Operation syncNumberLookup
+     * Operation fetchInfo
      *
      * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
+     * @param  \Messente\Api\Model\NumbersToInvestigate $numbersToInvestigate Numbers for lookup (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Messente\Api\Model\SyncNumberLookupSuccess|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup
      */
-    public function syncNumberLookup($syncNumberLookup)
+    public function fetchInfo($numbersToInvestigate)
     {
-        list($response) = $this->syncNumberLookupWithHttpInfo($syncNumberLookup);
+        list($response) = $this->fetchInfoWithHttpInfo($numbersToInvestigate);
         return $response;
     }
 
     /**
-     * Operation syncNumberLookupWithHttpInfo
+     * Operation fetchInfoWithHttpInfo
      *
      * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
+     * @param  \Messente\Api\Model\NumbersToInvestigate $numbersToInvestigate Numbers for lookup (required)
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Messente\Api\Model\SyncNumberLookupSuccess|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup|\Messente\Api\Model\ErrorNumberLookup, HTTP status code, HTTP response headers (array of strings)
      */
-    public function syncNumberLookupWithHttpInfo($syncNumberLookup)
+    public function fetchInfoWithHttpInfo($numbersToInvestigate)
     {
-        $request = $this->syncNumberLookupRequest($syncNumberLookup);
+        $request = $this->fetchInfoRequest($numbersToInvestigate);
 
         try {
             $options = $this->createHttpClientOption();
@@ -281,18 +281,18 @@ class NumberLookupApi
     }
 
     /**
-     * Operation syncNumberLookupAsync
+     * Operation fetchInfoAsync
      *
      * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
+     * @param  \Messente\Api\Model\NumbersToInvestigate $numbersToInvestigate Numbers for lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function syncNumberLookupAsync($syncNumberLookup)
+    public function fetchInfoAsync($numbersToInvestigate)
     {
-        return $this->syncNumberLookupAsyncWithHttpInfo($syncNumberLookup)
+        return $this->fetchInfoAsyncWithHttpInfo($numbersToInvestigate)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -301,19 +301,19 @@ class NumberLookupApi
     }
 
     /**
-     * Operation syncNumberLookupAsyncWithHttpInfo
+     * Operation fetchInfoAsyncWithHttpInfo
      *
      * Requests info about phone numbers
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
+     * @param  \Messente\Api\Model\NumbersToInvestigate $numbersToInvestigate Numbers for lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function syncNumberLookupAsyncWithHttpInfo($syncNumberLookup)
+    public function fetchInfoAsyncWithHttpInfo($numbersToInvestigate)
     {
         $returnType = '\Messente\Api\Model\SyncNumberLookupSuccess';
-        $request = $this->syncNumberLookupRequest($syncNumberLookup);
+        $request = $this->fetchInfoRequest($numbersToInvestigate);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -350,19 +350,19 @@ class NumberLookupApi
     }
 
     /**
-     * Create request for operation 'syncNumberLookup'
+     * Create request for operation 'fetchInfo'
      *
-     * @param  \Messente\Api\Model\SyncNumberLookup $syncNumberLookup Numbers for lookup (required)
+     * @param  \Messente\Api\Model\NumbersToInvestigate $numbersToInvestigate Numbers for lookup (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function syncNumberLookupRequest($syncNumberLookup)
+    protected function fetchInfoRequest($numbersToInvestigate)
     {
-        // verify the required parameter 'syncNumberLookup' is set
-        if ($syncNumberLookup === null || (is_array($syncNumberLookup) && count($syncNumberLookup) === 0)) {
+        // verify the required parameter 'numbersToInvestigate' is set
+        if ($numbersToInvestigate === null || (is_array($numbersToInvestigate) && count($numbersToInvestigate) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $syncNumberLookup when calling syncNumberLookup'
+                'Missing the required parameter $numbersToInvestigate when calling fetchInfo'
             );
         }
 
@@ -377,8 +377,8 @@ class NumberLookupApi
 
         // body params
         $_tempBody = null;
-        if (isset($syncNumberLookup)) {
-            $_tempBody = $syncNumberLookup;
+        if (isset($numbersToInvestigate)) {
+            $_tempBody = $numbersToInvestigate;
         }
 
         if ($multipart) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * SyncNumberLookup
+ * NumbersToInvestigate
  *
  * PHP version 5
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * SyncNumberLookup Class Doc Comment
+ * NumbersToInvestigate Class Doc Comment
  *
  * @category Class
  * @description A container for phone numbers
@@ -41,7 +41,7 @@ use \Messente\Api\ObjectSerializer;
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SyncNumberLookup implements ModelInterface, ArrayAccess
+class NumbersToInvestigate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SyncNumberLookup implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SyncNumberLookup';
+    protected static $openAPIModelName = 'NumbersToInvestigate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

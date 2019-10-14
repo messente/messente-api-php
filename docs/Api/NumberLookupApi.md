@@ -4,13 +4,13 @@ All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**syncNumberLookup**](NumberLookupApi.md#syncNumberLookup) | **POST** /hlr/sync | Requests info about phone numbers
+[**fetchInfo**](NumberLookupApi.md#fetchInfo) | **POST** /hlr/sync | Requests info about phone numbers
 
 
 
-## syncNumberLookup
+## fetchInfo
 
-> \Messente\Api\Model\SyncNumberLookupSuccess syncNumberLookup($syncNumberLookup)
+> \Messente\Api\Model\SyncNumberLookupSuccess fetchInfo($numbersToInvestigate)
 
 Requests info about phone numbers
 
@@ -33,13 +33,13 @@ $apiInstance = new Messente\Api\Api\NumberLookupApi(
     new GuzzleHttp\Client(),
     $config
 );
-$syncNumberLookup = {"numbers":["+37251000000","+37251000001"]}; // \Messente\Api\Model\SyncNumberLookup | Numbers for lookup
+$numbersToInvestigate = {"numbers":["+37251000000","+37251000001"]}; // \Messente\Api\Model\NumbersToInvestigate | Numbers for lookup
 
 try {
-    $result = $apiInstance->syncNumberLookup($syncNumberLookup);
+    $result = $apiInstance->fetchInfo($numbersToInvestigate);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling NumberLookupApi->syncNumberLookup: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling NumberLookupApi->fetchInfo: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncNumberLookup** | [**\Messente\Api\Model\SyncNumberLookup**](../Model/SyncNumberLookup.md)| Numbers for lookup |
+ **numbersToInvestigate** | [**\Messente\Api\Model\NumbersToInvestigate**](../Model/NumbersToInvestigate.md)| Numbers for lookup |
 
 ### Return type
 
