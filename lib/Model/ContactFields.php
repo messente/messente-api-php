@@ -67,7 +67,8 @@ class ContactFields implements ModelInterface, ArrayAccess
         'custom' => 'string',
         'custom2' => 'string',
         'custom3' => 'string',
-        'custom4' => 'string'
+        'custom4' => 'string',
+        'scheduledDeletionDate' => '\DateTime'
     ];
 
     /**
@@ -85,7 +86,8 @@ class ContactFields implements ModelInterface, ArrayAccess
         'custom' => null,
         'custom2' => null,
         'custom3' => null,
-        'custom4' => null
+        'custom4' => null,
+        'scheduledDeletionDate' => 'date'
     ];
 
     /**
@@ -103,7 +105,8 @@ class ContactFields implements ModelInterface, ArrayAccess
         'custom' => true,
         'custom2' => true,
         'custom3' => true,
-        'custom4' => true
+        'custom4' => true,
+        'scheduledDeletionDate' => true
     ];
 
     /**
@@ -203,7 +206,8 @@ class ContactFields implements ModelInterface, ArrayAccess
         'custom' => 'custom',
         'custom2' => 'custom2',
         'custom3' => 'custom3',
-        'custom4' => 'custom4'
+        'custom4' => 'custom4',
+        'scheduledDeletionDate' => 'scheduledDeletionDate'
     ];
 
     /**
@@ -221,7 +225,8 @@ class ContactFields implements ModelInterface, ArrayAccess
         'custom' => 'setCustom',
         'custom2' => 'setCustom2',
         'custom3' => 'setCustom3',
-        'custom4' => 'setCustom4'
+        'custom4' => 'setCustom4',
+        'scheduledDeletionDate' => 'setScheduledDeletionDate'
     ];
 
     /**
@@ -239,7 +244,8 @@ class ContactFields implements ModelInterface, ArrayAccess
         'custom' => 'getCustom',
         'custom2' => 'getCustom2',
         'custom3' => 'getCustom3',
-        'custom4' => 'getCustom4'
+        'custom4' => 'getCustom4',
+        'scheduledDeletionDate' => 'getScheduledDeletionDate'
     ];
 
     /**
@@ -312,6 +318,7 @@ class ContactFields implements ModelInterface, ArrayAccess
         $this->setIfExists('custom2', $data, null);
         $this->setIfExists('custom3', $data, null);
         $this->setIfExists('custom4', $data, null);
+        $this->setIfExists('scheduledDeletionDate', $data, null);
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)
@@ -711,6 +718,43 @@ class ContactFields implements ModelInterface, ArrayAccess
 
 
         $this->container['custom4'] = $custom4;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduledDeletionDate
+     *
+     * @return \DateTime|null
+     */
+    public function getScheduledDeletionDate()
+    {
+        return $this->container['scheduledDeletionDate'];
+    }
+
+    /**
+     * Sets scheduledDeletionDate
+     *
+     * @param \DateTime|null $scheduledDeletionDate The date on which the contact is going to be deleted
+     *
+     * @return $this
+     */
+    public function setScheduledDeletionDate($scheduledDeletionDate)
+    {
+
+        if (is_null($scheduledDeletionDate)) {
+            array_push($this->openAPINullablesSetToNull, 'scheduledDeletionDate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scheduledDeletionDate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        $this->container['scheduledDeletionDate'] = $scheduledDeletionDate;
 
         return $this;
     }
