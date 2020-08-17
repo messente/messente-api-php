@@ -735,7 +735,7 @@ class ContactFields implements ModelInterface, ArrayAccess
     /**
      * Sets scheduledDeletionDate
      *
-     * @param \DateTime|null $scheduledDeletionDate The date on which the contact is going to be deletedbecause it has not belonged to a group for 30 days
+     * @param \DateTime|null $scheduledDeletionDate The date on which the contact is going to be deleted  because it has not belonged to a group for 30 days
      *
      * @return $this
      */
