@@ -85,7 +85,7 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
         'title' => false,
         'detail' => false,
         'code' => false,
-        'source' => false
+        'source' => true
     ];
 
     /**
@@ -429,10 +429,17 @@ class ErrorItemOmnichannel implements ModelInterface, ArrayAccess
     public function setSource($source)
     {
 
-
         if (is_null($source)) {
-            throw new \InvalidArgumentException('non-nullable source cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'source');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('source', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
+
 
         $this->container['source'] = $source;
 
