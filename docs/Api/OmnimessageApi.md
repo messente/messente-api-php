@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## cancelScheduledMessage
 
-> object cancelScheduledMessage($omnimessageId)
+> cancelScheduledMessage($omnimessageId)
 
 Cancels a scheduled Omnimessage
 
@@ -37,8 +37,7 @@ $apiInstance = new Messente\Api\Api\OmnimessageApi(
 $omnimessageId = 'omnimessageId_example'; // string | UUID of the scheduled omnimessage to be cancelled
 
 try {
-    $result = $apiInstance->cancelScheduledMessage($omnimessageId);
-    print_r($result);
+    $apiInstance->cancelScheduledMessage($omnimessageId);
 } catch (Exception $e) {
     echo 'Exception when calling OmnimessageApi->cancelScheduledMessage: ', $e->getMessage(), PHP_EOL;
 }
@@ -54,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
