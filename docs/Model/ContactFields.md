@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **custom2** | **string** | The second custom field | [optional] 
 **custom3** | **string** | The third custom field | [optional] 
 **custom4** | **string** | The fourth custom field | [optional] 
+**scheduledDeletionDate** | [**\DateTime**](\DateTime.md) | The date in ISO 8601 format, YYYY-MM-DD,  on which the contact is going to be deleted  because it has not belonged to a group for 30 days | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
