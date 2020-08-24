@@ -379,7 +379,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess
     /**
      * Sets messageTypes
      *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, hlr)
+     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, hlr, telegram)
      *
      * @return $this
      */
