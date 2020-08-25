@@ -58,7 +58,7 @@ class ContactEnvelope implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact' => '\Messente\Api\Model\ContactFields'
+        'contact' => '\Messente\Api\Model\ContactResponseFields'
     ];
 
     /**
@@ -289,7 +289,7 @@ class ContactEnvelope implements ModelInterface, ArrayAccess
     /**
      * Gets contact
      *
-     * @return \Messente\Api\Model\ContactFields|null
+     * @return \Messente\Api\Model\ContactResponseFields|null
      */
     public function getContact()
     {
@@ -299,7 +299,7 @@ class ContactEnvelope implements ModelInterface, ArrayAccess
     /**
      * Sets contact
      *
-     * @param \Messente\Api\Model\ContactFields|null $contact contact
+     * @param \Messente\Api\Model\ContactResponseFields|null $contact contact
      *
      * @return $this
      */

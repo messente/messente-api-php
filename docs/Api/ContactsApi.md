@@ -103,7 +103,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contactFields = {"phoneNumber":"+37251000000","email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four","scheduledDeletionDate":"2020-08-31"}; // \Messente\Api\Model\ContactFields | 
+$contactFields = {"phoneNumber":"+37251000000","email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactFields | 
 
 try {
     $result = $apiInstance->createContact($contactFields);
@@ -470,7 +470,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     $config
 );
 $phone = +37251000000; // string | A phone number
-$contactUpdateFields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four","scheduledDeletionDate":"2020-08-31"}; // \Messente\Api\Model\ContactUpdateFields | 
+$contactUpdateFields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactUpdateFields | 
 
 try {
     $result = $apiInstance->updateContact($phone, $contactUpdateFields);
