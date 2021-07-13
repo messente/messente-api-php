@@ -34,6 +34,6 @@
         "psr-4": { "Messente\\Api\\" : "lib/" }
     },
     "autoload-dev": {
-        "psr-4": { "Messente\\Api\\Test\\" : "test/" }
+        "psr-4": { "Messente\\Api\\" : "test/" }
     }
 }
