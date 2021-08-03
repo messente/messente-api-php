@@ -1,6 +1,6 @@
 <?php
 /**
- * Channel
+ * Priority
  *
  * PHP version 5
  *
@@ -31,23 +31,22 @@ namespace Messente\Api\Model;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * Channel Class Doc Comment
+ * Priority Class Doc Comment
  *
  * @category Class
- * @description Defines the delivery channel
+ * @description Set the priority of the message.   Messages are processed starting with in highest priority queue first and lowest priority queue last.   This for example allows to prioritize OTP messages over marketing traffic.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Channel
+class Priority
 {
     /**
      * Possible values of this enum
      */
-    const SMS = 'sms';
-    const VIBER = 'viber';
-    const WHATSAPP = 'whatsapp';
-    const TELEGRAM = 'telegram';
+    const LOW = 'low';
+    const REGULAR = 'regular';
+    const HIGH = 'high';
     
     /**
      * Gets allowable values of the enum
@@ -56,10 +55,9 @@ class Channel
     public static function getAllowableEnumValues()
     {
         return [
-            self::SMS,
-            self::VIBER,
-            self::WHATSAPP,
-            self::TELEGRAM,
+            self::LOW,
+            self::REGULAR,
+            self::HIGH,
         ];
     }
 }

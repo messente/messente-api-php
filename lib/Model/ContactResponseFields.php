@@ -1,6 +1,6 @@
 <?php
 /**
- * ContactUpdateFields
+ * ContactResponseFields
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * ContactUpdateFields Class Doc Comment
+ * ContactResponseFields Class Doc Comment
  *
  * @category Class
- * @description A container for fields of a contact
+ * @description A container for response fields of a contact
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ContactUpdateFields implements ModelInterface, ArrayAccess
+class ContactResponseFields implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ContactUpdateFields';
+    protected static $openAPIModelName = 'ContactResponseFields';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,6 +58,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'phoneNumber' => 'string',
         'email' => 'string',
         'firstName' => 'string',
         'lastName' => 'string',
@@ -66,7 +67,8 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         'custom' => 'string',
         'custom2' => 'string',
         'custom3' => 'string',
-        'custom4' => 'string'
+        'custom4' => 'string',
+        'scheduledDeletionDate' => '\DateTime'
     ];
 
     /**
@@ -75,6 +77,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'phoneNumber' => null,
         'email' => null,
         'firstName' => null,
         'lastName' => null,
@@ -83,7 +86,8 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         'custom' => null,
         'custom2' => null,
         'custom3' => null,
-        'custom4' => null
+        'custom4' => null,
+        'scheduledDeletionDate' => 'date'
     ];
 
     /**
@@ -92,6 +96,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static $openAPINullables = [
+        'phoneNumber' => false,
         'email' => true,
         'firstName' => true,
         'lastName' => true,
@@ -100,7 +105,8 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         'custom' => true,
         'custom2' => true,
         'custom3' => true,
-        'custom4' => true
+        'custom4' => true,
+        'scheduledDeletionDate' => true
     ];
 
     /**
@@ -191,6 +197,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'phoneNumber' => 'phoneNumber',
         'email' => 'email',
         'firstName' => 'firstName',
         'lastName' => 'lastName',
@@ -199,7 +206,8 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         'custom' => 'custom',
         'custom2' => 'custom2',
         'custom3' => 'custom3',
-        'custom4' => 'custom4'
+        'custom4' => 'custom4',
+        'scheduledDeletionDate' => 'scheduledDeletionDate'
     ];
 
     /**
@@ -208,6 +216,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'phoneNumber' => 'setPhoneNumber',
         'email' => 'setEmail',
         'firstName' => 'setFirstName',
         'lastName' => 'setLastName',
@@ -216,7 +225,8 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         'custom' => 'setCustom',
         'custom2' => 'setCustom2',
         'custom3' => 'setCustom3',
-        'custom4' => 'setCustom4'
+        'custom4' => 'setCustom4',
+        'scheduledDeletionDate' => 'setScheduledDeletionDate'
     ];
 
     /**
@@ -225,6 +235,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'phoneNumber' => 'getPhoneNumber',
         'email' => 'getEmail',
         'firstName' => 'getFirstName',
         'lastName' => 'getLastName',
@@ -233,7 +244,8 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         'custom' => 'getCustom',
         'custom2' => 'getCustom2',
         'custom3' => 'getCustom3',
-        'custom4' => 'getCustom4'
+        'custom4' => 'getCustom4',
+        'scheduledDeletionDate' => 'getScheduledDeletionDate'
     ];
 
     /**
@@ -296,6 +308,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('phoneNumber', $data, null);
         $this->setIfExists('email', $data, null);
         $this->setIfExists('firstName', $data, null);
         $this->setIfExists('lastName', $data, null);
@@ -305,6 +318,7 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         $this->setIfExists('custom2', $data, null);
         $this->setIfExists('custom3', $data, null);
         $this->setIfExists('custom4', $data, null);
+        $this->setIfExists('scheduledDeletionDate', $data, null);
     }
 
     public function setIfExists(string $variableName, $fields, $defaultValue)
@@ -341,6 +355,36 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets phoneNumber
+     *
+     * @return string|null
+     */
+    public function getPhoneNumber()
+    {
+        return $this->container['phoneNumber'];
+    }
+
+    /**
+     * Sets phoneNumber
+     *
+     * @param string|null $phoneNumber Phone number in e.164 format
+     *
+     * @return $this
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+
+
+        if (is_null($phoneNumber)) {
+            throw new \InvalidArgumentException('non-nullable phoneNumber cannot be null');
+        }
+
+        $this->container['phoneNumber'] = $phoneNumber;
+
+        return $this;
+    }
 
     /**
      * Gets email
@@ -671,6 +715,43 @@ class ContactUpdateFields implements ModelInterface, ArrayAccess
 
 
         $this->container['custom4'] = $custom4;
+
+        return $this;
+    }
+
+    /**
+     * Gets scheduledDeletionDate
+     *
+     * @return \DateTime|null
+     */
+    public function getScheduledDeletionDate()
+    {
+        return $this->container['scheduledDeletionDate'];
+    }
+
+    /**
+     * Sets scheduledDeletionDate
+     *
+     * @param \DateTime|null $scheduledDeletionDate The date in ISO 8601 format, YYYY-MM-DD,  on which the contact is going to be deleted  because it has not belonged to a group for 30 days
+     *
+     * @return $this
+     */
+    public function setScheduledDeletionDate($scheduledDeletionDate)
+    {
+
+        if (is_null($scheduledDeletionDate)) {
+            array_push($this->openAPINullablesSetToNull, 'scheduledDeletionDate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scheduledDeletionDate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+
+        $this->container['scheduledDeletionDate'] = $scheduledDeletionDate;
 
         return $this;
     }
