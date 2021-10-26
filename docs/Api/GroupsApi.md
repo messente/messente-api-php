@@ -1,20 +1,21 @@
 # Messente\Api\GroupsApi
 
-All URIs are relative to *https://api.messente.com/v1*
+All URIs are relative to https://api.messente.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createGroup**](GroupsApi.md#createGroup) | **POST** /phonebook/groups | Creates a new group with the provided name
-[**deleteGroup**](GroupsApi.md#deleteGroup) | **DELETE** /phonebook/groups/{groupId} | Deletes a group
-[**fetchGroup**](GroupsApi.md#fetchGroup) | **GET** /phonebook/groups/{groupId} | Lists a group
-[**fetchGroups**](GroupsApi.md#fetchGroups) | **GET** /phonebook/groups | Returns all groups
-[**updateGroup**](GroupsApi.md#updateGroup) | **PUT** /phonebook/groups/{groupId} | Updates a group with the provided name
+[**createGroup()**](GroupsApi.md#createGroup) | **POST** /phonebook/groups | Creates a new group with the provided name
+[**deleteGroup()**](GroupsApi.md#deleteGroup) | **DELETE** /phonebook/groups/{groupId} | Deletes a group
+[**fetchGroup()**](GroupsApi.md#fetchGroup) | **GET** /phonebook/groups/{groupId} | Lists a group
+[**fetchGroups()**](GroupsApi.md#fetchGroups) | **GET** /phonebook/groups | Returns all groups
+[**updateGroup()**](GroupsApi.md#updateGroup) | **PUT** /phonebook/groups/{groupId} | Updates a group with the provided name
 
 
+## `createGroup()`
 
-## createGroup
-
-> \Messente\Api\Model\GroupEnvelope createGroup($groupName)
+```php
+createGroup($groupName): \Messente\Api\Model\GroupEnvelope
+```
 
 Creates a new group with the provided name
 
@@ -37,7 +38,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$groupName = {"name":"Any group name"}; // \Messente\Api\Model\GroupName | 
+$groupName = {"name":"Any group name"}; // \Messente\Api\Model\GroupName
 
 try {
     $result = $apiInstance->createGroup($groupName);
@@ -45,11 +46,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GroupsApi->createGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -65,17 +64,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteGroup()`
 
-## deleteGroup
-
-> deleteGroup($groupId)
+```php
+deleteGroup($groupId)
+```
 
 Deletes a group
 
@@ -105,11 +105,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GroupsApi->deleteGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -126,16 +124,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `fetchGroup()`
 
-## fetchGroup
-
-> \Messente\Api\Model\GroupEnvelope fetchGroup($groupId)
+```php
+fetchGroup($groupId): \Messente\Api\Model\GroupEnvelope
+```
 
 Lists a group
 
@@ -166,11 +165,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GroupsApi->fetchGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -187,16 +184,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `fetchGroups()`
 
-## fetchGroups
-
-> \Messente\Api\Model\GroupListEnvelope fetchGroups()
+```php
+fetchGroups(): \Messente\Api\Model\GroupListEnvelope
+```
 
 Returns all groups
 
@@ -226,7 +224,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GroupsApi->fetchGroups: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -244,16 +241,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateGroup()`
 
-## updateGroup
-
-> \Messente\Api\Model\GroupEnvelope updateGroup($groupId, $groupName)
+```php
+updateGroup($groupId, $groupName): \Messente\Api\Model\GroupEnvelope
+```
 
 Updates a group with the provided name
 
@@ -277,7 +275,7 @@ $apiInstance = new Messente\Api\Api\GroupsApi(
     $config
 );
 $groupId = 5792a02a-e5c2-422b-a0a0-0ae65d814663; // string | String in UUID format
-$groupName = {"name":"Any group name"}; // \Messente\Api\Model\GroupName | 
+$groupName = {"name":"Any group name"}; // \Messente\Api\Model\GroupName
 
 try {
     $result = $apiInstance->updateGroup($groupId, $groupName);
@@ -285,11 +283,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling GroupsApi->updateGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -306,10 +302,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
