@@ -1,23 +1,24 @@
 # Messente\Api\ContactsApi
 
-All URIs are relative to *https://api.messente.com/v1*
+All URIs are relative to https://api.messente.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addContactToGroup**](ContactsApi.md#addContactToGroup) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group
-[**createContact**](ContactsApi.md#createContact) | **POST** /phonebook/contacts | Creates a new contact
-[**deleteContact**](ContactsApi.md#deleteContact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact
-[**fetchContact**](ContactsApi.md#fetchContact) | **GET** /phonebook/contacts/{phone} | Lists a contact
-[**fetchContactGroups**](ContactsApi.md#fetchContactGroups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact
-[**fetchContacts**](ContactsApi.md#fetchContacts) | **GET** /phonebook/contacts | Returns all contacts
-[**removeContactFromGroup**](ContactsApi.md#removeContactFromGroup) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group
-[**updateContact**](ContactsApi.md#updateContact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact
+[**addContactToGroup()**](ContactsApi.md#addContactToGroup) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group
+[**createContact()**](ContactsApi.md#createContact) | **POST** /phonebook/contacts | Creates a new contact
+[**deleteContact()**](ContactsApi.md#deleteContact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact
+[**fetchContact()**](ContactsApi.md#fetchContact) | **GET** /phonebook/contacts/{phone} | Lists a contact
+[**fetchContactGroups()**](ContactsApi.md#fetchContactGroups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact
+[**fetchContacts()**](ContactsApi.md#fetchContacts) | **GET** /phonebook/contacts | Returns all contacts
+[**removeContactFromGroup()**](ContactsApi.md#removeContactFromGroup) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group
+[**updateContact()**](ContactsApi.md#updateContact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact
 
 
+## `addContactToGroup()`
 
-## addContactToGroup
-
-> object addContactToGroup($groupId, $phone)
+```php
+addContactToGroup($groupId, $phone): object
+```
 
 Adds a contact to a group
 
@@ -49,11 +50,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->addContactToGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -71,16 +70,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createContact()`
 
-## createContact
-
-> \Messente\Api\Model\ContactEnvelope createContact($contactFields)
+```php
+createContact($contactFields): \Messente\Api\Model\ContactEnvelope
+```
 
 Creates a new contact
 
@@ -103,7 +103,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$contactFields = {"phoneNumber":"+37251000000","email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactFields | 
+$contactFields = {"phoneNumber":"+37251000000","email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactFields
 
 try {
     $result = $apiInstance->createContact($contactFields);
@@ -111,11 +111,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->createContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -131,17 +129,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `deleteContact()`
 
-## deleteContact
-
-> deleteContact($phone)
+```php
+deleteContact($phone)
+```
 
 Deletes a contact
 
@@ -171,11 +170,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->deleteContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -192,16 +189,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `fetchContact()`
 
-## fetchContact
-
-> \Messente\Api\Model\ContactEnvelope fetchContact($phone)
+```php
+fetchContact($phone): \Messente\Api\Model\ContactEnvelope
+```
 
 Lists a contact
 
@@ -232,11 +230,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->fetchContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -253,16 +249,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `fetchContactGroups()`
 
-## fetchContactGroups
-
-> \Messente\Api\Model\GroupListEnvelope fetchContactGroups($phone)
+```php
+fetchContactGroups($phone): \Messente\Api\Model\GroupListEnvelope
+```
 
 Lists groups of a contact
 
@@ -293,11 +290,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->fetchContactGroups: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -314,16 +309,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `fetchContacts()`
 
-## fetchContacts
-
-> \Messente\Api\Model\ContactListEnvelope fetchContacts($groupIds)
+```php
+fetchContacts($groupIds): \Messente\Api\Model\ContactListEnvelope
+```
 
 Returns all contacts
 
@@ -354,11 +350,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->fetchContacts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -375,16 +369,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `removeContactFromGroup()`
 
-## removeContactFromGroup
-
-> removeContactFromGroup($groupId, $phone)
+```php
+removeContactFromGroup($groupId, $phone)
+```
 
 Removes a contact from a group
 
@@ -415,11 +410,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->removeContactFromGroup: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -437,16 +430,17 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `updateContact()`
 
-## updateContact
-
-> \Messente\Api\Model\ContactEnvelope updateContact($phone, $contactUpdateFields)
+```php
+updateContact($phone, $contactUpdateFields): \Messente\Api\Model\ContactEnvelope
+```
 
 Updates a contact
 
@@ -470,7 +464,7 @@ $apiInstance = new Messente\Api\Api\ContactsApi(
     $config
 );
 $phone = +37251000000; // string | A phone number
-$contactUpdateFields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactUpdateFields | 
+$contactUpdateFields = {"email":"anyone@messente.com","firstName":"Any","lastName":"One","company":"Messente","title":"Sir","custom":"Any custom","custom2":"Any custom two","custom3":"Any custom three","custom4":"Any custom four"}; // \Messente\Api\Model\ContactUpdateFields
 
 try {
     $result = $apiInstance->updateContact($phone, $contactUpdateFields);
@@ -478,11 +472,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling ContactsApi->updateContact: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -499,10 +491,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
