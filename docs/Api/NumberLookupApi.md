@@ -1,17 +1,16 @@
 # Messente\Api\NumberLookupApi
 
-All URIs are relative to https://api.messente.com/v1.
+All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fetchInfo()**](NumberLookupApi.md#fetchInfo) | **POST** /hlr/sync | Requests info about phone numbers
+[**fetchInfo**](NumberLookupApi.md#fetchInfo) | **POST** /hlr/sync | Requests info about phone numbers
 
 
-## `fetchInfo()`
 
-```php
-fetchInfo($numbersToInvestigate): \Messente\Api\Model\SyncNumberLookupSuccess
-```
+## fetchInfo
+
+> \Messente\Api\Model\SyncNumberLookupSuccess fetchInfo($numbersToInvestigate)
 
 Requests info about phone numbers
 
@@ -42,9 +41,11 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling NumberLookupApi->fetchInfo: ', $e->getMessage(), PHP_EOL;
 }
+?>
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -60,9 +61,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
 [[Back to README]](../../README.md)
+

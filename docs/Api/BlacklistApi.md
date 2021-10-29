@@ -1,20 +1,19 @@
 # Messente\Api\BlacklistApi
 
-All URIs are relative to https://api.messente.com/v1.
+All URIs are relative to *https://api.messente.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addToBlacklist()**](BlacklistApi.md#addToBlacklist) | **POST** /phonebook/blacklist | Adds a phone number to the blacklist
-[**deleteFromBlacklist()**](BlacklistApi.md#deleteFromBlacklist) | **DELETE** /phonebook/blacklist/{phone} | Deletes a phone number from the blacklist
-[**fetchBlacklist()**](BlacklistApi.md#fetchBlacklist) | **GET** /phonebook/blacklist | Returns all blacklisted phone numbers
-[**isBlacklisted()**](BlacklistApi.md#isBlacklisted) | **GET** /phonebook/blacklist/{phone} | Checks if a phone number is blacklisted
+[**addToBlacklist**](BlacklistApi.md#addToBlacklist) | **POST** /phonebook/blacklist | Adds a phone number to the blacklist
+[**deleteFromBlacklist**](BlacklistApi.md#deleteFromBlacklist) | **DELETE** /phonebook/blacklist/{phone} | Deletes a phone number from the blacklist
+[**fetchBlacklist**](BlacklistApi.md#fetchBlacklist) | **GET** /phonebook/blacklist | Returns all blacklisted phone numbers
+[**isBlacklisted**](BlacklistApi.md#isBlacklisted) | **GET** /phonebook/blacklist/{phone} | Checks if a phone number is blacklisted
 
 
-## `addToBlacklist()`
 
-```php
-addToBlacklist($numberToBlacklist)
-```
+## addToBlacklist
+
+> addToBlacklist($numberToBlacklist)
 
 Adds a phone number to the blacklist
 
@@ -44,9 +43,11 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling BlacklistApi->addToBlacklist: ', $e->getMessage(), PHP_EOL;
 }
+?>
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -62,18 +63,17 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
 [[Back to README]](../../README.md)
 
-## `deleteFromBlacklist()`
 
-```php
-deleteFromBlacklist($phone)
-```
+## deleteFromBlacklist
+
+> deleteFromBlacklist($phone)
 
 Deletes a phone number from the blacklist
 
@@ -103,9 +103,11 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling BlacklistApi->deleteFromBlacklist: ', $e->getMessage(), PHP_EOL;
 }
+?>
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -122,17 +124,16 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
 [[Back to README]](../../README.md)
 
-## `fetchBlacklist()`
 
-```php
-fetchBlacklist(): \Messente\Api\Model\FetchBlacklistSuccess
-```
+## fetchBlacklist
+
+> \Messente\Api\Model\FetchBlacklistSuccess fetchBlacklist()
 
 Returns all blacklisted phone numbers
 
@@ -162,6 +163,7 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling BlacklistApi->fetchBlacklist: ', $e->getMessage(), PHP_EOL;
 }
+?>
 ```
 
 ### Parameters
@@ -179,17 +181,16 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
 [[Back to README]](../../README.md)
 
-## `isBlacklisted()`
 
-```php
-isBlacklisted($phone)
-```
+## isBlacklisted
+
+> isBlacklisted($phone)
 
 Checks if a phone number is blacklisted
 
@@ -219,9 +220,11 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling BlacklistApi->isBlacklisted: ', $e->getMessage(), PHP_EOL;
 }
+?>
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -238,8 +241,9 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
 [[Back to README]](../../README.md)
+
