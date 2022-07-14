@@ -1,16 +1,17 @@
 # Messente\Api\StatisticsApi
 
-All URIs are relative to *https://api.messente.com/v1*
+All URIs are relative to https://api.messente.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createStatisticsReport**](StatisticsApi.md#createStatisticsReport) | **POST** /statistics/reports | Requests statistics reports for each country
+[**createStatisticsReport()**](StatisticsApi.md#createStatisticsReport) | **POST** /statistics/reports | Requests statistics reports for each country
 
 
+## `createStatisticsReport()`
 
-## createStatisticsReport
-
-> \Messente\Api\Model\StatisticsReportSuccess createStatisticsReport($statisticsReportSettings)
+```php
+createStatisticsReport($statisticsReportSettings): \Messente\Api\Model\StatisticsReportSuccess
+```
 
 Requests statistics reports for each country
 
@@ -41,11 +42,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->createStatisticsReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -61,10 +60,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

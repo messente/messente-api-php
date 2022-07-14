@@ -1,16 +1,17 @@
 # Messente\Api\DeliveryReportApi
 
-All URIs are relative to *https://api.messente.com/v1*
+All URIs are relative to https://api.messente.com/v1.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retrieveDeliveryReport**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage
+[**retrieveDeliveryReport()**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage
 
 
+## `retrieveDeliveryReport()`
 
-## retrieveDeliveryReport
-
-> \Messente\Api\Model\DeliveryReportResponse retrieveDeliveryReport($omnimessageId)
+```php
+retrieveDeliveryReport($omnimessageId): \Messente\Api\Model\DeliveryReportResponse
+```
 
 Retrieves the delivery report for the Omnimessage
 
@@ -41,11 +42,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DeliveryReportApi->retrieveDeliveryReport: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -62,9 +61,8 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-
