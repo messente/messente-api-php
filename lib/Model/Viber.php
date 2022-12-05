@@ -63,7 +63,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'sender' => 'string',
         'validity' => 'int',
-        'ttl' => 'int',
         'text' => 'string',
         'imageUrl' => 'string',
         'buttonUrl' => 'string',
@@ -81,7 +80,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'sender' => null,
         'validity' => null,
-        'ttl' => null,
         'text' => null,
         'imageUrl' => null,
         'buttonUrl' => null,
@@ -118,7 +116,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'sender' => 'sender',
         'validity' => 'validity',
-        'ttl' => 'ttl',
         'text' => 'text',
         'imageUrl' => 'image_url',
         'buttonUrl' => 'button_url',
@@ -134,7 +131,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'sender' => 'setSender',
         'validity' => 'setValidity',
-        'ttl' => 'setTtl',
         'text' => 'setText',
         'imageUrl' => 'setImageUrl',
         'buttonUrl' => 'setButtonUrl',
@@ -150,7 +146,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'sender' => 'getSender',
         'validity' => 'getValidity',
-        'ttl' => 'getTtl',
         'text' => 'getText',
         'imageUrl' => 'getImageUrl',
         'buttonUrl' => 'getButtonUrl',
@@ -230,7 +225,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['sender'] = $data['sender'] ?? null;
         $this->container['validity'] = $data['validity'] ?? null;
-        $this->container['ttl'] = $data['ttl'] ?? null;
         $this->container['text'] = $data['text'] ?? null;
         $this->container['imageUrl'] = $data['imageUrl'] ?? null;
         $this->container['buttonUrl'] = $data['buttonUrl'] ?? null;
@@ -308,37 +302,13 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets validity
      *
-     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
+     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted
      *
      * @return self
      */
     public function setValidity($validity)
     {
         $this->container['validity'] = $validity;
-
-        return $this;
-    }
-
-    /**
-     * Gets ttl
-     *
-     * @return int|null
-     */
-    public function getTtl()
-    {
-        return $this->container['ttl'];
-    }
-
-    /**
-     * Sets ttl
-     *
-     * @param int|null $ttl After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
-     *
-     * @return self
-     */
-    public function setTtl($ttl)
-    {
-        $this->container['ttl'] = $ttl;
 
         return $this;
     }

@@ -99,15 +99,6 @@ class ViberTest extends TestCase
     }
 
     /**
-     * Test attribute "ttl"
-     */
-    public function testPropertyTtl()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "text"
      */
     public function testPropertyText()
