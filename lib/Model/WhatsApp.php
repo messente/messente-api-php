@@ -63,6 +63,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'sender' => 'string',
         'validity' => 'int',
+        'ttl' => 'int',
         'text' => '\Messente\Api\Model\WhatsAppText',
         'image' => '\Messente\Api\Model\WhatsAppImage',
         'document' => '\Messente\Api\Model\WhatsAppDocument',
@@ -80,6 +81,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'sender' => null,
         'validity' => null,
+        'ttl' => null,
         'text' => null,
         'image' => null,
         'document' => null,
@@ -116,6 +118,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'sender' => 'sender',
         'validity' => 'validity',
+        'ttl' => 'ttl',
         'text' => 'text',
         'image' => 'image',
         'document' => 'document',
@@ -131,6 +134,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'sender' => 'setSender',
         'validity' => 'setValidity',
+        'ttl' => 'setTtl',
         'text' => 'setText',
         'image' => 'setImage',
         'document' => 'setDocument',
@@ -146,6 +150,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'sender' => 'getSender',
         'validity' => 'getValidity',
+        'ttl' => 'getTtl',
         'text' => 'getText',
         'image' => 'getImage',
         'document' => 'getDocument',
@@ -225,6 +230,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->container['sender'] = $data['sender'] ?? null;
         $this->container['validity'] = $data['validity'] ?? null;
+        $this->container['ttl'] = $data['ttl'] ?? null;
         $this->container['text'] = $data['text'] ?? null;
         $this->container['image'] = $data['image'] ?? null;
         $this->container['document'] = $data['document'] ?? null;
@@ -309,6 +315,30 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     public function setValidity($validity)
     {
         $this->container['validity'] = $validity;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttl
+     *
+     * @return int|null
+     */
+    public function getTtl()
+    {
+        return $this->container['ttl'];
+    }
+
+    /**
+     * Sets ttl
+     *
+     * @param int|null $ttl After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
+     *
+     * @return self
+     */
+    public function setTtl($ttl)
+    {
+        $this->container['ttl'] = $ttl;
 
         return $this;
     }

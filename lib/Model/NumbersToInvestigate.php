@@ -231,7 +231,7 @@ class NumbersToInvestigate implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets numbers
      *
-     * @param string[] $numbers Array of phone numbers
+     * @param string[] $numbers A list of phone numbers. Max 10 numbers per request
      *
      * @return self
      */

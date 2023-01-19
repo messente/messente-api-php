@@ -64,6 +64,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         'text' => 'string',
         'sender' => 'string',
         'validity' => 'int',
+        'ttl' => 'int',
         'autoconvert' => 'string',
         'udh' => 'string',
         'channel' => 'string'
@@ -80,6 +81,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         'text' => null,
         'sender' => null,
         'validity' => null,
+        'ttl' => null,
         'autoconvert' => null,
         'udh' => null,
         'channel' => null
@@ -115,6 +117,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         'text' => 'text',
         'sender' => 'sender',
         'validity' => 'validity',
+        'ttl' => 'ttl',
         'autoconvert' => 'autoconvert',
         'udh' => 'udh',
         'channel' => 'channel'
@@ -129,6 +132,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         'text' => 'setText',
         'sender' => 'setSender',
         'validity' => 'setValidity',
+        'ttl' => 'setTtl',
         'autoconvert' => 'setAutoconvert',
         'udh' => 'setUdh',
         'channel' => 'setChannel'
@@ -143,6 +147,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         'text' => 'getText',
         'sender' => 'getSender',
         'validity' => 'getValidity',
+        'ttl' => 'getTtl',
         'autoconvert' => 'getAutoconvert',
         'udh' => 'getUdh',
         'channel' => 'getChannel'
@@ -238,6 +243,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['text'] = $data['text'] ?? null;
         $this->container['sender'] = $data['sender'] ?? null;
         $this->container['validity'] = $data['validity'] ?? null;
+        $this->container['ttl'] = $data['ttl'] ?? null;
         $this->container['autoconvert'] = $data['autoconvert'] ?? null;
         $this->container['udh'] = $data['udh'] ?? null;
         $this->container['channel'] = $data['channel'] ?? 'sms';
@@ -349,13 +355,37 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets validity
      *
-     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted
+     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted.                     Only one of \"ttl\" and \"validity\" can be used.
      *
      * @return self
      */
     public function setValidity($validity)
     {
         $this->container['validity'] = $validity;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttl
+     *
+     * @return int|null
+     */
+    public function getTtl()
+    {
+        return $this->container['ttl'];
+    }
+
+    /**
+     * Sets ttl
+     *
+     * @param int|null $ttl After how many seconds this channel is considered as failed and the next channel is attempted.                     Only one of \"ttl\" and \"validity\" can be used.
+     *
+     * @return self
+     */
+    public function setTtl($ttl)
+    {
+        $this->container['ttl'] = $ttl;
 
         return $this;
     }
