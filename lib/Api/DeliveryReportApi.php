@@ -125,7 +125,7 @@ class DeliveryReportApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Messente\Api\Model\DeliveryReportResponse|\Messente\Api\Model\ErrorOmnichannel
+     * @return \Messente\Api\Model\DeliveryReportResponse|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
      */
     public function retrieveDeliveryReport($omnimessageId)
     {
@@ -142,7 +142,7 @@ class DeliveryReportApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Messente\Api\Model\DeliveryReportResponse|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Messente\Api\Model\DeliveryReportResponse|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function retrieveDeliveryReportWithHttpInfo($omnimessageId)
     {
@@ -196,6 +196,18 @@ class DeliveryReportApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 401:
+                    if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorOmnichannel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 404:
                     if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -229,6 +241,14 @@ class DeliveryReportApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Messente\Api\Model\DeliveryReportResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorOmnichannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
