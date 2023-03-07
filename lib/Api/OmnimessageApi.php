@@ -125,7 +125,7 @@ class OmnimessageApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object|\Messente\Api\Model\ErrorOmnichannel
+     * @return object|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
      */
     public function cancelScheduledMessage($omnimessageId)
     {
@@ -142,7 +142,7 @@ class OmnimessageApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelScheduledMessageWithHttpInfo($omnimessageId)
     {
@@ -196,6 +196,18 @@ class OmnimessageApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 401:
+                    if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorOmnichannel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 404:
                     if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -229,6 +241,14 @@ class OmnimessageApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorOmnichannel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -420,7 +440,7 @@ class OmnimessageApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Messente\Api\Model\OmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel
+     * @return \Messente\Api\Model\OmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
      */
     public function sendOmnimessage($omnimessage)
     {
@@ -437,7 +457,7 @@ class OmnimessageApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Messente\Api\Model\OmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Messente\Api\Model\OmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendOmnimessageWithHttpInfo($omnimessage)
     {
@@ -503,6 +523,18 @@ class OmnimessageApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 401:
+                    if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorOmnichannel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Messente\Api\Model\OmniMessageCreateSuccessResponse';
@@ -529,6 +561,14 @@ class OmnimessageApi
                     $e->setResponseObject($data);
                     break;
                 case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorOmnichannel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Messente\Api\Model\ErrorOmnichannel',
