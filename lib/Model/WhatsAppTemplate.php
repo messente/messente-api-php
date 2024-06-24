@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppText
+ * WhatsAppTemplate
  *
  * PHP version 7.3
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppText Class Doc Comment
+ * WhatsAppTemplate Class Doc Comment
  *
  * @category Class
- * @description A text
+ * @description Whatsapp Cloud API template
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Messente\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppText';
+    protected static $openAPIModelName = 'WhatsAppTemplate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,8 +61,9 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'previewUrl' => 'bool',
-        'body' => 'string'
+        'name' => 'string',
+        'language' => '\Messente\Api\Model\WhatsAppLanguage',
+        'components' => '\Messente\Api\Model\WhatsAppComponent[]'
     ];
 
     /**
@@ -73,8 +74,9 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'previewUrl' => null,
-        'body' => null
+        'name' => null,
+        'language' => null,
+        'components' => null
     ];
 
     /**
@@ -104,8 +106,9 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'previewUrl' => 'preview_url',
-        'body' => 'body'
+        'name' => 'name',
+        'language' => 'language',
+        'components' => 'components'
     ];
 
     /**
@@ -114,8 +117,9 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'previewUrl' => 'setPreviewUrl',
-        'body' => 'setBody'
+        'name' => 'setName',
+        'language' => 'setLanguage',
+        'components' => 'setComponents'
     ];
 
     /**
@@ -124,8 +128,9 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'previewUrl' => 'getPreviewUrl',
-        'body' => 'getBody'
+        'name' => 'getName',
+        'language' => 'getLanguage',
+        'components' => 'getComponents'
     ];
 
     /**
@@ -185,8 +190,9 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['previewUrl'] = $data['previewUrl'] ?? true;
-        $this->container['body'] = $data['body'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
+        $this->container['language'] = $data['language'] ?? null;
+        $this->container['components'] = $data['components'] ?? null;
     }
 
     /**
@@ -198,8 +204,11 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['body'] === null) {
-            $invalidProperties[] = "'body' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['language'] === null) {
+            $invalidProperties[] = "'language' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +226,73 @@ class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets previewUrl
+     * Gets name
      *
-     * @return bool|null
+     * @return string
      */
-    public function getPreviewUrl()
+    public function getName()
     {
-        return $this->container['previewUrl'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets previewUrl
+     * Sets name
      *
-     * @param bool|null $previewUrl Whether to display link preview if the message contains a hyperlink
+     * @param string $name Name of the template
      *
      * @return self
      */
-    public function setPreviewUrl($previewUrl)
+    public function setName($name)
     {
-        $this->container['previewUrl'] = $previewUrl;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets body
+     * Gets language
      *
-     * @return string
+     * @return \Messente\Api\Model\WhatsAppLanguage
      */
-    public function getBody()
+    public function getLanguage()
     {
-        return $this->container['body'];
+        return $this->container['language'];
     }
 
     /**
-     * Sets body
+     * Sets language
      *
-     * @param string $body Plaintext content for WhatsApp, can contain URLs, emojis and formatting
+     * @param \Messente\Api\Model\WhatsAppLanguage $language language
      *
      * @return self
      */
-    public function setBody($body)
+    public function setLanguage($language)
     {
-        $this->container['body'] = $body;
+        $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets components
+     *
+     * @return \Messente\Api\Model\WhatsAppComponent[]|null
+     */
+    public function getComponents()
+    {
+        return $this->container['components'];
+    }
+
+    /**
+     * Sets components
+     *
+     * @param \Messente\Api\Model\WhatsAppComponent[]|null $components List of template components
+     *
+     * @return self
+     */
+    public function setComponents($components)
+    {
+        $this->container['components'] = $components;
 
         return $this;
     }

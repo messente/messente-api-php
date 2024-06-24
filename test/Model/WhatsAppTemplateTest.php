@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppAudioTest
+ * WhatsAppTemplateTest
  *
  * PHP version 7.3
  *
@@ -32,15 +32,15 @@ namespace Messente\Api\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * WhatsAppAudioTest Class Doc Comment
+ * WhatsAppTemplateTest Class Doc Comment
  *
  * @category    Class
- * @description A sound
+ * @description Whatsapp Cloud API template
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class WhatsAppAudioTest extends TestCase
+class WhatsAppTemplateTest extends TestCase
 {
 
     /**
@@ -72,18 +72,36 @@ class WhatsAppAudioTest extends TestCase
     }
 
     /**
-     * Test "WhatsAppAudio"
+     * Test "WhatsAppTemplate"
      */
-    public function testWhatsAppAudio()
+    public function testWhatsAppTemplate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "content"
+     * Test attribute "name"
      */
-    public function testPropertyContent()
+    public function testPropertyName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "language"
+     */
+    public function testPropertyLanguage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "components"
+     */
+    public function testPropertyComponents()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

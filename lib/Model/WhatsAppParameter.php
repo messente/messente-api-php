@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppDocument
+ * WhatsAppParameter
  *
  * PHP version 7.3
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppDocument Class Doc Comment
+ * WhatsAppParameter Class Doc Comment
  *
  * @category Class
- * @description A document
+ * @description Whatsapp component parameter
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Messente\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppDocument';
+    protected static $openAPIModelName = 'WhatsAppParameter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,8 +61,8 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'caption' => 'string',
-        'content' => 'string'
+        'type' => 'string',
+        'text' => 'string'
     ];
 
     /**
@@ -73,8 +73,8 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'caption' => null,
-        'content' => null
+        'type' => null,
+        'text' => null
     ];
 
     /**
@@ -104,8 +104,8 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'caption' => 'caption',
-        'content' => 'content'
+        'type' => 'type',
+        'text' => 'text'
     ];
 
     /**
@@ -114,8 +114,8 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'caption' => 'setCaption',
-        'content' => 'setContent'
+        'type' => 'setType',
+        'text' => 'setText'
     ];
 
     /**
@@ -124,8 +124,8 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'caption' => 'getCaption',
-        'content' => 'getContent'
+        'type' => 'getType',
+        'text' => 'getText'
     ];
 
     /**
@@ -185,8 +185,8 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['caption'] = $data['caption'] ?? null;
-        $this->container['content'] = $data['content'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['text'] = $data['text'] ?? null;
     }
 
     /**
@@ -198,8 +198,8 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['content'] === null) {
-            $invalidProperties[] = "'content' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +217,49 @@ class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets caption
+     * Gets type
      *
-     * @return string|null
+     * @return string
      */
-    public function getCaption()
+    public function getType()
     {
-        return $this->container['caption'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets caption
+     * Sets type
      *
-     * @param string|null $caption Description for the document
+     * @param string $type Type of the parameter
      *
      * @return self
      */
-    public function setCaption($caption)
+    public function setType($type)
     {
-        $this->container['caption'] = $caption;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets content
+     * Gets text
      *
-     * @return string
+     * @return string|null
      */
-    public function getContent()
+    public function getText()
     {
-        return $this->container['content'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets content
+     * Sets text
      *
-     * @param string $content Base64-encoded image
+     * @param string|null $text A text
      *
      * @return self
      */
-    public function setContent($content)
+    public function setText($text)
     {
-        $this->container['content'] = $content;
+        $this->container['text'] = $text;
 
         return $this;
     }

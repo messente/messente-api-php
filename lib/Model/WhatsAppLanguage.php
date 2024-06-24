@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppImage
+ * WhatsAppLanguage
  *
  * PHP version 7.3
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppImage Class Doc Comment
+ * WhatsAppLanguage Class Doc Comment
  *
  * @category Class
- * @description An image
+ * @description Whatsapp template language
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Messente\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsAppLanguage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppImage';
+    protected static $openAPIModelName = 'WhatsAppLanguage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,8 +61,8 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'caption' => 'string',
-        'content' => 'string'
+        'code' => 'string',
+        'policy' => 'string'
     ];
 
     /**
@@ -73,8 +73,8 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'caption' => null,
-        'content' => null
+        'code' => null,
+        'policy' => null
     ];
 
     /**
@@ -104,8 +104,8 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'caption' => 'caption',
-        'content' => 'content'
+        'code' => 'code',
+        'policy' => 'policy'
     ];
 
     /**
@@ -114,8 +114,8 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'caption' => 'setCaption',
-        'content' => 'setContent'
+        'code' => 'setCode',
+        'policy' => 'setPolicy'
     ];
 
     /**
@@ -124,8 +124,8 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'caption' => 'getCaption',
-        'content' => 'getContent'
+        'code' => 'getCode',
+        'policy' => 'getPolicy'
     ];
 
     /**
@@ -185,8 +185,8 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['caption'] = $data['caption'] ?? null;
-        $this->container['content'] = $data['content'] ?? null;
+        $this->container['code'] = $data['code'] ?? null;
+        $this->container['policy'] = $data['policy'] ?? null;
     }
 
     /**
@@ -198,8 +198,8 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['content'] === null) {
-            $invalidProperties[] = "'content' can't be null";
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
         }
         return $invalidProperties;
     }
@@ -217,49 +217,49 @@ class WhatsAppImage implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets caption
+     * Gets code
      *
-     * @return string|null
+     * @return string
      */
-    public function getCaption()
+    public function getCode()
     {
-        return $this->container['caption'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets caption
+     * Sets code
      *
-     * @param string|null $caption Description for the image
+     * @param string $code Language code
      *
      * @return self
      */
-    public function setCaption($caption)
+    public function setCode($code)
     {
-        $this->container['caption'] = $caption;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets content
+     * Gets policy
      *
-     * @return string
+     * @return string|null
      */
-    public function getContent()
+    public function getPolicy()
     {
-        return $this->container['content'];
+        return $this->container['policy'];
     }
 
     /**
-     * Sets content
+     * Sets policy
      *
-     * @param string $content Base64-encoded image
+     * @param string|null $policy Language policy
      *
      * @return self
      */
-    public function setContent($content)
+    public function setPolicy($policy)
     {
-        $this->container['content'] = $content;
+        $this->container['policy'] = $policy;
 
         return $this;
     }

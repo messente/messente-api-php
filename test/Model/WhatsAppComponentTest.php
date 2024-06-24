@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppTextTest
+ * WhatsAppComponentTest
  *
  * PHP version 7.3
  *
@@ -32,15 +32,15 @@ namespace Messente\Api\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * WhatsAppTextTest Class Doc Comment
+ * WhatsAppComponentTest Class Doc Comment
  *
  * @category    Class
- * @description A text
+ * @description Whatsapp template component
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class WhatsAppTextTest extends TestCase
+class WhatsAppComponentTest extends TestCase
 {
 
     /**
@@ -72,27 +72,27 @@ class WhatsAppTextTest extends TestCase
     }
 
     /**
-     * Test "WhatsAppText"
+     * Test "WhatsAppComponent"
      */
-    public function testWhatsAppText()
+    public function testWhatsAppComponent()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "previewUrl"
+     * Test attribute "type"
      */
-    public function testPropertyPreviewUrl()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "body"
+     * Test attribute "parameters"
      */
-    public function testPropertyBody()
+    public function testPropertyParameters()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

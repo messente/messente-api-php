@@ -108,36 +108,9 @@ class WhatsAppTest extends TestCase
     }
 
     /**
-     * Test attribute "text"
+     * Test attribute "template"
      */
-    public function testPropertyText()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "image"
-     */
-    public function testPropertyImage()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "document"
-     */
-    public function testPropertyDocument()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "audio"
-     */
-    public function testPropertyAudio()
+    public function testPropertyTemplate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

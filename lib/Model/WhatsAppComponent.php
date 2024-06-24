@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppAudio
+ * WhatsAppComponent
  *
  * PHP version 7.3
  *
@@ -33,10 +33,10 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppAudio Class Doc Comment
+ * WhatsAppComponent Class Doc Comment
  *
  * @category Class
- * @description A sound
+ * @description Whatsapp template component
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -44,7 +44,7 @@ use \Messente\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -53,7 +53,7 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppAudio';
+    protected static $openAPIModelName = 'WhatsAppComponent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,7 +61,8 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'content' => 'string'
+        'type' => 'string',
+        'parameters' => '\Messente\Api\Model\WhatsAppParameter[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'content' => null
+        'type' => null,
+        'parameters' => null
     ];
 
     /**
@@ -102,7 +104,8 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'content' => 'content'
+        'type' => 'type',
+        'parameters' => 'parameters'
     ];
 
     /**
@@ -111,7 +114,8 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'content' => 'setContent'
+        'type' => 'setType',
+        'parameters' => 'setParameters'
     ];
 
     /**
@@ -120,7 +124,8 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'content' => 'getContent'
+        'type' => 'getType',
+        'parameters' => 'getParameters'
     ];
 
     /**
@@ -180,7 +185,8 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['content'] = $data['content'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['parameters'] = $data['parameters'] ?? null;
     }
 
     /**
@@ -192,8 +198,8 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['content'] === null) {
-            $invalidProperties[] = "'content' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -211,25 +217,49 @@ class WhatsAppAudio implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets content
+     * Gets type
      *
      * @return string
      */
-    public function getContent()
+    public function getType()
     {
-        return $this->container['content'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets content
+     * Sets type
      *
-     * @param string $content Base64-encoded audio
+     * @param string $type Type of the component
      *
      * @return self
      */
-    public function setContent($content)
+    public function setType($type)
     {
-        $this->container['content'] = $content;
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets parameters
+     *
+     * @return \Messente\Api\Model\WhatsAppParameter[]|null
+     */
+    public function getParameters()
+    {
+        return $this->container['parameters'];
+    }
+
+    /**
+     * Sets parameters
+     *
+     * @param \Messente\Api\Model\WhatsAppParameter[]|null $parameters List of parameters for the component
+     *
+     * @return self
+     */
+    public function setParameters($parameters)
+    {
+        $this->container['parameters'] = $parameters;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppImageTest
+ * WhatsAppLanguageTest
  *
  * PHP version 7.3
  *
@@ -32,15 +32,15 @@ namespace Messente\Api\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * WhatsAppImageTest Class Doc Comment
+ * WhatsAppLanguageTest Class Doc Comment
  *
  * @category    Class
- * @description An image
+ * @description Whatsapp template language
  * @package     Messente\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class WhatsAppImageTest extends TestCase
+class WhatsAppLanguageTest extends TestCase
 {
 
     /**
@@ -72,27 +72,27 @@ class WhatsAppImageTest extends TestCase
     }
 
     /**
-     * Test "WhatsAppImage"
+     * Test "WhatsAppLanguage"
      */
-    public function testWhatsAppImage()
+    public function testWhatsAppLanguage()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "caption"
+     * Test attribute "code"
      */
-    public function testPropertyCaption()
+    public function testPropertyCode()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "content"
+     * Test attribute "policy"
      */
-    public function testPropertyContent()
+    public function testPropertyPolicy()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

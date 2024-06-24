@@ -64,10 +64,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'sender' => 'string',
         'validity' => 'int',
         'ttl' => 'int',
-        'text' => '\Messente\Api\Model\WhatsAppText',
-        'image' => '\Messente\Api\Model\WhatsAppImage',
-        'document' => '\Messente\Api\Model\WhatsAppDocument',
-        'audio' => '\Messente\Api\Model\WhatsAppAudio',
+        'template' => '\Messente\Api\Model\WhatsAppTemplate',
         'channel' => 'string'
     ];
 
@@ -82,10 +79,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'sender' => null,
         'validity' => null,
         'ttl' => null,
-        'text' => null,
-        'image' => null,
-        'document' => null,
-        'audio' => null,
+        'template' => null,
         'channel' => null
     ];
 
@@ -119,10 +113,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'sender' => 'sender',
         'validity' => 'validity',
         'ttl' => 'ttl',
-        'text' => 'text',
-        'image' => 'image',
-        'document' => 'document',
-        'audio' => 'audio',
+        'template' => 'template',
         'channel' => 'channel'
     ];
 
@@ -135,10 +126,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'sender' => 'setSender',
         'validity' => 'setValidity',
         'ttl' => 'setTtl',
-        'text' => 'setText',
-        'image' => 'setImage',
-        'document' => 'setDocument',
-        'audio' => 'setAudio',
+        'template' => 'setTemplate',
         'channel' => 'setChannel'
     ];
 
@@ -151,10 +139,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'sender' => 'getSender',
         'validity' => 'getValidity',
         'ttl' => 'getTtl',
-        'text' => 'getText',
-        'image' => 'getImage',
-        'document' => 'getDocument',
-        'audio' => 'getAudio',
+        'template' => 'getTemplate',
         'channel' => 'getChannel'
     ];
 
@@ -231,10 +216,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->container['sender'] = $data['sender'] ?? null;
         $this->container['validity'] = $data['validity'] ?? null;
         $this->container['ttl'] = $data['ttl'] ?? null;
-        $this->container['text'] = $data['text'] ?? null;
-        $this->container['image'] = $data['image'] ?? null;
-        $this->container['document'] = $data['document'] ?? null;
-        $this->container['audio'] = $data['audio'] ?? null;
+        $this->container['template'] = $data['template'] ?? null;
         $this->container['channel'] = $data['channel'] ?? 'whatsapp';
     }
 
@@ -344,97 +326,25 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets text
+     * Gets template
      *
-     * @return \Messente\Api\Model\WhatsAppText|null
+     * @return \Messente\Api\Model\WhatsAppTemplate|null
      */
-    public function getText()
+    public function getTemplate()
     {
-        return $this->container['text'];
+        return $this->container['template'];
     }
 
     /**
-     * Sets text
+     * Sets template
      *
-     * @param \Messente\Api\Model\WhatsAppText|null $text text
+     * @param \Messente\Api\Model\WhatsAppTemplate|null $template template
      *
      * @return self
      */
-    public function setText($text)
+    public function setTemplate($template)
     {
-        $this->container['text'] = $text;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return \Messente\Api\Model\WhatsAppImage|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param \Messente\Api\Model\WhatsAppImage|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets document
-     *
-     * @return \Messente\Api\Model\WhatsAppDocument|null
-     */
-    public function getDocument()
-    {
-        return $this->container['document'];
-    }
-
-    /**
-     * Sets document
-     *
-     * @param \Messente\Api\Model\WhatsAppDocument|null $document document
-     *
-     * @return self
-     */
-    public function setDocument($document)
-    {
-        $this->container['document'] = $document;
-
-        return $this;
-    }
-
-    /**
-     * Gets audio
-     *
-     * @return \Messente\Api\Model\WhatsAppAudio|null
-     */
-    public function getAudio()
-    {
-        return $this->container['audio'];
-    }
-
-    /**
-     * Sets audio
-     *
-     * @param \Messente\Api\Model\WhatsAppAudio|null $audio audio
-     *
-     * @return self
-     */
-    public function setAudio($audio)
-    {
-        $this->container['audio'] = $audio;
+        $this->container['template'] = $template;
 
         return $this;
     }
