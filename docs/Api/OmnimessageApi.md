@@ -1,11 +1,11 @@
 # Messente\Api\OmnimessageApi
 
-All URIs are relative to https://api.messente.com/v1.
+All URIs are relative to https://api.messente.com/v1, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**cancelScheduledMessage()**](OmnimessageApi.md#cancelScheduledMessage) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage
-[**sendOmnimessage()**](OmnimessageApi.md#sendOmnimessage) | **POST** /omnimessage | Sends an Omnimessage
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**cancelScheduledMessage()**](OmnimessageApi.md#cancelScheduledMessage) | **DELETE** /omnimessage/{omnimessageId} | Cancels a scheduled Omnimessage |
+| [**sendOmnimessage()**](OmnimessageApi.md#sendOmnimessage) | **POST** /omnimessage | Sends an Omnimessage |
 
 
 ## `cancelScheduledMessage()`
@@ -47,9 +47,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **omnimessageId** | **string**| UUID of the scheduled omnimessage to be cancelled |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **omnimessageId** | **string**| UUID of the scheduled omnimessage to be cancelled | |
 
 ### Return type
 
@@ -107,9 +107,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **omnimessage** | [**\Messente\Api\Model\Omnimessage**](../Model/Omnimessage.md)| Omnimessage to be sent |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **omnimessage** | [**\Messente\Api\Model\Omnimessage**](../Model/Omnimessage.md)| Omnimessage to be sent | |
 
 ### Return type
 

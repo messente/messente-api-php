@@ -1,6 +1,6 @@
 <?php
 /**
- * SMS
+ * OmnimessageMessagesInner
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * SMS Class Doc Comment
+ * OmnimessageMessagesInner Class Doc Comment
  *
  * @category Class
- * @description SMS message content
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
+class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SMS';
+    protected static $openAPIModelName = 'Omnimessage_messages_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +58,19 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'text' => 'string',
         'sender' => 'string',
         'validity' => 'int',
         'ttl' => 'int',
+        'text' => 'string',
+        'imageUrl' => 'string',
+        'buttonUrl' => 'string',
+        'buttonText' => 'string',
+        'channel' => 'string',
         'autoconvert' => 'string',
         'udh' => 'string',
-        'channel' => 'string'
+        'template' => '\Messente\Api\Model\WhatsAppTemplate',
+        'documentUrl' => 'string',
+        'audioUrl' => 'string'
     ];
 
     /**
@@ -76,13 +81,19 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'text' => null,
         'sender' => null,
         'validity' => null,
         'ttl' => null,
+        'text' => null,
+        'imageUrl' => null,
+        'buttonUrl' => null,
+        'buttonText' => null,
+        'channel' => null,
         'autoconvert' => null,
         'udh' => null,
-        'channel' => null
+        'template' => null,
+        'documentUrl' => null,
+        'audioUrl' => null
     ];
 
     /**
@@ -91,13 +102,19 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'text' => false,
         'sender' => false,
         'validity' => false,
         'ttl' => false,
+        'text' => false,
+        'imageUrl' => false,
+        'buttonUrl' => false,
+        'buttonText' => false,
+        'channel' => false,
         'autoconvert' => false,
         'udh' => false,
-        'channel' => false
+        'template' => false,
+        'documentUrl' => false,
+        'audioUrl' => false
     ];
 
     /**
@@ -186,13 +203,19 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'text' => 'text',
         'sender' => 'sender',
         'validity' => 'validity',
         'ttl' => 'ttl',
+        'text' => 'text',
+        'imageUrl' => 'image_url',
+        'buttonUrl' => 'button_url',
+        'buttonText' => 'button_text',
+        'channel' => 'channel',
         'autoconvert' => 'autoconvert',
         'udh' => 'udh',
-        'channel' => 'channel'
+        'template' => 'template',
+        'documentUrl' => 'document_url',
+        'audioUrl' => 'audio_url'
     ];
 
     /**
@@ -201,13 +224,19 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'text' => 'setText',
         'sender' => 'setSender',
         'validity' => 'setValidity',
         'ttl' => 'setTtl',
+        'text' => 'setText',
+        'imageUrl' => 'setImageUrl',
+        'buttonUrl' => 'setButtonUrl',
+        'buttonText' => 'setButtonText',
+        'channel' => 'setChannel',
         'autoconvert' => 'setAutoconvert',
         'udh' => 'setUdh',
-        'channel' => 'setChannel'
+        'template' => 'setTemplate',
+        'documentUrl' => 'setDocumentUrl',
+        'audioUrl' => 'setAudioUrl'
     ];
 
     /**
@@ -216,13 +245,19 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'text' => 'getText',
         'sender' => 'getSender',
         'validity' => 'getValidity',
         'ttl' => 'getTtl',
+        'text' => 'getText',
+        'imageUrl' => 'getImageUrl',
+        'buttonUrl' => 'getButtonUrl',
+        'buttonText' => 'getButtonText',
+        'channel' => 'getChannel',
         'autoconvert' => 'getAutoconvert',
         'udh' => 'getUdh',
-        'channel' => 'getChannel'
+        'template' => 'getTemplate',
+        'documentUrl' => 'getDocumentUrl',
+        'audioUrl' => 'getAudioUrl'
     ];
 
     /**
@@ -266,10 +301,22 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const CHANNEL_TELEGRAM = 'telegram';
     public const AUTOCONVERT_FULL = 'full';
     public const AUTOCONVERT_ON = 'on';
     public const AUTOCONVERT_OFF = 'off';
-    public const CHANNEL_SMS = 'sms';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getChannelAllowableValues()
+    {
+        return [
+            self::CHANNEL_TELEGRAM,
+        ];
+    }
 
     /**
      * Gets allowable values of the enum
@@ -282,18 +329,6 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
             self::AUTOCONVERT_FULL,
             self::AUTOCONVERT_ON,
             self::AUTOCONVERT_OFF,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getChannelAllowableValues()
-    {
-        return [
-            self::CHANNEL_SMS,
         ];
     }
 
@@ -312,13 +347,19 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('sender', $data ?? [], null);
         $this->setIfExists('validity', $data ?? [], null);
         $this->setIfExists('ttl', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('imageUrl', $data ?? [], null);
+        $this->setIfExists('buttonUrl', $data ?? [], null);
+        $this->setIfExists('buttonText', $data ?? [], null);
+        $this->setIfExists('channel', $data ?? [], 'telegram');
         $this->setIfExists('autoconvert', $data ?? [], null);
         $this->setIfExists('udh', $data ?? [], null);
-        $this->setIfExists('channel', $data ?? [], 'sms');
+        $this->setIfExists('template', $data ?? [], null);
+        $this->setIfExists('documentUrl', $data ?? [], null);
+        $this->setIfExists('audioUrl', $data ?? [], null);
     }
 
     /**
@@ -351,20 +392,20 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['text'] === null) {
             $invalidProperties[] = "'text' can't be null";
         }
-        $allowedValues = $this->getAutoconvertAllowableValues();
-        if (!is_null($this->container['autoconvert']) && !in_array($this->container['autoconvert'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'autoconvert', must be one of '%s'",
-                $this->container['autoconvert'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         $allowedValues = $this->getChannelAllowableValues();
         if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value '%s' for 'channel', must be one of '%s'",
                 $this->container['channel'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getAutoconvertAllowableValues();
+        if (!is_null($this->container['autoconvert']) && !in_array($this->container['autoconvert'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'autoconvert', must be one of '%s'",
+                $this->container['autoconvert'],
                 implode("', '", $allowedValues)
             );
         }
@@ -383,33 +424,6 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets text
-     *
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->container['text'];
-    }
-
-    /**
-     * Sets text
-     *
-     * @param string $text Text content of the SMS
-     *
-     * @return self
-     */
-    public function setText($text)
-    {
-        if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
-        }
-        $this->container['text'] = $text;
-
-        return $this;
-    }
 
     /**
      * Gets sender
@@ -451,7 +465,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets validity
      *
-     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted.                     Only one of \"ttl\" and \"validity\" can be used.
+     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted
      *
      * @return self
      */
@@ -478,7 +492,7 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ttl
      *
-     * @param int|null $ttl After how many seconds this channel is considered as failed and the next channel is attempted.                     Only one of \"ttl\" and \"validity\" can be used.
+     * @param int|null $ttl After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
      *
      * @return self
      */
@@ -488,6 +502,151 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable ttl cannot be null');
         }
         $this->container['ttl'] = $ttl;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string $text Plaintext content for Telegram
+     *
+     * @return self
+     */
+    public function setText($text)
+    {
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        }
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets imageUrl
+     *
+     * @return string|null
+     */
+    public function getImageUrl()
+    {
+        return $this->container['imageUrl'];
+    }
+
+    /**
+     * Sets imageUrl
+     *
+     * @param string|null $imageUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"audio_url\"
+     *
+     * @return self
+     */
+    public function setImageUrl($imageUrl)
+    {
+        if (is_null($imageUrl)) {
+            throw new \InvalidArgumentException('non-nullable imageUrl cannot be null');
+        }
+        $this->container['imageUrl'] = $imageUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets buttonUrl
+     *
+     * @return string|null
+     */
+    public function getButtonUrl()
+    {
+        return $this->container['buttonUrl'];
+    }
+
+    /**
+     * Sets buttonUrl
+     *
+     * @param string|null $buttonUrl URL of the button, must be specified along with ''text'', ''button_text'' and ''image_url'' (optional)
+     *
+     * @return self
+     */
+    public function setButtonUrl($buttonUrl)
+    {
+        if (is_null($buttonUrl)) {
+            throw new \InvalidArgumentException('non-nullable buttonUrl cannot be null');
+        }
+        $this->container['buttonUrl'] = $buttonUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets buttonText
+     *
+     * @return string|null
+     */
+    public function getButtonText()
+    {
+        return $this->container['buttonText'];
+    }
+
+    /**
+     * Sets buttonText
+     *
+     * @param string|null $buttonText Must be specified along with ''text'', ''button_url'', ''button_text'', ''image_url'' (optional)
+     *
+     * @return self
+     */
+    public function setButtonText($buttonText)
+    {
+        if (is_null($buttonText)) {
+            throw new \InvalidArgumentException('non-nullable buttonText cannot be null');
+        }
+        $this->container['buttonText'] = $buttonText;
+
+        return $this;
+    }
+
+    /**
+     * Gets channel
+     *
+     * @return string|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param string|null $channel The channel used to deliver the message
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['channel'] = $channel;
 
         return $this;
     }
@@ -557,38 +716,82 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets channel
+     * Gets template
      *
-     * @return string|null
+     * @return \Messente\Api\Model\WhatsAppTemplate|null
      */
-    public function getChannel()
+    public function getTemplate()
     {
-        return $this->container['channel'];
+        return $this->container['template'];
     }
 
     /**
-     * Sets channel
+     * Sets template
      *
-     * @param string|null $channel The channel used to deliver the message
+     * @param \Messente\Api\Model\WhatsAppTemplate|null $template template
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setTemplate($template)
     {
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        if (is_null($template)) {
+            throw new \InvalidArgumentException('non-nullable template cannot be null');
         }
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!in_array($channel, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'channel', must be one of '%s'",
-                    $channel,
-                    implode("', '", $allowedValues)
-                )
-            );
+        $this->container['template'] = $template;
+
+        return $this;
+    }
+
+    /**
+     * Gets documentUrl
+     *
+     * @return string|null
+     */
+    public function getDocumentUrl()
+    {
+        return $this->container['documentUrl'];
+    }
+
+    /**
+     * Sets documentUrl
+     *
+     * @param string|null $documentUrl URL for the embedded image. Mutually exclusive with \"audio_url\" and \"image_url\"
+     *
+     * @return self
+     */
+    public function setDocumentUrl($documentUrl)
+    {
+        if (is_null($documentUrl)) {
+            throw new \InvalidArgumentException('non-nullable documentUrl cannot be null');
         }
-        $this->container['channel'] = $channel;
+        $this->container['documentUrl'] = $documentUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets audioUrl
+     *
+     * @return string|null
+     */
+    public function getAudioUrl()
+    {
+        return $this->container['audioUrl'];
+    }
+
+    /**
+     * Sets audioUrl
+     *
+     * @param string|null $audioUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"image_url\"
+     *
+     * @return self
+     */
+    public function setAudioUrl($audioUrl)
+    {
+        if (is_null($audioUrl)) {
+            throw new \InvalidArgumentException('non-nullable audioUrl cannot be null');
+        }
+        $this->container['audioUrl'] = $audioUrl;
 
         return $this;
     }

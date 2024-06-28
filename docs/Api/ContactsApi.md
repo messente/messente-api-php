@@ -1,17 +1,17 @@
 # Messente\Api\ContactsApi
 
-All URIs are relative to https://api.messente.com/v1.
+All URIs are relative to https://api.messente.com/v1, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**addContactToGroup()**](ContactsApi.md#addContactToGroup) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group
-[**createContact()**](ContactsApi.md#createContact) | **POST** /phonebook/contacts | Creates a new contact
-[**deleteContact()**](ContactsApi.md#deleteContact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact
-[**fetchContact()**](ContactsApi.md#fetchContact) | **GET** /phonebook/contacts/{phone} | Lists a contact
-[**fetchContactGroups()**](ContactsApi.md#fetchContactGroups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact
-[**fetchContacts()**](ContactsApi.md#fetchContacts) | **GET** /phonebook/contacts | Returns all contacts
-[**removeContactFromGroup()**](ContactsApi.md#removeContactFromGroup) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group
-[**updateContact()**](ContactsApi.md#updateContact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**addContactToGroup()**](ContactsApi.md#addContactToGroup) | **POST** /phonebook/groups/{groupId}/contacts/{phone} | Adds a contact to a group |
+| [**createContact()**](ContactsApi.md#createContact) | **POST** /phonebook/contacts | Creates a new contact |
+| [**deleteContact()**](ContactsApi.md#deleteContact) | **DELETE** /phonebook/contacts/{phone} | Deletes a contact |
+| [**fetchContact()**](ContactsApi.md#fetchContact) | **GET** /phonebook/contacts/{phone} | Lists a contact |
+| [**fetchContactGroups()**](ContactsApi.md#fetchContactGroups) | **GET** /phonebook/contacts/{phone}/groups | Lists groups of a contact |
+| [**fetchContacts()**](ContactsApi.md#fetchContacts) | **GET** /phonebook/contacts | Returns all contacts |
+| [**removeContactFromGroup()**](ContactsApi.md#removeContactFromGroup) | **DELETE** /phonebook/groups/{groupId}/contacts/{phone} | Removes a contact from a group |
+| [**updateContact()**](ContactsApi.md#updateContact) | **PATCH** /phonebook/contacts/{phone} | Updates a contact |
 
 
 ## `addContactToGroup()`
@@ -54,10 +54,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in UUID format |
- **phone** | **string**| A phone number |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **groupId** | **string**| String in UUID format | |
+| **phone** | **string**| A phone number | |
 
 ### Return type
 
@@ -115,9 +115,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contactFields** | [**\Messente\Api\Model\ContactFields**](../Model/ContactFields.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **contactFields** | [**\Messente\Api\Model\ContactFields**](../Model/ContactFields.md)|  | |
 
 ### Return type
 
@@ -174,9 +174,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **string**| A phone number |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **phone** | **string**| A phone number | |
 
 ### Return type
 
@@ -234,9 +234,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **string**| A phone number |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **phone** | **string**| A phone number | |
 
 ### Return type
 
@@ -294,9 +294,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **string**| A phone number |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **phone** | **string**| A phone number | |
 
 ### Return type
 
@@ -354,9 +354,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupIds** | [**string[]**](../Model/string.md)| Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **groupIds** | [**string[]**](../Model/string.md)| Optional one or many group id strings in UUID format. For example: \&quot;/contacts?groupIds&#x3D;group_id_one&amp;groupIds&#x3D;group_id_two\&quot; | [optional] |
 
 ### Return type
 
@@ -414,10 +414,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in UUID format |
- **phone** | **string**| A phone number |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **groupId** | **string**| String in UUID format | |
+| **phone** | **string**| A phone number | |
 
 ### Return type
 
@@ -476,10 +476,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **phone** | **string**| A phone number |
- **contactUpdateFields** | [**\Messente\Api\Model\ContactUpdateFields**](../Model/ContactUpdateFields.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **phone** | **string**| A phone number | |
+| **contactUpdateFields** | [**\Messente\Api\Model\ContactUpdateFields**](../Model/ContactUpdateFields.md)|  | |
 
 ### Return type
 

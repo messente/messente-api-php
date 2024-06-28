@@ -1,14 +1,14 @@
 # Messente\Api\GroupsApi
 
-All URIs are relative to https://api.messente.com/v1.
+All URIs are relative to https://api.messente.com/v1, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createGroup()**](GroupsApi.md#createGroup) | **POST** /phonebook/groups | Creates a new group with the provided name
-[**deleteGroup()**](GroupsApi.md#deleteGroup) | **DELETE** /phonebook/groups/{groupId} | Deletes a group
-[**fetchGroup()**](GroupsApi.md#fetchGroup) | **GET** /phonebook/groups/{groupId} | Lists a group
-[**fetchGroups()**](GroupsApi.md#fetchGroups) | **GET** /phonebook/groups | Returns all groups
-[**updateGroup()**](GroupsApi.md#updateGroup) | **PUT** /phonebook/groups/{groupId} | Updates a group with the provided name
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**createGroup()**](GroupsApi.md#createGroup) | **POST** /phonebook/groups | Creates a new group with the provided name |
+| [**deleteGroup()**](GroupsApi.md#deleteGroup) | **DELETE** /phonebook/groups/{groupId} | Deletes a group |
+| [**fetchGroup()**](GroupsApi.md#fetchGroup) | **GET** /phonebook/groups/{groupId} | Lists a group |
+| [**fetchGroups()**](GroupsApi.md#fetchGroups) | **GET** /phonebook/groups | Returns all groups |
+| [**updateGroup()**](GroupsApi.md#updateGroup) | **PUT** /phonebook/groups/{groupId} | Updates a group with the provided name |
 
 
 ## `createGroup()`
@@ -50,9 +50,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupName** | [**\Messente\Api\Model\GroupName**](../Model/GroupName.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **groupName** | [**\Messente\Api\Model\GroupName**](../Model/GroupName.md)|  | |
 
 ### Return type
 
@@ -109,9 +109,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in UUID format |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **groupId** | **string**| String in UUID format | |
 
 ### Return type
 
@@ -169,9 +169,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in UUID format |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **groupId** | **string**| String in UUID format | |
 
 ### Return type
 
@@ -287,10 +287,10 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **string**| String in UUID format |
- **groupName** | [**\Messente\Api\Model\GroupName**](../Model/GroupName.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **groupId** | **string**| String in UUID format | |
+| **groupName** | [**\Messente\Api\Model\GroupName**](../Model/GroupName.md)|  | |
 
 ### Return type
 
