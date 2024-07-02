@@ -1,7 +1,7 @@
 # Messente API Library
 
 - Messente API version: 2.0.0
-- PHP artifact version: 3.0.0
+- PHP artifact version: 2.1.0
 
 [Messente](https://messente.com) is a global provider of messaging and user verification services.  * Send and receive SMS, Viber, WhatsApp and Telegram messages. * Manage contacts and groups. * Fetch detailed info about phone numbers. * Blacklist phone numbers to make sure you&#39;re not sending any unwanted messages.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
 
@@ -73,14 +73,13 @@ Read the [external getting-started article](https://messente.com/documentation/g
 <?php
 require_once(__DIR__ . '/../vendor/autoload.php');
 
-use Messente\Api\Api\OmnimessageApi;
-use Messente\Api\Model\Omnimessage;
-use Messente\Api\Configuration;
-use Messente\Api\Model\WhatsApp;
-use Messente\Api\Model\WhatsAppParameter;
-use Messente\Api\Model\WhatsAppComponent;
-use Messente\Api\Model\WhatsAppLanguage;
-use Messente\Api\Model\WhatsAppTemplate;
+use \Messente\Api\Api\OmnimessageApi;
+use \Messente\Api\Configuration;
+use \Messente\Api\Model\Omnimessage;
+use \Messente\Api\Model\Viber;
+use \Messente\Api\Model\SMS;
+use \Messente\Api\Model\WhatsApp;
+use \Messente\Api\Model\WhatsAppText;
 
 
 // Configure HTTP basic authorization: basicAuth
@@ -105,22 +104,11 @@ $sms = new SMS(
     ["text" => "Hello SMS!", "sender" => "MySmsSender"]
 );
 
-$whatsAppParameters = [new WhatsAppParameter(['type' => 'text', 'text' => 'hello whatsapp'])];
-$whatsAppComponent = new WhatsAppComponent(['type' => 'body', 'parameters' => $whatsAppParameters]);
-$whatsAppLanguage = new WhatsAppLanguage(['code' => '<language_code>']);
-$whatsAppTemplate = new WhatsAppTemplate(
-    [
-        'name'=> '<template_name>',
-        'language'=> $whatsAppLanguage,
-        'components' => [$whatsAppComponent]
-    ]
-);
+
+$whatsAppText = new WhatsAppText(["body" => "Hello WhatsApp!"]);
 
 $whatsapp = new WhatsApp(
-    [
-        'sender' => '<sender name (optional)>',
-        'template' => $whatsAppTemplate,
-    ]
+    ['text' => $whatsAppText, "sender" => "MyWhatsAppSender"]
 );
 
 $omnimessage->setMessages([$whatsapp, $viber, $sms]);

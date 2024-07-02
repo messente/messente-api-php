@@ -1,10 +1,10 @@
 # Messente\Api\StatisticsApi
 
-All URIs are relative to https://api.messente.com/v1, except if the operation defines another base path.
+All URIs are relative to https://api.messente.com/v1.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**createStatisticsReport()**](StatisticsApi.md#createStatisticsReport) | **POST** /statistics/reports | Requests statistics reports for each country |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createStatisticsReport()**](StatisticsApi.md#createStatisticsReport) | **POST** /statistics/reports | Requests statistics reports for each country
 
 
 ## `createStatisticsReport()`
@@ -46,9 +46,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **statisticsReportSettings** | [**\Messente\Api\Model\StatisticsReportSettings**](../Model/StatisticsReportSettings.md)| Settings for statistics report | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **statisticsReportSettings** | [**\Messente\Api\Model\StatisticsReportSettings**](../Model/StatisticsReportSettings.md)| Settings for statistics report |
 
 ### Return type
 
