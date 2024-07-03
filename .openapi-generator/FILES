@@ -11,6 +11,8 @@ docs/Api/GroupsApi.md
 docs/Api/NumberLookupApi.md
 docs/Api/OmnimessageApi.md
 docs/Api/StatisticsApi.md
+docs/Model/BulkOmniMessageCreateSuccessResponse.md
+docs/Model/BulkOmnimessage.md
 docs/Model/Channel.md
 docs/Model/ContactEnvelope.md
 docs/Model/ContactFields.md
@@ -76,6 +78,8 @@ lib/Api/StatisticsApi.php
 lib/ApiException.php
 lib/Configuration.php
 lib/HeaderSelector.php
+lib/Model/BulkOmniMessageCreateSuccessResponse.php
+lib/Model/BulkOmnimessage.php
 lib/Model/Channel.php
 lib/Model/ContactEnvelope.php
 lib/Model/ContactFields.php

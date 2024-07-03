@@ -75,6 +75,9 @@ class OmnimessageApi
         'cancelScheduledMessage' => [
             'application/json',
         ],
+        'sendBulkOmnimessage' => [
+            'application/json',
+        ],
         'sendOmnimessage' => [
             'application/json',
         ],
@@ -501,6 +504,386 @@ class OmnimessageApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation sendBulkOmnimessage
+     *
+     * Sends a bulk Omnimessage
+     *
+     * @param  \Messente\Api\Model\BulkOmnimessage $bulkOmnimessage Bulk Omnimessage to be sent (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendBulkOmnimessage'] to see the possible values for this operation
+     *
+     * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Messente\Api\Model\BulkOmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
+     */
+    public function sendBulkOmnimessage($bulkOmnimessage, string $contentType = self::contentTypes['sendBulkOmnimessage'][0])
+    {
+        list($response) = $this->sendBulkOmnimessageWithHttpInfo($bulkOmnimessage, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation sendBulkOmnimessageWithHttpInfo
+     *
+     * Sends a bulk Omnimessage
+     *
+     * @param  \Messente\Api\Model\BulkOmnimessage $bulkOmnimessage Bulk Omnimessage to be sent (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendBulkOmnimessage'] to see the possible values for this operation
+     *
+     * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Messente\Api\Model\BulkOmniMessageCreateSuccessResponse|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function sendBulkOmnimessageWithHttpInfo($bulkOmnimessage, string $contentType = self::contentTypes['sendBulkOmnimessage'][0])
+    {
+        $request = $this->sendBulkOmnimessageRequest($bulkOmnimessage, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\Messente\Api\Model\BulkOmniMessageCreateSuccessResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Messente\Api\Model\BulkOmniMessageCreateSuccessResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\BulkOmniMessageCreateSuccessResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Messente\Api\Model\ErrorOmnichannel' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorOmnichannel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Messente\Api\Model\ErrorOmnichannel' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Messente\Api\Model\ErrorOmnichannel' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\ErrorOmnichannel', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Messente\Api\Model\BulkOmniMessageCreateSuccessResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\BulkOmniMessageCreateSuccessResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorOmnichannel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Messente\Api\Model\ErrorOmnichannel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation sendBulkOmnimessageAsync
+     *
+     * Sends a bulk Omnimessage
+     *
+     * @param  \Messente\Api\Model\BulkOmnimessage $bulkOmnimessage Bulk Omnimessage to be sent (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendBulkOmnimessage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendBulkOmnimessageAsync($bulkOmnimessage, string $contentType = self::contentTypes['sendBulkOmnimessage'][0])
+    {
+        return $this->sendBulkOmnimessageAsyncWithHttpInfo($bulkOmnimessage, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation sendBulkOmnimessageAsyncWithHttpInfo
+     *
+     * Sends a bulk Omnimessage
+     *
+     * @param  \Messente\Api\Model\BulkOmnimessage $bulkOmnimessage Bulk Omnimessage to be sent (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendBulkOmnimessage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function sendBulkOmnimessageAsyncWithHttpInfo($bulkOmnimessage, string $contentType = self::contentTypes['sendBulkOmnimessage'][0])
+    {
+        $returnType = '\Messente\Api\Model\BulkOmniMessageCreateSuccessResponse';
+        $request = $this->sendBulkOmnimessageRequest($bulkOmnimessage, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'sendBulkOmnimessage'
+     *
+     * @param  \Messente\Api\Model\BulkOmnimessage $bulkOmnimessage Bulk Omnimessage to be sent (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['sendBulkOmnimessage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function sendBulkOmnimessageRequest($bulkOmnimessage, string $contentType = self::contentTypes['sendBulkOmnimessage'][0])
+    {
+
+        // verify the required parameter 'bulkOmnimessage' is set
+        if ($bulkOmnimessage === null || (is_array($bulkOmnimessage) && count($bulkOmnimessage) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $bulkOmnimessage when calling sendBulkOmnimessage'
+            );
+        }
+
+
+        $resourcePath = '/omnimessages';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($bulkOmnimessage)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bulkOmnimessage));
+            } else {
+                $httpBody = $bulkOmnimessage;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

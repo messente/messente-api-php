@@ -55,6 +55,7 @@ Messente API Library provides the operations described below to access the featu
 ### OmnimessageApi
 
 1. Cancels a scheduled Omnimessage [`cancelScheduledMessage`](docs/Api/OmnimessageApi.md#cancelscheduledmessage)
+1. Sends a bulk Omnimessage [`sendBulkOmnimessage`](docs/Api/OmnimessageApi.md#sendbulkomnimessage)
 1. Sends an Omnimessage [`sendOmnimessage`](docs/Api/OmnimessageApi.md#sendomnimessage)
 
 ### StatisticsApi
