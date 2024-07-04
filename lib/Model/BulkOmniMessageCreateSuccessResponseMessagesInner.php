@@ -1,6 +1,6 @@
 <?php
 /**
- * BulkOmniMessageCreateSuccessResponse
+ * BulkOmniMessageCreateSuccessResponseMessagesInner
  *
  * PHP version 7.4
  *
@@ -33,16 +33,15 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * BulkOmniMessageCreateSuccessResponse Class Doc Comment
+ * BulkOmniMessageCreateSuccessResponseMessagesInner Class Doc Comment
  *
  * @category Class
- * @description Response received after successfully created bulk omnimessage.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class BulkOmniMessageCreateSuccessResponseMessagesInner implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +50,7 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BulkOmniMessageCreateSuccessResponse';
+    protected static $openAPIModelName = 'BulkOmniMessageCreateSuccessResponse_messages_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,10 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'messages' => '\Messente\Api\Model\BulkOmniMessageCreateSuccessResponseMessagesInner[]'
+        'messages' => '\Messente\Api\Model\MessageResult[]',
+        'to' => 'string',
+        'omnimessageId' => 'string',
+        'errors' => '\Messente\Api\Model\ErrorItemOmnichannel[]'
     ];
 
     /**
@@ -70,7 +72,10 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'messages' => null
+        'messages' => null,
+        'to' => null,
+        'omnimessageId' => 'UUID',
+        'errors' => null
     ];
 
     /**
@@ -79,7 +84,10 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'messages' => false
+        'messages' => false,
+        'to' => false,
+        'omnimessageId' => false,
+        'errors' => false
     ];
 
     /**
@@ -168,7 +176,10 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'messages' => 'messages'
+        'messages' => 'messages',
+        'to' => 'to',
+        'omnimessageId' => 'omnimessage_id',
+        'errors' => 'errors'
     ];
 
     /**
@@ -177,7 +188,10 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'messages' => 'setMessages'
+        'messages' => 'setMessages',
+        'to' => 'setTo',
+        'omnimessageId' => 'setOmnimessageId',
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -186,7 +200,10 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'messages' => 'getMessages'
+        'messages' => 'getMessages',
+        'to' => 'getTo',
+        'omnimessageId' => 'getOmnimessageId',
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -247,6 +264,9 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
     public function __construct(array $data = null)
     {
         $this->setIfExists('messages', $data ?? [], null);
+        $this->setIfExists('to', $data ?? [], null);
+        $this->setIfExists('omnimessageId', $data ?? [], null);
+        $this->setIfExists('errors', $data ?? [], null);
     }
 
     /**
@@ -279,6 +299,15 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
         if ($this->container['messages'] === null) {
             $invalidProperties[] = "'messages' can't be null";
         }
+        if ($this->container['to'] === null) {
+            $invalidProperties[] = "'to' can't be null";
+        }
+        if ($this->container['omnimessageId'] === null) {
+            $invalidProperties[] = "'omnimessageId' can't be null";
+        }
+        if ($this->container['errors'] === null) {
+            $invalidProperties[] = "'errors' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -297,7 +326,7 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
     /**
      * Gets messages
      *
-     * @return \Messente\Api\Model\BulkOmniMessageCreateSuccessResponseMessagesInner[]
+     * @return \Messente\Api\Model\MessageResult[]
      */
     public function getMessages()
     {
@@ -307,7 +336,7 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
     /**
      * Sets messages
      *
-     * @param \Messente\Api\Model\BulkOmniMessageCreateSuccessResponseMessagesInner[] $messages List of responses for each Omnimessage.
+     * @param \Messente\Api\Model\MessageResult[] $messages List of messages that compose the omnimessage
      *
      * @return self
      */
@@ -317,6 +346,87 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
             throw new \InvalidArgumentException('non-nullable messages cannot be null');
         }
         $this->container['messages'] = $messages;
+
+        return $this;
+    }
+
+    /**
+     * Gets to
+     *
+     * @return string
+     */
+    public function getTo()
+    {
+        return $this->container['to'];
+    }
+
+    /**
+     * Sets to
+     *
+     * @param string $to Phone number in e.164 format
+     *
+     * @return self
+     */
+    public function setTo($to)
+    {
+        if (is_null($to)) {
+            throw new \InvalidArgumentException('non-nullable to cannot be null');
+        }
+        $this->container['to'] = $to;
+
+        return $this;
+    }
+
+    /**
+     * Gets omnimessageId
+     *
+     * @return string
+     */
+    public function getOmnimessageId()
+    {
+        return $this->container['omnimessageId'];
+    }
+
+    /**
+     * Sets omnimessageId
+     *
+     * @param string $omnimessageId Unique identifier for the omnimessage
+     *
+     * @return self
+     */
+    public function setOmnimessageId($omnimessageId)
+    {
+        if (is_null($omnimessageId)) {
+            throw new \InvalidArgumentException('non-nullable omnimessageId cannot be null');
+        }
+        $this->container['omnimessageId'] = $omnimessageId;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors
+     *
+     * @return \Messente\Api\Model\ErrorItemOmnichannel[]
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param \Messente\Api\Model\ErrorItemOmnichannel[] $errors An array of errors
+     *
+     * @return self
+     */
+    public function setErrors($errors)
+    {
+        if (is_null($errors)) {
+            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+        }
+        $this->container['errors'] = $errors;
 
         return $this;
     }
