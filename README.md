@@ -25,6 +25,10 @@ Messente API Library provides the operations described below to access the featu
 1. Returns all blacklisted phone numbers [`fetchBlacklist`](docs/Api/BlacklistApi.md#fetchblacklist)
 1. Checks if a phone number is blacklisted [`isBlacklisted`](docs/Api/BlacklistApi.md#isblacklisted)
 
+### BulkMessagingApi
+
+1. Sends a bulk Omnimessage [`sendBulkOmnimessage`](docs/Api/BulkMessagingApi.md#sendbulkomnimessage)
+
 ### ContactsApi
 
 1. Adds a contact to a group [`addContactToGroup`](docs/Api/ContactsApi.md#addcontacttogroup)
@@ -55,7 +59,6 @@ Messente API Library provides the operations described below to access the featu
 ### OmnimessageApi
 
 1. Cancels a scheduled Omnimessage [`cancelScheduledMessage`](docs/Api/OmnimessageApi.md#cancelscheduledmessage)
-1. Sends a bulk Omnimessage [`sendBulkOmnimessage`](docs/Api/OmnimessageApi.md#sendbulkomnimessage)
 1. Sends an Omnimessage [`sendOmnimessage`](docs/Api/OmnimessageApi.md#sendomnimessage)
 
 ### StatisticsApi

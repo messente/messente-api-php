@@ -5,6 +5,7 @@
 README.md
 composer.json
 docs/Api/BlacklistApi.md
+docs/Api/BulkMessagingApi.md
 docs/Api/ContactsApi.md
 docs/Api/DeliveryReportApi.md
 docs/Api/GroupsApi.md
@@ -70,6 +71,7 @@ docs/Model/WhatsAppParameter.md
 docs/Model/WhatsAppTemplate.md
 git_push.sh
 lib/Api/BlacklistApi.php
+lib/Api/BulkMessagingApi.php
 lib/Api/ContactsApi.php
 lib/Api/DeliveryReportApi.php
 lib/Api/GroupsApi.php

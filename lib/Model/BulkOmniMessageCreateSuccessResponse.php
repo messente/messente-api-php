@@ -307,7 +307,7 @@ class BulkOmniMessageCreateSuccessResponse implements ModelInterface, ArrayAcces
     /**
      * Sets messages
      *
-     * @param \Messente\Api\Model\BulkOmniMessageCreateSuccessResponseMessagesInner[] $messages List of responses for each Omnimessage.
+     * @param \Messente\Api\Model\BulkOmniMessageCreateSuccessResponseMessagesInner[] $messages List of responses for each Omnimessage in the bulk. These can be errors or successful responses
      *
      * @return self
      */
