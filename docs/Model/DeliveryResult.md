@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **error** | **string** | Human-readable description of what went wrong, *null* in case of success or if the message has not been processed yet | [optional]
 **err** | [**\Messente\Api\Model\ErrorCodeOmnichannelMachine**](ErrorCodeOmnichannelMachine.md) |  | [optional]
 **timestamp** | **\DateTime** | When this status was received by Omnichannel API | [optional]
+**priceInfo** | [**\Messente\Api\Model\PriceInfo**](PriceInfo.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

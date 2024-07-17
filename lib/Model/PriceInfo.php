@@ -1,6 +1,6 @@
 <?php
 /**
- * DeliveryResult
+ * PriceInfo
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * DeliveryResult Class Doc Comment
+ * PriceInfo Class Doc Comment
  *
  * @category Class
- * @description A delivery report
+ * @description Contains price information for the message. This value is *null* if the message is still being processed
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
+class PriceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DeliveryResult';
+    protected static $openAPIModelName = 'PriceInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +59,9 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\Messente\Api\Model\Status',
-        'channel' => '\Messente\Api\Model\Channel',
-        'messageId' => 'string',
-        'error' => 'string',
-        'err' => '\Messente\Api\Model\ErrorCodeOmnichannelMachine',
-        'timestamp' => '\DateTime',
-        'priceInfo' => '\Messente\Api\Model\PriceInfo'
+        'partPrice' => 'string',
+        'partsCount' => 'int',
+        'totalPrice' => 'string'
     ];
 
     /**
@@ -76,13 +72,9 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'channel' => null,
-        'messageId' => 'UUID',
-        'error' => null,
-        'err' => null,
-        'timestamp' => 'date-time',
-        'priceInfo' => null
+        'partPrice' => null,
+        'partsCount' => null,
+        'totalPrice' => null
     ];
 
     /**
@@ -91,13 +83,9 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'status' => false,
-        'channel' => false,
-        'messageId' => false,
-        'error' => true,
-        'err' => false,
-        'timestamp' => false,
-        'priceInfo' => false
+        'partPrice' => false,
+        'partsCount' => false,
+        'totalPrice' => false
     ];
 
     /**
@@ -186,13 +174,9 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'channel' => 'channel',
-        'messageId' => 'message_id',
-        'error' => 'error',
-        'err' => 'err',
-        'timestamp' => 'timestamp',
-        'priceInfo' => 'price_info'
+        'partPrice' => 'part_price',
+        'partsCount' => 'parts_count',
+        'totalPrice' => 'total_price'
     ];
 
     /**
@@ -201,13 +185,9 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'channel' => 'setChannel',
-        'messageId' => 'setMessageId',
-        'error' => 'setError',
-        'err' => 'setErr',
-        'timestamp' => 'setTimestamp',
-        'priceInfo' => 'setPriceInfo'
+        'partPrice' => 'setPartPrice',
+        'partsCount' => 'setPartsCount',
+        'totalPrice' => 'setTotalPrice'
     ];
 
     /**
@@ -216,13 +196,9 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'channel' => 'getChannel',
-        'messageId' => 'getMessageId',
-        'error' => 'getError',
-        'err' => 'getErr',
-        'timestamp' => 'getTimestamp',
-        'priceInfo' => 'getPriceInfo'
+        'partPrice' => 'getPartPrice',
+        'partsCount' => 'getPartsCount',
+        'totalPrice' => 'getTotalPrice'
     ];
 
     /**
@@ -282,13 +258,9 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('channel', $data ?? [], null);
-        $this->setIfExists('messageId', $data ?? [], null);
-        $this->setIfExists('error', $data ?? [], null);
-        $this->setIfExists('err', $data ?? [], null);
-        $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('priceInfo', $data ?? [], null);
+        $this->setIfExists('partPrice', $data ?? [], null);
+        $this->setIfExists('partsCount', $data ?? [], null);
+        $this->setIfExists('totalPrice', $data ?? [], null);
     }
 
     /**
@@ -318,6 +290,15 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['partPrice'] === null) {
+            $invalidProperties[] = "'partPrice' can't be null";
+        }
+        if ($this->container['partsCount'] === null) {
+            $invalidProperties[] = "'partsCount' can't be null";
+        }
+        if ($this->container['totalPrice'] === null) {
+            $invalidProperties[] = "'totalPrice' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -334,197 +315,82 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets status
+     * Gets partPrice
      *
-     * @return \Messente\Api\Model\Status|null
+     * @return string
      */
-    public function getStatus()
+    public function getPartPrice()
     {
-        return $this->container['status'];
+        return $this->container['partPrice'];
     }
 
     /**
-     * Sets status
+     * Sets partPrice
      *
-     * @param \Messente\Api\Model\Status|null $status status
+     * @param string $partPrice price per message part - relevant mostly for SMS
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setPartPrice($partPrice)
     {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($partPrice)) {
+            throw new \InvalidArgumentException('non-nullable partPrice cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['partPrice'] = $partPrice;
 
         return $this;
     }
 
     /**
-     * Gets channel
+     * Gets partsCount
      *
-     * @return \Messente\Api\Model\Channel|null
+     * @return int
      */
-    public function getChannel()
+    public function getPartsCount()
     {
-        return $this->container['channel'];
+        return $this->container['partsCount'];
     }
 
     /**
-     * Sets channel
+     * Sets partsCount
      *
-     * @param \Messente\Api\Model\Channel|null $channel channel
+     * @param int $partsCount the number of parts the message consists of
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setPartsCount($partsCount)
     {
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        if (is_null($partsCount)) {
+            throw new \InvalidArgumentException('non-nullable partsCount cannot be null');
         }
-        $this->container['channel'] = $channel;
+        $this->container['partsCount'] = $partsCount;
 
         return $this;
     }
 
     /**
-     * Gets messageId
+     * Gets totalPrice
      *
-     * @return string|null
+     * @return string
      */
-    public function getMessageId()
+    public function getTotalPrice()
     {
-        return $this->container['messageId'];
+        return $this->container['totalPrice'];
     }
 
     /**
-     * Sets messageId
+     * Sets totalPrice
      *
-     * @param string|null $messageId Unique identifier for the message
+     * @param string $totalPrice total price for the message
      *
      * @return self
      */
-    public function setMessageId($messageId)
+    public function setTotalPrice($totalPrice)
     {
-        if (is_null($messageId)) {
-            throw new \InvalidArgumentException('non-nullable messageId cannot be null');
+        if (is_null($totalPrice)) {
+            throw new \InvalidArgumentException('non-nullable totalPrice cannot be null');
         }
-        $this->container['messageId'] = $messageId;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return string|null
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param string|null $error Human-readable description of what went wrong, *null* in case of success or if the message has not been processed yet
-     *
-     * @return self
-     */
-    public function setError($error)
-    {
-        if (is_null($error)) {
-            array_push($this->openAPINullablesSetToNull, 'error');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('error', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['error'] = $error;
-
-        return $this;
-    }
-
-    /**
-     * Gets err
-     *
-     * @return \Messente\Api\Model\ErrorCodeOmnichannelMachine|null
-     */
-    public function getErr()
-    {
-        return $this->container['err'];
-    }
-
-    /**
-     * Sets err
-     *
-     * @param \Messente\Api\Model\ErrorCodeOmnichannelMachine|null $err err
-     *
-     * @return self
-     */
-    public function setErr($err)
-    {
-        if (is_null($err)) {
-            throw new \InvalidArgumentException('non-nullable err cannot be null');
-        }
-        $this->container['err'] = $err;
-
-        return $this;
-    }
-
-    /**
-     * Gets timestamp
-     *
-     * @return \DateTime|null
-     */
-    public function getTimestamp()
-    {
-        return $this->container['timestamp'];
-    }
-
-    /**
-     * Sets timestamp
-     *
-     * @param \DateTime|null $timestamp When this status was received by Omnichannel API
-     *
-     * @return self
-     */
-    public function setTimestamp($timestamp)
-    {
-        if (is_null($timestamp)) {
-            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
-        }
-        $this->container['timestamp'] = $timestamp;
-
-        return $this;
-    }
-
-    /**
-     * Gets priceInfo
-     *
-     * @return \Messente\Api\Model\PriceInfo|null
-     */
-    public function getPriceInfo()
-    {
-        return $this->container['priceInfo'];
-    }
-
-    /**
-     * Sets priceInfo
-     *
-     * @param \Messente\Api\Model\PriceInfo|null $priceInfo priceInfo
-     *
-     * @return self
-     */
-    public function setPriceInfo($priceInfo)
-    {
-        if (is_null($priceInfo)) {
-            throw new \InvalidArgumentException('non-nullable priceInfo cannot be null');
-        }
-        $this->container['priceInfo'] = $priceInfo;
+        $this->container['totalPrice'] = $totalPrice;
 
         return $this;
     }
