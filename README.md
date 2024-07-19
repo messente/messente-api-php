@@ -93,7 +93,7 @@ $config = Configuration::getDefaultConfiguration()
     ->setPassword('<MESSENTE_API_PASSWORD>');
 
 $apiInstance = new OmnimessageApi(
-    new \GuzzleHttp\Client(),
+    new GuzzleHttp\Client(),
     $config
 );
 
