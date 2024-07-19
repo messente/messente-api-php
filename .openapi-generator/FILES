@@ -50,6 +50,7 @@ docs/Model/NumbersToInvestigate.md
 docs/Model/OmniMessageCreateSuccessResponse.md
 docs/Model/Omnimessage.md
 docs/Model/OmnimessageMessagesInner.md
+docs/Model/PriceInfo.md
 docs/Model/Priority.md
 docs/Model/SMS.md
 docs/Model/StatisticsReport.md
@@ -120,6 +121,7 @@ lib/Model/NumbersToInvestigate.php
 lib/Model/OmniMessageCreateSuccessResponse.php
 lib/Model/Omnimessage.php
 lib/Model/OmnimessageMessagesInner.php
+lib/Model/PriceInfo.php
 lib/Model/Priority.php
 lib/Model/SMS.php
 lib/Model/StatisticsReport.php
