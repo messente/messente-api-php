@@ -65,7 +65,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'error' => 'string',
         'err' => '\Messente\Api\Model\ErrorCodeOmnichannelMachine',
         'timestamp' => '\DateTime',
-        'priceInfo' => '\Messente\Api\Model\PriceInfo'
+        'priceInfo' => '\Messente\Api\Model\PriceInfo',
+        'sender' => 'string'
     ];
 
     /**
@@ -82,7 +83,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'error' => null,
         'err' => null,
         'timestamp' => 'date-time',
-        'priceInfo' => null
+        'priceInfo' => null,
+        'sender' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'error' => true,
         'err' => false,
         'timestamp' => false,
-        'priceInfo' => false
+        'priceInfo' => false,
+        'sender' => false
     ];
 
     /**
@@ -192,7 +195,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'error' => 'error',
         'err' => 'err',
         'timestamp' => 'timestamp',
-        'priceInfo' => 'price_info'
+        'priceInfo' => 'price_info',
+        'sender' => 'sender'
     ];
 
     /**
@@ -207,7 +211,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'error' => 'setError',
         'err' => 'setErr',
         'timestamp' => 'setTimestamp',
-        'priceInfo' => 'setPriceInfo'
+        'priceInfo' => 'setPriceInfo',
+        'sender' => 'setSender'
     ];
 
     /**
@@ -222,7 +227,8 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
         'error' => 'getError',
         'err' => 'getErr',
         'timestamp' => 'getTimestamp',
-        'priceInfo' => 'getPriceInfo'
+        'priceInfo' => 'getPriceInfo',
+        'sender' => 'getSender'
     ];
 
     /**
@@ -289,6 +295,7 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('err', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('priceInfo', $data ?? [], null);
+        $this->setIfExists('sender', $data ?? [], null);
     }
 
     /**
@@ -525,6 +532,33 @@ class DeliveryResult implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable priceInfo cannot be null');
         }
         $this->container['priceInfo'] = $priceInfo;
+
+        return $this;
+    }
+
+    /**
+     * Gets sender
+     *
+     * @return string|null
+     */
+    public function getSender()
+    {
+        return $this->container['sender'];
+    }
+
+    /**
+     * Sets sender
+     *
+     * @param string|null $sender the sender of the message
+     *
+     * @return self
+     */
+    public function setSender($sender)
+    {
+        if (is_null($sender)) {
+            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        }
+        $this->container['sender'] = $sender;
 
         return $this;
     }
