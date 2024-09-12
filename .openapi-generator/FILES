@@ -62,6 +62,7 @@ docs/Model/SyncNumberLookupSuccess.md
 docs/Model/Telegram.md
 docs/Model/TextStore.md
 docs/Model/Viber.md
+docs/Model/ViberVideo.md
 docs/Model/WhatsApp.md
 docs/Model/WhatsAppComponent.md
 docs/Model/WhatsAppCurrency.md
@@ -133,6 +134,7 @@ lib/Model/SyncNumberLookupSuccess.php
 lib/Model/Telegram.php
 lib/Model/TextStore.php
 lib/Model/Viber.php
+lib/Model/ViberVideo.php
 lib/Model/WhatsApp.php
 lib/Model/WhatsAppComponent.php
 lib/Model/WhatsAppCurrency.php
