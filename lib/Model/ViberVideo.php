@@ -62,7 +62,7 @@ class ViberVideo implements ModelInterface, ArrayAccess, \JsonSerializable
         'url' => 'string',
         'thumbnail' => 'string',
         'fileSize' => 'int',
-        'duration' => '\Messente\Api\Model\WhatsAppParameter[]'
+        'duration' => 'int'
     ];
 
     /**
@@ -408,7 +408,7 @@ class ViberVideo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets duration
      *
-     * @return \Messente\Api\Model\WhatsAppParameter[]
+     * @return int
      */
     public function getDuration()
     {
@@ -418,7 +418,7 @@ class ViberVideo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets duration
      *
-     * @param \Messente\Api\Model\WhatsAppParameter[] $duration Duration of the video in seconds. Cannot be longer than 600 seconds.
+     * @param int $duration Duration of the video in seconds. Cannot be longer than 600 seconds.
      *
      * @return self
      */
