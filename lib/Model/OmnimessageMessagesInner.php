@@ -66,7 +66,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         'buttonUrl' => 'string',
         'buttonText' => 'string',
         'channel' => 'string',
-        'video' => '\Messente\Api\Model\ViberVideo',
         'autoconvert' => 'string',
         'udh' => 'string',
         'template' => '\Messente\Api\Model\WhatsAppTemplate',
@@ -90,7 +89,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         'buttonUrl' => null,
         'buttonText' => null,
         'channel' => null,
-        'video' => null,
         'autoconvert' => null,
         'udh' => null,
         'template' => null,
@@ -112,7 +110,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         'buttonUrl' => false,
         'buttonText' => false,
         'channel' => false,
-        'video' => false,
         'autoconvert' => false,
         'udh' => false,
         'template' => false,
@@ -214,7 +211,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         'buttonUrl' => 'button_url',
         'buttonText' => 'button_text',
         'channel' => 'channel',
-        'video' => 'video',
         'autoconvert' => 'autoconvert',
         'udh' => 'udh',
         'template' => 'template',
@@ -236,7 +232,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         'buttonUrl' => 'setButtonUrl',
         'buttonText' => 'setButtonText',
         'channel' => 'setChannel',
-        'video' => 'setVideo',
         'autoconvert' => 'setAutoconvert',
         'udh' => 'setUdh',
         'template' => 'setTemplate',
@@ -258,7 +253,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         'buttonUrl' => 'getButtonUrl',
         'buttonText' => 'getButtonText',
         'channel' => 'getChannel',
-        'video' => 'getVideo',
         'autoconvert' => 'getAutoconvert',
         'udh' => 'getUdh',
         'template' => 'getTemplate',
@@ -361,7 +355,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('buttonUrl', $data ?? [], null);
         $this->setIfExists('buttonText', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], 'telegram');
-        $this->setIfExists('video', $data ?? [], null);
         $this->setIfExists('autoconvert', $data ?? [], null);
         $this->setIfExists('udh', $data ?? [], null);
         $this->setIfExists('template', $data ?? [], null);
@@ -654,33 +647,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
         $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Messente\Api\Model\ViberVideo|null
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Messente\Api\Model\ViberVideo|null $video video
-     *
-     * @return self
-     */
-    public function setVideo($video)
-    {
-        if (is_null($video)) {
-            throw new \InvalidArgumentException('non-nullable video cannot be null');
-        }
-        $this->container['video'] = $video;
 
         return $this;
     }

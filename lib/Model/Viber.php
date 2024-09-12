@@ -66,8 +66,7 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         'imageUrl' => 'string',
         'buttonUrl' => 'string',
         'buttonText' => 'string',
-        'channel' => 'string',
-        'video' => '\Messente\Api\Model\ViberVideo'
+        'channel' => 'string'
     ];
 
     /**
@@ -85,8 +84,7 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         'imageUrl' => null,
         'buttonUrl' => null,
         'buttonText' => null,
-        'channel' => null,
-        'video' => null
+        'channel' => null
     ];
 
     /**
@@ -102,8 +100,7 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         'imageUrl' => false,
         'buttonUrl' => false,
         'buttonText' => false,
-        'channel' => false,
-        'video' => false
+        'channel' => false
     ];
 
     /**
@@ -199,8 +196,7 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         'imageUrl' => 'image_url',
         'buttonUrl' => 'button_url',
         'buttonText' => 'button_text',
-        'channel' => 'channel',
-        'video' => 'video'
+        'channel' => 'channel'
     ];
 
     /**
@@ -216,8 +212,7 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         'imageUrl' => 'setImageUrl',
         'buttonUrl' => 'setButtonUrl',
         'buttonText' => 'setButtonText',
-        'channel' => 'setChannel',
-        'video' => 'setVideo'
+        'channel' => 'setChannel'
     ];
 
     /**
@@ -233,8 +228,7 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         'imageUrl' => 'getImageUrl',
         'buttonUrl' => 'getButtonUrl',
         'buttonText' => 'getButtonText',
-        'channel' => 'getChannel',
-        'video' => 'getVideo'
+        'channel' => 'getChannel'
     ];
 
     /**
@@ -315,7 +309,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('buttonUrl', $data ?? [], null);
         $this->setIfExists('buttonText', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], 'viber');
-        $this->setIfExists('video', $data ?? [], null);
     }
 
     /**
@@ -591,33 +584,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
             );
         }
         $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Messente\Api\Model\ViberVideo|null
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Messente\Api\Model\ViberVideo|null $video video
-     *
-     * @return self
-     */
-    public function setVideo($video)
-    {
-        if (is_null($video)) {
-            throw new \InvalidArgumentException('non-nullable video cannot be null');
-        }
-        $this->container['video'] = $video;
 
         return $this;
     }
