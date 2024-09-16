@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **buttonUrl** | **string** | URL of the button, must be specified along with &#39;&#39;text&#39;&#39;, &#39;&#39;button_text&#39;&#39; and &#39;&#39;image_url&#39;&#39; (optional) | [optional]
 **buttonText** | **string** | Must be specified along with &#39;&#39;text&#39;&#39;, &#39;&#39;button_url&#39;&#39;, &#39;&#39;button_text&#39;&#39;, &#39;&#39;image_url&#39;&#39; (optional) | [optional]
 **channel** | **string** | The channel used to deliver the message | [optional] [default to 'telegram']
+**video** | [**\Messente\Api\Model\ViberVideo**](ViberVideo.md) |  | [optional]
 **autoconvert** | **string** | Defines how non-GSM characters will be treated:    - \&quot;on\&quot; Use replacement settings from the account&#39;s [API Auto Replace settings page](https://dashboard.messente.com/api-settings/auto-replace) (default)   - \&quot;full\&quot; All non GSM 03.38 characters will be replaced with suitable alternatives   - \&quot;off\&quot; Message content is not modified in any way | [optional]
 **udh** | **string** | hex-encoded string containing SMS UDH | [optional]
 **template** | [**\Messente\Api\Model\WhatsAppTemplate**](WhatsAppTemplate.md) |  | [optional]

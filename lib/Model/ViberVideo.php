@@ -1,6 +1,6 @@
 <?php
 /**
- * Viber
+ * ViberVideo
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * Viber Class Doc Comment
+ * ViberVideo Class Doc Comment
  *
  * @category Class
- * @description Viber message content
+ * @description Viber video object
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
+class ViberVideo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Viber';
+    protected static $openAPIModelName = 'ViberVideo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,15 +59,10 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sender' => 'string',
-        'validity' => 'int',
-        'ttl' => 'int',
-        'text' => 'string',
-        'imageUrl' => 'string',
-        'buttonUrl' => 'string',
-        'buttonText' => 'string',
-        'channel' => 'string',
-        'video' => '\Messente\Api\Model\ViberVideo'
+        'url' => 'string',
+        'thumbnail' => 'string',
+        'fileSize' => 'int',
+        'duration' => 'int'
     ];
 
     /**
@@ -78,15 +73,10 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sender' => null,
-        'validity' => null,
-        'ttl' => null,
-        'text' => null,
-        'imageUrl' => null,
-        'buttonUrl' => null,
-        'buttonText' => null,
-        'channel' => null,
-        'video' => null
+        'url' => null,
+        'thumbnail' => null,
+        'fileSize' => null,
+        'duration' => null
     ];
 
     /**
@@ -95,15 +85,10 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'sender' => false,
-        'validity' => false,
-        'ttl' => false,
-        'text' => false,
-        'imageUrl' => false,
-        'buttonUrl' => false,
-        'buttonText' => false,
-        'channel' => false,
-        'video' => false
+        'url' => false,
+        'thumbnail' => false,
+        'fileSize' => false,
+        'duration' => false
     ];
 
     /**
@@ -192,15 +177,10 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'sender' => 'sender',
-        'validity' => 'validity',
-        'ttl' => 'ttl',
-        'text' => 'text',
-        'imageUrl' => 'image_url',
-        'buttonUrl' => 'button_url',
-        'buttonText' => 'button_text',
-        'channel' => 'channel',
-        'video' => 'video'
+        'url' => 'url',
+        'thumbnail' => 'thumbnail',
+        'fileSize' => 'file_size',
+        'duration' => 'duration'
     ];
 
     /**
@@ -209,15 +189,10 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'sender' => 'setSender',
-        'validity' => 'setValidity',
-        'ttl' => 'setTtl',
-        'text' => 'setText',
-        'imageUrl' => 'setImageUrl',
-        'buttonUrl' => 'setButtonUrl',
-        'buttonText' => 'setButtonText',
-        'channel' => 'setChannel',
-        'video' => 'setVideo'
+        'url' => 'setUrl',
+        'thumbnail' => 'setThumbnail',
+        'fileSize' => 'setFileSize',
+        'duration' => 'setDuration'
     ];
 
     /**
@@ -226,15 +201,10 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'sender' => 'getSender',
-        'validity' => 'getValidity',
-        'ttl' => 'getTtl',
-        'text' => 'getText',
-        'imageUrl' => 'getImageUrl',
-        'buttonUrl' => 'getButtonUrl',
-        'buttonText' => 'getButtonText',
-        'channel' => 'getChannel',
-        'video' => 'getVideo'
+        'url' => 'getUrl',
+        'thumbnail' => 'getThumbnail',
+        'fileSize' => 'getFileSize',
+        'duration' => 'getDuration'
     ];
 
     /**
@@ -278,19 +248,6 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const CHANNEL_VIBER = 'viber';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getChannelAllowableValues()
-    {
-        return [
-            self::CHANNEL_VIBER,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -307,15 +264,10 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('sender', $data ?? [], null);
-        $this->setIfExists('validity', $data ?? [], null);
-        $this->setIfExists('ttl', $data ?? [], null);
-        $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('imageUrl', $data ?? [], null);
-        $this->setIfExists('buttonUrl', $data ?? [], null);
-        $this->setIfExists('buttonText', $data ?? [], null);
-        $this->setIfExists('channel', $data ?? [], 'viber');
-        $this->setIfExists('video', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('thumbnail', $data ?? [], null);
+        $this->setIfExists('fileSize', $data ?? [], null);
+        $this->setIfExists('duration', $data ?? [], null);
     }
 
     /**
@@ -345,15 +297,18 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'channel', must be one of '%s'",
-                $this->container['channel'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
         }
-
+        if ($this->container['thumbnail'] === null) {
+            $invalidProperties[] = "'thumbnail' can't be null";
+        }
+        if ($this->container['fileSize'] === null) {
+            $invalidProperties[] = "'fileSize' can't be null";
+        }
+        if ($this->container['duration'] === null) {
+            $invalidProperties[] = "'duration' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -370,254 +325,109 @@ class Viber implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets sender
+     * Gets url
      *
-     * @return string|null
+     * @return string
      */
-    public function getSender()
+    public function getUrl()
     {
-        return $this->container['sender'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets sender
+     * Sets url
      *
-     * @param string|null $sender Phone number or alphanumeric sender name
+     * @param string $url URL pointing to the video resource.
      *
      * @return self
      */
-    public function setSender($sender)
+    public function setUrl($url)
     {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['sender'] = $sender;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets validity
+     * Gets thumbnail
      *
-     * @return int|null
+     * @return string
      */
-    public function getValidity()
+    public function getThumbnail()
     {
-        return $this->container['validity'];
+        return $this->container['thumbnail'];
     }
 
     /**
-     * Sets validity
+     * Sets thumbnail
      *
-     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
+     * @param string $thumbnail URL pointing to the video thumbnail resource.
      *
      * @return self
      */
-    public function setValidity($validity)
+    public function setThumbnail($thumbnail)
     {
-        if (is_null($validity)) {
-            throw new \InvalidArgumentException('non-nullable validity cannot be null');
+        if (is_null($thumbnail)) {
+            throw new \InvalidArgumentException('non-nullable thumbnail cannot be null');
         }
-        $this->container['validity'] = $validity;
+        $this->container['thumbnail'] = $thumbnail;
 
         return $this;
     }
 
     /**
-     * Gets ttl
+     * Gets fileSize
      *
-     * @return int|null
+     * @return int
      */
-    public function getTtl()
+    public function getFileSize()
     {
-        return $this->container['ttl'];
+        return $this->container['fileSize'];
     }
 
     /**
-     * Sets ttl
+     * Sets fileSize
      *
-     * @param int|null $ttl After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \"ttl\" and \"validity\" can be used.
+     * @param int $fileSize Size of the video file in bytes. Cannot be larger than 200MB.
      *
      * @return self
      */
-    public function setTtl($ttl)
+    public function setFileSize($fileSize)
     {
-        if (is_null($ttl)) {
-            throw new \InvalidArgumentException('non-nullable ttl cannot be null');
+        if (is_null($fileSize)) {
+            throw new \InvalidArgumentException('non-nullable fileSize cannot be null');
         }
-        $this->container['ttl'] = $ttl;
+        $this->container['fileSize'] = $fileSize;
 
         return $this;
     }
 
     /**
-     * Gets text
+     * Gets duration
      *
-     * @return string|null
+     * @return int
      */
-    public function getText()
+    public function getDuration()
     {
-        return $this->container['text'];
+        return $this->container['duration'];
     }
 
     /**
-     * Sets text
+     * Sets duration
      *
-     * @param string|null $text Plaintext content for Viber
+     * @param int $duration Duration of the video in seconds. Cannot be longer than 600 seconds.
      *
      * @return self
      */
-    public function setText($text)
+    public function setDuration($duration)
     {
-        if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        if (is_null($duration)) {
+            throw new \InvalidArgumentException('non-nullable duration cannot be null');
         }
-        $this->container['text'] = $text;
-
-        return $this;
-    }
-
-    /**
-     * Gets imageUrl
-     *
-     * @return string|null
-     */
-    public function getImageUrl()
-    {
-        return $this->container['imageUrl'];
-    }
-
-    /**
-     * Sets imageUrl
-     *
-     * @param string|null $imageUrl URL for the embedded image    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
-     *
-     * @return self
-     */
-    public function setImageUrl($imageUrl)
-    {
-        if (is_null($imageUrl)) {
-            throw new \InvalidArgumentException('non-nullable imageUrl cannot be null');
-        }
-        $this->container['imageUrl'] = $imageUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets buttonUrl
-     *
-     * @return string|null
-     */
-    public function getButtonUrl()
-    {
-        return $this->container['buttonUrl'];
-    }
-
-    /**
-     * Sets buttonUrl
-     *
-     * @param string|null $buttonUrl URL of the button, must be specified along with ''text'', ''button_text'' and ''image_url'' (optional)
-     *
-     * @return self
-     */
-    public function setButtonUrl($buttonUrl)
-    {
-        if (is_null($buttonUrl)) {
-            throw new \InvalidArgumentException('non-nullable buttonUrl cannot be null');
-        }
-        $this->container['buttonUrl'] = $buttonUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets buttonText
-     *
-     * @return string|null
-     */
-    public function getButtonText()
-    {
-        return $this->container['buttonText'];
-    }
-
-    /**
-     * Sets buttonText
-     *
-     * @param string|null $buttonText Must be specified along with ''text'', ''button_url'', ''button_text'', ''image_url'' (optional)
-     *
-     * @return self
-     */
-    public function setButtonText($buttonText)
-    {
-        if (is_null($buttonText)) {
-            throw new \InvalidArgumentException('non-nullable buttonText cannot be null');
-        }
-        $this->container['buttonText'] = $buttonText;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel
-     *
-     * @return string|null
-     */
-    public function getChannel()
-    {
-        return $this->container['channel'];
-    }
-
-    /**
-     * Sets channel
-     *
-     * @param string|null $channel The channel used to deliver the message
-     *
-     * @return self
-     */
-    public function setChannel($channel)
-    {
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
-        }
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!in_array($channel, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'channel', must be one of '%s'",
-                    $channel,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Messente\Api\Model\ViberVideo|null
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Messente\Api\Model\ViberVideo|null $video video
-     *
-     * @return self
-     */
-    public function setVideo($video)
-    {
-        if (is_null($video)) {
-            throw new \InvalidArgumentException('non-nullable video cannot be null');
-        }
-        $this->container['video'] = $video;
+        $this->container['duration'] = $duration;
 
         return $this;
     }
