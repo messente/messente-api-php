@@ -63,6 +63,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'validity' => 'int',
         'ttl' => 'int',
         'template' => '\Messente\Api\Model\WhatsAppTemplate',
+        'text' => '\Messente\Api\Model\WhatsAppText',
         'channel' => 'string'
     ];
 
@@ -78,6 +79,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'validity' => null,
         'ttl' => null,
         'template' => null,
+        'text' => null,
         'channel' => null
     ];
 
@@ -91,6 +93,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'validity' => false,
         'ttl' => false,
         'template' => false,
+        'text' => false,
         'channel' => false
     ];
 
@@ -184,6 +187,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'validity' => 'validity',
         'ttl' => 'ttl',
         'template' => 'template',
+        'text' => 'text',
         'channel' => 'channel'
     ];
 
@@ -197,6 +201,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'validity' => 'setValidity',
         'ttl' => 'setTtl',
         'template' => 'setTemplate',
+        'text' => 'setText',
         'channel' => 'setChannel'
     ];
 
@@ -210,6 +215,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         'validity' => 'getValidity',
         'ttl' => 'getTtl',
         'template' => 'getTemplate',
+        'text' => 'getText',
         'channel' => 'getChannel'
     ];
 
@@ -287,6 +293,7 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('validity', $data ?? [], null);
         $this->setIfExists('ttl', $data ?? [], null);
         $this->setIfExists('template', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
         $this->setIfExists('channel', $data ?? [], 'whatsapp');
     }
 
@@ -445,6 +452,33 @@ class WhatsApp implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable template cannot be null');
         }
         $this->container['template'] = $template;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return \Messente\Api\Model\WhatsAppText|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param \Messente\Api\Model\WhatsAppText|null $text text
+     *
+     * @return self
+     */
+    public function setText($text)
+    {
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        }
+        $this->container['text'] = $text;
 
         return $this;
     }

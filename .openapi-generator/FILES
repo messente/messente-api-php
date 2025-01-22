@@ -71,6 +71,7 @@ docs/Model/WhatsAppLanguage.md
 docs/Model/WhatsAppMedia.md
 docs/Model/WhatsAppParameter.md
 docs/Model/WhatsAppTemplate.md
+docs/Model/WhatsAppText.md
 git_push.sh
 lib/Api/BlacklistApi.php
 lib/Api/BulkMessagingApi.php
@@ -143,5 +144,6 @@ lib/Model/WhatsAppLanguage.php
 lib/Model/WhatsAppMedia.php
 lib/Model/WhatsAppParameter.php
 lib/Model/WhatsAppTemplate.php
+lib/Model/WhatsAppText.php
 lib/ObjectSerializer.php
 phpunit.xml.dist

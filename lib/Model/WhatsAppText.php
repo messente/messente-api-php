@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppParameter
+ * WhatsAppText
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppParameter Class Doc Comment
+ * WhatsAppText Class Doc Comment
  *
  * @category Class
- * @description Whatsapp component parameter.
+ * @description A text
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsAppText implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppParameter';
+    protected static $openAPIModelName = 'WhatsAppText';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,15 +59,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'text' => 'string',
-        'currency' => '\Messente\Api\Model\WhatsAppCurrency',
-        'dateTime' => '\Messente\Api\Model\WhatsAppDatetime',
-        'image' => '\Messente\Api\Model\WhatsAppMedia',
-        'document' => '\Messente\Api\Model\WhatsAppMedia',
-        'video' => '\Messente\Api\Model\WhatsAppMedia',
-        'couponCode' => 'string',
-        'payload' => 'string'
+        'previewUrl' => 'bool',
+        'body' => 'string'
     ];
 
     /**
@@ -78,15 +71,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'text' => null,
-        'currency' => null,
-        'dateTime' => null,
-        'image' => null,
-        'document' => null,
-        'video' => null,
-        'couponCode' => null,
-        'payload' => null
+        'previewUrl' => null,
+        'body' => null
     ];
 
     /**
@@ -95,15 +81,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'text' => false,
-        'currency' => false,
-        'dateTime' => false,
-        'image' => false,
-        'document' => false,
-        'video' => false,
-        'couponCode' => false,
-        'payload' => false
+        'previewUrl' => false,
+        'body' => false
     ];
 
     /**
@@ -192,15 +171,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'text' => 'text',
-        'currency' => 'currency',
-        'dateTime' => 'date_time',
-        'image' => 'image',
-        'document' => 'document',
-        'video' => 'video',
-        'couponCode' => 'coupon_code',
-        'payload' => 'payload'
+        'previewUrl' => 'preview_url',
+        'body' => 'body'
     ];
 
     /**
@@ -209,15 +181,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'text' => 'setText',
-        'currency' => 'setCurrency',
-        'dateTime' => 'setDateTime',
-        'image' => 'setImage',
-        'document' => 'setDocument',
-        'video' => 'setVideo',
-        'couponCode' => 'setCouponCode',
-        'payload' => 'setPayload'
+        'previewUrl' => 'setPreviewUrl',
+        'body' => 'setBody'
     ];
 
     /**
@@ -226,15 +191,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'text' => 'getText',
-        'currency' => 'getCurrency',
-        'dateTime' => 'getDateTime',
-        'image' => 'getImage',
-        'document' => 'getDocument',
-        'video' => 'getVideo',
-        'couponCode' => 'getCouponCode',
-        'payload' => 'getPayload'
+        'previewUrl' => 'getPreviewUrl',
+        'body' => 'getBody'
     ];
 
     /**
@@ -294,15 +252,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('currency', $data ?? [], null);
-        $this->setIfExists('dateTime', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
-        $this->setIfExists('document', $data ?? [], null);
-        $this->setIfExists('video', $data ?? [], null);
-        $this->setIfExists('couponCode', $data ?? [], null);
-        $this->setIfExists('payload', $data ?? [], null);
+        $this->setIfExists('previewUrl', $data ?? [], true);
+        $this->setIfExists('body', $data ?? [], null);
     }
 
     /**
@@ -332,8 +283,8 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['body'] === null) {
+            $invalidProperties[] = "'body' can't be null";
         }
         return $invalidProperties;
     }
@@ -351,244 +302,55 @@ class WhatsAppParameter implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets type
+     * Gets previewUrl
+     *
+     * @return bool|null
+     */
+    public function getPreviewUrl()
+    {
+        return $this->container['previewUrl'];
+    }
+
+    /**
+     * Sets previewUrl
+     *
+     * @param bool|null $previewUrl Whether to display link preview if the message contains a hyperlink
+     *
+     * @return self
+     */
+    public function setPreviewUrl($previewUrl)
+    {
+        if (is_null($previewUrl)) {
+            throw new \InvalidArgumentException('non-nullable previewUrl cannot be null');
+        }
+        $this->container['previewUrl'] = $previewUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets body
      *
      * @return string
      */
-    public function getType()
+    public function getBody()
     {
-        return $this->container['type'];
+        return $this->container['body'];
     }
 
     /**
-     * Sets type
+     * Sets body
      *
-     * @param string $type Type of the parameter.
+     * @param string $body Plaintext content for WhatsApp, can contain URLs, emojis and formatting
      *
      * @return self
      */
-    public function setType($type)
+    public function setBody($body)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($body)) {
+            throw new \InvalidArgumentException('non-nullable body cannot be null');
         }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets text
-     *
-     * @return string|null
-     */
-    public function getText()
-    {
-        return $this->container['text'];
-    }
-
-    /**
-     * Sets text
-     *
-     * @param string|null $text A text.
-     *
-     * @return self
-     */
-    public function setText($text)
-    {
-        if (is_null($text)) {
-            throw new \InvalidArgumentException('non-nullable text cannot be null');
-        }
-        $this->container['text'] = $text;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     *
-     * @return \Messente\Api\Model\WhatsAppCurrency|null
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     *
-     * @param \Messente\Api\Model\WhatsAppCurrency|null $currency currency
-     *
-     * @return self
-     */
-    public function setCurrency($currency)
-    {
-        if (is_null($currency)) {
-            throw new \InvalidArgumentException('non-nullable currency cannot be null');
-        }
-        $this->container['currency'] = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Gets dateTime
-     *
-     * @return \Messente\Api\Model\WhatsAppDatetime|null
-     */
-    public function getDateTime()
-    {
-        return $this->container['dateTime'];
-    }
-
-    /**
-     * Sets dateTime
-     *
-     * @param \Messente\Api\Model\WhatsAppDatetime|null $dateTime dateTime
-     *
-     * @return self
-     */
-    public function setDateTime($dateTime)
-    {
-        if (is_null($dateTime)) {
-            throw new \InvalidArgumentException('non-nullable dateTime cannot be null');
-        }
-        $this->container['dateTime'] = $dateTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return \Messente\Api\Model\WhatsAppMedia|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param \Messente\Api\Model\WhatsAppMedia|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        if (is_null($image)) {
-            throw new \InvalidArgumentException('non-nullable image cannot be null');
-        }
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets document
-     *
-     * @return \Messente\Api\Model\WhatsAppMedia|null
-     */
-    public function getDocument()
-    {
-        return $this->container['document'];
-    }
-
-    /**
-     * Sets document
-     *
-     * @param \Messente\Api\Model\WhatsAppMedia|null $document document
-     *
-     * @return self
-     */
-    public function setDocument($document)
-    {
-        if (is_null($document)) {
-            throw new \InvalidArgumentException('non-nullable document cannot be null');
-        }
-        $this->container['document'] = $document;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Messente\Api\Model\WhatsAppMedia|null
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Messente\Api\Model\WhatsAppMedia|null $video video
-     *
-     * @return self
-     */
-    public function setVideo($video)
-    {
-        if (is_null($video)) {
-            throw new \InvalidArgumentException('non-nullable video cannot be null');
-        }
-        $this->container['video'] = $video;
-
-        return $this;
-    }
-
-    /**
-     * Gets couponCode
-     *
-     * @return string|null
-     */
-    public function getCouponCode()
-    {
-        return $this->container['couponCode'];
-    }
-
-    /**
-     * Sets couponCode
-     *
-     * @param string|null $couponCode A coupon code.
-     *
-     * @return self
-     */
-    public function setCouponCode($couponCode)
-    {
-        if (is_null($couponCode)) {
-            throw new \InvalidArgumentException('non-nullable couponCode cannot be null');
-        }
-        $this->container['couponCode'] = $couponCode;
-
-        return $this;
-    }
-
-    /**
-     * Gets payload
-     *
-     * @return string|null
-     */
-    public function getPayload()
-    {
-        return $this->container['payload'];
-    }
-
-    /**
-     * Sets payload
-     *
-     * @param string|null $payload A payload.
-     *
-     * @return self
-     */
-    public function setPayload($payload)
-    {
-        if (is_null($payload)) {
-            throw new \InvalidArgumentException('non-nullable payload cannot be null');
-        }
-        $this->container['payload'] = $payload;
+        $this->container['body'] = $body;
 
         return $this;
     }
