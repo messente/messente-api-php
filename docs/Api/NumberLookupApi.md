@@ -1,10 +1,10 @@
 # Messente\Api\NumberLookupApi
 
-All URIs are relative to https://api.messente.com/v1, except if the operation defines another base path.
+All URIs are relative to https://api.messente.com/v1.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**fetchInfo()**](NumberLookupApi.md#fetchInfo) | **POST** /hlr/sync | Requests info about phone numbers |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**fetchInfo()**](NumberLookupApi.md#fetchInfo) | **POST** /hlr/sync | Requests info about phone numbers
 
 
 ## `fetchInfo()`
@@ -46,9 +46,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **numbersToInvestigate** | [**\Messente\Api\Model\NumbersToInvestigate**](../Model/NumbersToInvestigate.md)| Numbers for lookup | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **numbersToInvestigate** | [**\Messente\Api\Model\NumbersToInvestigate**](../Model/NumbersToInvestigate.md)| Numbers for lookup |
 
 ### Return type
 

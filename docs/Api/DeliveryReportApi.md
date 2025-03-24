@@ -1,10 +1,10 @@
 # Messente\Api\DeliveryReportApi
 
-All URIs are relative to https://api.messente.com/v1, except if the operation defines another base path.
+All URIs are relative to https://api.messente.com/v1.
 
-| Method | HTTP request | Description |
-| ------------- | ------------- | ------------- |
-| [**retrieveDeliveryReport()**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**retrieveDeliveryReport()**](DeliveryReportApi.md#retrieveDeliveryReport) | **GET** /omnimessage/{omnimessageId}/status | Retrieves the delivery report for the Omnimessage
 
 
 ## `retrieveDeliveryReport()`
@@ -46,9 +46,9 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **omnimessageId** | **string**| UUID of the omnimessage to for which the delivery report is to be retrieved | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **omnimessageId** | **string**| UUID of the omnimessage to for which the delivery report is to be retrieved |
 
 ### Return type
 
