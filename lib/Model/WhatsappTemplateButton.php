@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppTemplate
+ * WhatsappTemplateButton
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppTemplate Class Doc Comment
+ * WhatsappTemplateButton Class Doc Comment
  *
  * @category Class
- * @description Whatsapp Cloud API template
+ * @description Whatsapp button object.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsappTemplateButton implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppTemplate';
+    protected static $openAPIModelName = 'WhatsappTemplateButton';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,13 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'language' => '\Messente\Api\Model\WhatsAppLanguage',
-        'components' => '\Messente\Api\Model\WhatsAppComponent[]'
+        'type' => '\Messente\Api\Model\WhatsappButtonType',
+        'otpType' => '\Messente\Api\Model\WhatsappOtpButtonType',
+        'autofillText' => 'string',
+        'supportedApps' => '\Messente\Api\Model\WhatsappSupportedApp[]',
+        'text' => 'string',
+        'phoneNumber' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -72,9 +76,13 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'language' => null,
-        'components' => null
+        'type' => null,
+        'otpType' => null,
+        'autofillText' => null,
+        'supportedApps' => null,
+        'text' => null,
+        'phoneNumber' => null,
+        'url' => null
     ];
 
     /**
@@ -83,9 +91,13 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'language' => false,
-        'components' => false
+        'type' => false,
+        'otpType' => false,
+        'autofillText' => false,
+        'supportedApps' => false,
+        'text' => false,
+        'phoneNumber' => false,
+        'url' => false
     ];
 
     /**
@@ -174,9 +186,13 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'language' => 'language',
-        'components' => 'components'
+        'type' => 'type',
+        'otpType' => 'otp_type',
+        'autofillText' => 'autofill_text',
+        'supportedApps' => 'supported_apps',
+        'text' => 'text',
+        'phoneNumber' => 'phone_number',
+        'url' => 'url'
     ];
 
     /**
@@ -185,9 +201,13 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'language' => 'setLanguage',
-        'components' => 'setComponents'
+        'type' => 'setType',
+        'otpType' => 'setOtpType',
+        'autofillText' => 'setAutofillText',
+        'supportedApps' => 'setSupportedApps',
+        'text' => 'setText',
+        'phoneNumber' => 'setPhoneNumber',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -196,9 +216,13 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'language' => 'getLanguage',
-        'components' => 'getComponents'
+        'type' => 'getType',
+        'otpType' => 'getOtpType',
+        'autofillText' => 'getAutofillText',
+        'supportedApps' => 'getSupportedApps',
+        'text' => 'getText',
+        'phoneNumber' => 'getPhoneNumber',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -258,9 +282,13 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('language', $data ?? [], null);
-        $this->setIfExists('components', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('otpType', $data ?? [], null);
+        $this->setIfExists('autofillText', $data ?? [], null);
+        $this->setIfExists('supportedApps', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('phoneNumber', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
     }
 
     /**
@@ -290,15 +318,18 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) > 25)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 25.";
         }
-        if ($this->container['language'] === null) {
-            $invalidProperties[] = "'language' can't be null";
+
+        if (!is_null($this->container['phoneNumber']) && (mb_strlen($this->container['phoneNumber']) > 20)) {
+            $invalidProperties[] = "invalid value for 'phoneNumber', the character length must be smaller than or equal to 20.";
         }
-        if ($this->container['components'] === null) {
-            $invalidProperties[] = "'components' can't be null";
+
+        if (!is_null($this->container['url']) && (mb_strlen($this->container['url']) > 2000)) {
+            $invalidProperties[] = "invalid value for 'url', the character length must be smaller than or equal to 2000.";
         }
+
         return $invalidProperties;
     }
 
@@ -315,82 +346,202 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets type
      *
-     * @return string
+     * @return \Messente\Api\Model\WhatsappButtonType|null
      */
-    public function getName()
+    public function getType()
     {
-        return $this->container['name'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets name
+     * Sets type
      *
-     * @param string $name Name of the template
+     * @param \Messente\Api\Model\WhatsappButtonType|null $type type
      *
      * @return self
      */
-    public function setName($name)
+    public function setType($type)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets language
+     * Gets otpType
      *
-     * @return \Messente\Api\Model\WhatsAppLanguage
+     * @return \Messente\Api\Model\WhatsappOtpButtonType|null
      */
-    public function getLanguage()
+    public function getOtpType()
     {
-        return $this->container['language'];
+        return $this->container['otpType'];
     }
 
     /**
-     * Sets language
+     * Sets otpType
      *
-     * @param \Messente\Api\Model\WhatsAppLanguage $language language
+     * @param \Messente\Api\Model\WhatsappOtpButtonType|null $otpType otpType
      *
      * @return self
      */
-    public function setLanguage($language)
+    public function setOtpType($otpType)
     {
-        if (is_null($language)) {
-            throw new \InvalidArgumentException('non-nullable language cannot be null');
+        if (is_null($otpType)) {
+            throw new \InvalidArgumentException('non-nullable otpType cannot be null');
         }
-        $this->container['language'] = $language;
+        $this->container['otpType'] = $otpType;
 
         return $this;
     }
 
     /**
-     * Gets components
+     * Gets autofillText
      *
-     * @return \Messente\Api\Model\WhatsAppComponent[]
+     * @return string|null
      */
-    public function getComponents()
+    public function getAutofillText()
     {
-        return $this->container['components'];
+        return $this->container['autofillText'];
     }
 
     /**
-     * Sets components
+     * Sets autofillText
      *
-     * @param \Messente\Api\Model\WhatsAppComponent[] $components List of template components
+     * @param string|null $autofillText Text to be autofilled in the OTP field
      *
      * @return self
      */
-    public function setComponents($components)
+    public function setAutofillText($autofillText)
     {
-        if (is_null($components)) {
-            throw new \InvalidArgumentException('non-nullable components cannot be null');
+        if (is_null($autofillText)) {
+            throw new \InvalidArgumentException('non-nullable autofillText cannot be null');
         }
-        $this->container['components'] = $components;
+        $this->container['autofillText'] = $autofillText;
+
+        return $this;
+    }
+
+    /**
+     * Gets supportedApps
+     *
+     * @return \Messente\Api\Model\WhatsappSupportedApp[]|null
+     */
+    public function getSupportedApps()
+    {
+        return $this->container['supportedApps'];
+    }
+
+    /**
+     * Sets supportedApps
+     *
+     * @param \Messente\Api\Model\WhatsappSupportedApp[]|null $supportedApps List of supported apps for the button
+     *
+     * @return self
+     */
+    public function setSupportedApps($supportedApps)
+    {
+        if (is_null($supportedApps)) {
+            throw new \InvalidArgumentException('non-nullable supportedApps cannot be null');
+        }
+        $this->container['supportedApps'] = $supportedApps;
+
+        return $this;
+    }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text Text content of the button
+     *
+     * @return self
+     */
+    public function setText($text)
+    {
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
+        }
+        if ((mb_strlen($text) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling WhatsappTemplateButton., must be smaller than or equal to 25.');
+        }
+
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets phoneNumber
+     *
+     * @return string|null
+     */
+    public function getPhoneNumber()
+    {
+        return $this->container['phoneNumber'];
+    }
+
+    /**
+     * Sets phoneNumber
+     *
+     * @param string|null $phoneNumber Phone number for the button
+     *
+     * @return self
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        if (is_null($phoneNumber)) {
+            throw new \InvalidArgumentException('non-nullable phoneNumber cannot be null');
+        }
+        if ((mb_strlen($phoneNumber) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $phoneNumber when calling WhatsappTemplateButton., must be smaller than or equal to 20.');
+        }
+
+        $this->container['phoneNumber'] = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url URL for the button
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        }
+        if ((mb_strlen($url) > 2000)) {
+            throw new \InvalidArgumentException('invalid length for $url when calling WhatsappTemplateButton., must be smaller than or equal to 2000.');
+        }
+
+        $this->container['url'] = $url;
 
         return $this;
     }

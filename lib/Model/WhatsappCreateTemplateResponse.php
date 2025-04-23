@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppTemplate
+ * WhatsappCreateTemplateResponse
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppTemplate Class Doc Comment
+ * WhatsappCreateTemplateResponse Class Doc Comment
  *
  * @category Class
- * @description Whatsapp Cloud API template
+ * @description Response for creating a WhatsApp template
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsappCreateTemplateResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppTemplate';
+    protected static $openAPIModelName = 'WhatsappCreateTemplateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'language' => '\Messente\Api\Model\WhatsAppLanguage',
-        'components' => '\Messente\Api\Model\WhatsAppComponent[]'
+        'id' => 'string',
+        'status' => '\Messente\Api\Model\WhatsappTemplateStatus',
+        'category' => '\Messente\Api\Model\WhatsappTemplateCategory'
     ];
 
     /**
@@ -72,9 +72,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'language' => null,
-        'components' => null
+        'id' => null,
+        'status' => null,
+        'category' => null
     ];
 
     /**
@@ -83,9 +83,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'language' => false,
-        'components' => false
+        'id' => false,
+        'status' => false,
+        'category' => false
     ];
 
     /**
@@ -174,9 +174,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'language' => 'language',
-        'components' => 'components'
+        'id' => 'id',
+        'status' => 'status',
+        'category' => 'category'
     ];
 
     /**
@@ -185,9 +185,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'language' => 'setLanguage',
-        'components' => 'setComponents'
+        'id' => 'setId',
+        'status' => 'setStatus',
+        'category' => 'setCategory'
     ];
 
     /**
@@ -196,9 +196,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'language' => 'getLanguage',
-        'components' => 'getComponents'
+        'id' => 'getId',
+        'status' => 'getStatus',
+        'category' => 'getCategory'
     ];
 
     /**
@@ -258,9 +258,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('language', $data ?? [], null);
-        $this->setIfExists('components', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
     }
 
     /**
@@ -290,14 +290,14 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['language'] === null) {
-            $invalidProperties[] = "'language' can't be null";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['components'] === null) {
-            $invalidProperties[] = "'components' can't be null";
+        if ($this->container['category'] === null) {
+            $invalidProperties[] = "'category' can't be null";
         }
         return $invalidProperties;
     }
@@ -315,82 +315,82 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets id
      *
      * @return string
      */
-    public function getName()
+    public function getId()
     {
-        return $this->container['name'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets name
+     * Sets id
      *
-     * @param string $name Name of the template
+     * @param string $id Template ID
      *
      * @return self
      */
-    public function setName($name)
+    public function setId($id)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets language
+     * Gets status
      *
-     * @return \Messente\Api\Model\WhatsAppLanguage
+     * @return \Messente\Api\Model\WhatsappTemplateStatus
      */
-    public function getLanguage()
+    public function getStatus()
     {
-        return $this->container['language'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets language
+     * Sets status
      *
-     * @param \Messente\Api\Model\WhatsAppLanguage $language language
+     * @param \Messente\Api\Model\WhatsappTemplateStatus $status status
      *
      * @return self
      */
-    public function setLanguage($language)
+    public function setStatus($status)
     {
-        if (is_null($language)) {
-            throw new \InvalidArgumentException('non-nullable language cannot be null');
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
-        $this->container['language'] = $language;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets components
+     * Gets category
      *
-     * @return \Messente\Api\Model\WhatsAppComponent[]
+     * @return \Messente\Api\Model\WhatsappTemplateCategory
      */
-    public function getComponents()
+    public function getCategory()
     {
-        return $this->container['components'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets components
+     * Sets category
      *
-     * @param \Messente\Api\Model\WhatsAppComponent[] $components List of template components
+     * @param \Messente\Api\Model\WhatsappTemplateCategory $category category
      *
      * @return self
      */
-    public function setComponents($components)
+    public function setCategory($category)
     {
-        if (is_null($components)) {
-            throw new \InvalidArgumentException('non-nullable components cannot be null');
+        if (is_null($category)) {
+            throw new \InvalidArgumentException('non-nullable category cannot be null');
         }
-        $this->container['components'] = $components;
+        $this->container['category'] = $category;
 
         return $this;
     }

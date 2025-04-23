@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppTemplate
+ * WhatsappPagingCursors
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppTemplate Class Doc Comment
+ * WhatsappPagingCursors Class Doc Comment
  *
  * @category Class
- * @description Whatsapp Cloud API template
+ * @description WhatsApp paging cursors object.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsappPagingCursors implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppTemplate';
+    protected static $openAPIModelName = 'WhatsappPagingCursors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'language' => '\Messente\Api\Model\WhatsAppLanguage',
-        'components' => '\Messente\Api\Model\WhatsAppComponent[]'
+        'before' => 'string',
+        'after' => 'string'
     ];
 
     /**
@@ -72,9 +71,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'language' => null,
-        'components' => null
+        'before' => null,
+        'after' => null
     ];
 
     /**
@@ -83,9 +81,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'language' => false,
-        'components' => false
+        'before' => false,
+        'after' => false
     ];
 
     /**
@@ -174,9 +171,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'language' => 'language',
-        'components' => 'components'
+        'before' => 'before',
+        'after' => 'after'
     ];
 
     /**
@@ -185,9 +181,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'language' => 'setLanguage',
-        'components' => 'setComponents'
+        'before' => 'setBefore',
+        'after' => 'setAfter'
     ];
 
     /**
@@ -196,9 +191,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'language' => 'getLanguage',
-        'components' => 'getComponents'
+        'before' => 'getBefore',
+        'after' => 'getAfter'
     ];
 
     /**
@@ -258,9 +252,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('language', $data ?? [], null);
-        $this->setIfExists('components', $data ?? [], null);
+        $this->setIfExists('before', $data ?? [], null);
+        $this->setIfExists('after', $data ?? [], null);
     }
 
     /**
@@ -290,15 +283,6 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['language'] === null) {
-            $invalidProperties[] = "'language' can't be null";
-        }
-        if ($this->container['components'] === null) {
-            $invalidProperties[] = "'components' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -315,82 +299,55 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets before
      *
-     * @return string
+     * @return string|null
      */
-    public function getName()
+    public function getBefore()
     {
-        return $this->container['name'];
+        return $this->container['before'];
     }
 
     /**
-     * Sets name
+     * Sets before
      *
-     * @param string $name Name of the template
+     * @param string|null $before The template before the first template in the current list
      *
      * @return self
      */
-    public function setName($name)
+    public function setBefore($before)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($before)) {
+            throw new \InvalidArgumentException('non-nullable before cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['before'] = $before;
 
         return $this;
     }
 
     /**
-     * Gets language
+     * Gets after
      *
-     * @return \Messente\Api\Model\WhatsAppLanguage
+     * @return string|null
      */
-    public function getLanguage()
+    public function getAfter()
     {
-        return $this->container['language'];
+        return $this->container['after'];
     }
 
     /**
-     * Sets language
+     * Sets after
      *
-     * @param \Messente\Api\Model\WhatsAppLanguage $language language
+     * @param string|null $after The template after the last template in the current list
      *
      * @return self
      */
-    public function setLanguage($language)
+    public function setAfter($after)
     {
-        if (is_null($language)) {
-            throw new \InvalidArgumentException('non-nullable language cannot be null');
+        if (is_null($after)) {
+            throw new \InvalidArgumentException('non-nullable after cannot be null');
         }
-        $this->container['language'] = $language;
-
-        return $this;
-    }
-
-    /**
-     * Gets components
-     *
-     * @return \Messente\Api\Model\WhatsAppComponent[]
-     */
-    public function getComponents()
-    {
-        return $this->container['components'];
-    }
-
-    /**
-     * Sets components
-     *
-     * @param \Messente\Api\Model\WhatsAppComponent[] $components List of template components
-     *
-     * @return self
-     */
-    public function setComponents($components)
-    {
-        if (is_null($components)) {
-            throw new \InvalidArgumentException('non-nullable components cannot be null');
-        }
-        $this->container['components'] = $components;
+        $this->container['after'] = $after;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppTemplate
+ * WhatsappPagination
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppTemplate Class Doc Comment
+ * WhatsappPagination Class Doc Comment
  *
  * @category Class
- * @description Whatsapp Cloud API template
+ * @description Whatsapp media object.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsappPagination implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppTemplate';
+    protected static $openAPIModelName = 'WhatsappPagination';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'language' => '\Messente\Api\Model\WhatsAppLanguage',
-        'components' => '\Messente\Api\Model\WhatsAppComponent[]'
+        'previous' => 'string',
+        'next' => 'string',
+        'cursors' => '\Messente\Api\Model\WhatsappPagingCursors'
     ];
 
     /**
@@ -72,9 +72,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'language' => null,
-        'components' => null
+        'previous' => null,
+        'next' => null,
+        'cursors' => null
     ];
 
     /**
@@ -83,9 +83,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => false,
-        'language' => false,
-        'components' => false
+        'previous' => false,
+        'next' => false,
+        'cursors' => false
     ];
 
     /**
@@ -174,9 +174,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'language' => 'language',
-        'components' => 'components'
+        'previous' => 'previous',
+        'next' => 'next',
+        'cursors' => 'cursors'
     ];
 
     /**
@@ -185,9 +185,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'language' => 'setLanguage',
-        'components' => 'setComponents'
+        'previous' => 'setPrevious',
+        'next' => 'setNext',
+        'cursors' => 'setCursors'
     ];
 
     /**
@@ -196,9 +196,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'language' => 'getLanguage',
-        'components' => 'getComponents'
+        'previous' => 'getPrevious',
+        'next' => 'getNext',
+        'cursors' => 'getCursors'
     ];
 
     /**
@@ -258,9 +258,9 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('language', $data ?? [], null);
-        $this->setIfExists('components', $data ?? [], null);
+        $this->setIfExists('previous', $data ?? [], null);
+        $this->setIfExists('next', $data ?? [], null);
+        $this->setIfExists('cursors', $data ?? [], null);
     }
 
     /**
@@ -290,14 +290,8 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['language'] === null) {
-            $invalidProperties[] = "'language' can't be null";
-        }
-        if ($this->container['components'] === null) {
-            $invalidProperties[] = "'components' can't be null";
+        if ($this->container['cursors'] === null) {
+            $invalidProperties[] = "'cursors' can't be null";
         }
         return $invalidProperties;
     }
@@ -315,82 +309,82 @@ class WhatsAppTemplate implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets name
+     * Gets previous
      *
-     * @return string
+     * @return string|null
      */
-    public function getName()
+    public function getPrevious()
     {
-        return $this->container['name'];
+        return $this->container['previous'];
     }
 
     /**
-     * Sets name
+     * Sets previous
      *
-     * @param string $name Name of the template
+     * @param string|null $previous A URL to ge the previous paginated page.
      *
      * @return self
      */
-    public function setName($name)
+    public function setPrevious($previous)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($previous)) {
+            throw new \InvalidArgumentException('non-nullable previous cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['previous'] = $previous;
 
         return $this;
     }
 
     /**
-     * Gets language
+     * Gets next
      *
-     * @return \Messente\Api\Model\WhatsAppLanguage
+     * @return string|null
      */
-    public function getLanguage()
+    public function getNext()
     {
-        return $this->container['language'];
+        return $this->container['next'];
     }
 
     /**
-     * Sets language
+     * Sets next
      *
-     * @param \Messente\Api\Model\WhatsAppLanguage $language language
+     * @param string|null $next A URL to ge the next paginated page.
      *
      * @return self
      */
-    public function setLanguage($language)
+    public function setNext($next)
     {
-        if (is_null($language)) {
-            throw new \InvalidArgumentException('non-nullable language cannot be null');
+        if (is_null($next)) {
+            throw new \InvalidArgumentException('non-nullable next cannot be null');
         }
-        $this->container['language'] = $language;
+        $this->container['next'] = $next;
 
         return $this;
     }
 
     /**
-     * Gets components
+     * Gets cursors
      *
-     * @return \Messente\Api\Model\WhatsAppComponent[]
+     * @return \Messente\Api\Model\WhatsappPagingCursors
      */
-    public function getComponents()
+    public function getCursors()
     {
-        return $this->container['components'];
+        return $this->container['cursors'];
     }
 
     /**
-     * Sets components
+     * Sets cursors
      *
-     * @param \Messente\Api\Model\WhatsAppComponent[] $components List of template components
+     * @param \Messente\Api\Model\WhatsappPagingCursors $cursors cursors
      *
      * @return self
      */
-    public function setComponents($components)
+    public function setCursors($cursors)
     {
-        if (is_null($components)) {
-            throw new \InvalidArgumentException('non-nullable components cannot be null');
+        if (is_null($cursors)) {
+            throw new \InvalidArgumentException('non-nullable cursors cannot be null');
         }
-        $this->container['components'] = $components;
+        $this->container['cursors'] = $cursors;
 
         return $this;
     }
