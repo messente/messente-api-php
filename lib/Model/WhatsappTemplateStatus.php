@@ -46,11 +46,21 @@ class WhatsappTemplateStatus
      */
     public const APPROVED = 'approved';
 
+    public const IN_APPEAL = 'in_appeal';
+
     public const REJECTED = 'rejected';
 
     public const PENDING = 'pending';
 
     public const PENDING_DELETION = 'pending_deletion';
+
+    public const DELETED = 'deleted';
+
+    public const DISABLED = 'disabled';
+
+    public const PAUSED = 'paused';
+
+    public const LIMIT_EXCEEDED = 'limit_exceeded';
 
     /**
      * Gets allowable values of the enum
@@ -60,9 +70,14 @@ class WhatsappTemplateStatus
     {
         return [
             self::APPROVED,
+            self::IN_APPEAL,
             self::REJECTED,
             self::PENDING,
-            self::PENDING_DELETION
+            self::PENDING_DELETION,
+            self::DELETED,
+            self::DISABLED,
+            self::PAUSED,
+            self::LIMIT_EXCEEDED
         ];
     }
 }
