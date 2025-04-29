@@ -50,6 +50,8 @@ class WhatsappTemplateStatus
 
     public const PENDING = 'pending';
 
+    public const PENDING_DELETION = 'pending_deletion';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -59,7 +61,8 @@ class WhatsappTemplateStatus
         return [
             self::APPROVED,
             self::REJECTED,
-            self::PENDING
+            self::PENDING,
+            self::PENDING_DELETION
         ];
     }
 }

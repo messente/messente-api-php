@@ -52,6 +52,12 @@ class WhatsappButtonType
 
     public const URL = 'url';
 
+    public const CATALOG = 'catalog';
+
+    public const FLOW = 'flow';
+
+    public const COPY_CODE = 'copy_code';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -62,7 +68,10 @@ class WhatsappButtonType
             self::QUICK_REPLY,
             self::PHONE_NUMBER,
             self::OTP,
-            self::URL
+            self::URL,
+            self::CATALOG,
+            self::FLOW,
+            self::COPY_CODE
         ];
     }
 }

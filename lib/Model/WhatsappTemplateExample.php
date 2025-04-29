@@ -59,7 +59,7 @@ class WhatsappTemplateExample implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'headerText' => 'string[][]',
+        'headerText' => 'string[]',
         'bodyText' => 'string[][]'
     ];
 
@@ -301,7 +301,7 @@ class WhatsappTemplateExample implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets headerText
      *
-     * @return string[][]|null
+     * @return string[]|null
      */
     public function getHeaderText()
     {
@@ -311,7 +311,7 @@ class WhatsappTemplateExample implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets headerText
      *
-     * @param string[][]|null $headerText Example of the templated text for the header
+     * @param string[]|null $headerText Example of the templated text for the header
      *
      * @return self
      */
