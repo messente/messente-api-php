@@ -61,7 +61,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPITypes = [
         'name' => 'string',
         'category' => '\Messente\Api\Model\WhatsappTemplateCategory',
-        'allowCategoryChange' => 'bool',
         'language' => 'string',
         'components' => '\Messente\Api\Model\WhatsappTemplateComponent[]'
     ];
@@ -76,7 +75,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $openAPIFormats = [
         'name' => null,
         'category' => null,
-        'allowCategoryChange' => null,
         'language' => null,
         'components' => null
     ];
@@ -89,7 +87,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
     protected static array $openAPINullables = [
         'name' => false,
         'category' => false,
-        'allowCategoryChange' => false,
         'language' => false,
         'components' => false
     ];
@@ -182,7 +179,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $attributeMap = [
         'name' => 'name',
         'category' => 'category',
-        'allowCategoryChange' => 'allow_category_change',
         'language' => 'language',
         'components' => 'components'
     ];
@@ -195,7 +191,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $setters = [
         'name' => 'setName',
         'category' => 'setCategory',
-        'allowCategoryChange' => 'setAllowCategoryChange',
         'language' => 'setLanguage',
         'components' => 'setComponents'
     ];
@@ -208,7 +203,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
     protected static $getters = [
         'name' => 'getName',
         'category' => 'getCategory',
-        'allowCategoryChange' => 'getAllowCategoryChange',
         'language' => 'getLanguage',
         'components' => 'getComponents'
     ];
@@ -272,7 +266,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
     {
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
-        $this->setIfExists('allowCategoryChange', $data ?? [], false);
         $this->setIfExists('language', $data ?? [], null);
         $this->setIfExists('components', $data ?? [], null);
     }
@@ -381,33 +374,6 @@ class WhatsappCreateTemplateRequest implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable category cannot be null');
         }
         $this->container['category'] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Gets allowCategoryChange
-     *
-     * @return bool|null
-     */
-    public function getAllowCategoryChange()
-    {
-        return $this->container['allowCategoryChange'];
-    }
-
-    /**
-     * Sets allowCategoryChange
-     *
-     * @param bool|null $allowCategoryChange Allow category change
-     *
-     * @return self
-     */
-    public function setAllowCategoryChange($allowCategoryChange)
-    {
-        if (is_null($allowCategoryChange)) {
-            throw new \InvalidArgumentException('non-nullable allowCategoryChange cannot be null');
-        }
-        $this->container['allowCategoryChange'] = $allowCategoryChange;
 
         return $this;
     }
