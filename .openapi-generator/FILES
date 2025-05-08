@@ -4,6 +4,7 @@
 .travis.yml
 README.md
 composer.json
+docs/Api/AccountBalanceApi.md
 docs/Api/BlacklistApi.md
 docs/Api/BulkMessagingApi.md
 docs/Api/ContactsApi.md
@@ -11,6 +12,7 @@ docs/Api/DeliveryReportApi.md
 docs/Api/GroupsApi.md
 docs/Api/NumberLookupApi.md
 docs/Api/OmnimessageApi.md
+docs/Api/PricingApi.md
 docs/Api/StatisticsApi.md
 docs/Api/WhatsAppTemplatesApi.md
 docs/Model/BulkOmniMessageCreateSuccessResponse.md
@@ -51,7 +53,9 @@ docs/Model/NumbersToInvestigate.md
 docs/Model/OmniMessageCreateSuccessResponse.md
 docs/Model/Omnimessage.md
 docs/Model/OmnimessageMessagesInner.md
+docs/Model/Price.md
 docs/Model/PriceInfo.md
+docs/Model/PriceNetworksInner.md
 docs/Model/Priority.md
 docs/Model/SMS.md
 docs/Model/StatisticsReport.md
@@ -91,6 +95,7 @@ docs/Model/WhatsappTemplateResponse.md
 docs/Model/WhatsappTemplateStatus.md
 docs/Model/WhatsappUpdateTemplateRequest.md
 git_push.sh
+lib/Api/AccountBalanceApi.php
 lib/Api/BlacklistApi.php
 lib/Api/BulkMessagingApi.php
 lib/Api/ContactsApi.php
@@ -98,6 +103,7 @@ lib/Api/DeliveryReportApi.php
 lib/Api/GroupsApi.php
 lib/Api/NumberLookupApi.php
 lib/Api/OmnimessageApi.php
+lib/Api/PricingApi.php
 lib/Api/StatisticsApi.php
 lib/Api/WhatsAppTemplatesApi.php
 lib/ApiException.php
@@ -142,7 +148,9 @@ lib/Model/NumbersToInvestigate.php
 lib/Model/OmniMessageCreateSuccessResponse.php
 lib/Model/Omnimessage.php
 lib/Model/OmnimessageMessagesInner.php
+lib/Model/Price.php
 lib/Model/PriceInfo.php
+lib/Model/PriceNetworksInner.php
 lib/Model/Priority.php
 lib/Model/SMS.php
 lib/Model/StatisticsReport.php

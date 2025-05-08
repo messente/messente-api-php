@@ -18,6 +18,11 @@ Messente API has the following features:
 
 Messente API Library provides the operations described below to access the features.
 
+### AccountBalanceApi
+
+1. Get account balance [`getAccountBalance`](docs/Api/AccountBalanceApi.md#getaccountbalance)
+1. Get account balance [`getAccountBalanceUsingPost`](docs/Api/AccountBalanceApi.md#getaccountbalanceusingpost)
+
 ### BlacklistApi
 
 1. Adds a phone number to the blacklist [`addToBlacklist`](docs/Api/BlacklistApi.md#addtoblacklist)
@@ -60,6 +65,11 @@ Messente API Library provides the operations described below to access the featu
 
 1. Cancels a scheduled Omnimessage [`cancelScheduledMessage`](docs/Api/OmnimessageApi.md#cancelscheduledmessage)
 1. Sends an Omnimessage [`sendOmnimessage`](docs/Api/OmnimessageApi.md#sendomnimessage)
+
+### PricingApi
+
+1. Get pricelist for account [`getPricelist`](docs/Api/PricingApi.md#getpricelist)
+1. Get pricing for a specific country [`getPrices`](docs/Api/PricingApi.md#getprices)
 
 ### StatisticsApi
 
