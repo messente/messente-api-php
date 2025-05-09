@@ -14,7 +14,7 @@ All URIs are relative to https://api.messente.com/v1, except if the operation de
 getPricelist($username, $password): string
 ```
 ### URI(s):
-- https://api2.messente.com Override base path for account balance API
+- https://api2.messente.com Override base path for pricing API
 Get pricelist for account
 
 ### Example
@@ -88,7 +88,7 @@ try {
 getPrices($username, $password, $country, $format): \Messente\Api\Model\Price
 ```
 ### URI(s):
-- https://api2.messente.com Override base path for account balance API
+- https://api2.messente.com Override base path for pricing API
 Get pricing for a specific country
 
 ### Example

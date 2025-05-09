@@ -1,6 +1,6 @@
 <?php
 /**
- * PricingApi
+ * NumberVerificationApi
  * PHP version 7.4
  *
  * @category Class
@@ -41,14 +41,14 @@ use Messente\Api\HeaderSelector;
 use Messente\Api\ObjectSerializer;
 
 /**
- * PricingApi Class Doc Comment
+ * NumberVerificationApi Class Doc Comment
  *
  * @category Class
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PricingApi
+class NumberVerificationApi
 {
     /**
      * @var ClientInterface
@@ -72,10 +72,10 @@ class PricingApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getPricelist' => [
+        'verifyNumber' => [
             'application/json',
         ],
-        'getPrices' => [
+        'verifyPin' => [
             'application/json',
         ],
     ];
@@ -127,9 +127,9 @@ class PricingApi
     }
 
     /**
-     * Operation getPricelist
+     * Operation verifyNumber
      *
-     * Get pricelist for account
+     * verify number
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -137,24 +137,34 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
+     * @param  string $to Receiver&#39;s phone number with the country code (required)
+     * @param  string|null $template Template of the message, including PIN code. Placeholder for PIN code is &lt;PIN&gt;. When not set, default template is used: \&quot;Your Verification PIN code is &lt;PIN&gt;\&quot;. (optional)
+     * @param  string|null $pinLength Length of the PIN code. Minumum 4 digits, maximum 16. Defaults to 4. (optional)
+     * @param  string|null $from Sender name. When not set, the default Sender name \&quot;Verigator\&quot; is used. This sender ID also needs to be added to your account beforehand. (optional)
+     * @param  string|null $maxTries Maximum number of times the PIN code is sent in total. Defaults to \&quot;2\&quot; - initial PIN code and one retry. It is discouraged to set this value to \&quot;1\&quot; as only the initial PIN code is sent and retry is disabled. (optional)
+     * @param  string|null $retryDelay For how long (in seconds) to wait for next retry, if the correct PIN code has not been entered yet? Defaults to 30 seconds. (optional)
+     * @param  string|null $validity For how long (in seconds) is the PIN code valid. Defaults to 5 minutes (300 seconds). Maximum 30 minutes (1800 seconds). (optional)
+     * @param  string|null $ip IP address of the client making verification request. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricelist'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyNumber'] to see the possible values for this operation
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function getPricelist($username, $password, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPricelist'][0])
+    public function verifyNumber($username, $password, $to, $template = null, $pinLength = null, $from = null, $maxTries = null, $retryDelay = null, $validity = null, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyNumber'][0])
     {
-        list($response) = $this->getPricelistWithHttpInfo($username, $password, $hostIndex, $variables, $contentType);
+        list($response) = $this->verifyNumberWithHttpInfo($username, $password, $to, $template, $pinLength, $from, $maxTries, $retryDelay, $validity, $ip, $browser, $cookie, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation getPricelistWithHttpInfo
+     * Operation verifyNumberWithHttpInfo
      *
-     * Get pricelist for account
+     * verify number
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -162,17 +172,27 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
+     * @param  string $to Receiver&#39;s phone number with the country code (required)
+     * @param  string|null $template Template of the message, including PIN code. Placeholder for PIN code is &lt;PIN&gt;. When not set, default template is used: \&quot;Your Verification PIN code is &lt;PIN&gt;\&quot;. (optional)
+     * @param  string|null $pinLength Length of the PIN code. Minumum 4 digits, maximum 16. Defaults to 4. (optional)
+     * @param  string|null $from Sender name. When not set, the default Sender name \&quot;Verigator\&quot; is used. This sender ID also needs to be added to your account beforehand. (optional)
+     * @param  string|null $maxTries Maximum number of times the PIN code is sent in total. Defaults to \&quot;2\&quot; - initial PIN code and one retry. It is discouraged to set this value to \&quot;1\&quot; as only the initial PIN code is sent and retry is disabled. (optional)
+     * @param  string|null $retryDelay For how long (in seconds) to wait for next retry, if the correct PIN code has not been entered yet? Defaults to 30 seconds. (optional)
+     * @param  string|null $validity For how long (in seconds) is the PIN code valid. Defaults to 5 minutes (300 seconds). Maximum 30 minutes (1800 seconds). (optional)
+     * @param  string|null $ip IP address of the client making verification request. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricelist'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyNumber'] to see the possible values for this operation
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPricelistWithHttpInfo($username, $password, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPricelist'][0])
+    public function verifyNumberWithHttpInfo($username, $password, $to, $template = null, $pinLength = null, $from = null, $maxTries = null, $retryDelay = null, $validity = null, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyNumber'][0])
     {
-        $request = $this->getPricelistRequest($username, $password, $hostIndex, $variables, $contentType);
+        $request = $this->verifyNumberRequest($username, $password, $to, $template, $pinLength, $from, $maxTries, $retryDelay, $validity, $ip, $browser, $cookie, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -284,9 +304,9 @@ class PricingApi
     }
 
     /**
-     * Operation getPricelistAsync
+     * Operation verifyNumberAsync
      *
-     * Get pricelist for account
+     * verify number
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -294,16 +314,26 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
+     * @param  string $to Receiver&#39;s phone number with the country code (required)
+     * @param  string|null $template Template of the message, including PIN code. Placeholder for PIN code is &lt;PIN&gt;. When not set, default template is used: \&quot;Your Verification PIN code is &lt;PIN&gt;\&quot;. (optional)
+     * @param  string|null $pinLength Length of the PIN code. Minumum 4 digits, maximum 16. Defaults to 4. (optional)
+     * @param  string|null $from Sender name. When not set, the default Sender name \&quot;Verigator\&quot; is used. This sender ID also needs to be added to your account beforehand. (optional)
+     * @param  string|null $maxTries Maximum number of times the PIN code is sent in total. Defaults to \&quot;2\&quot; - initial PIN code and one retry. It is discouraged to set this value to \&quot;1\&quot; as only the initial PIN code is sent and retry is disabled. (optional)
+     * @param  string|null $retryDelay For how long (in seconds) to wait for next retry, if the correct PIN code has not been entered yet? Defaults to 30 seconds. (optional)
+     * @param  string|null $validity For how long (in seconds) is the PIN code valid. Defaults to 5 minutes (300 seconds). Maximum 30 minutes (1800 seconds). (optional)
+     * @param  string|null $ip IP address of the client making verification request. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricelist'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricelistAsync($username, $password, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPricelist'][0])
+    public function verifyNumberAsync($username, $password, $to, $template = null, $pinLength = null, $from = null, $maxTries = null, $retryDelay = null, $validity = null, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyNumber'][0])
     {
-        return $this->getPricelistAsyncWithHttpInfo($username, $password, $hostIndex, $variables, $contentType)
+        return $this->verifyNumberAsyncWithHttpInfo($username, $password, $to, $template, $pinLength, $from, $maxTries, $retryDelay, $validity, $ip, $browser, $cookie, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -312,9 +342,9 @@ class PricingApi
     }
 
     /**
-     * Operation getPricelistAsyncWithHttpInfo
+     * Operation verifyNumberAsyncWithHttpInfo
      *
-     * Get pricelist for account
+     * verify number
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -322,17 +352,27 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
+     * @param  string $to Receiver&#39;s phone number with the country code (required)
+     * @param  string|null $template Template of the message, including PIN code. Placeholder for PIN code is &lt;PIN&gt;. When not set, default template is used: \&quot;Your Verification PIN code is &lt;PIN&gt;\&quot;. (optional)
+     * @param  string|null $pinLength Length of the PIN code. Minumum 4 digits, maximum 16. Defaults to 4. (optional)
+     * @param  string|null $from Sender name. When not set, the default Sender name \&quot;Verigator\&quot; is used. This sender ID also needs to be added to your account beforehand. (optional)
+     * @param  string|null $maxTries Maximum number of times the PIN code is sent in total. Defaults to \&quot;2\&quot; - initial PIN code and one retry. It is discouraged to set this value to \&quot;1\&quot; as only the initial PIN code is sent and retry is disabled. (optional)
+     * @param  string|null $retryDelay For how long (in seconds) to wait for next retry, if the correct PIN code has not been entered yet? Defaults to 30 seconds. (optional)
+     * @param  string|null $validity For how long (in seconds) is the PIN code valid. Defaults to 5 minutes (300 seconds). Maximum 30 minutes (1800 seconds). (optional)
+     * @param  string|null $ip IP address of the client making verification request. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricelist'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricelistAsyncWithHttpInfo($username, $password, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPricelist'][0])
+    public function verifyNumberAsyncWithHttpInfo($username, $password, $to, $template = null, $pinLength = null, $from = null, $maxTries = null, $retryDelay = null, $validity = null, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyNumber'][0])
     {
         $returnType = 'string';
-        $request = $this->getPricelistRequest($username, $password, $hostIndex, $variables, $contentType);
+        $request = $this->verifyNumberRequest($username, $password, $to, $template, $pinLength, $from, $maxTries, $retryDelay, $validity, $ip, $browser, $cookie, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -371,7 +411,7 @@ class PricingApi
     }
 
     /**
-     * Create request for operation 'getPricelist'
+     * Create request for operation 'verifyNumber'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -379,32 +419,58 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
+     * @param  string $to Receiver&#39;s phone number with the country code (required)
+     * @param  string|null $template Template of the message, including PIN code. Placeholder for PIN code is &lt;PIN&gt;. When not set, default template is used: \&quot;Your Verification PIN code is &lt;PIN&gt;\&quot;. (optional)
+     * @param  string|null $pinLength Length of the PIN code. Minumum 4 digits, maximum 16. Defaults to 4. (optional)
+     * @param  string|null $from Sender name. When not set, the default Sender name \&quot;Verigator\&quot; is used. This sender ID also needs to be added to your account beforehand. (optional)
+     * @param  string|null $maxTries Maximum number of times the PIN code is sent in total. Defaults to \&quot;2\&quot; - initial PIN code and one retry. It is discouraged to set this value to \&quot;1\&quot; as only the initial PIN code is sent and retry is disabled. (optional)
+     * @param  string|null $retryDelay For how long (in seconds) to wait for next retry, if the correct PIN code has not been entered yet? Defaults to 30 seconds. (optional)
+     * @param  string|null $validity For how long (in seconds) is the PIN code valid. Defaults to 5 minutes (300 seconds). Maximum 30 minutes (1800 seconds). (optional)
+     * @param  string|null $ip IP address of the client making verification request. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPricelist'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyNumber'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPricelistRequest($username, $password, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPricelist'][0])
+    public function verifyNumberRequest($username, $password, $to, $template = null, $pinLength = null, $from = null, $maxTries = null, $retryDelay = null, $validity = null, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyNumber'][0])
     {
 
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $username when calling getPricelist'
+                'Missing the required parameter $username when calling verifyNumber'
             );
         }
 
         // verify the required parameter 'password' is set
         if ($password === null || (is_array($password) && count($password) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $password when calling getPricelist'
+                'Missing the required parameter $password when calling verifyNumber'
+            );
+        }
+
+        // verify the required parameter 'to' is set
+        if ($to === null || (is_array($to) && count($to) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $to when calling verifyNumber'
             );
         }
 
 
-        $resourcePath = '/pricelist';
+
+
+
+
+
+
+
+
+
+        $resourcePath = '/verify/start';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -428,6 +494,96 @@ class PricingApi
             'form', // style
             true, // explode
             true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $to,
+            'to', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $template,
+            'template', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pinLength,
+            'pin_length', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $from,
+            'from', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $maxTries,
+            'max_tries', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $retryDelay,
+            'retry_delay', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $validity,
+            'validity', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $ip,
+            'ip', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $browser,
+            'browser', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $cookie,
+            'cookie', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
         ) ?? []);
 
 
@@ -491,7 +647,7 @@ class PricingApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForgetPricelist();
+        $hostSettings = $this->getHostSettingsForverifyNumber();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -499,7 +655,7 @@ class PricingApi
         $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -507,24 +663,24 @@ class PricingApi
     }
 
     /**
-     * Returns an array of host settings for Operation getPricelist
+     * Returns an array of host settings for Operation verifyNumber
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForgetPricelist(): array
+    protected function getHostSettingsForverifyNumber(): array
     {
         return [
             [
                 "url" => "https://api2.messente.com",
-                "description" => "Override base path for pricing API",
+                "description" => "Override base path for number verification API",
             ]
         ];
     }
 
     /**
-     * Operation getPrices
+     * Operation verifyPin
      *
-     * Get pricing for a specific country
+     * verified the PIN code entered by the user.
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -532,26 +688,29 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
-     * @param  string $country The country code, for which to get the prices (required)
-     * @param  string|null $format The format of the response. Can be either &#39;json&#39; or &#39;xml&#39;. If not specified, defaults to &#39;json&#39;. (optional)
+     * @param  string $verificationId Verification ID returned by the successful verification request. (required)
+     * @param  string $pin PIN code entered by the user. (required)
+     * @param  string|null $ip IP address of the client making verification request. If the IP address is from another country, PIN is required even if the cookies match. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPin'] to see the possible values for this operation
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Messente\Api\Model\Price
+     * @return string
      */
-    public function getPrices($username, $password, $country, $format = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPrices'][0])
+    public function verifyPin($username, $password, $verificationId, $pin, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyPin'][0])
     {
-        list($response) = $this->getPricesWithHttpInfo($username, $password, $country, $format, $hostIndex, $variables, $contentType);
+        list($response) = $this->verifyPinWithHttpInfo($username, $password, $verificationId, $pin, $ip, $browser, $cookie, $hostIndex, $variables, $contentType);
         return $response;
     }
 
     /**
-     * Operation getPricesWithHttpInfo
+     * Operation verifyPinWithHttpInfo
      *
-     * Get pricing for a specific country
+     * verified the PIN code entered by the user.
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -559,19 +718,22 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
-     * @param  string $country The country code, for which to get the prices (required)
-     * @param  string|null $format The format of the response. Can be either &#39;json&#39; or &#39;xml&#39;. If not specified, defaults to &#39;json&#39;. (optional)
+     * @param  string $verificationId Verification ID returned by the successful verification request. (required)
+     * @param  string $pin PIN code entered by the user. (required)
+     * @param  string|null $ip IP address of the client making verification request. If the IP address is from another country, PIN is required even if the cookies match. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPin'] to see the possible values for this operation
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Messente\Api\Model\Price, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPricesWithHttpInfo($username, $password, $country, $format = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPrices'][0])
+    public function verifyPinWithHttpInfo($username, $password, $verificationId, $pin, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyPin'][0])
     {
-        $request = $this->getPricesRequest($username, $password, $country, $format, $hostIndex, $variables, $contentType);
+        $request = $this->verifyPinRequest($username, $password, $verificationId, $pin, $ip, $browser, $cookie, $hostIndex, $variables, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -598,11 +760,11 @@ class PricingApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Messente\Api\Model\Price' === '\SplFileObject') {
+                    if ('string' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Messente\Api\Model\Price' !== 'string') {
+                        if ('string' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -620,7 +782,7 @@ class PricingApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Messente\Api\Model\Price', []),
+                        ObjectSerializer::deserialize($content, 'string', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -639,7 +801,7 @@ class PricingApi
                 );
             }
 
-            $returnType = '\Messente\Api\Model\Price';
+            $returnType = 'string';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -672,7 +834,7 @@ class PricingApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Messente\Api\Model\Price',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -683,9 +845,9 @@ class PricingApi
     }
 
     /**
-     * Operation getPricesAsync
+     * Operation verifyPinAsync
      *
-     * Get pricing for a specific country
+     * verified the PIN code entered by the user.
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -693,18 +855,21 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
-     * @param  string $country The country code, for which to get the prices (required)
-     * @param  string|null $format The format of the response. Can be either &#39;json&#39; or &#39;xml&#39;. If not specified, defaults to &#39;json&#39;. (optional)
+     * @param  string $verificationId Verification ID returned by the successful verification request. (required)
+     * @param  string $pin PIN code entered by the user. (required)
+     * @param  string|null $ip IP address of the client making verification request. If the IP address is from another country, PIN is required even if the cookies match. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPin'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricesAsync($username, $password, $country, $format = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPrices'][0])
+    public function verifyPinAsync($username, $password, $verificationId, $pin, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyPin'][0])
     {
-        return $this->getPricesAsyncWithHttpInfo($username, $password, $country, $format, $hostIndex, $variables, $contentType)
+        return $this->verifyPinAsyncWithHttpInfo($username, $password, $verificationId, $pin, $ip, $browser, $cookie, $hostIndex, $variables, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -713,9 +878,9 @@ class PricingApi
     }
 
     /**
-     * Operation getPricesAsyncWithHttpInfo
+     * Operation verifyPinAsyncWithHttpInfo
      *
-     * Get pricing for a specific country
+     * verified the PIN code entered by the user.
      *
      * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
      * if needed, use the 'variables' parameter to pass variables to the host.
@@ -723,19 +888,22 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
-     * @param  string $country The country code, for which to get the prices (required)
-     * @param  string|null $format The format of the response. Can be either &#39;json&#39; or &#39;xml&#39;. If not specified, defaults to &#39;json&#39;. (optional)
+     * @param  string $verificationId Verification ID returned by the successful verification request. (required)
+     * @param  string $pin PIN code entered by the user. (required)
+     * @param  string|null $ip IP address of the client making verification request. If the IP address is from another country, PIN is required even if the cookies match. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPin'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPricesAsyncWithHttpInfo($username, $password, $country, $format = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPrices'][0])
+    public function verifyPinAsyncWithHttpInfo($username, $password, $verificationId, $pin, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyPin'][0])
     {
-        $returnType = '\Messente\Api\Model\Price';
-        $request = $this->getPricesRequest($username, $password, $country, $format, $hostIndex, $variables, $contentType);
+        $returnType = 'string';
+        $request = $this->verifyPinRequest($username, $password, $verificationId, $pin, $ip, $browser, $cookie, $hostIndex, $variables, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -774,7 +942,7 @@ class PricingApi
     }
 
     /**
-     * Create request for operation 'getPrices'
+     * Create request for operation 'verifyPin'
      *
     * This operation contains host(s) defined in the OpenAPI spec. Use 'hostIndex' to select the host.
     * if needed, use the 'variables' parameter to pass variables to the host.
@@ -782,42 +950,54 @@ class PricingApi
      *
      * @param  string $username The API username (required)
      * @param  string $password The API password (required)
-     * @param  string $country The country code, for which to get the prices (required)
-     * @param  string|null $format The format of the response. Can be either &#39;json&#39; or &#39;xml&#39;. If not specified, defaults to &#39;json&#39;. (optional)
+     * @param  string $verificationId Verification ID returned by the successful verification request. (required)
+     * @param  string $pin PIN code entered by the user. (required)
+     * @param  string|null $ip IP address of the client making verification request. If the IP address is from another country, PIN is required even if the cookies match. (optional)
+     * @param  string|null $browser User Agent of the browser. For example \&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36\&quot;. (optional)
+     * @param  string|null $cookie Unique cookie assigned to this session. If a user tries logging in with the same cookie present, user is automatically logged in and no PIN code verification is needed. (optional)
      * @param  null|int $hostIndex Host index. Defaults to null. If null, then the library will use $this->hostIndex instead
      * @param  array $variables Associative array of variables to pass to the host. Defaults to empty array.
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPrices'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyPin'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPricesRequest($username, $password, $country, $format = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['getPrices'][0])
+    public function verifyPinRequest($username, $password, $verificationId, $pin, $ip = null, $browser = null, $cookie = null, ?int $hostIndex = null, array $variables = [], string $contentType = self::contentTypes['verifyPin'][0])
     {
 
         // verify the required parameter 'username' is set
         if ($username === null || (is_array($username) && count($username) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $username when calling getPrices'
+                'Missing the required parameter $username when calling verifyPin'
             );
         }
 
         // verify the required parameter 'password' is set
         if ($password === null || (is_array($password) && count($password) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $password when calling getPrices'
+                'Missing the required parameter $password when calling verifyPin'
             );
         }
 
-        // verify the required parameter 'country' is set
-        if ($country === null || (is_array($country) && count($country) === 0)) {
+        // verify the required parameter 'verificationId' is set
+        if ($verificationId === null || (is_array($verificationId) && count($verificationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $country when calling getPrices'
+                'Missing the required parameter $verificationId when calling verifyPin'
+            );
+        }
+
+        // verify the required parameter 'pin' is set
+        if ($pin === null || (is_array($pin) && count($pin) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pin when calling verifyPin'
             );
         }
 
 
 
-        $resourcePath = '/prices';
+
+
+        $resourcePath = '/verify/pin';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -844,8 +1024,8 @@ class PricingApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $country,
-            'country', // param base name
+            $verificationId,
+            'verification_id', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -853,8 +1033,35 @@ class PricingApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $format,
-            'format', // param base name
+            $pin,
+            'pin', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $ip,
+            'ip', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $browser,
+            'browser', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $cookie,
+            'cookie', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -865,7 +1072,7 @@ class PricingApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/xml', 'text/plain; charset=utf-8', ],
+            ['text/plain', ],
             $contentType,
             $multipart
         );
@@ -922,7 +1129,7 @@ class PricingApi
             $hostIndex = $this->hostIndex;
         }
 
-        $hostSettings = $this->getHostSettingsForgetPrices();
+        $hostSettings = $this->getHostSettingsForverifyPin();
 
         if ($hostIndex < 0 || $hostIndex >= count($hostSettings)) {
             throw new \InvalidArgumentException("Invalid index {$hostIndex} when selecting the host. Must be less than ".count($hostSettings));
@@ -930,7 +1137,7 @@ class PricingApi
         $operationHost = Configuration::getHostString($hostSettings, $hostIndex, $variables);
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -938,16 +1145,16 @@ class PricingApi
     }
 
     /**
-     * Returns an array of host settings for Operation getPrices
+     * Returns an array of host settings for Operation verifyPin
      *
      * @return array an array of host settings
      */
-    protected function getHostSettingsForgetPrices(): array
+    protected function getHostSettingsForverifyPin(): array
     {
         return [
             [
                 "url" => "https://api2.messente.com",
-                "description" => "Override base path for pricing API",
+                "description" => "Override base path for number verification API",
             ]
         ];
     }

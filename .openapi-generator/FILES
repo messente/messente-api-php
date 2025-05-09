@@ -11,6 +11,7 @@ docs/Api/ContactsApi.md
 docs/Api/DeliveryReportApi.md
 docs/Api/GroupsApi.md
 docs/Api/NumberLookupApi.md
+docs/Api/NumberVerificationApi.md
 docs/Api/OmnimessageApi.md
 docs/Api/PricingApi.md
 docs/Api/StatisticsApi.md
@@ -102,6 +103,7 @@ lib/Api/ContactsApi.php
 lib/Api/DeliveryReportApi.php
 lib/Api/GroupsApi.php
 lib/Api/NumberLookupApi.php
+lib/Api/NumberVerificationApi.php
 lib/Api/OmnimessageApi.php
 lib/Api/PricingApi.php
 lib/Api/StatisticsApi.php
