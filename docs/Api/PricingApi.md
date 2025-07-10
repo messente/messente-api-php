@@ -117,7 +117,7 @@ $apiInstance = new Messente\Api\Api\PricingApi(
 );
 $username = 'username_example'; // string | The API username
 $password = 'password_example'; // string | The API password
-$country = 'country_example'; // string | The country code, for which to get the prices
+$country = EE; // string | The country code, for which to get the prices
 $format = 'format_example'; // string | The format of the response. Can be either 'json' or 'xml'. If not specified, defaults to 'json'.
 
 $hostIndex = 0;
