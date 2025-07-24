@@ -1,6 +1,6 @@
 <?php
 /**
- * WhatsAppComponent
+ * WhatsAppDocument
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * WhatsAppComponent Class Doc Comment
+ * WhatsAppDocument Class Doc Comment
  *
  * @category Class
- * @description Whatsapp template component
+ * @description WhatsApp document content. Either \&quot;id\&quot; or \&quot;link\&quot; must be provided, but not both.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializable
+class WhatsAppDocument implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WhatsAppComponent';
+    protected static $openAPIModelName = 'WhatsAppDocument';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +59,11 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'subType' => 'string',
-        'index' => 'int',
-        'parameters' => '\Messente\Api\Model\WhatsAppParameter[]'
+        'id' => 'string',
+        'caption' => 'string',
+        'mimeType' => 'string',
+        'fileName' => 'string',
+        'link' => 'string'
     ];
 
     /**
@@ -73,10 +74,11 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'type' => null,
-        'subType' => null,
-        'index' => null,
-        'parameters' => null
+        'id' => null,
+        'caption' => null,
+        'mimeType' => null,
+        'fileName' => null,
+        'link' => null
     ];
 
     /**
@@ -85,10 +87,11 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'subType' => false,
-        'index' => true,
-        'parameters' => false
+        'id' => true,
+        'caption' => true,
+        'mimeType' => true,
+        'fileName' => true,
+        'link' => true
     ];
 
     /**
@@ -177,10 +180,11 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'subType' => 'sub_type',
-        'index' => 'index',
-        'parameters' => 'parameters'
+        'id' => 'id',
+        'caption' => 'caption',
+        'mimeType' => 'mime_type',
+        'fileName' => 'file_name',
+        'link' => 'link'
     ];
 
     /**
@@ -189,10 +193,11 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'subType' => 'setSubType',
-        'index' => 'setIndex',
-        'parameters' => 'setParameters'
+        'id' => 'setId',
+        'caption' => 'setCaption',
+        'mimeType' => 'setMimeType',
+        'fileName' => 'setFileName',
+        'link' => 'setLink'
     ];
 
     /**
@@ -201,10 +206,11 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'subType' => 'getSubType',
-        'index' => 'getIndex',
-        'parameters' => 'getParameters'
+        'id' => 'getId',
+        'caption' => 'getCaption',
+        'mimeType' => 'getMimeType',
+        'fileName' => 'getFileName',
+        'link' => 'getLink'
     ];
 
     /**
@@ -264,10 +270,11 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('subType', $data ?? [], null);
-        $this->setIfExists('index', $data ?? [], null);
-        $this->setIfExists('parameters', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('caption', $data ?? [], null);
+        $this->setIfExists('mimeType', $data ?? [], null);
+        $this->setIfExists('fileName', $data ?? [], null);
+        $this->setIfExists('link', $data ?? [], null);
     }
 
     /**
@@ -297,9 +304,6 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,116 +320,171 @@ class WhatsAppComponent implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type Type of the component
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets subType
+     * Gets id
      *
      * @return string|null
      */
-    public function getSubType()
+    public function getId()
     {
-        return $this->container['subType'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets subType
+     * Sets id
      *
-     * @param string|null $subType Sub-type of the component
+     * @param string|null $id Unique identifier for the document file.
      *
      * @return self
      */
-    public function setSubType($subType)
+    public function setId($id)
     {
-        if (is_null($subType)) {
-            throw new \InvalidArgumentException('non-nullable subType cannot be null');
-        }
-        $this->container['subType'] = $subType;
-
-        return $this;
-    }
-
-    /**
-     * Gets index
-     *
-     * @return int|null
-     */
-    public function getIndex()
-    {
-        return $this->container['index'];
-    }
-
-    /**
-     * Sets index
-     *
-     * @param int|null $index index used to position buttons
-     *
-     * @return self
-     */
-    public function setIndex($index)
-    {
-        if (is_null($index)) {
-            array_push($this->openAPINullablesSetToNull, 'index');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('index', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['index'] = $index;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets parameters
+     * Gets caption
      *
-     * @return \Messente\Api\Model\WhatsAppParameter[]|null
+     * @return string|null
      */
-    public function getParameters()
+    public function getCaption()
     {
-        return $this->container['parameters'];
+        return $this->container['caption'];
     }
 
     /**
-     * Sets parameters
+     * Sets caption
      *
-     * @param \Messente\Api\Model\WhatsAppParameter[]|null $parameters List of parameters for the component
+     * @param string|null $caption Caption for the document.
      *
      * @return self
      */
-    public function setParameters($parameters)
+    public function setCaption($caption)
     {
-        if (is_null($parameters)) {
-            throw new \InvalidArgumentException('non-nullable parameters cannot be null');
+        if (is_null($caption)) {
+            array_push($this->openAPINullablesSetToNull, 'caption');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('caption', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['parameters'] = $parameters;
+        $this->container['caption'] = $caption;
+
+        return $this;
+    }
+
+    /**
+     * Gets mimeType
+     *
+     * @return string|null
+     */
+    public function getMimeType()
+    {
+        return $this->container['mimeType'];
+    }
+
+    /**
+     * Sets mimeType
+     *
+     * @param string|null $mimeType MIME type of the document file.
+     *
+     * @return self
+     */
+    public function setMimeType($mimeType)
+    {
+        if (is_null($mimeType)) {
+            array_push($this->openAPINullablesSetToNull, 'mimeType');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mimeType', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['mimeType'] = $mimeType;
+
+        return $this;
+    }
+
+    /**
+     * Gets fileName
+     *
+     * @return string|null
+     */
+    public function getFileName()
+    {
+        return $this->container['fileName'];
+    }
+
+    /**
+     * Sets fileName
+     *
+     * @param string|null $fileName Name of the document file.
+     *
+     * @return self
+     */
+    public function setFileName($fileName)
+    {
+        if (is_null($fileName)) {
+            array_push($this->openAPINullablesSetToNull, 'fileName');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fileName', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['fileName'] = $fileName;
+
+        return $this;
+    }
+
+    /**
+     * Gets link
+     *
+     * @return string|null
+     */
+    public function getLink()
+    {
+        return $this->container['link'];
+    }
+
+    /**
+     * Sets link
+     *
+     * @param string|null $link URL link to the document file.
+     *
+     * @return self
+     */
+    public function setLink($link)
+    {
+        if (is_null($link)) {
+            array_push($this->openAPINullablesSetToNull, 'link');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('link', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['link'] = $link;
 
         return $this;
     }

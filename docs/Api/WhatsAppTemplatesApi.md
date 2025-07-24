@@ -76,7 +76,7 @@ try {
 ## `deleteWhatsappTemplate()`
 
 ```php
-deleteWhatsappTemplate($wabaId, $name, $hsmId): array<string,mixed>
+deleteWhatsappTemplate($wabaId, $name, $hsmId): object
 ```
 
 Deletes a WhatsApp template
@@ -122,7 +122,7 @@ try {
 
 ### Return type
 
-**array<string,mixed>**
+**object**
 
 ### Authorization
 
@@ -278,7 +278,7 @@ try {
 ## `updateWhatsappTemplate()`
 
 ```php
-updateWhatsappTemplate($wabaId, $templateId, $whatsappUpdateTemplateRequest): array<string,mixed>
+updateWhatsappTemplate($wabaId, $templateId, $whatsappUpdateTemplateRequest): object
 ```
 
 Updates a WhatsApp template
@@ -324,7 +324,7 @@ try {
 
 ### Return type
 
-**array<string,mixed>**
+**object**
 
 ### Authorization
 

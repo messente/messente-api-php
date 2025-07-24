@@ -618,7 +618,7 @@ class WhatsAppTemplatesApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
+     * @return object|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
      */
     public function deleteWhatsappTemplate($wabaId, $name, $hsmId = null, string $contentType = self::contentTypes['deleteWhatsappTemplate'][0])
     {
@@ -638,7 +638,7 @@ class WhatsAppTemplatesApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteWhatsappTemplateWithHttpInfo($wabaId, $name, $hsmId = null, string $contentType = self::contentTypes['deleteWhatsappTemplate'][0])
     {
@@ -669,11 +669,11 @@ class WhatsAppTemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('object' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -691,7 +691,7 @@ class WhatsAppTemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -818,7 +818,7 @@ class WhatsAppTemplatesApi
                 );
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -851,7 +851,7 @@ class WhatsAppTemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -931,7 +931,7 @@ class WhatsAppTemplatesApi
      */
     public function deleteWhatsappTemplateAsyncWithHttpInfo($wabaId, $name, $hsmId = null, string $contentType = self::contentTypes['deleteWhatsappTemplate'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = 'object';
         $request = $this->deleteWhatsappTemplateRequest($wabaId, $name, $hsmId, $contentType);
 
         return $this->client
@@ -2156,7 +2156,7 @@ class WhatsAppTemplatesApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,mixed>|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
+     * @return object|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel
      */
     public function updateWhatsappTemplate($wabaId, $templateId, $whatsappUpdateTemplateRequest, string $contentType = self::contentTypes['updateWhatsappTemplate'][0])
     {
@@ -2176,7 +2176,7 @@ class WhatsAppTemplatesApi
      *
      * @throws \Messente\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,mixed>|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel|\Messente\Api\Model\ErrorOmnichannel, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateWhatsappTemplateWithHttpInfo($wabaId, $templateId, $whatsappUpdateTemplateRequest, string $contentType = self::contentTypes['updateWhatsappTemplate'][0])
     {
@@ -2207,11 +2207,11 @@ class WhatsAppTemplatesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('array<string,mixed>' === '\SplFileObject') {
+                    if ('object' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('array<string,mixed>' !== 'string') {
+                        if ('object' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2229,7 +2229,7 @@ class WhatsAppTemplatesApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'array<string,mixed>', []),
+                        ObjectSerializer::deserialize($content, 'object', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2356,7 +2356,7 @@ class WhatsAppTemplatesApi
                 );
             }
 
-            $returnType = 'array<string,mixed>';
+            $returnType = 'object';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2389,7 +2389,7 @@ class WhatsAppTemplatesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,mixed>',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2469,7 +2469,7 @@ class WhatsAppTemplatesApi
      */
     public function updateWhatsappTemplateAsyncWithHttpInfo($wabaId, $templateId, $whatsappUpdateTemplateRequest, string $contentType = self::contentTypes['updateWhatsappTemplate'][0])
     {
-        $returnType = 'array<string,mixed>';
+        $returnType = 'object';
         $request = $this->updateWhatsappTemplateRequest($wabaId, $templateId, $whatsappUpdateTemplateRequest, $contentType);
 
         return $this->client
