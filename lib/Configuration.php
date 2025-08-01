@@ -12,7 +12,7 @@
 /**
  * Messente API
  *
- * [Messente](https://messente.com) is a global provider of messaging and user verification services.  * Send and receive SMS, Viber, WhatsApp and Telegram messages. * Manage contacts and groups. * Fetch detailed info about phone numbers. * Blacklist phone numbers to make sure you're not sending any unwanted messages.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
+ * [Messente](https://messente.com) is a global provider of messaging and user verification services.  * Send and receive SMS, Viber and WhatsApp messages. * Manage contacts and groups. * Fetch detailed info about phone numbers. * Blacklist phone numbers to make sure you're not sending any unwanted messages.  Messente builds [tools](https://messente.com/documentation) to help organizations connect their services to people anywhere in the world.
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: messente@messente.com
@@ -101,7 +101,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/3.4.0/PHP';
+    protected $userAgent = 'OpenAPI-Generator/3.4.1/PHP';
 
     /**
      * Debug switch (default set to false)
@@ -434,7 +434,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: 2.0.0' . PHP_EOL;
-        $report .= '    SDK Package Version: 3.4.0' . PHP_EOL;
+        $report .= '    SDK Package Version: 3.4.1' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
