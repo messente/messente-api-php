@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsOpenUrlAction
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsOpenUrlAction Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description Action to open a URL in a browser.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsOpenUrlAction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsOpenUrlAction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'url' => 'string',
+        'description' => 'string',
+        'application' => '\Messente\Api\Model\RcsOpenUrlApplication',
+        'webviewViewMode' => '\Messente\Api\Model\RcsWebviewViewMode'
     ];
 
     /**
@@ -72,9 +73,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'url' => null,
+        'description' => null,
+        'application' => null,
+        'webviewViewMode' => null
     ];
 
     /**
@@ -83,9 +85,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'url' => false,
+        'description' => false,
+        'application' => false,
+        'webviewViewMode' => false
     ];
 
     /**
@@ -174,9 +177,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'url' => 'url',
+        'description' => 'description',
+        'application' => 'application',
+        'webviewViewMode' => 'webview_view_mode'
     ];
 
     /**
@@ -185,9 +189,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'url' => 'setUrl',
+        'description' => 'setDescription',
+        'application' => 'setApplication',
+        'webviewViewMode' => 'setWebviewViewMode'
     ];
 
     /**
@@ -196,9 +201,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'url' => 'getUrl',
+        'description' => 'getDescription',
+        'application' => 'getApplication',
+        'webviewViewMode' => 'getWebviewViewMode'
     ];
 
     /**
@@ -258,9 +264,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('application', $data ?? [], null);
+        $this->setIfExists('webviewViewMode', $data ?? [], null);
     }
 
     /**
@@ -290,11 +297,21 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ((mb_strlen($this->container['url']) > 2048)) {
+            $invalidProperties[] = "invalid value for 'url', the character length must be smaller than or equal to 2048.";
+        }
+
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['application'] === null) {
+            $invalidProperties[] = "'application' can't be null";
+        }
+        if ($this->container['webviewViewMode'] === null) {
+            $invalidProperties[] = "'webviewViewMode' can't be null";
         }
         return $invalidProperties;
     }
@@ -312,82 +329,113 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets url
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getStartDate()
+    public function getUrl()
     {
-        return $this->container['startDate'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets startDate
+     * Sets url
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param string $url The URL to open.
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setUrl($url)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        if ((mb_strlen($url) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for $url when calling RcsOpenUrlAction., must be smaller than or equal to 2048.');
+        }
+
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets description
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getEndDate()
+    public function getDescription()
     {
-        return $this->container['endDate'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets endDate
+     * Sets description
      *
-     * @param \DateTime $endDate End date for the report
+     * @param string $description A description of the URL being opened.
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setDescription($description)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        $this->container['endDate'] = $endDate;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets messageTypes
+     * Gets application
      *
-     * @return string[]|null
+     * @return \Messente\Api\Model\RcsOpenUrlApplication
      */
-    public function getMessageTypes()
+    public function getApplication()
     {
-        return $this->container['messageTypes'];
+        return $this->container['application'];
     }
 
     /**
-     * Sets messageTypes
+     * Sets application
      *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
+     * @param \Messente\Api\Model\RcsOpenUrlApplication $application application
      *
      * @return self
      */
-    public function setMessageTypes($messageTypes)
+    public function setApplication($application)
     {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if (is_null($application)) {
+            throw new \InvalidArgumentException('non-nullable application cannot be null');
         }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['application'] = $application;
+
+        return $this;
+    }
+
+    /**
+     * Gets webviewViewMode
+     *
+     * @return \Messente\Api\Model\RcsWebviewViewMode
+     */
+    public function getWebviewViewMode()
+    {
+        return $this->container['webviewViewMode'];
+    }
+
+    /**
+     * Sets webviewViewMode
+     *
+     * @param \Messente\Api\Model\RcsWebviewViewMode $webviewViewMode webviewViewMode
+     *
+     * @return self
+     */
+    public function setWebviewViewMode($webviewViewMode)
+    {
+        if (is_null($webviewViewMode)) {
+            throw new \InvalidArgumentException('non-nullable webviewViewMode cannot be null');
+        }
+        $this->container['webviewViewMode'] = $webviewViewMode;
 
         return $this;
     }

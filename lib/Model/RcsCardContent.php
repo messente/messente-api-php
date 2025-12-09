@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsCardContent
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsCardContent Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description RCS Card Content
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsCardContent implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsCardContent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'title' => 'string',
+        'description' => 'string',
+        'media' => '\Messente\Api\Model\RcsMedia',
+        'suggestions' => '\Messente\Api\Model\RcsSuggestion[]'
     ];
 
     /**
@@ -72,9 +73,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'title' => null,
+        'description' => null,
+        'media' => null,
+        'suggestions' => null
     ];
 
     /**
@@ -83,9 +85,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'title' => true,
+        'description' => true,
+        'media' => false,
+        'suggestions' => false
     ];
 
     /**
@@ -174,9 +177,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'title' => 'title',
+        'description' => 'description',
+        'media' => 'media',
+        'suggestions' => 'suggestions'
     ];
 
     /**
@@ -185,9 +189,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'title' => 'setTitle',
+        'description' => 'setDescription',
+        'media' => 'setMedia',
+        'suggestions' => 'setSuggestions'
     ];
 
     /**
@@ -196,9 +201,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'title' => 'getTitle',
+        'description' => 'getDescription',
+        'media' => 'getMedia',
+        'suggestions' => 'getSuggestions'
     ];
 
     /**
@@ -258,9 +264,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('media', $data ?? [], null);
+        $this->setIfExists('suggestions', $data ?? [], null);
     }
 
     /**
@@ -290,12 +297,18 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 200)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 200.";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 2000)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 2000.";
         }
+
+        if (!is_null($this->container['suggestions']) && (count($this->container['suggestions']) > 4)) {
+            $invalidProperties[] = "invalid value for 'suggestions', number of items must be less than or equal to 4.";
+        }
+
         return $invalidProperties;
     }
 
@@ -312,82 +325,135 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets title
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getStartDate()
+    public function getTitle()
     {
-        return $this->container['startDate'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets startDate
+     * Sets title
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param string|null $title Title of the card content
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setTitle($title)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['startDate'] = $startDate;
+        if (!is_null($title) && (mb_strlen($title) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling RcsCardContent., must be smaller than or equal to 200.');
+        }
+
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets description
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getEndDate()
+    public function getDescription()
     {
-        return $this->container['endDate'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets endDate
+     * Sets description
      *
-     * @param \DateTime $endDate End date for the report
+     * @param string|null $description Description of the card content
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setDescription($description)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['endDate'] = $endDate;
+        if (!is_null($description) && (mb_strlen($description) > 2000)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling RcsCardContent., must be smaller than or equal to 2000.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets messageTypes
+     * Gets media
      *
-     * @return string[]|null
+     * @return \Messente\Api\Model\RcsMedia|null
      */
-    public function getMessageTypes()
+    public function getMedia()
     {
-        return $this->container['messageTypes'];
+        return $this->container['media'];
     }
 
     /**
-     * Sets messageTypes
+     * Sets media
      *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
+     * @param \Messente\Api\Model\RcsMedia|null $media media
      *
      * @return self
      */
-    public function setMessageTypes($messageTypes)
+    public function setMedia($media)
     {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if (is_null($media)) {
+            throw new \InvalidArgumentException('non-nullable media cannot be null');
         }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['media'] = $media;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggestions
+     *
+     * @return \Messente\Api\Model\RcsSuggestion[]|null
+     */
+    public function getSuggestions()
+    {
+        return $this->container['suggestions'];
+    }
+
+    /**
+     * Sets suggestions
+     *
+     * @param \Messente\Api\Model\RcsSuggestion[]|null $suggestions List of suggestions that the recipient can use to respond.
+     *
+     * @return self
+     */
+    public function setSuggestions($suggestions)
+    {
+        if (is_null($suggestions)) {
+            throw new \InvalidArgumentException('non-nullable suggestions cannot be null');
+        }
+
+        if ((count($suggestions) > 4)) {
+            throw new \InvalidArgumentException('invalid value for $suggestions when calling RcsCardContent., number of items must be less than or equal to 4.');
+        }
+        $this->container['suggestions'] = $suggestions;
 
         return $this;
     }
