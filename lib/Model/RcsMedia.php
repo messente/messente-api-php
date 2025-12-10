@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsMedia
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsMedia Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description RCS media object.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsMedia implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsMedia';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'height' => '\Messente\Api\Model\RcsMediaHeight',
+        'contentInfo' => '\Messente\Api\Model\RcsContentInfo'
     ];
 
     /**
@@ -72,9 +71,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'height' => null,
+        'contentInfo' => null
     ];
 
     /**
@@ -83,9 +81,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'height' => false,
+        'contentInfo' => false
     ];
 
     /**
@@ -174,9 +171,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'height' => 'height',
+        'contentInfo' => 'content_info'
     ];
 
     /**
@@ -185,9 +181,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'height' => 'setHeight',
+        'contentInfo' => 'setContentInfo'
     ];
 
     /**
@@ -196,9 +191,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'height' => 'getHeight',
+        'contentInfo' => 'getContentInfo'
     ];
 
     /**
@@ -258,9 +252,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('height', $data ?? [], null);
+        $this->setIfExists('contentInfo', $data ?? [], null);
     }
 
     /**
@@ -290,11 +283,11 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if ($this->container['height'] === null) {
+            $invalidProperties[] = "'height' can't be null";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ($this->container['contentInfo'] === null) {
+            $invalidProperties[] = "'contentInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -312,82 +305,55 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets height
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsMediaHeight
      */
-    public function getStartDate()
+    public function getHeight()
     {
-        return $this->container['startDate'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets startDate
+     * Sets height
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param \Messente\Api\Model\RcsMediaHeight $height height
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setHeight($height)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($height)) {
+            throw new \InvalidArgumentException('non-nullable height cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        $this->container['height'] = $height;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets contentInfo
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsContentInfo
      */
-    public function getEndDate()
+    public function getContentInfo()
     {
-        return $this->container['endDate'];
+        return $this->container['contentInfo'];
     }
 
     /**
-     * Sets endDate
+     * Sets contentInfo
      *
-     * @param \DateTime $endDate End date for the report
+     * @param \Messente\Api\Model\RcsContentInfo $contentInfo contentInfo
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setContentInfo($contentInfo)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($contentInfo)) {
+            throw new \InvalidArgumentException('non-nullable contentInfo cannot be null');
         }
-        $this->container['endDate'] = $endDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets messageTypes
-     *
-     * @return string[]|null
-     */
-    public function getMessageTypes()
-    {
-        return $this->container['messageTypes'];
-    }
-
-    /**
-     * Sets messageTypes
-     *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-     *
-     * @return self
-     */
-    public function setMessageTypes($messageTypes)
-    {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
-        }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['contentInfo'] = $contentInfo;
 
         return $this;
     }

@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sender** | **string** | Phone number or alphanumeric sender name | [optional]
-**validity** | **int** | After how many minutes this channel is considered as failed and the next channel is attempted | [optional]
-**ttl** | **int** | After how many seconds this channel is considered as failed and the next channel is attempted.       Only one of \&quot;ttl\&quot; and \&quot;validity\&quot; can be used. | [optional]
-**text** | **string** | Plaintext content for Telegram |
-**imageUrl** | **string** | URL for the embedded image. Mutually exclusive with \&quot;document_url\&quot; and \&quot;audio_url\&quot; | [optional]
+**sender** | **string** | Phone number or alphanumeric sender name |
+**validity** | **int** | After how many minutes this channel is considered as failed and the next channel is attempted.Only one of \&quot;ttl\&quot; and \&quot;validity\&quot; can be used. | [optional]
+**ttl** | **int** | After how many seconds this channel is considered as failed and the next channel is attempted. Only one of \&quot;ttl\&quot; and \&quot;validity\&quot; can be used. | [optional]
+**text** | **string** | Text content of the RCS message |
+**imageUrl** | **string** | URL for the embedded image    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text | [optional]
 **buttonUrl** | **string** | URL of the button, must be specified along with &#39;&#39;text&#39;&#39;, &#39;&#39;button_text&#39;&#39; and &#39;&#39;image_url&#39;&#39; (optional) | [optional]
 **buttonText** | **string** | Must be specified along with &#39;&#39;text&#39;&#39;, &#39;&#39;button_url&#39;&#39;, &#39;&#39;button_text&#39;&#39;, &#39;&#39;image_url&#39;&#39; (optional) | [optional]
-**channel** | **string** | The channel used to deliver the message | [optional] [default to 'telegram']
+**channel** | **string** | The channel used to deliver the message | [optional] [default to 'rcs']
 **video** | [**\Messente\Api\Model\WhatsAppVideo**](WhatsAppVideo.md) |  | [optional]
 **autoconvert** | **string** | Defines how non-GSM characters will be treated:    - \&quot;on\&quot; Use replacement settings from the account&#39;s [API Auto Replace settings page](https://dashboard.messente.com/api-settings/auto-replace) (default)   - \&quot;full\&quot; All non GSM 03.38 characters will be replaced with suitable alternatives   - \&quot;off\&quot; Message content is not modified in any way | [optional]
 **udh** | **string** | hex-encoded string containing SMS UDH | [optional]
@@ -20,7 +20,8 @@ Name | Type | Description | Notes
 **audio** | [**\Messente\Api\Model\WhatsAppAudio**](WhatsAppAudio.md) |  | [optional]
 **document** | [**\Messente\Api\Model\WhatsAppDocument**](WhatsAppDocument.md) |  | [optional]
 **sticker** | [**\Messente\Api\Model\WhatsAppSticker**](WhatsAppSticker.md) |  | [optional]
-**documentUrl** | **string** | URL for the embedded image. Mutually exclusive with \&quot;audio_url\&quot; and \&quot;image_url\&quot; | [optional]
-**audioUrl** | **string** | URL for the embedded image. Mutually exclusive with \&quot;document_url\&quot; and \&quot;image_url\&quot; | [optional]
+**suggestions** | [**\Messente\Api\Model\RcsSuggestion[]**](RcsSuggestion.md) | List of suggestions to include with the message | [optional]
+**richCard** | [**\Messente\Api\Model\RcsRichCard**](RcsRichCard.md) |  | [optional]
+**contentInfo** | [**\Messente\Api\Model\RcsContentInfo**](RcsContentInfo.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

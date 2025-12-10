@@ -1,6 +1,6 @@
 <?php
 /**
- * Channel
+ * RcsMediaHeight
  *
  * PHP version 7.4
  *
@@ -31,26 +31,24 @@ namespace Messente\Api\Model;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * Channel Class Doc Comment
+ * RcsMediaHeight Class Doc Comment
  *
  * @category Class
- * @description Defines the delivery channel
+ * @description RCS media height
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Channel
+class RcsMediaHeight
 {
     /**
      * Possible values of this enum
      */
-    public const SMS = 'sms';
+    public const SHORT = 'SHORT';
 
-    public const VIBER = 'viber';
+    public const MEDIUM = 'MEDIUM';
 
-    public const WHATSAPP = 'whatsapp';
-
-    public const RCS = 'rcs';
+    public const TALL = 'TALL';
 
     /**
      * Gets allowable values of the enum
@@ -59,10 +57,9 @@ class Channel
     public static function getAllowableEnumValues()
     {
         return [
-            self::SMS,
-            self::VIBER,
-            self::WHATSAPP,
-            self::RCS
+            self::SHORT,
+            self::MEDIUM,
+            self::TALL
         ];
     }
 }

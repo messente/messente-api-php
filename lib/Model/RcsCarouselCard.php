@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsCarouselCard
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsCarouselCard Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description RCS Carousel Card.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsCarouselCard implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsCarouselCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'cardWidth' => '\Messente\Api\Model\RcsCardWidth',
+        'cardContents' => '\Messente\Api\Model\RcsCardContent[]'
     ];
 
     /**
@@ -72,9 +71,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'cardWidth' => null,
+        'cardContents' => null
     ];
 
     /**
@@ -83,9 +81,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'cardWidth' => false,
+        'cardContents' => false
     ];
 
     /**
@@ -174,9 +171,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'cardWidth' => 'card_width',
+        'cardContents' => 'card_contents'
     ];
 
     /**
@@ -185,9 +181,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'cardWidth' => 'setCardWidth',
+        'cardContents' => 'setCardContents'
     ];
 
     /**
@@ -196,9 +191,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'cardWidth' => 'getCardWidth',
+        'cardContents' => 'getCardContents'
     ];
 
     /**
@@ -258,9 +252,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('cardWidth', $data ?? [], null);
+        $this->setIfExists('cardContents', $data ?? [], null);
     }
 
     /**
@@ -290,12 +283,20 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if ($this->container['cardWidth'] === null) {
+            $invalidProperties[] = "'cardWidth' can't be null";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ($this->container['cardContents'] === null) {
+            $invalidProperties[] = "'cardContents' can't be null";
         }
+        if ((count($this->container['cardContents']) > 10)) {
+            $invalidProperties[] = "invalid value for 'cardContents', number of items must be less than or equal to 10.";
+        }
+
+        if ((count($this->container['cardContents']) < 2)) {
+            $invalidProperties[] = "invalid value for 'cardContents', number of items must be greater than or equal to 2.";
+        }
+
         return $invalidProperties;
     }
 
@@ -312,82 +313,62 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets cardWidth
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsCardWidth
      */
-    public function getStartDate()
+    public function getCardWidth()
     {
-        return $this->container['startDate'];
+        return $this->container['cardWidth'];
     }
 
     /**
-     * Sets startDate
+     * Sets cardWidth
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param \Messente\Api\Model\RcsCardWidth $cardWidth cardWidth
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setCardWidth($cardWidth)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($cardWidth)) {
+            throw new \InvalidArgumentException('non-nullable cardWidth cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        $this->container['cardWidth'] = $cardWidth;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets cardContents
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsCardContent[]
      */
-    public function getEndDate()
+    public function getCardContents()
     {
-        return $this->container['endDate'];
+        return $this->container['cardContents'];
     }
 
     /**
-     * Sets endDate
+     * Sets cardContents
      *
-     * @param \DateTime $endDate End date for the report
+     * @param \Messente\Api\Model\RcsCardContent[] $cardContents The contents of the carousel card.
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setCardContents($cardContents)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($cardContents)) {
+            throw new \InvalidArgumentException('non-nullable cardContents cannot be null');
         }
-        $this->container['endDate'] = $endDate;
 
-        return $this;
-    }
-
-    /**
-     * Gets messageTypes
-     *
-     * @return string[]|null
-     */
-    public function getMessageTypes()
-    {
-        return $this->container['messageTypes'];
-    }
-
-    /**
-     * Sets messageTypes
-     *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-     *
-     * @return self
-     */
-    public function setMessageTypes($messageTypes)
-    {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if ((count($cardContents) > 10)) {
+            throw new \InvalidArgumentException('invalid value for $cardContents when calling RcsCarouselCard., number of items must be less than or equal to 10.');
         }
-        $this->container['messageTypes'] = $messageTypes;
+        if ((count($cardContents) < 2)) {
+            throw new \InvalidArgumentException('invalid length for $cardContents when calling RcsCarouselCard., number of items must be greater than or equal to 2.');
+        }
+        $this->container['cardContents'] = $cardContents;
 
         return $this;
     }
