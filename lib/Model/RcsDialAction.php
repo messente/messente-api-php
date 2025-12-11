@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsDialAction
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsDialAction Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description Action to dial a phone number.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsDialAction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsDialAction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'phoneNumber' => 'string'
     ];
 
     /**
@@ -72,9 +70,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'phoneNumber' => null
     ];
 
     /**
@@ -83,9 +79,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'phoneNumber' => false
     ];
 
     /**
@@ -174,9 +168,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'phoneNumber' => 'phone_number'
     ];
 
     /**
@@ -185,9 +177,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'phoneNumber' => 'setPhoneNumber'
     ];
 
     /**
@@ -196,9 +186,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'phoneNumber' => 'getPhoneNumber'
     ];
 
     /**
@@ -258,9 +246,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('phoneNumber', $data ?? [], null);
     }
 
     /**
@@ -290,11 +276,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
-        }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ($this->container['phoneNumber'] === null) {
+            $invalidProperties[] = "'phoneNumber' can't be null";
         }
         return $invalidProperties;
     }
@@ -312,82 +295,28 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets phoneNumber
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getStartDate()
+    public function getPhoneNumber()
     {
-        return $this->container['startDate'];
+        return $this->container['phoneNumber'];
     }
 
     /**
-     * Sets startDate
+     * Sets phoneNumber
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param string $phoneNumber The phone number to dial in E.164 format.
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setPhoneNumber($phoneNumber)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($phoneNumber)) {
+            throw new \InvalidArgumentException('non-nullable phoneNumber cannot be null');
         }
-        $this->container['startDate'] = $startDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets endDate
-     *
-     * @return \DateTime
-     */
-    public function getEndDate()
-    {
-        return $this->container['endDate'];
-    }
-
-    /**
-     * Sets endDate
-     *
-     * @param \DateTime $endDate End date for the report
-     *
-     * @return self
-     */
-    public function setEndDate($endDate)
-    {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
-        }
-        $this->container['endDate'] = $endDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets messageTypes
-     *
-     * @return string[]|null
-     */
-    public function getMessageTypes()
-    {
-        return $this->container['messageTypes'];
-    }
-
-    /**
-     * Sets messageTypes
-     *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-     *
-     * @return self
-     */
-    public function setMessageTypes($messageTypes)
-    {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
-        }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['phoneNumber'] = $phoneNumber;
 
         return $this;
     }

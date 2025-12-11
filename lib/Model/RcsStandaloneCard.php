@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsStandaloneCard
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsStandaloneCard Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description RCS standalone card object.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsStandaloneCard implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsStandaloneCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'cardOrientation' => '\Messente\Api\Model\RcsCardOrientation',
+        'thumbnailImageAlignment' => '\Messente\Api\Model\RcsImageAlignment',
+        'cardContent' => '\Messente\Api\Model\RcsCardContent'
     ];
 
     /**
@@ -72,9 +72,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'cardOrientation' => null,
+        'thumbnailImageAlignment' => null,
+        'cardContent' => null
     ];
 
     /**
@@ -83,9 +83,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'cardOrientation' => false,
+        'thumbnailImageAlignment' => false,
+        'cardContent' => false
     ];
 
     /**
@@ -174,9 +174,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'cardOrientation' => 'card_orientation',
+        'thumbnailImageAlignment' => 'thumbnail_image_alignment',
+        'cardContent' => 'card_content'
     ];
 
     /**
@@ -185,9 +185,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'cardOrientation' => 'setCardOrientation',
+        'thumbnailImageAlignment' => 'setThumbnailImageAlignment',
+        'cardContent' => 'setCardContent'
     ];
 
     /**
@@ -196,9 +196,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'cardOrientation' => 'getCardOrientation',
+        'thumbnailImageAlignment' => 'getThumbnailImageAlignment',
+        'cardContent' => 'getCardContent'
     ];
 
     /**
@@ -258,9 +258,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('cardOrientation', $data ?? [], null);
+        $this->setIfExists('thumbnailImageAlignment', $data ?? [], null);
+        $this->setIfExists('cardContent', $data ?? [], null);
     }
 
     /**
@@ -290,11 +290,14 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if ($this->container['cardOrientation'] === null) {
+            $invalidProperties[] = "'cardOrientation' can't be null";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ($this->container['thumbnailImageAlignment'] === null) {
+            $invalidProperties[] = "'thumbnailImageAlignment' can't be null";
+        }
+        if ($this->container['cardContent'] === null) {
+            $invalidProperties[] = "'cardContent' can't be null";
         }
         return $invalidProperties;
     }
@@ -312,82 +315,82 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets cardOrientation
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsCardOrientation
      */
-    public function getStartDate()
+    public function getCardOrientation()
     {
-        return $this->container['startDate'];
+        return $this->container['cardOrientation'];
     }
 
     /**
-     * Sets startDate
+     * Sets cardOrientation
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param \Messente\Api\Model\RcsCardOrientation $cardOrientation cardOrientation
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setCardOrientation($cardOrientation)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($cardOrientation)) {
+            throw new \InvalidArgumentException('non-nullable cardOrientation cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        $this->container['cardOrientation'] = $cardOrientation;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets thumbnailImageAlignment
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsImageAlignment
      */
-    public function getEndDate()
+    public function getThumbnailImageAlignment()
     {
-        return $this->container['endDate'];
+        return $this->container['thumbnailImageAlignment'];
     }
 
     /**
-     * Sets endDate
+     * Sets thumbnailImageAlignment
      *
-     * @param \DateTime $endDate End date for the report
+     * @param \Messente\Api\Model\RcsImageAlignment $thumbnailImageAlignment thumbnailImageAlignment
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setThumbnailImageAlignment($thumbnailImageAlignment)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($thumbnailImageAlignment)) {
+            throw new \InvalidArgumentException('non-nullable thumbnailImageAlignment cannot be null');
         }
-        $this->container['endDate'] = $endDate;
+        $this->container['thumbnailImageAlignment'] = $thumbnailImageAlignment;
 
         return $this;
     }
 
     /**
-     * Gets messageTypes
+     * Gets cardContent
      *
-     * @return string[]|null
+     * @return \Messente\Api\Model\RcsCardContent
      */
-    public function getMessageTypes()
+    public function getCardContent()
     {
-        return $this->container['messageTypes'];
+        return $this->container['cardContent'];
     }
 
     /**
-     * Sets messageTypes
+     * Sets cardContent
      *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
+     * @param \Messente\Api\Model\RcsCardContent $cardContent cardContent
      *
      * @return self
      */
-    public function setMessageTypes($messageTypes)
+    public function setCardContent($cardContent)
     {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if (is_null($cardContent)) {
+            throw new \InvalidArgumentException('non-nullable cardContent cannot be null');
         }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['cardContent'] = $cardContent;
 
         return $this;
     }
