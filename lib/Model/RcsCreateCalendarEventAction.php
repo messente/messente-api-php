@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsCreateCalendarEventAction
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsCreateCalendarEventAction Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description Action to create a calendar event.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsCreateCalendarEventAction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsCreateCalendarEventAction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'startTime' => 'string',
+        'endTime' => 'string',
+        'title' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -72,9 +73,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'startTime' => null,
+        'endTime' => null,
+        'title' => null,
+        'description' => null
     ];
 
     /**
@@ -83,9 +85,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'startTime' => false,
+        'endTime' => false,
+        'title' => false,
+        'description' => false
     ];
 
     /**
@@ -174,9 +177,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'startTime' => 'start_time',
+        'endTime' => 'end_time',
+        'title' => 'title',
+        'description' => 'description'
     ];
 
     /**
@@ -185,9 +189,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime',
+        'title' => 'setTitle',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -196,9 +201,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime',
+        'title' => 'getTitle',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -258,9 +264,10 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('startTime', $data ?? [], null);
+        $this->setIfExists('endTime', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
     }
 
     /**
@@ -290,12 +297,26 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if ($this->container['startTime'] === null) {
+            $invalidProperties[] = "'startTime' can't be null";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ($this->container['endTime'] === null) {
+            $invalidProperties[] = "'endTime' can't be null";
         }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ((mb_strlen($this->container['title']) > 100)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 100.";
+        }
+
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ((mb_strlen($this->container['description']) > 500)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 500.";
+        }
+
         return $invalidProperties;
     }
 
@@ -312,82 +333,117 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets startTime
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getStartDate()
+    public function getStartTime()
     {
-        return $this->container['startDate'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets startDate
+     * Sets startTime
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param string $startTime The start time of the event.
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setStartTime($startTime)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($startTime)) {
+            throw new \InvalidArgumentException('non-nullable startTime cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets endTime
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getEndDate()
+    public function getEndTime()
     {
-        return $this->container['endDate'];
+        return $this->container['endTime'];
     }
 
     /**
-     * Sets endDate
+     * Sets endTime
      *
-     * @param \DateTime $endDate End date for the report
+     * @param string $endTime The end time of the event.
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setEndTime($endTime)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($endTime)) {
+            throw new \InvalidArgumentException('non-nullable endTime cannot be null');
         }
-        $this->container['endDate'] = $endDate;
+        $this->container['endTime'] = $endTime;
 
         return $this;
     }
 
     /**
-     * Gets messageTypes
+     * Gets title
      *
-     * @return string[]|null
+     * @return string
      */
-    public function getMessageTypes()
+    public function getTitle()
     {
-        return $this->container['messageTypes'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets messageTypes
+     * Sets title
      *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
+     * @param string $title The title of the event.
      *
      * @return self
      */
-    public function setMessageTypes($messageTypes)
+    public function setTitle($title)
     {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['messageTypes'] = $messageTypes;
+        if ((mb_strlen($title) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $title when calling RcsCreateCalendarEventAction., must be smaller than or equal to 100.');
+        }
+
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description The description of the event.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        }
+        if ((mb_strlen($description) > 500)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling RcsCreateCalendarEventAction., must be smaller than or equal to 500.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }

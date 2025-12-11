@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsViewLocationAction
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsViewLocationAction Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description Action to view a location on a map.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsViewLocationAction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsViewLocationAction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'latLong' => '\Messente\Api\Model\RcsLatLng',
+        'label' => 'string',
+        'query' => 'string'
     ];
 
     /**
@@ -72,9 +72,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'latLong' => null,
+        'label' => null,
+        'query' => null
     ];
 
     /**
@@ -83,9 +83,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'latLong' => false,
+        'label' => true,
+        'query' => true
     ];
 
     /**
@@ -174,9 +174,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'latLong' => 'lat_long',
+        'label' => 'label',
+        'query' => 'query'
     ];
 
     /**
@@ -185,9 +185,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'latLong' => 'setLatLong',
+        'label' => 'setLabel',
+        'query' => 'setQuery'
     ];
 
     /**
@@ -196,9 +196,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'latLong' => 'getLatLong',
+        'label' => 'getLabel',
+        'query' => 'getQuery'
     ];
 
     /**
@@ -258,9 +258,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('latLong', $data ?? [], null);
+        $this->setIfExists('label', $data ?? [], null);
+        $this->setIfExists('query', $data ?? [], null);
     }
 
     /**
@@ -290,12 +290,6 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
-        }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -312,82 +306,96 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets latLong
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsLatLng|null
      */
-    public function getStartDate()
+    public function getLatLong()
     {
-        return $this->container['startDate'];
+        return $this->container['latLong'];
     }
 
     /**
-     * Sets startDate
+     * Sets latLong
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param \Messente\Api\Model\RcsLatLng|null $latLong latLong
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setLatLong($latLong)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($latLong)) {
+            throw new \InvalidArgumentException('non-nullable latLong cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        $this->container['latLong'] = $latLong;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets label
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getEndDate()
+    public function getLabel()
     {
-        return $this->container['endDate'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets endDate
+     * Sets label
      *
-     * @param \DateTime $endDate End date for the report
+     * @param string|null $label The label of the pin dropped at latLong.
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setLabel($label)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($label)) {
+            array_push($this->openAPINullablesSetToNull, 'label');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('label', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['endDate'] = $endDate;
+        $this->container['label'] = $label;
 
         return $this;
     }
 
     /**
-     * Gets messageTypes
+     * Gets query
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getMessageTypes()
+    public function getQuery()
     {
-        return $this->container['messageTypes'];
+        return $this->container['query'];
     }
 
     /**
-     * Sets messageTypes
+     * Sets query
      *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
+     * @param string|null $query (Optional, only supported on Android Messages clients) Instead of specifying a latLong (and optionally, a label), the agent can specify a query string. For default map apps that support search functionality (including Google Maps), tapping this suggested action results in a location search centered around the user's current location.              For instance, setting the query string to \"Growing Tree Bank\" will show all Growing Tree Bank locations in the user's vicinity. Setting the query string to \"1600 Amphitheater Parkway, Mountain View, CA 94043\" will select that specific address, regardless of the user's location.
      *
      * @return self
      */
-    public function setMessageTypes($messageTypes)
+    public function setQuery($query)
     {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if (is_null($query)) {
+            array_push($this->openAPINullablesSetToNull, 'query');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('query', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['query'] = $query;
 
         return $this;
     }
