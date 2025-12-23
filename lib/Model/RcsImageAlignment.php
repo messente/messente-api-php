@@ -1,6 +1,6 @@
 <?php
 /**
- * Channel
+ * RcsImageAlignment
  *
  * PHP version 7.4
  *
@@ -31,26 +31,22 @@ namespace Messente\Api\Model;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * Channel Class Doc Comment
+ * RcsImageAlignment Class Doc Comment
  *
  * @category Class
- * @description Defines the delivery channel
+ * @description RCS image alignment
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Channel
+class RcsImageAlignment
 {
     /**
      * Possible values of this enum
      */
-    public const SMS = 'sms';
+    public const LEFT = 'LEFT';
 
-    public const VIBER = 'viber';
-
-    public const WHATSAPP = 'whatsapp';
-
-    public const RCS = 'rcs';
+    public const RIGHT = 'RIGHT';
 
     /**
      * Gets allowable values of the enum
@@ -59,10 +55,8 @@ class Channel
     public static function getAllowableEnumValues()
     {
         return [
-            self::SMS,
-            self::VIBER,
-            self::WHATSAPP,
-            self::RCS
+            self::LEFT,
+            self::RIGHT
         ];
     }
 }

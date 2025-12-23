@@ -1,6 +1,6 @@
 <?php
 /**
- * Telegram
+ * RcsSuggestedAction
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * Telegram Class Doc Comment
+ * RcsSuggestedAction Class Doc Comment
  *
  * @category Class
- * @description Telegram message content
+ * @description RCS suggested action.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsSuggestedAction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Telegram';
+    protected static $openAPIModelName = 'RcsSuggestedAction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +59,14 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sender' => 'string',
-        'validity' => 'int',
         'text' => 'string',
-        'imageUrl' => 'string',
-        'documentUrl' => 'string',
-        'audioUrl' => 'string',
-        'channel' => 'string'
+        'postbackData' => 'string',
+        'fallbackUrl' => 'string',
+        'dialAction' => '\Messente\Api\Model\RcsDialAction',
+        'viewLocationAction' => '\Messente\Api\Model\RcsViewLocationAction',
+        'createCalendarEventAction' => '\Messente\Api\Model\RcsCreateCalendarEventAction',
+        'openUrlAction' => '\Messente\Api\Model\RcsOpenUrlAction',
+        'shareLocationAction' => 'object'
     ];
 
     /**
@@ -76,13 +77,14 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'sender' => null,
-        'validity' => null,
         'text' => null,
-        'imageUrl' => null,
-        'documentUrl' => null,
-        'audioUrl' => null,
-        'channel' => null
+        'postbackData' => null,
+        'fallbackUrl' => null,
+        'dialAction' => null,
+        'viewLocationAction' => null,
+        'createCalendarEventAction' => null,
+        'openUrlAction' => null,
+        'shareLocationAction' => null
     ];
 
     /**
@@ -91,13 +93,14 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'sender' => false,
-        'validity' => false,
         'text' => false,
-        'imageUrl' => false,
-        'documentUrl' => false,
-        'audioUrl' => false,
-        'channel' => false
+        'postbackData' => false,
+        'fallbackUrl' => true,
+        'dialAction' => false,
+        'viewLocationAction' => false,
+        'createCalendarEventAction' => false,
+        'openUrlAction' => false,
+        'shareLocationAction' => false
     ];
 
     /**
@@ -186,13 +189,14 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'sender' => 'sender',
-        'validity' => 'validity',
         'text' => 'text',
-        'imageUrl' => 'image_url',
-        'documentUrl' => 'document_url',
-        'audioUrl' => 'audio_url',
-        'channel' => 'channel'
+        'postbackData' => 'postback_data',
+        'fallbackUrl' => 'fallback_url',
+        'dialAction' => 'dial_action',
+        'viewLocationAction' => 'view_location_action',
+        'createCalendarEventAction' => 'create_calendar_event_action',
+        'openUrlAction' => 'open_url_action',
+        'shareLocationAction' => 'share_location_action'
     ];
 
     /**
@@ -201,13 +205,14 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'sender' => 'setSender',
-        'validity' => 'setValidity',
         'text' => 'setText',
-        'imageUrl' => 'setImageUrl',
-        'documentUrl' => 'setDocumentUrl',
-        'audioUrl' => 'setAudioUrl',
-        'channel' => 'setChannel'
+        'postbackData' => 'setPostbackData',
+        'fallbackUrl' => 'setFallbackUrl',
+        'dialAction' => 'setDialAction',
+        'viewLocationAction' => 'setViewLocationAction',
+        'createCalendarEventAction' => 'setCreateCalendarEventAction',
+        'openUrlAction' => 'setOpenUrlAction',
+        'shareLocationAction' => 'setShareLocationAction'
     ];
 
     /**
@@ -216,13 +221,14 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'sender' => 'getSender',
-        'validity' => 'getValidity',
         'text' => 'getText',
-        'imageUrl' => 'getImageUrl',
-        'documentUrl' => 'getDocumentUrl',
-        'audioUrl' => 'getAudioUrl',
-        'channel' => 'getChannel'
+        'postbackData' => 'getPostbackData',
+        'fallbackUrl' => 'getFallbackUrl',
+        'dialAction' => 'getDialAction',
+        'viewLocationAction' => 'getViewLocationAction',
+        'createCalendarEventAction' => 'getCreateCalendarEventAction',
+        'openUrlAction' => 'getOpenUrlAction',
+        'shareLocationAction' => 'getShareLocationAction'
     ];
 
     /**
@@ -266,19 +272,6 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const CHANNEL_TELEGRAM = 'telegram';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getChannelAllowableValues()
-    {
-        return [
-            self::CHANNEL_TELEGRAM,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -295,13 +288,14 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('sender', $data ?? [], null);
-        $this->setIfExists('validity', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('imageUrl', $data ?? [], null);
-        $this->setIfExists('documentUrl', $data ?? [], null);
-        $this->setIfExists('audioUrl', $data ?? [], null);
-        $this->setIfExists('channel', $data ?? [], 'telegram');
+        $this->setIfExists('postbackData', $data ?? [], null);
+        $this->setIfExists('fallbackUrl', $data ?? [], null);
+        $this->setIfExists('dialAction', $data ?? [], null);
+        $this->setIfExists('viewLocationAction', $data ?? [], null);
+        $this->setIfExists('createCalendarEventAction', $data ?? [], null);
+        $this->setIfExists('openUrlAction', $data ?? [], null);
+        $this->setIfExists('shareLocationAction', $data ?? [], null);
     }
 
     /**
@@ -331,13 +325,22 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'channel', must be one of '%s'",
-                $this->container['channel'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
+        }
+        if ((mb_strlen($this->container['text']) > 25)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 25.";
+        }
+
+        if ($this->container['postbackData'] === null) {
+            $invalidProperties[] = "'postbackData' can't be null";
+        }
+        if ((mb_strlen($this->container['postbackData']) > 2048)) {
+            $invalidProperties[] = "invalid value for 'postbackData', the character length must be smaller than or equal to 2048.";
+        }
+
+        if (!is_null($this->container['fallbackUrl']) && (mb_strlen($this->container['fallbackUrl']) > 2048)) {
+            $invalidProperties[] = "invalid value for 'fallbackUrl', the character length must be smaller than or equal to 2048.";
         }
 
         return $invalidProperties;
@@ -356,63 +359,9 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets sender
-     *
-     * @return string|null
-     */
-    public function getSender()
-    {
-        return $this->container['sender'];
-    }
-
-    /**
-     * Sets sender
-     *
-     * @param string|null $sender Phone number or alphanumeric sender name
-     *
-     * @return self
-     */
-    public function setSender($sender)
-    {
-        if (is_null($sender)) {
-            throw new \InvalidArgumentException('non-nullable sender cannot be null');
-        }
-        $this->container['sender'] = $sender;
-
-        return $this;
-    }
-
-    /**
-     * Gets validity
-     *
-     * @return int|null
-     */
-    public function getValidity()
-    {
-        return $this->container['validity'];
-    }
-
-    /**
-     * Sets validity
-     *
-     * @param int|null $validity After how many minutes this channel is considered as failed and the next channel is attempted
-     *
-     * @return self
-     */
-    public function setValidity($validity)
-    {
-        if (is_null($validity)) {
-            throw new \InvalidArgumentException('non-nullable validity cannot be null');
-        }
-        $this->container['validity'] = $validity;
-
-        return $this;
-    }
-
-    /**
      * Gets text
      *
-     * @return string|null
+     * @return string
      */
     public function getText()
     {
@@ -422,7 +371,7 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets text
      *
-     * @param string|null $text Plaintext content for Telegram
+     * @param string $text The text of the suggested action. Exactly one of the action fields (types) must be provided.
      *
      * @return self
      */
@@ -431,125 +380,215 @@ class Telegram implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($text)) {
             throw new \InvalidArgumentException('non-nullable text cannot be null');
         }
+        if ((mb_strlen($text) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling RcsSuggestedAction., must be smaller than or equal to 25.');
+        }
+
         $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets imageUrl
+     * Gets postbackData
      *
-     * @return string|null
+     * @return string
      */
-    public function getImageUrl()
+    public function getPostbackData()
     {
-        return $this->container['imageUrl'];
+        return $this->container['postbackData'];
     }
 
     /**
-     * Sets imageUrl
+     * Sets postbackData
      *
-     * @param string|null $imageUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"audio_url\"
+     * @param string $postbackData The postback data associated with the suggested action. This is sent back to the sender when the user selects the suggested action.
      *
      * @return self
      */
-    public function setImageUrl($imageUrl)
+    public function setPostbackData($postbackData)
     {
-        if (is_null($imageUrl)) {
-            throw new \InvalidArgumentException('non-nullable imageUrl cannot be null');
+        if (is_null($postbackData)) {
+            throw new \InvalidArgumentException('non-nullable postbackData cannot be null');
         }
-        $this->container['imageUrl'] = $imageUrl;
+        if ((mb_strlen($postbackData) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for $postbackData when calling RcsSuggestedAction., must be smaller than or equal to 2048.');
+        }
+
+        $this->container['postbackData'] = $postbackData;
 
         return $this;
     }
 
     /**
-     * Gets documentUrl
+     * Gets fallbackUrl
      *
      * @return string|null
      */
-    public function getDocumentUrl()
+    public function getFallbackUrl()
     {
-        return $this->container['documentUrl'];
+        return $this->container['fallbackUrl'];
     }
 
     /**
-     * Sets documentUrl
+     * Sets fallbackUrl
      *
-     * @param string|null $documentUrl URL for the embedded image. Mutually exclusive with \"audio_url\" and \"image_url\"
+     * @param string|null $fallbackUrl The fallback URL to open if the suggested action is not supported.
      *
      * @return self
      */
-    public function setDocumentUrl($documentUrl)
+    public function setFallbackUrl($fallbackUrl)
     {
-        if (is_null($documentUrl)) {
-            throw new \InvalidArgumentException('non-nullable documentUrl cannot be null');
+        if (is_null($fallbackUrl)) {
+            array_push($this->openAPINullablesSetToNull, 'fallbackUrl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fallbackUrl', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['documentUrl'] = $documentUrl;
+        if (!is_null($fallbackUrl) && (mb_strlen($fallbackUrl) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for $fallbackUrl when calling RcsSuggestedAction., must be smaller than or equal to 2048.');
+        }
+
+        $this->container['fallbackUrl'] = $fallbackUrl;
 
         return $this;
     }
 
     /**
-     * Gets audioUrl
+     * Gets dialAction
      *
-     * @return string|null
+     * @return \Messente\Api\Model\RcsDialAction|null
      */
-    public function getAudioUrl()
+    public function getDialAction()
     {
-        return $this->container['audioUrl'];
+        return $this->container['dialAction'];
     }
 
     /**
-     * Sets audioUrl
+     * Sets dialAction
      *
-     * @param string|null $audioUrl URL for the embedded image. Mutually exclusive with \"document_url\" and \"image_url\"
+     * @param \Messente\Api\Model\RcsDialAction|null $dialAction dialAction
      *
      * @return self
      */
-    public function setAudioUrl($audioUrl)
+    public function setDialAction($dialAction)
     {
-        if (is_null($audioUrl)) {
-            throw new \InvalidArgumentException('non-nullable audioUrl cannot be null');
+        if (is_null($dialAction)) {
+            throw new \InvalidArgumentException('non-nullable dialAction cannot be null');
         }
-        $this->container['audioUrl'] = $audioUrl;
+        $this->container['dialAction'] = $dialAction;
 
         return $this;
     }
 
     /**
-     * Gets channel
+     * Gets viewLocationAction
      *
-     * @return string|null
+     * @return \Messente\Api\Model\RcsViewLocationAction|null
      */
-    public function getChannel()
+    public function getViewLocationAction()
     {
-        return $this->container['channel'];
+        return $this->container['viewLocationAction'];
     }
 
     /**
-     * Sets channel
+     * Sets viewLocationAction
      *
-     * @param string|null $channel The channel used to deliver the message
+     * @param \Messente\Api\Model\RcsViewLocationAction|null $viewLocationAction viewLocationAction
      *
      * @return self
      */
-    public function setChannel($channel)
+    public function setViewLocationAction($viewLocationAction)
     {
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        if (is_null($viewLocationAction)) {
+            throw new \InvalidArgumentException('non-nullable viewLocationAction cannot be null');
         }
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!in_array($channel, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'channel', must be one of '%s'",
-                    $channel,
-                    implode("', '", $allowedValues)
-                )
-            );
+        $this->container['viewLocationAction'] = $viewLocationAction;
+
+        return $this;
+    }
+
+    /**
+     * Gets createCalendarEventAction
+     *
+     * @return \Messente\Api\Model\RcsCreateCalendarEventAction|null
+     */
+    public function getCreateCalendarEventAction()
+    {
+        return $this->container['createCalendarEventAction'];
+    }
+
+    /**
+     * Sets createCalendarEventAction
+     *
+     * @param \Messente\Api\Model\RcsCreateCalendarEventAction|null $createCalendarEventAction createCalendarEventAction
+     *
+     * @return self
+     */
+    public function setCreateCalendarEventAction($createCalendarEventAction)
+    {
+        if (is_null($createCalendarEventAction)) {
+            throw new \InvalidArgumentException('non-nullable createCalendarEventAction cannot be null');
         }
-        $this->container['channel'] = $channel;
+        $this->container['createCalendarEventAction'] = $createCalendarEventAction;
+
+        return $this;
+    }
+
+    /**
+     * Gets openUrlAction
+     *
+     * @return \Messente\Api\Model\RcsOpenUrlAction|null
+     */
+    public function getOpenUrlAction()
+    {
+        return $this->container['openUrlAction'];
+    }
+
+    /**
+     * Sets openUrlAction
+     *
+     * @param \Messente\Api\Model\RcsOpenUrlAction|null $openUrlAction openUrlAction
+     *
+     * @return self
+     */
+    public function setOpenUrlAction($openUrlAction)
+    {
+        if (is_null($openUrlAction)) {
+            throw new \InvalidArgumentException('non-nullable openUrlAction cannot be null');
+        }
+        $this->container['openUrlAction'] = $openUrlAction;
+
+        return $this;
+    }
+
+    /**
+     * Gets shareLocationAction
+     *
+     * @return object|null
+     */
+    public function getShareLocationAction()
+    {
+        return $this->container['shareLocationAction'];
+    }
+
+    /**
+     * Sets shareLocationAction
+     *
+     * @param object|null $shareLocationAction This action does not have any properties. It simply triggers the share location action.
+     *
+     * @return self
+     */
+    public function setShareLocationAction($shareLocationAction)
+    {
+        if (is_null($shareLocationAction)) {
+            throw new \InvalidArgumentException('non-nullable shareLocationAction cannot be null');
+        }
+        $this->container['shareLocationAction'] = $shareLocationAction;
 
         return $this;
     }

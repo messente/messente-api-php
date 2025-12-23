@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsContentInfo
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsContentInfo Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description RCS content info object.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsContentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsContentInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'fileUrl' => 'string',
+        'thumbnailUrl' => 'string',
+        'forceRefresh' => 'bool'
     ];
 
     /**
@@ -72,9 +72,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'fileUrl' => null,
+        'thumbnailUrl' => null,
+        'forceRefresh' => null
     ];
 
     /**
@@ -83,9 +83,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'fileUrl' => false,
+        'thumbnailUrl' => true,
+        'forceRefresh' => false
     ];
 
     /**
@@ -174,9 +174,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'fileUrl' => 'file_url',
+        'thumbnailUrl' => 'thumbnail_url',
+        'forceRefresh' => 'force_refresh'
     ];
 
     /**
@@ -185,9 +185,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'fileUrl' => 'setFileUrl',
+        'thumbnailUrl' => 'setThumbnailUrl',
+        'forceRefresh' => 'setForceRefresh'
     ];
 
     /**
@@ -196,9 +196,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'fileUrl' => 'getFileUrl',
+        'thumbnailUrl' => 'getThumbnailUrl',
+        'forceRefresh' => 'getForceRefresh'
     ];
 
     /**
@@ -258,9 +258,9 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('fileUrl', $data ?? [], null);
+        $this->setIfExists('thumbnailUrl', $data ?? [], null);
+        $this->setIfExists('forceRefresh', $data ?? [], null);
     }
 
     /**
@@ -290,11 +290,11 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if ($this->container['fileUrl'] === null) {
+            $invalidProperties[] = "'fileUrl' can't be null";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ($this->container['forceRefresh'] === null) {
+            $invalidProperties[] = "'forceRefresh' can't be null";
         }
         return $invalidProperties;
     }
@@ -312,82 +312,89 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets fileUrl
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getStartDate()
+    public function getFileUrl()
     {
-        return $this->container['startDate'];
+        return $this->container['fileUrl'];
     }
 
     /**
-     * Sets startDate
+     * Sets fileUrl
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param string $fileUrl Required file URL
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setFileUrl($fileUrl)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($fileUrl)) {
+            throw new \InvalidArgumentException('non-nullable fileUrl cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        $this->container['fileUrl'] = $fileUrl;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets thumbnailUrl
      *
-     * @return \DateTime
+     * @return string|null
      */
-    public function getEndDate()
+    public function getThumbnailUrl()
     {
-        return $this->container['endDate'];
+        return $this->container['thumbnailUrl'];
     }
 
     /**
-     * Sets endDate
+     * Sets thumbnailUrl
      *
-     * @param \DateTime $endDate End date for the report
+     * @param string|null $thumbnailUrl Optional thumbnail URL
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setThumbnailUrl($thumbnailUrl)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($thumbnailUrl)) {
+            array_push($this->openAPINullablesSetToNull, 'thumbnailUrl');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('thumbnailUrl', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['endDate'] = $endDate;
+        $this->container['thumbnailUrl'] = $thumbnailUrl;
 
         return $this;
     }
 
     /**
-     * Gets messageTypes
+     * Gets forceRefresh
      *
-     * @return string[]|null
+     * @return bool
      */
-    public function getMessageTypes()
+    public function getForceRefresh()
     {
-        return $this->container['messageTypes'];
+        return $this->container['forceRefresh'];
     }
 
     /**
-     * Sets messageTypes
+     * Sets forceRefresh
      *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
+     * @param bool $forceRefresh Force refresh the content
      *
      * @return self
      */
-    public function setMessageTypes($messageTypes)
+    public function setForceRefresh($forceRefresh)
     {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if (is_null($forceRefresh)) {
+            throw new \InvalidArgumentException('non-nullable forceRefresh cannot be null');
         }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['forceRefresh'] = $forceRefresh;
 
         return $this;
     }
