@@ -304,14 +304,8 @@ class RcsOpenUrlAction implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'url', the character length must be smaller than or equal to 2048.";
         }
 
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
         if ($this->container['application'] === null) {
             $invalidProperties[] = "'application' can't be null";
-        }
-        if ($this->container['webviewViewMode'] === null) {
-            $invalidProperties[] = "'webviewViewMode' can't be null";
         }
         return $invalidProperties;
     }
@@ -362,7 +356,7 @@ class RcsOpenUrlAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -372,7 +366,7 @@ class RcsOpenUrlAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string $description A description of the URL being opened.
+     * @param string|null $description A description of the URL being opened.
      *
      * @return self
      */
@@ -416,7 +410,7 @@ class RcsOpenUrlAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets webviewViewMode
      *
-     * @return \Messente\Api\Model\RcsWebviewViewMode
+     * @return \Messente\Api\Model\RcsWebviewViewMode|null
      */
     public function getWebviewViewMode()
     {
@@ -426,7 +420,7 @@ class RcsOpenUrlAction implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets webviewViewMode
      *
-     * @param \Messente\Api\Model\RcsWebviewViewMode $webviewViewMode webviewViewMode
+     * @param \Messente\Api\Model\RcsWebviewViewMode|null $webviewViewMode webviewViewMode
      *
      * @return self
      */
