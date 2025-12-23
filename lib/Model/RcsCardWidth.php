@@ -1,6 +1,6 @@
 <?php
 /**
- * Channel
+ * RcsCardWidth
  *
  * PHP version 7.4
  *
@@ -31,26 +31,22 @@ namespace Messente\Api\Model;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * Channel Class Doc Comment
+ * RcsCardWidth Class Doc Comment
  *
  * @category Class
- * @description Defines the delivery channel
+ * @description RCS card width
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Channel
+class RcsCardWidth
 {
     /**
      * Possible values of this enum
      */
-    public const SMS = 'sms';
+    public const SMALL = 'SMALL';
 
-    public const VIBER = 'viber';
-
-    public const WHATSAPP = 'whatsapp';
-
-    public const RCS = 'rcs';
+    public const MEDIUM = 'MEDIUM';
 
     /**
      * Gets allowable values of the enum
@@ -59,10 +55,8 @@ class Channel
     public static function getAllowableEnumValues()
     {
         return [
-            self::SMS,
-            self::VIBER,
-            self::WHATSAPP,
-            self::RCS
+            self::SMALL,
+            self::MEDIUM
         ];
     }
 }
