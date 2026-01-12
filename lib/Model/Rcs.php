@@ -1,6 +1,6 @@
 <?php
 /**
- * OmnimessageMessagesInner
+ * Rcs
  *
  * PHP version 7.4
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * OmnimessageMessagesInner Class Doc Comment
+ * Rcs Class Doc Comment
  *
  * @category Class
+ * @description RCS message object. Exactly one of &#39;text&#39;, &#39;content_info&#39; or &#39;rich_card&#39; must be provided.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class Rcs implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Omnimessage_messages_inner';
+    protected static $openAPIModelName = 'Rcs';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,22 +59,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
+        'channel' => 'string',
         'sender' => 'string',
         'validity' => 'int',
         'ttl' => 'int',
         'text' => 'string',
-        'imageUrl' => 'string',
-        'buttonUrl' => 'string',
-        'buttonText' => 'string',
-        'channel' => 'string',
-        'video' => '\Messente\Api\Model\WhatsAppVideo',
-        'autoconvert' => 'string',
-        'udh' => 'string',
-        'template' => '\Messente\Api\Model\WhatsAppTemplate',
-        'image' => '\Messente\Api\Model\WhatsAppImage',
-        'audio' => '\Messente\Api\Model\WhatsAppAudio',
-        'document' => '\Messente\Api\Model\WhatsAppDocument',
-        'sticker' => '\Messente\Api\Model\WhatsAppSticker',
         'suggestions' => '\Messente\Api\Model\RcsSuggestion[]',
         'richCard' => '\Messente\Api\Model\RcsRichCard',
         'contentInfo' => '\Messente\Api\Model\RcsContentInfo'
@@ -87,22 +77,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'channel' => null,
         'sender' => null,
         'validity' => null,
         'ttl' => null,
         'text' => null,
-        'imageUrl' => null,
-        'buttonUrl' => null,
-        'buttonText' => null,
-        'channel' => null,
-        'video' => null,
-        'autoconvert' => null,
-        'udh' => null,
-        'template' => null,
-        'image' => null,
-        'audio' => null,
-        'document' => null,
-        'sticker' => null,
         'suggestions' => null,
         'richCard' => null,
         'contentInfo' => null
@@ -114,22 +93,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'channel' => false,
         'sender' => false,
         'validity' => false,
         'ttl' => false,
         'text' => false,
-        'imageUrl' => false,
-        'buttonUrl' => false,
-        'buttonText' => false,
-        'channel' => false,
-        'video' => false,
-        'autoconvert' => false,
-        'udh' => false,
-        'template' => false,
-        'image' => false,
-        'audio' => false,
-        'document' => false,
-        'sticker' => false,
         'suggestions' => false,
         'richCard' => false,
         'contentInfo' => false
@@ -221,22 +189,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
+        'channel' => 'channel',
         'sender' => 'sender',
         'validity' => 'validity',
         'ttl' => 'ttl',
         'text' => 'text',
-        'imageUrl' => 'image_url',
-        'buttonUrl' => 'button_url',
-        'buttonText' => 'button_text',
-        'channel' => 'channel',
-        'video' => 'video',
-        'autoconvert' => 'autoconvert',
-        'udh' => 'udh',
-        'template' => 'template',
-        'image' => 'image',
-        'audio' => 'audio',
-        'document' => 'document',
-        'sticker' => 'sticker',
         'suggestions' => 'suggestions',
         'richCard' => 'rich_card',
         'contentInfo' => 'content_info'
@@ -248,22 +205,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
+        'channel' => 'setChannel',
         'sender' => 'setSender',
         'validity' => 'setValidity',
         'ttl' => 'setTtl',
         'text' => 'setText',
-        'imageUrl' => 'setImageUrl',
-        'buttonUrl' => 'setButtonUrl',
-        'buttonText' => 'setButtonText',
-        'channel' => 'setChannel',
-        'video' => 'setVideo',
-        'autoconvert' => 'setAutoconvert',
-        'udh' => 'setUdh',
-        'template' => 'setTemplate',
-        'image' => 'setImage',
-        'audio' => 'setAudio',
-        'document' => 'setDocument',
-        'sticker' => 'setSticker',
         'suggestions' => 'setSuggestions',
         'richCard' => 'setRichCard',
         'contentInfo' => 'setContentInfo'
@@ -275,22 +221,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
+        'channel' => 'getChannel',
         'sender' => 'getSender',
         'validity' => 'getValidity',
         'ttl' => 'getTtl',
         'text' => 'getText',
-        'imageUrl' => 'getImageUrl',
-        'buttonUrl' => 'getButtonUrl',
-        'buttonText' => 'getButtonText',
-        'channel' => 'getChannel',
-        'video' => 'getVideo',
-        'autoconvert' => 'getAutoconvert',
-        'udh' => 'getUdh',
-        'template' => 'getTemplate',
-        'image' => 'getImage',
-        'audio' => 'getAudio',
-        'document' => 'getDocument',
-        'sticker' => 'getSticker',
         'suggestions' => 'getSuggestions',
         'richCard' => 'getRichCard',
         'contentInfo' => 'getContentInfo'
@@ -338,9 +273,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     public const CHANNEL_RCS = 'rcs';
-    public const AUTOCONVERT_FULL = 'full';
-    public const AUTOCONVERT_ON = 'on';
-    public const AUTOCONVERT_OFF = 'off';
 
     /**
      * Gets allowable values of the enum
@@ -351,20 +283,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return [
             self::CHANNEL_RCS,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getAutoconvertAllowableValues()
-    {
-        return [
-            self::AUTOCONVERT_FULL,
-            self::AUTOCONVERT_ON,
-            self::AUTOCONVERT_OFF,
         ];
     }
 
@@ -383,22 +301,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('channel', $data ?? [], 'rcs');
         $this->setIfExists('sender', $data ?? [], null);
         $this->setIfExists('validity', $data ?? [], null);
         $this->setIfExists('ttl', $data ?? [], null);
         $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('imageUrl', $data ?? [], null);
-        $this->setIfExists('buttonUrl', $data ?? [], null);
-        $this->setIfExists('buttonText', $data ?? [], null);
-        $this->setIfExists('channel', $data ?? [], 'rcs');
-        $this->setIfExists('video', $data ?? [], null);
-        $this->setIfExists('autoconvert', $data ?? [], null);
-        $this->setIfExists('udh', $data ?? [], null);
-        $this->setIfExists('template', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
-        $this->setIfExists('audio', $data ?? [], null);
-        $this->setIfExists('document', $data ?? [], null);
-        $this->setIfExists('sticker', $data ?? [], null);
         $this->setIfExists('suggestions', $data ?? [], null);
         $this->setIfExists('richCard', $data ?? [], null);
         $this->setIfExists('contentInfo', $data ?? [], null);
@@ -431,16 +338,6 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['sender'] === null) {
-            $invalidProperties[] = "'sender' can't be null";
-        }
-        if ($this->container['text'] === null) {
-            $invalidProperties[] = "'text' can't be null";
-        }
-        if ((mb_strlen($this->container['text']) > 3072)) {
-            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 3072.";
-        }
-
         $allowedValues = $this->getChannelAllowableValues();
         if (!is_null($this->container['channel']) && !in_array($this->container['channel'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -450,13 +347,11 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
             );
         }
 
-        $allowedValues = $this->getAutoconvertAllowableValues();
-        if (!is_null($this->container['autoconvert']) && !in_array($this->container['autoconvert'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'autoconvert', must be one of '%s'",
-                $this->container['autoconvert'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['sender'] === null) {
+            $invalidProperties[] = "'sender' can't be null";
+        }
+        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) > 3072)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 3072.";
         }
 
         if (!is_null($this->container['suggestions']) && (count($this->container['suggestions']) > 11)) {
@@ -477,6 +372,43 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets channel
+     *
+     * @return string|null
+     */
+    public function getChannel()
+    {
+        return $this->container['channel'];
+    }
+
+    /**
+     * Sets channel
+     *
+     * @param string|null $channel The channel used to deliver the message
+     *
+     * @return self
+     */
+    public function setChannel($channel)
+    {
+        if (is_null($channel)) {
+            throw new \InvalidArgumentException('non-nullable channel cannot be null');
+        }
+        $allowedValues = $this->getChannelAllowableValues();
+        if (!in_array($channel, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'channel', must be one of '%s'",
+                    $channel,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['channel'] = $channel;
+
+        return $this;
+    }
 
     /**
      * Gets sender
@@ -562,7 +494,7 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets text
      *
-     * @return string
+     * @return string|null
      */
     public function getText()
     {
@@ -572,7 +504,7 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets text
      *
-     * @param string $text Text content of the RCS message
+     * @param string|null $text Text content of the RCS message
      *
      * @return self
      */
@@ -582,354 +514,10 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
             throw new \InvalidArgumentException('non-nullable text cannot be null');
         }
         if ((mb_strlen($text) > 3072)) {
-            throw new \InvalidArgumentException('invalid length for $text when calling OmnimessageMessagesInner., must be smaller than or equal to 3072.');
+            throw new \InvalidArgumentException('invalid length for $text when calling Rcs., must be smaller than or equal to 3072.');
         }
 
         $this->container['text'] = $text;
-
-        return $this;
-    }
-
-    /**
-     * Gets imageUrl
-     *
-     * @return string|null
-     */
-    public function getImageUrl()
-    {
-        return $this->container['imageUrl'];
-    }
-
-    /**
-     * Sets imageUrl
-     *
-     * @param string|null $imageUrl URL for the embedded image    Valid combinations:    1) image_url,    2) text, image_url, button_url, button_text
-     *
-     * @return self
-     */
-    public function setImageUrl($imageUrl)
-    {
-        if (is_null($imageUrl)) {
-            throw new \InvalidArgumentException('non-nullable imageUrl cannot be null');
-        }
-        $this->container['imageUrl'] = $imageUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets buttonUrl
-     *
-     * @return string|null
-     */
-    public function getButtonUrl()
-    {
-        return $this->container['buttonUrl'];
-    }
-
-    /**
-     * Sets buttonUrl
-     *
-     * @param string|null $buttonUrl URL of the button, must be specified along with ''text'', ''button_text'' and ''image_url'' (optional)
-     *
-     * @return self
-     */
-    public function setButtonUrl($buttonUrl)
-    {
-        if (is_null($buttonUrl)) {
-            throw new \InvalidArgumentException('non-nullable buttonUrl cannot be null');
-        }
-        $this->container['buttonUrl'] = $buttonUrl;
-
-        return $this;
-    }
-
-    /**
-     * Gets buttonText
-     *
-     * @return string|null
-     */
-    public function getButtonText()
-    {
-        return $this->container['buttonText'];
-    }
-
-    /**
-     * Sets buttonText
-     *
-     * @param string|null $buttonText Must be specified along with ''text'', ''button_url'', ''button_text'', ''image_url'' (optional)
-     *
-     * @return self
-     */
-    public function setButtonText($buttonText)
-    {
-        if (is_null($buttonText)) {
-            throw new \InvalidArgumentException('non-nullable buttonText cannot be null');
-        }
-        $this->container['buttonText'] = $buttonText;
-
-        return $this;
-    }
-
-    /**
-     * Gets channel
-     *
-     * @return string|null
-     */
-    public function getChannel()
-    {
-        return $this->container['channel'];
-    }
-
-    /**
-     * Sets channel
-     *
-     * @param string|null $channel The channel used to deliver the message
-     *
-     * @return self
-     */
-    public function setChannel($channel)
-    {
-        if (is_null($channel)) {
-            throw new \InvalidArgumentException('non-nullable channel cannot be null');
-        }
-        $allowedValues = $this->getChannelAllowableValues();
-        if (!in_array($channel, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'channel', must be one of '%s'",
-                    $channel,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['channel'] = $channel;
-
-        return $this;
-    }
-
-    /**
-     * Gets video
-     *
-     * @return \Messente\Api\Model\WhatsAppVideo|null
-     */
-    public function getVideo()
-    {
-        return $this->container['video'];
-    }
-
-    /**
-     * Sets video
-     *
-     * @param \Messente\Api\Model\WhatsAppVideo|null $video video
-     *
-     * @return self
-     */
-    public function setVideo($video)
-    {
-        if (is_null($video)) {
-            throw new \InvalidArgumentException('non-nullable video cannot be null');
-        }
-        $this->container['video'] = $video;
-
-        return $this;
-    }
-
-    /**
-     * Gets autoconvert
-     *
-     * @return string|null
-     */
-    public function getAutoconvert()
-    {
-        return $this->container['autoconvert'];
-    }
-
-    /**
-     * Sets autoconvert
-     *
-     * @param string|null $autoconvert Defines how non-GSM characters will be treated:    - \"on\" Use replacement settings from the account's [API Auto Replace settings page](https://dashboard.messente.com/api-settings/auto-replace) (default)   - \"full\" All non GSM 03.38 characters will be replaced with suitable alternatives   - \"off\" Message content is not modified in any way
-     *
-     * @return self
-     */
-    public function setAutoconvert($autoconvert)
-    {
-        if (is_null($autoconvert)) {
-            throw new \InvalidArgumentException('non-nullable autoconvert cannot be null');
-        }
-        $allowedValues = $this->getAutoconvertAllowableValues();
-        if (!in_array($autoconvert, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'autoconvert', must be one of '%s'",
-                    $autoconvert,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['autoconvert'] = $autoconvert;
-
-        return $this;
-    }
-
-    /**
-     * Gets udh
-     *
-     * @return string|null
-     */
-    public function getUdh()
-    {
-        return $this->container['udh'];
-    }
-
-    /**
-     * Sets udh
-     *
-     * @param string|null $udh hex-encoded string containing SMS UDH
-     *
-     * @return self
-     */
-    public function setUdh($udh)
-    {
-        if (is_null($udh)) {
-            throw new \InvalidArgumentException('non-nullable udh cannot be null');
-        }
-        $this->container['udh'] = $udh;
-
-        return $this;
-    }
-
-    /**
-     * Gets template
-     *
-     * @return \Messente\Api\Model\WhatsAppTemplate|null
-     */
-    public function getTemplate()
-    {
-        return $this->container['template'];
-    }
-
-    /**
-     * Sets template
-     *
-     * @param \Messente\Api\Model\WhatsAppTemplate|null $template template
-     *
-     * @return self
-     */
-    public function setTemplate($template)
-    {
-        if (is_null($template)) {
-            throw new \InvalidArgumentException('non-nullable template cannot be null');
-        }
-        $this->container['template'] = $template;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return \Messente\Api\Model\WhatsAppImage|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param \Messente\Api\Model\WhatsAppImage|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        if (is_null($image)) {
-            throw new \InvalidArgumentException('non-nullable image cannot be null');
-        }
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets audio
-     *
-     * @return \Messente\Api\Model\WhatsAppAudio|null
-     */
-    public function getAudio()
-    {
-        return $this->container['audio'];
-    }
-
-    /**
-     * Sets audio
-     *
-     * @param \Messente\Api\Model\WhatsAppAudio|null $audio audio
-     *
-     * @return self
-     */
-    public function setAudio($audio)
-    {
-        if (is_null($audio)) {
-            throw new \InvalidArgumentException('non-nullable audio cannot be null');
-        }
-        $this->container['audio'] = $audio;
-
-        return $this;
-    }
-
-    /**
-     * Gets document
-     *
-     * @return \Messente\Api\Model\WhatsAppDocument|null
-     */
-    public function getDocument()
-    {
-        return $this->container['document'];
-    }
-
-    /**
-     * Sets document
-     *
-     * @param \Messente\Api\Model\WhatsAppDocument|null $document document
-     *
-     * @return self
-     */
-    public function setDocument($document)
-    {
-        if (is_null($document)) {
-            throw new \InvalidArgumentException('non-nullable document cannot be null');
-        }
-        $this->container['document'] = $document;
-
-        return $this;
-    }
-
-    /**
-     * Gets sticker
-     *
-     * @return \Messente\Api\Model\WhatsAppSticker|null
-     */
-    public function getSticker()
-    {
-        return $this->container['sticker'];
-    }
-
-    /**
-     * Sets sticker
-     *
-     * @param \Messente\Api\Model\WhatsAppSticker|null $sticker sticker
-     *
-     * @return self
-     */
-    public function setSticker($sticker)
-    {
-        if (is_null($sticker)) {
-            throw new \InvalidArgumentException('non-nullable sticker cannot be null');
-        }
-        $this->container['sticker'] = $sticker;
 
         return $this;
     }
@@ -958,7 +546,7 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
         }
 
         if ((count($suggestions) > 11)) {
-            throw new \InvalidArgumentException('invalid value for $suggestions when calling OmnimessageMessagesInner., number of items must be less than or equal to 11.');
+            throw new \InvalidArgumentException('invalid value for $suggestions when calling Rcs., number of items must be less than or equal to 11.');
         }
         $this->container['suggestions'] = $suggestions;
 

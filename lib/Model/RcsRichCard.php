@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsRichCard
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsRichCard Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description RCS rich card object. Exactly one of \&quot;standalone_card\&quot; and \&quot;carousel_card\&quot; must be provided
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsRichCard implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsRichCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'standaloneCard' => '\Messente\Api\Model\RcsStandaloneCard',
+        'carouselCard' => '\Messente\Api\Model\RcsCarouselCard'
     ];
 
     /**
@@ -72,9 +71,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'standaloneCard' => null,
+        'carouselCard' => null
     ];
 
     /**
@@ -83,9 +81,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'standaloneCard' => false,
+        'carouselCard' => false
     ];
 
     /**
@@ -174,9 +171,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'standaloneCard' => 'standalone_card',
+        'carouselCard' => 'carousel_card'
     ];
 
     /**
@@ -185,9 +181,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'standaloneCard' => 'setStandaloneCard',
+        'carouselCard' => 'setCarouselCard'
     ];
 
     /**
@@ -196,9 +191,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'standaloneCard' => 'getStandaloneCard',
+        'carouselCard' => 'getCarouselCard'
     ];
 
     /**
@@ -258,9 +252,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('standaloneCard', $data ?? [], null);
+        $this->setIfExists('carouselCard', $data ?? [], null);
     }
 
     /**
@@ -290,12 +283,6 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
-        }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -312,82 +299,55 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets standaloneCard
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsStandaloneCard|null
      */
-    public function getStartDate()
+    public function getStandaloneCard()
     {
-        return $this->container['startDate'];
+        return $this->container['standaloneCard'];
     }
 
     /**
-     * Sets startDate
+     * Sets standaloneCard
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param \Messente\Api\Model\RcsStandaloneCard|null $standaloneCard standaloneCard
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setStandaloneCard($standaloneCard)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($standaloneCard)) {
+            throw new \InvalidArgumentException('non-nullable standaloneCard cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        $this->container['standaloneCard'] = $standaloneCard;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets carouselCard
      *
-     * @return \DateTime
+     * @return \Messente\Api\Model\RcsCarouselCard|null
      */
-    public function getEndDate()
+    public function getCarouselCard()
     {
-        return $this->container['endDate'];
+        return $this->container['carouselCard'];
     }
 
     /**
-     * Sets endDate
+     * Sets carouselCard
      *
-     * @param \DateTime $endDate End date for the report
+     * @param \Messente\Api\Model\RcsCarouselCard|null $carouselCard carouselCard
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setCarouselCard($carouselCard)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($carouselCard)) {
+            throw new \InvalidArgumentException('non-nullable carouselCard cannot be null');
         }
-        $this->container['endDate'] = $endDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets messageTypes
-     *
-     * @return string[]|null
-     */
-    public function getMessageTypes()
-    {
-        return $this->container['messageTypes'];
-    }
-
-    /**
-     * Sets messageTypes
-     *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-     *
-     * @return self
-     */
-    public function setMessageTypes($messageTypes)
-    {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
-        }
-        $this->container['messageTypes'] = $messageTypes;
+        $this->container['carouselCard'] = $carouselCard;
 
         return $this;
     }

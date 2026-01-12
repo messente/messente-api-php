@@ -1,6 +1,6 @@
 <?php
 /**
- * StatisticsReportSettings
+ * RcsSuggestedReply
  *
  * PHP version 7.4
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \Messente\Api\ObjectSerializer;
 
 /**
- * StatisticsReportSettings Class Doc Comment
+ * RcsSuggestedReply Class Doc Comment
  *
  * @category Class
- * @description A container for statistics report settings
+ * @description RCS suggested reply.
  * @package  Messente\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSerializable
+class RcsSuggestedReply implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StatisticsReportSettings';
+    protected static $openAPIModelName = 'RcsSuggestedReply';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'startDate' => '\DateTime',
-        'endDate' => '\DateTime',
-        'messageTypes' => 'string[]'
+        'text' => 'string',
+        'postbackData' => 'string'
     ];
 
     /**
@@ -72,9 +71,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'startDate' => 'date',
-        'endDate' => 'date',
-        'messageTypes' => null
+        'text' => null,
+        'postbackData' => null
     ];
 
     /**
@@ -83,9 +81,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'startDate' => false,
-        'endDate' => false,
-        'messageTypes' => false
+        'text' => false,
+        'postbackData' => false
     ];
 
     /**
@@ -174,9 +171,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'startDate' => 'start_date',
-        'endDate' => 'end_date',
-        'messageTypes' => 'message_types'
+        'text' => 'text',
+        'postbackData' => 'postback_data'
     ];
 
     /**
@@ -185,9 +181,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'startDate' => 'setStartDate',
-        'endDate' => 'setEndDate',
-        'messageTypes' => 'setMessageTypes'
+        'text' => 'setText',
+        'postbackData' => 'setPostbackData'
     ];
 
     /**
@@ -196,9 +191,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'startDate' => 'getStartDate',
-        'endDate' => 'getEndDate',
-        'messageTypes' => 'getMessageTypes'
+        'text' => 'getText',
+        'postbackData' => 'getPostbackData'
     ];
 
     /**
@@ -258,9 +252,8 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('startDate', $data ?? [], null);
-        $this->setIfExists('endDate', $data ?? [], null);
-        $this->setIfExists('messageTypes', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('postbackData', $data ?? [], null);
     }
 
     /**
@@ -290,12 +283,20 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['startDate'] === null) {
-            $invalidProperties[] = "'startDate' can't be null";
+        if ($this->container['text'] === null) {
+            $invalidProperties[] = "'text' can't be null";
         }
-        if ($this->container['endDate'] === null) {
-            $invalidProperties[] = "'endDate' can't be null";
+        if ((mb_strlen($this->container['text']) > 25)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 25.";
         }
+
+        if ($this->container['postbackData'] === null) {
+            $invalidProperties[] = "'postbackData' can't be null";
+        }
+        if ((mb_strlen($this->container['postbackData']) > 2048)) {
+            $invalidProperties[] = "invalid value for 'postbackData', the character length must be smaller than or equal to 2048.";
+        }
+
         return $invalidProperties;
     }
 
@@ -312,82 +313,63 @@ class StatisticsReportSettings implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets startDate
+     * Gets text
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getStartDate()
+    public function getText()
     {
-        return $this->container['startDate'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets startDate
+     * Sets text
      *
-     * @param \DateTime $startDate Start date for the report
+     * @param string $text The text of the suggested reply.
      *
      * @return self
      */
-    public function setStartDate($startDate)
+    public function setText($text)
     {
-        if (is_null($startDate)) {
-            throw new \InvalidArgumentException('non-nullable startDate cannot be null');
+        if (is_null($text)) {
+            throw new \InvalidArgumentException('non-nullable text cannot be null');
         }
-        $this->container['startDate'] = $startDate;
+        if ((mb_strlen($text) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling RcsSuggestedReply., must be smaller than or equal to 25.');
+        }
+
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets endDate
+     * Gets postbackData
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getEndDate()
+    public function getPostbackData()
     {
-        return $this->container['endDate'];
+        return $this->container['postbackData'];
     }
 
     /**
-     * Sets endDate
+     * Sets postbackData
      *
-     * @param \DateTime $endDate End date for the report
+     * @param string $postbackData The postback data associated with the suggested reply. This is sent back to the sender when the user selects the suggested reply.
      *
      * @return self
      */
-    public function setEndDate($endDate)
+    public function setPostbackData($postbackData)
     {
-        if (is_null($endDate)) {
-            throw new \InvalidArgumentException('non-nullable endDate cannot be null');
+        if (is_null($postbackData)) {
+            throw new \InvalidArgumentException('non-nullable postbackData cannot be null');
         }
-        $this->container['endDate'] = $endDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets messageTypes
-     *
-     * @return string[]|null
-     */
-    public function getMessageTypes()
-    {
-        return $this->container['messageTypes'];
-    }
-
-    /**
-     * Sets messageTypes
-     *
-     * @param string[]|null $messageTypes Optional list of message types (sms, viber, whatsapp, rcs, hlr)
-     *
-     * @return self
-     */
-    public function setMessageTypes($messageTypes)
-    {
-        if (is_null($messageTypes)) {
-            throw new \InvalidArgumentException('non-nullable messageTypes cannot be null');
+        if ((mb_strlen($postbackData) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for $postbackData when calling RcsSuggestedReply., must be smaller than or equal to 2048.');
         }
-        $this->container['messageTypes'] = $messageTypes;
+
+        $this->container['postbackData'] = $postbackData;
 
         return $this;
     }
