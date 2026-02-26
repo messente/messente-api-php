@@ -16,4 +16,7 @@ jobs:
             "https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_TOKEN }}" \
             -d '{"repository":{"url":"https://packagist.org/packages/messente/messente-api-php"}}')
           echo "Response: $RESPONSE"
-          echo "$RESPONSE" | jq '.status == "success"
+          if ! echo "$RESPONSE" | jq -e '.status == "success"' > /dev/null; then
+            echo "Packagist update failed!" >&2
+            exit 1
+          fi
