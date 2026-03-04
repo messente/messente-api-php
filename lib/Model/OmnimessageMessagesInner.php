@@ -339,8 +339,8 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
 
     public const CHANNEL_RCS = 'rcs';
     public const AUTOCONVERT_FULL = 'full';
-    public const AUTOCONVERT_ON = 'on';
-    public const AUTOCONVERT_OFF = 'off';
+    public const AUTOCONVERT_TRUE = 'true';
+    public const AUTOCONVERT_FALSE = 'false';
 
     /**
      * Gets allowable values of the enum
@@ -363,8 +363,8 @@ class OmnimessageMessagesInner implements ModelInterface, ArrayAccess, \JsonSeri
     {
         return [
             self::AUTOCONVERT_FULL,
-            self::AUTOCONVERT_ON,
-            self::AUTOCONVERT_OFF,
+            self::AUTOCONVERT_TRUE,
+            self::AUTOCONVERT_FALSE,
         ];
     }
 
