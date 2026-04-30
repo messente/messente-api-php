@@ -267,8 +267,8 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     public const AUTOCONVERT_FULL = 'full';
-    public const AUTOCONVERT_ON = 'on';
-    public const AUTOCONVERT_OFF = 'off';
+    public const AUTOCONVERT_TRUE = 'true';
+    public const AUTOCONVERT_FALSE = 'false';
     public const CHANNEL_SMS = 'sms';
 
     /**
@@ -280,8 +280,8 @@ class SMS implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         return [
             self::AUTOCONVERT_FULL,
-            self::AUTOCONVERT_ON,
-            self::AUTOCONVERT_OFF,
+            self::AUTOCONVERT_TRUE,
+            self::AUTOCONVERT_FALSE,
         ];
     }
 

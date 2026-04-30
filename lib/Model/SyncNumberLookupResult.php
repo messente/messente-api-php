@@ -278,8 +278,8 @@ class SyncNumberLookupResult implements ModelInterface, ArrayAccess, \JsonSerial
         return self::$openAPIModelName;
     }
 
-    public const STATUS_ON = 'ON';
-    public const STATUS_OFF = 'OFF';
+    public const STATUS_TRUE = 'true';
+    public const STATUS_FALSE = 'false';
     public const STATUS_INVALID = 'INVALID';
     public const STATUS_UNKNOWN = 'UNKNOWN';
 
@@ -291,8 +291,8 @@ class SyncNumberLookupResult implements ModelInterface, ArrayAccess, \JsonSerial
     public function getStatusAllowableValues()
     {
         return [
-            self::STATUS_ON,
-            self::STATUS_OFF,
+            self::STATUS_TRUE,
+            self::STATUS_FALSE,
             self::STATUS_INVALID,
             self::STATUS_UNKNOWN,
         ];
