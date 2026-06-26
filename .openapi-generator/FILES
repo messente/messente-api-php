@@ -88,6 +88,10 @@ docs/Model/SyncNumberLookupResult.md
 docs/Model/SyncNumberLookupSuccess.md
 docs/Model/TextStore.md
 docs/Model/Viber.md
+docs/Model/ViberCarousel.md
+docs/Model/ViberCarouselButton.md
+docs/Model/ViberCarouselItem.md
+docs/Model/ViberTemplate.md
 docs/Model/ViberVideo.md
 docs/Model/WhatsApp.md
 docs/Model/WhatsAppAudio.md
@@ -209,6 +213,10 @@ lib/Model/SyncNumberLookupResult.php
 lib/Model/SyncNumberLookupSuccess.php
 lib/Model/TextStore.php
 lib/Model/Viber.php
+lib/Model/ViberCarousel.php
+lib/Model/ViberCarouselButton.php
+lib/Model/ViberCarouselItem.php
+lib/Model/ViberTemplate.php
 lib/Model/ViberVideo.php
 lib/Model/WhatsApp.php
 lib/Model/WhatsAppAudio.php
